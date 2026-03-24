@@ -4,230 +4,798 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>360 Monitoring — WebMinds</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
+  <title>Monitorização de Site e Servidor — WebMinds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
   <script src="https://cdn.tailwindcss.com"></script>
-
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: { sans: ['Inter', 'sans-serif'] },
           colors: {
-            indigo: {
-              50: '#f4f7ff',
-              100: '#e3e8ff',
-              200: '#c7d2ff',
-              300: '#9fb0ff',
-              400: '#5d7ef0',
-              500: '#2548c6',
-              600: '#1934a7',
-              700: '#031974',
-            },
-            sky: {
-              500: '#1934a7'
-            }
-          },
-          animation: {
-            'fade-up': 'fadeUp 0.7s ease both',
-          },
-          keyframes: {
-            fadeUp: {
-              from: { opacity: 0, transform: 'translateY(30px)' },
-              to: { opacity: 1, transform: 'translateY(0)' }
-            }
+            indigo: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#2548c6', 600: '#1934a7', 700: '#031974' },
+            sky: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#1934a7', 600: '#1934a7', 700: '#031974' }
           }
         }
       }
     }
   </script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="navbar.js"></script>
+
+  <style>
+    /* FAQ accordion */
+    .faq-answer { display: none; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform .25s ease; display: inline-block; }
+
+    /* Entrance animation */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp .55s ease both; }
+    .fade-up-delay-1 { animation-delay: .1s; }
+    .fade-up-delay-2 { animation-delay: .2s; }
+    .fade-up-delay-3 { animation-delay: .3s; }
+
+    /* Reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* Status pulse */
+    @keyframes ping {
+      0%   { transform: scale(1); opacity: .8; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+    .status-ping { animation: ping 2s cubic-bezier(0,0,.2,1) infinite; }
+
+    /* Uptime bar shimmer */
+    @keyframes shimmer {
+      0%   { background-position: -400px 0; }
+      100% { background-position:  400px 0; }
+    }
+    .shimmer-bar {
+      background: linear-gradient(90deg, #1934a7 0%, #5d7ef0 40%, #1934a7 100%);
+      background-size: 400px 100%;
+      animation: shimmer 2.2s linear infinite;
+    }
+
+    /* Comparison table */
+    .check { color: #2548c6; font-weight: 700; }
+    .cross  { color: #94a3b8; }
+
+    /* Pricing toggle */
+    .plan-price-monthly { display: block; }
+    .plan-price-annual  { display: none; }
+    body.annual .plan-price-monthly { display: none; }
+    body.annual .plan-price-annual  { display: block; }
+
+    /* Live counter ticker */
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .count-up { animation: countUp .4s ease both; }
+  </style>
 </head>
 
-<body class="bg-slate-50 text-slate-800 font-sans overflow-x-hidden">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
 
-  <!-- HERO -->
-  <section class="relative pt-32 pb-24 overflow-hidden bg-gradient-to-br from-slate-50 to-white">
-    <div class="absolute inset-0 -z-10">
-      <div class="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-3xl"></div>
-    </div>
+  <div id="navbar-placeholder"></div>
 
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <span class="bg-indigo-600 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">
-        360 Monitoring
-      </span>
+  <main class="pt-28">
 
-      <h1 class="text-5xl sm:text-6xl font-extrabold mt-6 mb-6 leading-tight">
-        Monitorização Inteligente de
-        <span class="bg-gradient-to-r from-indigo-600 to-sky-500 text-transparent bg-clip-text">
-          Sites & Servidores
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="py-20 bg-gradient-to-br from-indigo-700 via-indigo-600 to-sky-600 text-white relative overflow-hidden">
+      <!-- Dot grid overlay -->
+      <div class="absolute inset-0 opacity-30" style="background-image:radial-gradient(circle,rgba(255,255,255,.13) 1px,transparent 1px);background-size:28px 28px;"></div>
+      <!-- Orbs -->
+      <div class="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-white/5 blur-3xl"></div>
+      <div class="absolute -bottom-24 -right-16 w-96 h-96 rounded-full bg-sky-400/10 blur-3xl"></div>
+
+      <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-sm font-semibold tracking-wider fade-up">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="status-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400"></span>
+          </span>
+          Monitorização 24/7
         </span>
-      </h1>
-
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10">
-        Controle total da sua infraestrutura digital com dados em tempo real,
-        alertas inteligentes e máxima performance.
-      </p>
-
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#" class="px-8 py-3 bg-indigo-600 text-white rounded-xl font-semibold shadow-lg hover:bg-indigo-700 transition">
-          Começar Agora
-        </a>
-        <a href="#" class="px-8 py-3 bg-white border border-slate-200 rounded-xl font-semibold hover:bg-slate-100 transition">
-          Ver Demo
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- DASHBOARD PREVIEW -->
-  <section class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-extrabold mb-4">Visão em Tempo Real</h2>
-        <p class="text-slate-600 max-w-2xl mx-auto">
-          Acompanhe métricas críticas do seu sistema com dashboards intuitivos.
+        <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight fade-up fade-up-delay-1">
+          O teu site está sempre<br><span class="text-blue-200">online e protegido</span>
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl max-w-3xl mx-auto text-blue-100 fade-up fade-up-delay-2">
+          Monitoriza o desempenho do teu site e servidor em tempo real. Recebe alertas instantâneos, relatórios detalhados e garante 99,9% de uptime para os teus clientes.
         </p>
-      </div>
-
-      <div class="bg-slate-900 rounded-3xl p-8 shadow-2xl">
-        <div class="grid md:grid-cols-3 gap-6 text-white">
-
-          <div class="bg-slate-800 p-6 rounded-xl">
-            <p class="text-sm text-slate-400">Uptime</p>
-            <h3 class="text-3xl font-bold text-emerald-400">99.99%</h3>
-          </div>
-
-          <div class="bg-slate-800 p-6 rounded-xl">
-            <p class="text-sm text-slate-400">Response Time</p>
-            <h3 class="text-3xl font-bold">120ms</h3>
-          </div>
-
-          <div class="bg-slate-800 p-6 rounded-xl">
-            <p class="text-sm text-slate-400">Incidentes</p>
-            <h3 class="text-3xl font-bold text-red-400">0</h3>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="py-24 bg-slate-50">
-    <div class="max-w-6xl mx-auto px-6">
-
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-extrabold">Funcionalidades</h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-
-        <div class="bg-white p-8 rounded-2xl shadow hover:-translate-y-1 transition">
-          <h3 class="font-bold text-xl mb-3">Monitorização 24/7</h3>
-          <p class="text-slate-600">Sempre ativo para garantir disponibilidade máxima.</p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center fade-up fade-up-delay-3">
+          <a href="#precos" class="px-8 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition">Ver Planos</a>
+          <a href="#funcionalidades" class="px-8 py-3 border border-white/60 text-white rounded-xl font-semibold hover:bg-white/10 transition">Saber Mais</a>
         </div>
 
-        <div class="bg-white p-8 rounded-2xl shadow hover:-translate-y-1 transition">
-          <h3 class="font-bold text-xl mb-3">Alertas Inteligentes</h3>
-          <p class="text-slate-600">Notificações instantâneas antes do problema escalar.</p>
-        </div>
-
-        <div class="bg-white p-8 rounded-2xl shadow hover:-translate-y-1 transition">
-          <h3 class="font-bold text-xl mb-3">Análise de Performance</h3>
-          <p class="text-slate-600">Insights detalhados para otimização contínua.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- VALUE / MONETIZAÇÃO -->
-  <section class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-extrabold">Transforme Performance em Receita</h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-
-        <div class="space-y-6">
+        <!-- Stats bar -->
+        <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
           <div>
-            <h3 class="font-bold text-xl">Menos downtime = mais vendas</h3>
-            <p class="text-slate-600">Cada segundo conta. Evite perdas de receita.</p>
+            <p class="text-4xl font-extrabold">99,9%</p>
+            <p class="text-blue-200 text-sm mt-1">Uptime garantido</p>
           </div>
-
           <div>
-            <h3 class="font-bold text-xl">Experiência do utilizador</h3>
-            <p class="text-slate-600">Velocidade e estabilidade aumentam conversões.</p>
+            <p class="text-4xl font-extrabold">30 seg</p>
+            <p class="text-blue-200 text-sm mt-1">Intervalo de verificação</p>
           </div>
-
           <div>
-            <h3 class="font-bold text-xl">Decisões baseadas em dados</h3>
-            <p class="text-slate-600">Use métricas reais para melhorar o negócio.</p>
+            <p class="text-4xl font-extrabold">+15 mil</p>
+            <p class="text-blue-200 text-sm mt-1">Sites monitorizados</p>
+          </div>
+          <div>
+            <p class="text-4xl font-extrabold">&lt;1 min</p>
+            <p class="text-blue-200 text-sm mt-1">Alerta de downtime</p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="bg-gradient-to-br from-indigo-100 to-sky-100 p-10 rounded-2xl">
-          <h3 class="text-2xl font-bold mb-4">ROI Direto</h3>
-          <p class="text-slate-700">
-            Empresas com monitorização ativa reduzem falhas em até 80% e aumentam
-            a retenção de clientes significativamente.
-          </p>
+
+    <!-- ══════════════════════════════════════════
+         PREÇO + COMO COMEÇAR
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6 grid gap-8 lg:grid-cols-2">
+        <article class="rounded-2xl border border-slate-200 p-8 shadow-sm">
+          <h2 class="text-3xl font-bold text-indigo-700">A partir de €3,99/mês</h2>
+          <p class="mt-3 text-slate-600">Monitorização profissional de sites e servidores com alertas em tempo real e relatórios detalhados.</p>
+          <ul class="mt-5 space-y-2 text-slate-700 text-sm">
+            <li>✅ Verificação a cada 30 segundos</li>
+            <li>✅ Alertas por email, SMS e Slack</li>
+            <li>✅ Relatórios de uptime mensais</li>
+            <li>✅ Monitorização de certificados SSL</li>
+            <li>✅ Página de status pública</li>
+            <li>✅ Histórico de incidentes</li>
+          </ul>
+          <a href="#precos" class="mt-6 inline-block px-6 py-3 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition">Começar Agora</a>
+        </article>
+
+        <article class="rounded-2xl border border-slate-200 p-8 shadow-sm">
+          <h2 class="text-2xl font-bold">Como funciona?</h2>
+          <p class="mt-4 text-slate-600">Configura a monitorização do teu site em menos de 2 minutos, sem código.</p>
+          <ol class="mt-4 space-y-4 text-slate-700">
+            <li class="flex gap-3">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center">1</span>
+              <div>
+                <p class="font-semibold">Adiciona o teu site ou servidor</p>
+                <p class="text-slate-500 text-sm">Insere o URL ou endereço IP e escolhe o intervalo de verificação desejado.</p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center">2</span>
+              <div>
+                <p class="font-semibold">Configura os alertas</p>
+                <p class="text-slate-500 text-sm">Define quem recebe alertas e por que canal — email, SMS, Slack, Telegram ou webhook.</p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center">3</span>
+              <div>
+                <p class="font-semibold">Monitoriza em tempo real</p>
+                <p class="text-slate-500 text-sm">Acompanha o estado do teu site no painel e recebe relatórios automáticos mensais.</p>
+              </div>
+            </li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         DEMO PAINEL (visual estático)
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center reveal">Painel de Monitorização</h2>
+        <p class="mt-4 text-center text-slate-600 max-w-2xl mx-auto reveal">
+          Visualiza o estado de todos os teus sites e servidores num único lugar, em tempo real.
+        </p>
+
+        <!-- Mock dashboard -->
+        <div class="mt-10 bg-white rounded-2xl border border-slate-200 shadow-lg overflow-hidden reveal">
+          <!-- Dashboard header -->
+          <div class="bg-indigo-700 px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-3 h-3 rounded-full bg-red-400"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+              <div class="w-3 h-3 rounded-full bg-green-400"></div>
+              <span class="text-white/70 text-sm ml-2">dashboard.webminds.pt — Monitorização</span>
+            </div>
+            <span class="text-white/60 text-xs">Última actualização: agora mesmo</span>
+          </div>
+
+          <!-- Dashboard body -->
+          <div class="p-6">
+            <!-- Summary cards -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+              <div class="bg-green-50 border border-green-200 rounded-xl p-4 text-center">
+                <p class="text-2xl font-extrabold text-green-600">12</p>
+                <p class="text-xs text-slate-500 mt-1">Online</p>
+              </div>
+              <div class="bg-red-50 border border-red-200 rounded-xl p-4 text-center">
+                <p class="text-2xl font-extrabold text-red-500">1</p>
+                <p class="text-xs text-slate-500 mt-1">Offline</p>
+              </div>
+              <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4 text-center">
+                <p class="text-2xl font-extrabold text-yellow-500">2</p>
+                <p class="text-xs text-slate-500 mt-1">Degradado</p>
+              </div>
+              <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-4 text-center">
+                <p class="text-2xl font-extrabold text-indigo-600">99.7%</p>
+                <p class="text-xs text-slate-500 mt-1">Uptime Médio</p>
+              </div>
+            </div>
+
+            <!-- Sites list -->
+            <div class="space-y-2">
+              <!-- Online -->
+              <div class="flex items-center justify-between bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
+                <div class="flex items-center gap-3">
+                  <span class="relative flex h-2.5 w-2.5">
+                    <span class="status-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400"></span>
+                  </span>
+                  <span class="font-medium text-slate-800 text-sm">webminds.pt</span>
+                </div>
+                <div class="flex items-center gap-6 text-xs text-slate-500">
+                  <span>245 ms</span>
+                  <span class="text-green-600 font-semibold">99.9% uptime</span>
+                  <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-semibold">Online</span>
+                </div>
+              </div>
+
+              <!-- Offline -->
+              <div class="flex items-center justify-between bg-red-50 rounded-xl px-4 py-3 border border-red-200">
+                <div class="flex items-center gap-3">
+                  <span class="relative flex h-2.5 w-2.5">
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
+                  </span>
+                  <span class="font-medium text-slate-800 text-sm">loja.cliente-exemplo.pt</span>
+                </div>
+                <div class="flex items-center gap-6 text-xs text-slate-500">
+                  <span>— ms</span>
+                  <span class="text-red-500 font-semibold">Offline há 4 min</span>
+                  <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-semibold">Offline</span>
+                </div>
+              </div>
+
+              <!-- Degraded -->
+              <div class="flex items-center justify-between bg-yellow-50 rounded-xl px-4 py-3 border border-yellow-200">
+                <div class="flex items-center gap-3">
+                  <span class="relative flex h-2.5 w-2.5">
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-yellow-500"></span>
+                  </span>
+                  <span class="font-medium text-slate-800 text-sm">api.servidor-prod.pt</span>
+                </div>
+                <div class="flex items-center gap-6 text-xs text-slate-500">
+                  <span>1.240 ms</span>
+                  <span class="text-yellow-600 font-semibold">Resposta lenta</span>
+                  <span class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full font-semibold">Degradado</span>
+                </div>
+              </div>
+
+              <!-- Online 2 -->
+              <div class="flex items-center justify-between bg-slate-50 rounded-xl px-4 py-3 border border-slate-100">
+                <div class="flex items-center gap-3">
+                  <span class="relative flex h-2.5 w-2.5">
+                    <span class="status-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400"></span>
+                  </span>
+                  <span class="font-medium text-slate-800 text-sm">mail.empresa.pt</span>
+                </div>
+                <div class="flex items-center gap-6 text-xs text-slate-500">
+                  <span>89 ms</span>
+                  <span class="text-green-600 font-semibold">100% uptime</span>
+                  <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-semibold">Online</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Uptime bar -->
+            <div class="mt-6">
+              <div class="flex justify-between text-xs text-slate-500 mb-2">
+                <span>Histórico de uptime — últimos 30 dias</span>
+                <span class="font-bold text-indigo-600">99.7%</span>
+              </div>
+              <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                <div class="h-2.5 rounded-full shimmer-bar" style="width:99.7%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         FUNCIONALIDADES PRINCIPAIS
+    ══════════════════════════════════════════ -->
+    <section id="funcionalidades" class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center reveal">Tudo o que precisas para monitorizar</h2>
+        <p class="mt-4 text-center text-slate-600 max-w-3xl mx-auto reveal">
+          Desde a disponibilidade do site até ao desempenho do servidor, tens tudo centralizado num painel simples e intuitivo.
+        </p>
+        <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+          <div class="reveal rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🟢</div>
+            <h3 class="font-semibold text-slate-800">Monitorização de Uptime</h3>
+            <p class="text-slate-600 text-sm mt-1">Verifica o teu site a cada 30 segundos a partir de múltiplas localizações. Alerta imediato se algo falhar.</p>
+          </div>
+
+          <div class="reveal rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">⚡</div>
+            <h3 class="font-semibold text-slate-800">Tempo de Resposta</h3>
+            <p class="text-slate-600 text-sm mt-1">Acompanha a latência do teu site ao longo do tempo e identifica picos de lentidão antes que afetem os utilizadores.</p>
+          </div>
+
+          <div class="reveal rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🔒</div>
+            <h3 class="font-semibold text-slate-800">Certificados SSL</h3>
+            <p class="text-slate-600 text-sm mt-1">Recebe alertas automáticos antes do certificado SSL expirar. Nunca mais percas clientes por um site inseguro.</p>
+          </div>
+
+          <div class="reveal rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🖥️</div>
+            <h3 class="font-semibold text-slate-800">Monitorização de Servidor</h3>
+            <p class="text-slate-600 text-sm mt-1">CPU, RAM, disco, rede — monitoriza os recursos do servidor em tempo real e previne falhas antes que aconteçam.</p>
+          </div>
+
+          <div class="reveal rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🔔</div>
+            <h3 class="font-semibold text-slate-800">Alertas Multi-Canal</h3>
+            <p class="text-slate-600 text-sm mt-1">Email, SMS, Slack, Telegram ou webhook. Escolhe como e quem recebe alertas para cada serviço monitorizado.</p>
+          </div>
+
+          <div class="reveal rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">📋</div>
+            <h3 class="font-semibold text-slate-800">Página de Status Pública</h3>
+            <p class="text-slate-600 text-sm mt-1">Cria uma página de status personalizada para os teus clientes. Transparência total em caso de incidentes.</p>
+          </div>
+
+          <div class="reveal rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🌍</div>
+            <h3 class="font-semibold text-slate-800">Múltiplas Localizações</h3>
+            <p class="text-slate-600 text-sm mt-1">Verifica o teu site a partir de Lisboa, Londres, Amsterdão, Nova Iorque e mais. Deteta falhas regionais com precisão.</p>
+          </div>
+
+          <div class="reveal rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">📊</div>
+            <h3 class="font-semibold text-slate-800">Relatórios Detalhados</h3>
+            <p class="text-slate-600 text-sm mt-1">Relatórios mensais automáticos com tempo de resposta médio, incidentes registados e percentagem de uptime.</p>
+          </div>
+
+          <div class="reveal rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🔌</div>
+            <h3 class="font-semibold text-slate-800">Integrações e API</h3>
+            <p class="text-slate-600 text-sm mt-1">Integra com as tuas ferramentas favoritas via API REST ou webhooks. Compatible com Zapier, Make e muito mais.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         O QUE MONITORIZAMOS
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center reveal">O que monitorizamos</h2>
+        <p class="mt-4 text-center text-slate-600 max-w-3xl mx-auto reveal">
+          Cobertura completa — desde a disponibilidade do site até à saúde do servidor e validade dos certificados.
+        </p>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <div class="reveal rounded-xl bg-white border border-slate-200 p-6">
+            <h3 class="font-bold text-indigo-700 text-lg mb-2">Site & HTTP</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li class="flex gap-2"><span class="text-green-500">●</span> Disponibilidade (HTTP/HTTPS)</li>
+              <li class="flex gap-2"><span class="text-green-500">●</span> Código de resposta HTTP</li>
+              <li class="flex gap-2"><span class="text-green-500">●</span> Tempo de carregamento</li>
+              <li class="flex gap-2"><span class="text-green-500">●</span> Verificação de conteúdo da página</li>
+              <li class="flex gap-2"><span class="text-green-500">●</span> Redireccionamentos</li>
+            </ul>
+          </div>
+          <div class="reveal rounded-xl bg-white border border-slate-200 p-6">
+            <h3 class="font-bold text-indigo-700 text-lg mb-2">Servidor & Rede</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li class="flex gap-2"><span class="text-blue-500">●</span> Ping / ICMP</li>
+              <li class="flex gap-2"><span class="text-blue-500">●</span> Portas TCP/UDP</li>
+              <li class="flex gap-2"><span class="text-blue-500">●</span> CPU, RAM e disco</li>
+              <li class="flex gap-2"><span class="text-blue-500">●</span> Latência de rede</li>
+              <li class="flex gap-2"><span class="text-blue-500">●</span> Serviços (MySQL, Redis, etc.)</li>
+            </ul>
+          </div>
+          <div class="reveal rounded-xl bg-white border border-slate-200 p-6">
+            <h3 class="font-bold text-indigo-700 text-lg mb-2">Segurança & SSL</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li class="flex gap-2"><span class="text-purple-500">●</span> Validade do certificado SSL</li>
+              <li class="flex gap-2"><span class="text-purple-500">●</span> Alerta de expiração (30/7/1 dias)</li>
+              <li class="flex gap-2"><span class="text-purple-500">●</span> Autoridade certificadora</li>
+              <li class="flex gap-2"><span class="text-purple-500">●</span> Vulnerabilidades de protocolo</li>
+              <li class="flex gap-2"><span class="text-purple-500">●</span> Validade do domínio</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         O QUE DEVO SABER
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center reveal">O que devo saber?</h2>
+        <div class="mt-8 grid gap-5 md:grid-cols-2">
+          <div class="reveal rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">Configuração em menos de 2 minutos</h3>
+            <p class="text-slate-600 mt-2">Não é necessário instalar software nem ter conhecimentos técnicos. Basta inserir o URL do teu site e a monitorização começa de imediato.</p>
+          </div>
+          <div class="reveal rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">Alertas antes que o cliente perceba</h3>
+            <p class="text-slate-600 mt-2">O sistema deteta falhas em menos de 1 minuto e notifica-te imediatamente. Age antes que o problema afete os teus utilizadores ou negócio.</p>
+          </div>
+          <div class="reveal rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">Dados históricos sempre acessíveis</h3>
+            <p class="text-slate-600 mt-2">Mantemos o histórico completo de uptime, incidentes e tempos de resposta. Útil para relatórios de SLA e para identificar padrões recorrentes.</p>
+          </div>
+          <div class="reveal rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">Ideal para agências e revendedores</h3>
+            <p class="text-slate-600 mt-2">Gere todos os sites dos teus clientes num só painel. Cria páginas de status com a tua marca e envia relatórios automáticos personalizados.</p>
+          </div>
+          <div class="reveal rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">Sem falsos positivos</h3>
+            <p class="text-slate-600 mt-2">O sistema verifica a partir de múltiplas localizações antes de enviar um alerta. Só recebes notificação quando há uma falha real, não por picos momentâneos.</p>
+          </div>
+          <div class="reveal rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">Escalável consoante as tuas necessidades</h3>
+            <p class="text-slate-600 mt-2">Começa com 1 site e escala até centenas de monitores. Os planos crescem contigo, sem contratos de longo prazo ou custos de migração.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         COMPARAÇÃO DE PLANOS
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-white">
+      <div class="max-w-5xl mx-auto px-6 overflow-x-auto">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center mb-10 reveal">Compara os Planos</h2>
+        <table class="w-full text-sm border-collapse reveal">
+          <thead>
+            <tr class="bg-indigo-700 text-white">
+              <th class="text-left p-4 rounded-tl-xl">Funcionalidade</th>
+              <th class="p-4 text-center">Starter</th>
+              <th class="p-4 text-center">Pro</th>
+              <th class="p-4 text-center rounded-tr-xl">Business</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr class="bg-slate-50">
+              <td class="p-4 font-medium">Sites / monitores</td>
+              <td class="p-4 text-center text-slate-600">5</td>
+              <td class="p-4 text-center text-slate-600">20</td>
+              <td class="p-4 text-center text-slate-600">Ilimitado</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Intervalo de verificação</td>
+              <td class="p-4 text-center text-slate-600">5 min</td>
+              <td class="p-4 text-center text-slate-600">1 min</td>
+              <td class="p-4 text-center text-slate-600">30 seg</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="p-4 font-medium">Alertas por email</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Alertas por SMS</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="p-4 font-medium">Slack / Telegram / Webhook</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Monitorização SSL</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="p-4 font-medium">Monitorização de servidor</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Página de status pública</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="p-4 font-medium">Relatórios marca branca</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Histórico de dados</td>
+              <td class="p-4 text-center text-slate-600">30 dias</td>
+              <td class="p-4 text-center text-slate-600">6 meses</td>
+              <td class="p-4 text-center text-slate-600">Ilimitado</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="p-4 font-medium">Múltiplas localizações</td>
+              <td class="p-4 text-center text-slate-600">1</td>
+              <td class="p-4 text-center text-slate-600">5</td>
+              <td class="p-4 text-center text-slate-600">15+</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Suporte prioritário</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         PREÇOS
+    ══════════════════════════════════════════ -->
+    <section id="precos" class="py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 reveal">Preços</h2>
+        <p class="mt-3 text-slate-600 reveal">Monitorização profissional a preços acessíveis, com 14 dias de experimentação gratuita.</p>
+
+        <!-- Toggle -->
+        <div class="mt-6 inline-flex items-center gap-3 bg-white border border-slate-200 rounded-full px-4 py-2 text-sm font-medium reveal">
+          <span id="lbl-monthly" class="text-indigo-700 font-semibold">Mensal</span>
+          <button id="billing-toggle" onclick="document.body.classList.toggle('annual'); document.getElementById('lbl-monthly').classList.toggle('text-indigo-700'); document.getElementById('lbl-monthly').classList.toggle('font-semibold'); document.getElementById('lbl-annual').classList.toggle('text-indigo-700'); document.getElementById('lbl-annual').classList.toggle('font-semibold');" class="relative w-11 h-6 bg-slate-200 rounded-full cursor-pointer transition-colors" aria-label="Alternar faturação">
+            <span id="toggle-dot" class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform"></span>
+          </button>
+          <span id="lbl-annual" class="text-slate-500">Anual <span class="text-green-600 font-semibold text-xs">-20%</span></span>
         </div>
 
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+
+          <!-- Starter -->
+          <div class="reveal rounded-2xl border border-slate-200 p-8 bg-white shadow-sm flex flex-col">
+            <h3 class="text-xl font-bold text-slate-800">Starter</h3>
+            <p class="text-slate-500 text-sm mt-1">Para sites pessoais e pequenos negócios</p>
+            <div class="mt-6">
+              <p class="plan-price-monthly text-4xl font-extrabold text-indigo-700">€3,99<span class="text-base font-medium text-slate-400">/mês</span></p>
+              <p class="plan-price-annual text-4xl font-extrabold text-indigo-700">€3,19<span class="text-base font-medium text-slate-400">/mês</span></p>
+              <p class="text-slate-400 text-xs mt-1">Faturado mensalmente</p>
+            </div>
+            <ul class="mt-6 space-y-2 text-sm text-slate-600 flex-1">
+              <li>✅ 5 monitores</li>
+              <li>✅ Verificação a cada 5 minutos</li>
+              <li>✅ Alertas por email</li>
+              <li>✅ Monitorização SSL</li>
+              <li>✅ Histórico de 30 dias</li>
+              <li>✅ 1 localização</li>
+            </ul>
+            <a href="#" class="mt-6 block text-center px-5 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition">Escolher Starter</a>
+          </div>
+
+          <!-- Pro (destaque) -->
+          <div class="reveal rounded-2xl border-2 border-indigo-600 p-8 bg-indigo-700 text-white shadow-xl flex flex-col relative">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-indigo-700 text-xs font-bold px-4 py-1 rounded-full shadow">Mais Popular</span>
+            <h3 class="text-xl font-bold">Pro</h3>
+            <p class="text-indigo-200 text-sm mt-1">Para empresas e equipas em crescimento</p>
+            <div class="mt-6">
+              <p class="plan-price-monthly text-4xl font-extrabold">€9,99<span class="text-base font-medium text-indigo-300">/mês</span></p>
+              <p class="plan-price-annual text-4xl font-extrabold">€7,99<span class="text-base font-medium text-indigo-300">/mês</span></p>
+              <p class="text-indigo-300 text-xs mt-1">Faturado mensalmente</p>
+            </div>
+            <ul class="mt-6 space-y-2 text-sm text-indigo-100 flex-1">
+              <li>✅ 20 monitores</li>
+              <li>✅ Verificação a cada 1 minuto</li>
+              <li>✅ SMS + Slack + Telegram</li>
+              <li>✅ Monitorização de servidor</li>
+              <li>✅ Página de status pública</li>
+              <li>✅ Histórico de 6 meses</li>
+              <li>✅ 5 localizações</li>
+            </ul>
+            <a href="#" class="mt-6 block text-center px-5 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition">Escolher Pro</a>
+          </div>
+
+          <!-- Business -->
+          <div class="reveal rounded-2xl border border-slate-200 p-8 bg-white shadow-sm flex flex-col">
+            <h3 class="text-xl font-bold text-slate-800">Business</h3>
+            <p class="text-slate-500 text-sm mt-1">Para agências e grandes infraestruturas</p>
+            <div class="mt-6">
+              <p class="plan-price-monthly text-4xl font-extrabold text-indigo-700">€24,99<span class="text-base font-medium text-slate-400">/mês</span></p>
+              <p class="plan-price-annual text-4xl font-extrabold text-indigo-700">€19,99<span class="text-base font-medium text-slate-400">/mês</span></p>
+              <p class="text-slate-400 text-xs mt-1">Faturado mensalmente</p>
+            </div>
+            <ul class="mt-6 space-y-2 text-sm text-slate-600 flex-1">
+              <li>✅ Monitores ilimitados</li>
+              <li>✅ Verificação a cada 30 segundos</li>
+              <li>✅ Todos os canais de alerta</li>
+              <li>✅ Relatórios marca branca</li>
+              <li>✅ Histórico ilimitado</li>
+              <li>✅ 15+ localizações</li>
+              <li>✅ Suporte prioritário</li>
+            </ul>
+            <a href="#" class="mt-6 block text-center px-5 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition">Escolher Business</a>
+          </div>
+
+        </div>
+
+        <p class="mt-6 text-slate-400 text-sm reveal">Todos os planos incluem 14 dias de experimentação gratuita. Sem compromisso.</p>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         FAQ
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-white">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center reveal">Perguntas Frequentes</h2>
+
+        <div class="mt-8 space-y-3">
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden reveal">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              O que acontece quando o meu site fica offline?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Assim que detetamos uma falha, verificamos a partir de múltiplas localizações para confirmar. Após confirmação (normalmente em menos de 1 minuto), recebes imediatamente um alerta pelo canal que configuraste — email, SMS, Slack, etc. Quando o site voltar online, recebes outro alerta com a duração total do downtime.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden reveal">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              É necessário instalar algo no meu servidor?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Para a monitorização de sites (HTTP/HTTPS, SSL, domínio), não é necessário instalar nada. Para monitorização avançada de servidor (CPU, RAM, disco), é necessário instalar um agente leve no servidor, o que demora menos de 2 minutos.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden reveal">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              O que é a página de status pública?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              É uma página pública onde os teus clientes podem verificar o estado dos serviços em tempo real. Podes personalizar com o teu logótipo e cores, e configurar quais os serviços que aparecem. Muito útil para comunicar incidentes de forma transparente.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden reveal">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Posso monitorizar portas específicas do servidor?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Sim. Para além de HTTP/HTTPS, podes monitorizar portas TCP/UDP específicas — útil para verificar se o servidor de email (porta 25, 587), base de dados (porta 3306), ou qualquer outro serviço está a responder corretamente.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden reveal">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Com que antecedência recebo alertas de SSL?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Por defeito, recebes alertas 30, 14, 7 e 1 dia antes do certificado SSL expirar. Podes personalizar estes intervalos nas definições de cada monitor. Nunca mais precisas de te preocupar com um site que fica inseguro por certificado expirado.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden reveal">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Posso cancelar a qualquer momento?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Sim, podes cancelar a subscrição a qualquer momento sem penalizações. Não existem contratos de longo prazo. O acesso mantém-se ativo até ao fim do período faturado.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         CTA FINAL
+    ══════════════════════════════════════════ -->
+    <section class="py-20 bg-gradient-to-br from-indigo-700 via-indigo-600 to-sky-600 text-white text-center">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">O teu site nunca mais fica offline sem saberes</h2>
+        <p class="mt-4 text-blue-100 text-lg">Junta-te a mais de 15 000 sites já monitorizados pela WebMinds. Começa hoje, gratuitamente.</p>
+        <a href="#precos" class="mt-8 inline-block px-10 py-4 bg-white text-indigo-700 rounded-xl font-bold text-lg hover:bg-blue-50 transition shadow-lg">Experimentar Grátis por 14 Dias</a>
+        <p class="mt-3 text-indigo-300 text-sm">Sem cartão de crédito. Sem compromisso.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 pt-16 pb-8">
+    <div class="max-w-6xl mx-auto px-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-10">
+      <div>
+        <h4 class="text-white font-bold mb-3">Webminds</h4>
+        <p class="text-sm">O teu parceiro de confiança em soluções de alojamento web e segurança online.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Servidores</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="vps-hosting.html" class="hover:text-white transition">VPS NVMe</a></li>
+          <li><a href="dedicated-servers.html" class="hover:text-white transition">Servidores Dedicados</a></li>
+          <li><a href="game-servers.html" class="hover:text-white transition">Servidores de Jogos</a></li>
+          <li><a href="#" class="hover:text-white transition">Alojamento Web</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Segurança</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:text-white transition">SiteLock</a></li>
+          <li><a href="#" class="hover:text-white transition">Certificados SSL</a></li>
+          <li><a href="website-backup.html" class="hover:text-white transition">Backups Diários</a></li>
+          <li><a href="#" class="hover:text-white transition">NordVPN</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Empresa</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="sobre-nos.html" class="hover:text-white transition">Sobre nós</a></li>
+          <li><a href="#" class="hover:text-white transition">Contacto</a></li>
+          <li><a href="#" class="hover:text-white transition">Política de Privacidade</a></li>
+          <li><a href="#" class="hover:text-white transition">Termos de Serviço</a></li>
+        </ul>
       </div>
     </div>
-  </section>
+    <div class="max-w-6xl mx-auto px-6 border-t border-slate-800 pt-6 text-center text-xs">© 2026 WebMinds. Todos os direitos reservados.</div>
+  </footer>
 
-  <!-- PLANS -->
-  <section class="py-24 bg-slate-50">
-    <div class="max-w-6xl mx-auto px-6 text-center">
+  <script src="script.js"></script>
+  <script>
+    // Billing toggle dot animation
+    const toggle = document.getElementById('billing-toggle');
+    const dot = document.getElementById('toggle-dot');
+    let isAnnual = false;
+    toggle.addEventListener('click', () => {
+      isAnnual = !isAnnual;
+      dot.style.transform = isAnnual ? 'translateX(20px)' : 'translateX(0)';
+      toggle.style.backgroundColor = isAnnual ? '#2548c6' : '';
+    });
 
-      <h2 class="text-4xl font-extrabold mb-12">Planos</h2>
-
-      <div class="grid md:grid-cols-3 gap-8">
-
-        <div class="bg-white p-8 rounded-2xl shadow">
-          <h3 class="text-xl font-bold mb-4">Starter</h3>
-          <p class="text-3xl font-extrabold mb-4">€9</p>
-          <p class="text-slate-600">Ideal para pequenos sites</p>
-        </div>
-
-        <div class="bg-white p-8 rounded-2xl shadow border-2 border-indigo-600 scale-105">
-          <h3 class="text-xl font-bold mb-4">Pro</h3>
-          <p class="text-3xl font-extrabold mb-4">€19</p>
-          <p class="text-slate-600">Mais controlo e alertas</p>
-        </div>
-
-        <div class="bg-white p-8 rounded-2xl shadow">
-          <h3 class="text-xl font-bold mb-4">Enterprise</h3>
-          <p class="text-3xl font-extrabold mb-4">Custom</p>
-          <p class="text-slate-600">Infraestrutura completa</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="py-20 bg-gradient-to-br from-indigo-600 to-sky-500 text-center text-white">
-    <h2 class="text-4xl font-extrabold mb-4">
-      Comece a Monitorizar Hoje
-    </h2>
-
-    <p class="text-indigo-100 mb-8">
-      Proteja a sua infraestrutura e aumente a sua performance.
-    </p>
-
-    <a href="#" class="bg-white text-indigo-600 px-8 py-3 rounded-xl font-bold hover:bg-indigo-50 transition">
-      Começar Agora
-    </a>
-  </section>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>

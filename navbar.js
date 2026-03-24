@@ -249,10 +249,29 @@
           </li>
 
           <li>
-            <a href="login.html" class="ml-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg shadow-md shadow-indigo-200 transition-all hover:-translate-y-px active:scale-[0.97]">
-              Entrar
-            </a>
-          </li>
+  <a href="#" target="_blank"  onclick="document.getElementById('loginModal').style.display='flex'; return false;"
+     class="ml-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg shadow-md shadow-indigo-200 transition-all hover:-translate-y-px active:scale-[0.97]">
+    Entrar
+  </a>
+</li>
+
+<!-- Modal com iframe -->
+<div id="loginModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; justify-content:center; align-items:center;">
+  <div style="background:white; border-radius:12px; padding:20px; width:500px; max-width:90%; position:relative;">
+    
+    <!-- Botão fechar -->
+    <button onclick="document.getElementById('loginModal').style.display='none'"
+            style="position:absolute; top:10px; right:15px; background:none; border:none; font-size:20px; cursor:pointer;">✕</button>
+    
+    <!-- Iframe -->
+    <iframe src="https://webminds.pt/dologin.php" 
+            width="100%" 
+            height="400px" 
+            frameborder="0">
+    </iframe>
+
+  </div>
+</div>
         </ul>
         
 
@@ -266,7 +285,8 @@
           <!-- Announcement bar -->
     <div class="w-full bg-red-600 text-white text-xs font-semibold text-center py-2 px-4">
       🎉 Somos agora Parceiro Oficial <strong>Worten Life</strong> —
-      <a href="#" class="underline hover:text-red-200 transition-colors">Saber mais</a>
+<a href="#" onclick="openWortenModal(); return false;" class="underline ...">Saber mais</a>
+      
     </div>
 
       <!-- Mobile menu -->

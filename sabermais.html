@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parceria Worten Life × WebMinds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            indigo: {
+              50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff',
+              300: '#9fb0ff', 400: '#5d7ef0', 500: '#2548c6',
+              600: '#1934a7', 700: '#031974',
+            },
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ─── Modal animation ─── */
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes backdropIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    #wortenModal.open .modal-backdrop { animation: backdropIn .25s ease forwards; }
+    #wortenModal.open .modal-dialog   { animation: modalIn .3s cubic-bezier(.22,1,.36,1) .05s both; }
+
+    /* ─── Worten red accent ─── */
+    .worten-red   { color: #e2001a; }
+    .worten-bg    { background-color: #e2001a; }
+    .worten-light { background-color: #fff0f0; }
+    .worten-border{ border-color: #fcc; }
+
+    /* ─── Subtle shimmer on the badge ─── */
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
+    .badge-shimmer {
+      background: linear-gradient(90deg, #e2001a 0%, #ff4d5e 40%, #e2001a 80%);
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ─── Benefit card hover ─── */
+    .benefit-card { transition: box-shadow .2s, transform .2s; }
+    .benefit-card:hover { box-shadow: 0 6px 24px rgba(25,52,167,.09); transform: translateY(-2px); }
+
+    /* ─── Scroll hide ─── */
+    .hide-scroll { overflow-y: auto; scrollbar-width: none; }
+    .hide-scroll::-webkit-scrollbar { display: none; }
+  </style>
+</head>
+
+<body class="bg-slate-100 font-sans antialiased flex items-center justify-center min-h-screen p-4">
+
+  <!-- ══ DEMO TRIGGER BUTTON ══════════════════════════════════
+       In production just replace this button with your existing
+       announcement bar "Saber mais" link and remove the demo wrapper.
+  ════════════════════════════════════════════════════════════ -->
+  <div class="text-center">
+    <p class="text-slate-500 text-sm mb-4">Demo — clica para abrir o popup</p>
+    <button onclick="openWortenModal()"
+      class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-xl shadow-lg hover:bg-indigo-700 transition">
+      🎉 Ver Parceria Worten Life
+    </button>
+  </div>
+
+  <!-- ══ WORTEN MODAL ══════════════════════════════════════════ -->
+  <div id="wortenModal" class="fixed inset-0 z-[9999] hidden" aria-modal="true" role="dialog" aria-labelledby="wortenTitle">
+
+    <!-- Backdrop -->
+    <div class="modal-backdrop absolute inset-0 bg-slate-900/55 backdrop-blur-sm" onclick="closeWortenModal()"></div>
+
+    <!-- Dialog -->
+    <div class="modal-dialog relative z-10 mx-auto my-6 sm:my-12 w-full max-w-2xl px-4 hide-scroll" style="max-height:calc(100vh - 3rem); overflow-y:auto;">
+      <div class="rounded-3xl bg-white shadow-2xl shadow-slate-900/15 overflow-hidden border border-slate-200">
+
+        <!-- ── Header ── -->
+        <div class="relative bg-gradient-to-br from-indigo-700 via-indigo-600 to-indigo-500 px-6 pt-8 pb-10 text-white overflow-hidden">
+          <!-- decorative circles -->
+          <div class="pointer-events-none absolute -top-12 -right-12 w-52 h-52 rounded-full bg-white/8"></div>
+          <div class="pointer-events-none absolute -bottom-16 -left-8 w-40 h-40 rounded-full bg-white/6"></div>
+
+          <!-- Close button -->
+          <button onclick="closeWortenModal()" aria-label="Fechar"
+            class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-xl bg-white/15 hover:bg-white/25 transition text-white">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+
+          <!-- Logos row -->
+          <div class="flex items-center gap-4 mb-5">
+            <!-- WebMinds pill -->
+            <div class="flex items-center gap-2 bg-white/15 backdrop-blur rounded-xl px-3 py-2">
+              <div class="w-7 h-7 rounded-lg bg-white flex items-center justify-center shrink-0">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1934a7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <span class="text-xs font-bold text-white">WebMinds</span>
+            </div>
+
+            <!-- × -->
+            <span class="text-white/50 font-light text-xl">×</span>
+
+            <!-- Worten pill -->
+            <div class="flex items-center gap-2 bg-white/15 backdrop-blur rounded-xl px-3 py-2">
+              <div class="w-7 h-7 rounded-lg bg-white flex items-center justify-center shrink-0">
+                <span style="font-size:10px; font-weight:900; color:#e2001a; letter-spacing:-0.5px;">W</span>
+              </div>
+              <span class="text-xs font-bold text-white">Worten Life</span>
+            </div>
+          </div>
+
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur rounded-full px-3 py-1 mb-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-[11px] font-bold uppercase tracking-widest text-white/90">Parceria Oficial</span>
+          </div>
+
+          <h2 id="wortenTitle" class="text-2xl sm:text-3xl font-extrabold tracking-tight leading-tight">
+            WebMinds é agora<br>
+            <span class="text-white">Parceiro Oficial Worten Life</span>
+          </h2>
+          <p class="mt-2 text-indigo-200 text-sm leading-relaxed max-w-md">
+            A WebMinds juntou-se ao programa Worten Life — a plataforma de parceiros da Worten para soluções digitais e tecnológicas de confiança.
+          </p>
+        </div>
+
+        <!-- ── Body ── -->
+        <div class="px-6 py-6">
+
+          <!-- What is Worten Life -->
+          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-5 mb-5">
+            <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">O que é o Worten Life?</p>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              O <span class="font-semibold text-slate-800">Worten Life</span> é o programa de parceiros da Worten que reúne empresas de serviços digitais verificadas e de confiança. Ser parceiro oficial significa que a WebMinds cumpre os padrões de qualidade, segurança e suporte exigidos pela Worten para integrar a sua rede de soluções digitais.
+            </p>
+          </div>
+
+          <!-- Benefits grid -->
+          <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">O que ganha ao ser cliente WebMinds + Worten Life</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+
+            <div class="benefit-card rounded-xl border border-slate-200 bg-white p-4 flex gap-3">
+              <div class="w-9 h-9 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 text-base">🛡️</div>
+              <div>
+                <p class="text-sm font-semibold text-slate-800">Serviço Certificado</p>
+                <p class="text-xs text-slate-500 mt-0.5">Qualidade validada pela Worten — uma das maiores retalhistas tech de Portugal.</p>
+              </div>
+            </div>
+
+            <div class="benefit-card rounded-xl border border-slate-200 bg-white p-4 flex gap-3">
+              <div class="w-9 h-9 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 text-base">🌐</div>
+              <div>
+                <p class="text-sm font-semibold text-slate-800">Maior Visibilidade</p>
+                <p class="text-xs text-slate-500 mt-0.5">Os serviços WebMinds ficam acessíveis através da rede Worten Life em Portugal.</p>
+              </div>
+            </div>
+
+            <div class="benefit-card rounded-xl border border-slate-200 bg-white p-4 flex gap-3">
+              <div class="w-9 h-9 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 text-base">⚡</div>
+              <div>
+                <p class="text-sm font-semibold text-slate-800">Soluções Integradas</p>
+                <p class="text-xs text-slate-500 mt-0.5">Alojamento, VPS, domínios e serviços digitais acessíveis via ecossistema Worten.</p>
+              </div>
+            </div>
+
+            <div class="benefit-card rounded-xl border border-slate-200 bg-white p-4 flex gap-3">
+              <div class="w-9 h-9 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 text-base">🤝</div>
+              <div>
+                <p class="text-sm font-semibold text-slate-800">Confiança Reforçada</p>
+                <p class="text-xs text-slate-500 mt-0.5">Apoio da marca Worten para os clientes que procuram serviços digitais seguros.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Quote / highlight -->
+          <div class="rounded-2xl bg-gradient-to-br from-indigo-50 to-slate-50 border border-indigo-100 p-5 mb-5 flex gap-4">
+            <div class="w-1 rounded-full bg-indigo-400 shrink-0 self-stretch"></div>
+            <div>
+              <p class="text-sm text-slate-600 leading-relaxed italic">
+                "Estamos muito orgulhosos de integrar o programa Worten Life como parceiro oficial. Esta parceria reforça o nosso compromisso de oferecer serviços digitais de alta qualidade a empresas e particulares em Portugal."
+              </p>
+              <p class="mt-2 text-xs font-bold text-indigo-700">— Equipa WebMinds</p>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="https://www.worten.pt/worten-life-parceiros/webminds-solutions"
+               target="_blank" rel="noopener noreferrer"
+               class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 px-5 py-3 text-sm font-bold text-white shadow-md shadow-indigo-200 transition hover:-translate-y-0.5 active:scale-[0.98]">
+              Ver no Worten Life
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <button onclick="closeWortenModal()"
+              class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:-translate-y-0.5 active:scale-[0.98]">
+              Fechar
+            </button>
+          </div>
+
+        </div>
+
+        <!-- ── Footer strip ── -->
+        <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between gap-3">
+          <p class="text-[11px] text-slate-400">Parceria verificada por <span class="font-semibold text-slate-600">Worten</span></p>
+          <div class="flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-[11px] font-semibold text-emerald-600">Parceiro Ativo</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- ══ END MODAL ══════════════════════════════════════════════ -->
+
+  <script>
+    function openWortenModal() {
+      const m = document.getElementById('wortenModal');
+      m.classList.remove('hidden');
+      m.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeWortenModal() {
+      const m = document.getElementById('wortenModal');
+      m.classList.add('hidden');
+      m.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    // Close on ESC
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeWortenModal(); });
+  </script>
+</body>
+</html>
