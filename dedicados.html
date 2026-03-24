@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servidores Dedicados Virtuais | Webminds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            indigo: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#2548c6', 600: '#1934a7', 700: '#031974' },
+            sky: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#1934a7', 600: '#1934a7', 700: '#031974' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="navbar.js"></script>
+
+  <style>
+    /* ── FAQ accordion ── */
+    .faq-answer { display: none; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform .25s ease; display: inline-block; }
+
+    /* ── Subtle entrance animation ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp .55s ease both; }
+    .fade-up-delay-1 { animation-delay: .1s; }
+    .fade-up-delay-2 { animation-delay: .2s; }
+    .fade-up-delay-3 { animation-delay: .3s; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="pt-28">
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="py-20 bg-gradient-to-br from-indigo-700 via-indigo-600 to-sky-600 text-white">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-white/20 text-sm font-semibold tracking-wider fade-up">Servidores Dedicados Virtuais</span>
+        <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold fade-up fade-up-delay-1">
+          Desempenho Dedicado.<br>Controlo Total.
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl max-w-3xl mx-auto text-blue-100 fade-up fade-up-delay-2">
+          Impulsiona a tua visão online com Servidores Dedicados Virtuais. Desbloqueia desempenho, segurança e personalização incomparáveis para o teu site ou aplicação. Cada VDS vem com 100% de RAM dedicada, processadores e armazenamento NVMe SSD de classe empresarial.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center fade-up fade-up-delay-3">
+          <a href="#planos" class="px-8 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition">Ver Planos VDS</a>
+          <a href="#funcionalidades" class="px-8 py-3 border border-white/60 text-white rounded-xl font-semibold hover:bg-white/10 transition">Funcionalidades</a>
+        </div>
+
+        <!-- Stats bar -->
+        <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
+          <div>
+            <p class="text-4xl font-extrabold">100%</p>
+            <p class="text-blue-200 text-sm mt-1">RAM dedicada</p>
+          </div>
+          <div>
+            <p class="text-4xl font-extrabold">NVMe</p>
+            <p class="text-blue-200 text-sm mt-1">PCIe Gen 4</p>
+          </div>
+          <div>
+            <p class="text-4xl font-extrabold">∞</p>
+            <p class="text-blue-200 text-sm mt-1">Tráfego ilimitado</p>
+          </div>
+          <div>
+            <p class="text-4xl font-extrabold">24/7</p>
+            <p class="text-blue-200 text-sm mt-1">Suporte técnico</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         PORQUÊ VDS
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Porquê escolher o alojamento em Servidor Dedicado?</h2>
+        <p class="mt-4 text-center text-slate-600 max-w-3xl mx-auto">
+          Ao contrário do alojamento partilhado ou dos VPS tradicionais, os Servidores Dedicados Virtuais garantem recursos exclusivos e isolamento total — sem partilha de CPU, RAM ou armazenamento com outros utilizadores.
+        </p>
+
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🔒</div>
+            <h3 class="font-semibold text-slate-800">Isolamento Total de Recursos</h3>
+            <p class="text-slate-600 text-sm mt-1">Os teus recursos são exclusivamente teus. Sem vizinhos ruidosos a competir pela mesma CPU ou RAM — garantia de desempenho consistente a qualquer hora do dia.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">⚡</div>
+            <h3 class="font-semibold text-slate-800">Performance de Classe Empresarial</h3>
+            <p class="text-slate-600 text-sm mt-1">Processadores de alta frequência combinados com SSDs NVMe PCIe Gen 4 entregam latências mínimas e throughput máximo para as aplicações mais exigentes.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🛡️</div>
+            <h3 class="font-semibold text-slate-800">Segurança Reforçada</h3>
+            <p class="text-slate-600 text-sm mt-1">Ambiente isolado com proteção DDoS incluída, firewall configurável e acesso exclusivo ao servidor. Ideal para dados sensíveis e aplicações críticas.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🔑</div>
+            <h3 class="font-semibold text-slate-800">Acesso Root Completo</h3>
+            <p class="text-slate-600 text-sm mt-1">Controlo total do ambiente — instala qualquer software, configura o kernel, define regras de firewall personalizadas e gere o servidor como entenderes.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">📈</div>
+            <h3 class="font-semibold text-slate-800">Escalabilidade sem Downtime</h3>
+            <p class="text-slate-600 text-sm mt-1">Faz upgrade de CPU, RAM ou armazenamento em minutos, sem migração de dados nem interrupções de serviço. O teu servidor cresce com o teu negócio.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">💰</div>
+            <h3 class="font-semibold text-slate-800">Custo-Benefício Superior</h3>
+            <p class="text-slate-600 text-sm mt-1">O desempenho de um servidor dedicado físico, a uma fração do custo. Poupas em hardware, manutenção e energia sem abdicar de performance.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         PLANOS VDS
+    ══════════════════════════════════════════ -->
+    <section id="planos" class="py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Escolhe o teu Servidor Dedicado Virtual</h2>
+        <p class="mt-3 text-center text-slate-600 max-w-2xl mx-auto">Todos os planos incluem processadores AMD EPYC 7282, 100% de recursos dedicados, IP dedicado e 32 TB de tráfego com entrada ilimitada.</p>
+
+        <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+          <!-- VDS NVMe Prime -->
+          <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
+            <div class="flex justify-between items-start">
+              <h3 class="font-bold text-slate-800">VDS NVMe — Prime</h3>
+              <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full font-semibold">Entrada</span>
+            </div>
+            <p class="mt-4 text-3xl font-extrabold text-indigo-700">€66,63<span class="text-sm font-medium text-slate-400">/mês</span></p>
+            <ul class="mt-5 space-y-2 text-sm text-slate-600 flex-1">
+              <li class="flex justify-between"><span>CPU</span><span class="font-semibold">3 Núcleos AMD EPYC 7282</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>Frequência</span><span class="font-semibold">2.8 GHz</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span class="font-semibold">24 GB Dedicada</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>NVMe</span><span class="font-semibold">180 GB</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span class="font-semibold">32 TB + Entrada Ilimitada</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>Porta</span><span class="font-semibold">250 Mbit/s</span></li>
+            </ul>
+            <a href="#" class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Encomendar já!</a>
+          </div>
+
+          <!-- VDS NVMe Velocity — Popular -->
+          <div class="rounded-2xl border-2 border-indigo-600 p-6 bg-indigo-700 text-white shadow-xl flex flex-col relative">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-indigo-700 text-xs font-bold px-4 py-1 rounded-full shadow">Mais Popular</span>
+            <div class="flex justify-between items-start">
+              <h3 class="font-bold">VDS NVMe — Velocity</h3>
+              <span class="text-xs bg-white/20 text-white px-2 py-0.5 rounded-full font-semibold">Recomendado</span>
+            </div>
+            <p class="mt-4 text-3xl font-extrabold">€81,19<span class="text-sm font-medium text-indigo-300">/mês</span></p>
+            <ul class="mt-5 space-y-2 text-sm text-indigo-100 flex-1">
+              <li class="flex justify-between"><span>CPU</span><span class="font-semibold">4 Núcleos AMD EPYC 7282</span></li>
+              <li class="flex justify-between border-t border-indigo-600 pt-2"><span>Frequência</span><span class="font-semibold">2.8 GHz</span></li>
+              <li class="flex justify-between border-t border-indigo-600 pt-2"><span>RAM</span><span class="font-semibold">32 GB Dedicada</span></li>
+              <li class="flex justify-between border-t border-indigo-600 pt-2"><span>NVMe</span><span class="font-semibold">240 GB</span></li>
+              <li class="flex justify-between border-t border-indigo-600 pt-2"><span>Tráfego</span><span class="font-semibold">32 TB + Entrada Ilimitada</span></li>
+              <li class="flex justify-between border-t border-indigo-600 pt-2"><span>Porta</span><span class="font-semibold">500 Mbit/s</span></li>
+            </ul>
+            <a href="#" class="mt-5 block text-center px-4 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition text-sm">Encomendar já!</a>
+          </div>
+
+          <!-- VDS NVMe Forge -->
+          <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
+            <div class="flex justify-between items-start">
+              <h3 class="font-bold text-slate-800">VDS NVMe — Forge</h3>
+              <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-semibold">Avançado</span>
+            </div>
+            <p class="mt-4 text-3xl font-extrabold text-indigo-700">€111,99<span class="text-sm font-medium text-slate-400">/mês</span></p>
+            <ul class="mt-5 space-y-2 text-sm text-slate-600 flex-1">
+              <li class="flex justify-between"><span>CPU</span><span class="font-semibold">6 Núcleos AMD EPYC 7282</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>Frequência</span><span class="font-semibold">2.8 GHz</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span class="font-semibold">48 GB Dedicada</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>NVMe</span><span class="font-semibold">360 GB</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span class="font-semibold">32 TB + Entrada Ilimitada</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>Porta</span><span class="font-semibold">750 Mbit/s</span></li>
+            </ul>
+            <a href="#" class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Encomendar já!</a>
+          </div>
+
+          <!-- VDS NVMe Summit -->
+          <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
+            <div class="flex justify-between items-start">
+              <h3 class="font-bold text-slate-800">VDS NVMe — Summit</h3>
+              <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-semibold">Premium</span>
+            </div>
+            <p class="mt-4 text-3xl font-extrabold text-indigo-700">€144,19<span class="text-sm font-medium text-slate-400">/mês</span></p>
+            <ul class="mt-5 space-y-2 text-sm text-slate-600 flex-1">
+              <li class="flex justify-between"><span>CPU</span><span class="font-semibold">8 Núcleos AMD EPYC 7282</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>Frequência</span><span class="font-semibold">2.8 GHz</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span class="font-semibold">64 GB Dedicada</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>NVMe</span><span class="font-semibold">480 GB</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span class="font-semibold">32 TB + Entrada Ilimitada</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>Porta</span><span class="font-semibold">1 Gbit/s</span></li>
+            </ul>
+            <a href="#" class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Encomendar já!</a>
+          </div>
+
+          <!-- VDS NVMe Edge -->
+          <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition sm:col-span-2 lg:col-span-2">
+            <div class="flex justify-between items-start">
+              <h3 class="font-bold text-slate-800">VDS NVMe — Edge</h3>
+              <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-semibold">Enterprise</span>
+            </div>
+            <p class="mt-4 text-3xl font-extrabold text-indigo-700">€209,99<span class="text-sm font-medium text-slate-400">/mês</span></p>
+            <ul class="mt-5 grid grid-cols-2 gap-x-8 gap-y-2 text-sm text-slate-600 flex-1">
+              <li class="flex justify-between"><span>CPU</span><span class="font-semibold">12 Núcleos AMD EPYC 7282</span></li>
+              <li class="flex justify-between"><span>Frequência</span><span class="font-semibold">2.8 GHz</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span class="font-semibold">96 GB Dedicada</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>NVMe</span><span class="font-semibold">720 GB</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span class="font-semibold">32 TB + Entrada Ilimitada</span></li>
+              <li class="flex justify-between border-t border-slate-100 pt-2"><span>Porta</span><span class="font-semibold">1 Gbit/s</span></li>
+            </ul>
+            <a href="#" class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Encomendar já!</a>
+          </div>
+
+        </div>
+
+        <p class="mt-6 text-center text-slate-400 text-sm">Todos os planos incluem IP dedicado, acesso root, painel de controlo, proteção DDoS e tráfego ilimitado. Precisa de uma configuração personalizada? <a href="#" class="text-indigo-600 hover:underline">Contacte-nos.</a></p>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         FUNCIONALIDADES
+    ══════════════════════════════════════════ -->
+    <section id="funcionalidades" class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Funcionalidades dos Servidores Dedicados</h2>
+        <p class="mt-4 text-center text-slate-600 max-w-3xl mx-auto">
+          Incluído em todos os planos de Servidor Dedicado Virtual — sem custos ocultos nem extras surpresa.
+        </p>
+
+        <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">💾</div>
+            <h3 class="font-semibold text-slate-800">NVMe PCIe Gen 4 Incluído</h3>
+            <p class="text-slate-600 text-sm mt-1">SSDs NVMe de última geração incluídas sem custo adicional. Velocidades de leitura/escrita até 10x superiores aos SSDs SATA tradicionais — para bases de dados e aplicações intensivas.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🧠</div>
+            <h3 class="font-semibold text-slate-800">100% RAM Dedicada</h3>
+            <p class="text-slate-600 text-sm mt-1">Cada gigabyte de RAM é exclusivamente teu. Sem overselling, sem partilha. Garante que as tuas aplicações têm sempre os recursos que necessitam para operar com máxima eficiência.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🌐</div>
+            <h3 class="font-semibold text-slate-800">Tráfego Ilimitado</h3>
+            <p class="text-slate-600 text-sm mt-1">Sem limites de transferência mensal. Banda larga de alta velocidade garantida em todos os planos, desde 500 Mbps até 10 Gbps no plano Enterprise.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🛡️</div>
+            <h3 class="font-semibold text-slate-800">Proteção DDoS Avançada</h3>
+            <p class="text-slate-600 text-sm mt-1">Mitigação automática de ataques DDoS incluída em todos os planos. A tua infraestrutura mantém-se online mesmo sob os ataques mais intensos, sem intervenção manual.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🖥️</div>
+            <h3 class="font-semibold text-slate-800">Múltiplos Sistemas Operativos</h3>
+            <p class="text-slate-600 text-sm mt-1">Ubuntu, Debian, CentOS, AlmaLinux, Rocky Linux, Windows Server e mais. Instalação em segundos através do painel de controlo com templates prontos para as plataformas mais populares.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🔄</div>
+            <h3 class="font-semibold text-slate-800">Backups Automatizados</h3>
+            <p class="text-slate-600 text-sm mt-1">Snapshots e backups diários automáticos com restauro com um clique. Os teus dados estão sempre protegidos, com histórico de backups configurável até 30 dias.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         NVMe DESTAQUE
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-gradient-to-br from-indigo-50 to-slate-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="rounded-2xl border border-indigo-200 bg-white p-8 lg:p-12 shadow-sm">
+          <div class="grid gap-8 lg:grid-cols-2 items-center">
+            <div>
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold uppercase tracking-widest mb-4">Tecnologia de Armazenamento</span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Unidades SSD NVMe PCIe Gen 4 em Todos os Servidores</h2>
+              <p class="mt-4 text-slate-600">Os VDS da Webminds vêm incluídos com SSDs NVMe de última geração sem custo adicional. Podes sempre aumentar a capacidade de NVMe caso necessites de armazenamento adicional.</p>
+              <p class="mt-3 text-slate-600">De acordo com estudos independentes, existe uma diferença significativa em termos de desempenho bruto ao comparar um SSD padrão com protocolo SATA e um SSD que utiliza NVMe. A nossa própria investigação confirma que o NVMe melhora o desempenho do servidor em pelo menos 10 vezes face ao armazenamento SATA convencional.</p>
+              <div class="mt-6 grid grid-cols-3 gap-4 text-center">
+                <div class="rounded-xl bg-indigo-50 p-4">
+                  <p class="text-2xl font-extrabold text-indigo-700">10x</p>
+                  <p class="text-xs text-slate-600 mt-1">mais rápido que SATA</p>
+                </div>
+                <div class="rounded-xl bg-indigo-50 p-4">
+                  <p class="text-2xl font-extrabold text-indigo-700">7 GB/s</p>
+                  <p class="text-xs text-slate-600 mt-1">velocidade de leitura</p>
+                </div>
+                <div class="rounded-xl bg-indigo-50 p-4">
+                  <p class="text-2xl font-extrabold text-indigo-700">Gen 4</p>
+                  <p class="text-xs text-slate-600 mt-1">PCIe última geração</p>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-xl bg-slate-900 p-6 text-sm font-mono">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-slate-400 text-xs">benchmark — webminds-vds-8</span>
+              </div>
+              <div class="space-y-2 text-slate-300">
+                <p><span class="text-green-400">$</span> fio --randread --iodepth=32 --bs=4k</p>
+                <p class="text-slate-500">Iniciando benchmark NVMe PCIe Gen 4...</p>
+                <p><span class="text-sky-400">read</span>: IOPS=<span class="text-yellow-300">1.2M</span>, BW=<span class="text-yellow-300">4751MiB/s</span></p>
+                <p><span class="text-sky-400">write</span>: IOPS=<span class="text-yellow-300">890K</span>, BW=<span class="text-yellow-300">3478MiB/s</span></p>
+                <p class="text-slate-500">Latência média: <span class="text-green-400">0.12ms</span></p>
+                <p class="text-slate-500 mt-3"># SATA SSD para comparação:</p>
+                <p><span class="text-sky-400">read</span>: IOPS=<span class="text-red-400">98K</span>, BW=<span class="text-red-400">382MiB/s</span></p>
+                <p class="text-green-400 mt-3">✓ NVMe é ~12x mais rápido</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 border-t border-slate-100 pt-6 text-center">
+            <p class="text-slate-600 text-sm">Não tem a certeza de qual o servidor mais adequado para o seu negócio? <a href="#" class="text-indigo-600 font-semibold hover:underline">Fale connosco hoje mesmo!</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         CASOS DE UTILIZAÇÃO
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Casos de Utilização de Servidores Dedicados</h2>
+        <p class="mt-4 text-center text-slate-600 max-w-3xl mx-auto">
+          Quando o desempenho e o isolamento total são inegociáveis — os nossos VDS são a escolha certa.
+        </p>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <div class="rounded-xl bg-white border border-slate-200 p-6">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🏢</div>
+            <h3 class="font-bold text-slate-800 text-lg mb-2">Aplicações Empresariais</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li class="flex gap-2"><span class="text-indigo-500">●</span> ERPs e CRMs de alto volume</li>
+              <li class="flex gap-2"><span class="text-indigo-500">●</span> Bases de dados críticas (MySQL, PostgreSQL)</li>
+              <li class="flex gap-2"><span class="text-indigo-500">●</span> Sistemas de faturação e contabilidade</li>
+              <li class="flex gap-2"><span class="text-indigo-500">●</span> Plataformas de RH e gestão</li>
+            </ul>
+          </div>
+          <div class="rounded-xl bg-white border border-slate-200 p-6">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🛒</div>
+            <h3 class="font-bold text-slate-800 text-lg mb-2">E-commerce de Grande Volume</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li class="flex gap-2"><span class="text-blue-500">●</span> Lojas com elevado tráfego simultâneo</li>
+              <li class="flex gap-2"><span class="text-blue-500">●</span> Plataformas Magento e WooCommerce avançadas</li>
+              <li class="flex gap-2"><span class="text-blue-500">●</span> Processamento de pagamentos rápido</li>
+              <li class="flex gap-2"><span class="text-blue-500">●</span> Catálogos de produto extensos</li>
+            </ul>
+          </div>
+          <div class="rounded-xl bg-white border border-slate-200 p-6">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🎮</div>
+            <h3 class="font-bold text-slate-800 text-lg mb-2">Gaming & Streaming</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li class="flex gap-2"><span class="text-green-500">●</span> Servidores de jogos com baixa latência</li>
+              <li class="flex gap-2"><span class="text-green-500">●</span> Plataformas de streaming de media</li>
+              <li class="flex gap-2"><span class="text-green-500">●</span> CDN e cache de conteúdo</li>
+              <li class="flex gap-2"><span class="text-green-500">●</span> Aplicações SaaS de missão crítica</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         MIGRAÇÃO + SUPORTE
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6 grid gap-8 lg:grid-cols-2">
+
+        <div class="rounded-2xl border border-indigo-200 bg-indigo-50 p-8">
+          <div class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600 text-2xl mb-4">🚀</div>
+          <h3 class="text-xl font-bold text-slate-800">Migrar Servidor — Gratuitamente</h3>
+          <p class="mt-3 text-slate-600">Já tens um site e/ou um servidor dedicado? Transfere para a Webminds gratuitamente. Conta connosco para uma migração sem complicações ao mudar para a nossa plataforma. Concentra-te no que realmente importa — nós tratamos de todo o processo, sem custos adicionais.</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-700">
+            <li class="flex gap-2">✅ Sem taxas de migração</li>
+            <li class="flex gap-2">✅ Migração sem downtime</li>
+            <li class="flex gap-2">✅ Suporte dedicado durante a transição</li>
+            <li class="flex gap-2">✅ Verificação pós-migração incluída</li>
+          </ul>
+          <a href="#" class="mt-6 inline-block px-6 py-3 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition text-sm">Solicitar Migração Gratuita</a>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-8">
+          <div class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600 text-2xl mb-4">🛟</div>
+          <h3 class="text-xl font-bold text-slate-800">Suporte Técnico 24/7</h3>
+          <p class="mt-3 text-slate-600">A nossa equipa técnica especializada em infraestrutura dedicada está disponível a qualquer hora. Se o teu servidor está a trabalhar, a nossa equipa também está.</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-700">
+            <li class="flex gap-2">✅ Chat ao vivo 24/7</li>
+            <li class="flex gap-2">✅ Suporte por ticket e e-mail</li>
+            <li class="flex gap-2">✅ Equipa especializada em servidores dedicados</li>
+            <li class="flex gap-2">✅ Tempo médio de resposta &lt; 5 minutos</li>
+          </ul>
+          <a href="#" class="mt-6 inline-block px-6 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contactar Suporte</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         FAQ
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-white">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Perguntas Frequentes</h2>
+
+        <div class="mt-8 space-y-3">
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              O que é exatamente um Servidor Virtual Dedicado (VDS)?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Um Servidor Virtual Dedicado (VDS) é uma máquina virtual em que todos os recursos — CPU, RAM e armazenamento — são 100% dedicados ao teu servidor, sem partilha com outros utilizadores. Ao contrário de um VPS tradicional (que pode partilhar recursos físicos com dezenas de outros servidores), o VDS garante desempenho consistente e previsível, com o isolamento de um servidor dedicado físico e a flexibilidade de uma solução virtual.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Qual a diferença entre VPS e VDS?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              A diferença principal está na dedicação dos recursos. Num VPS (Virtual Private Server), os recursos físicos do servidor são partilhados entre vários clientes — o que pode causar degradação de desempenho em horas de pico. Num VDS (Virtual Dedicated Server), os recursos são exclusivamente teus: a CPU, RAM e NVMe não são partilhados com ninguém, garantindo performance constante e previsível, idêntica a um servidor físico dedicado.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Posso escolher o sistema operativo do meu servidor dedicado?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Sim. Podes instalar Ubuntu, Debian, CentOS, AlmaLinux, Rocky Linux, Windows Server e muito mais através do painel de controlo. Também disponibilizamos templates pré-configurados para cPanel, Plesk, Docker, WordPress e outras plataformas populares, com instalação automática em segundos.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              O tráfego é realmente ilimitado nos planos VDS?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Sim. Todos os planos de Servidor Dedicado Virtual da Webminds incluem tráfego ilimitado sem custos adicionais. A bandwidth disponível varia por plano (500 Mbps a 10 Gbps), mas não existem limites de transferência mensal. Nunca terás surpresas na fatura por excesso de tráfego.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Posso fazer upgrade do meu plano VDS a qualquer momento?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Sim. Podes fazer upgrade de CPU, RAM ou armazenamento NVMe a qualquer momento através do painel de controlo. O processo é rápido, sem downtime significativo nem migração de dados — os recursos adicionais ficam disponíveis em minutos.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              A migração do meu servidor atual é mesmo gratuita?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Sim, totalmente gratuita. A nossa equipa técnica trata de todo o processo de migração do teu servidor ou site para a infraestrutura Webminds, sem custos adicionais. A migração é feita com o mínimo de downtime e inclui verificação completa pós-migração para garantir que tudo funciona perfeitamente.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Qual é a garantia de uptime dos Servidores Dedicados?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Garantimos 99,9% de uptime em todos os planos VDS, suportado por infraestrutura redundante, alimentação elétrica com UPS e monitorização contínua 24/7. Em caso de qualquer problema, a nossa equipa de suporte técnico está disponível para resolver a situação no menor tempo possível.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              O servidor dedicado inclui proteção contra ataques DDoS?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Sim. Todos os planos VDS incluem proteção DDoS avançada sem custo adicional. O nosso sistema de mitigação deteta e neutraliza automaticamente ataques de volumetria elevada, mantendo o teu servidor online e os teus serviços disponíveis mesmo sob pressão.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         CTA FINAL
+    ══════════════════════════════════════════ -->
+    <section class="py-20 bg-gradient-to-br from-indigo-700 via-indigo-600 to-sky-600 text-white text-center">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">O servidor dedicado que o teu projeto merece</h2>
+        <p class="mt-4 text-blue-100 text-lg">Hardware NVMe PCIe Gen 4, 100% de recursos dedicados, tráfego ilimitado e suporte 24/7. Ativa o teu VDS hoje e opera sem compromissos de desempenho.</p>
+        <a href="#planos" class="mt-8 inline-block px-10 py-4 bg-white text-indigo-700 rounded-xl font-bold text-lg hover:bg-blue-50 transition shadow-lg">Escolher o Meu Servidor Dedicado</a>
+        <p class="mt-3 text-indigo-300 text-sm">Migração gratuita incluída. Suporte 24/7 garantido. Uptime 99,9%.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 pt-16 pb-8">
+    <div class="max-w-6xl mx-auto px-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-10">
+      <div>
+        <h4 class="text-white font-bold mb-3">Webminds</h4>
+        <p class="text-sm">O teu parceiro de confiança em soluções de alojamento web e segurança online.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Servidores</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="vps-hosting.html" class="hover:text-white transition">VPS NVMe</a></li>
+          <li><a href="dedicated-servers.html" class="hover:text-white transition">Servidores Dedicados</a></li>
+          <li><a href="#" class="hover:text-white transition">Cloud Hosting</a></li>
+          <li><a href="#" class="hover:text-white transition">Alojamento Web</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Segurança</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:text-white transition">SiteLock</a></li>
+          <li><a href="#" class="hover:text-white transition">Certificados SSL</a></li>
+          <li><a href="website-backup.html" class="hover:text-white transition">Backups Diários</a></li>
+          <li><a href="#" class="hover:text-white transition">NordVPN</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Empresa</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="sobre-nos.html" class="hover:text-white transition">Sobre nós</a></li>
+          <li><a href="#" class="hover:text-white transition">Contacto</a></li>
+          <li><a href="#" class="hover:text-white transition">Política de Privacidade</a></li>
+          <li><a href="#" class="hover:text-white transition">Termos de Serviço</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 border-t border-slate-800 pt-6 text-center text-xs">© 2026 WebMinds. Todos os direitos reservados.</div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

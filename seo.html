@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ferramentas de SEO — Marketgoo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            indigo: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#2548c6', 600: '#1934a7', 700: '#031974' },
+            sky: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#1934a7', 600: '#1934a7', 700: '#031974' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="navbar.js"></script>
+
+  <style>
+    /* ── FAQ accordion ── */
+    .faq-answer { display: none; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform .25s ease; display: inline-block; }
+
+    /* ── Pricing toggle ── */
+    .plan-price-monthly { display: block; }
+    .plan-price-annual  { display: none; }
+    body.annual .plan-price-monthly { display: none; }
+    body.annual .plan-price-annual  { display: block; }
+
+    /* ── Testimonial slider ── */
+    .testimonial-track { display: flex; transition: transform .4s ease; }
+    .testimonial-slide { min-width: 100%; }
+
+    /* ── Subtle entrance animation ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp .55s ease both; }
+    .fade-up-delay-1 { animation-delay: .1s; }
+    .fade-up-delay-2 { animation-delay: .2s; }
+    .fade-up-delay-3 { animation-delay: .3s; }
+
+    /* ── Comparison table ── */
+    .check { color: #2548c6; font-weight: 700; }
+    .cross  { color: #94a3b8; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="pt-28">
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="py-20 bg-gradient-to-br from-indigo-700 via-indigo-600 to-sky-600 text-white">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-white/20 text-sm font-semibold tracking-wider fade-up">Ferramentas de SEO</span>
+        <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold fade-up fade-up-delay-1">
+          Aumenta o tráfego e faz crescer o teu negócio com a Marketgoo
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl max-w-3xl mx-auto text-blue-100 fade-up fade-up-delay-2">
+          Eleva a tua presença online e expande o teu negócio com as ferramentas de SEO completas da Marketgoo. Aumenta a visibilidade, gera tráfego e alcança o sucesso.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center fade-up fade-up-delay-3">
+          <a href="#precos" class="px-8 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition">Ver Planos</a>
+          <a href="#como-comecar" class="px-8 py-3 border border-white/60 text-white rounded-xl font-semibold hover:bg-white/10 transition">Como Começar</a>
+        </div>
+
+        <!-- Stats bar -->
+        <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
+          <div>
+            <p class="text-4xl font-extrabold">+50 mil</p>
+            <p class="text-blue-200 text-sm mt-1">Sites otimizados</p>
+          </div>
+          <div>
+            <p class="text-4xl font-extrabold">+180%</p>
+            <p class="text-blue-200 text-sm mt-1">Aumento médio de tráfego</p>
+          </div>
+          <div>
+            <p class="text-4xl font-extrabold">4.8★</p>
+            <p class="text-blue-200 text-sm mt-1">Avaliação média</p>
+          </div>
+          <div>
+            <p class="text-4xl font-extrabold">3 passos</p>
+            <p class="text-blue-200 text-sm mt-1">Para subir nas pesquisas</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         PREÇO + COMO COMEÇAR
+    ══════════════════════════════════════════ -->
+    <section id="como-comecar" class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6 grid gap-8 lg:grid-cols-2">
+        <article class="rounded-2xl border border-slate-200 p-8 shadow-sm">
+          <h2 class="text-3xl font-bold text-indigo-700">A partir de €16,32 EUR/3 meses</h2>
+          <p class="mt-3 text-slate-600">Marketgoo — ferramentas de SEO para impulsionar a posição nos motores de busca.</p>
+          <ul class="mt-5 space-y-2 text-slate-700 text-sm">
+            <li>✅ Análise técnica completa do site</li>
+            <li>✅ Plano de ação personalizado</li>
+            <li>✅ Relatórios mensais de desempenho</li>
+            <li>✅ Monitorização de palavras-chave</li>
+            <li>✅ Acompanhamento da concorrência</li>
+            <li>✅ Sugestões de criação de conteúdo</li>
+          </ul>
+          <a href="#precos" class="mt-6 inline-block px-6 py-3 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition">Começar Agora</a>
+        </article>
+        <article class="rounded-2xl border border-slate-200 p-8 shadow-sm">
+          <h2 class="text-2xl font-bold">Como começar?</h2>
+          <p class="mt-4 text-slate-600">Faz crescer o teu negócio com mais tráfego e melhores posições nos motores de busca em 3 passos simples.</p>
+          <ol class="mt-4 space-y-4 text-slate-700">
+            <li class="flex gap-3">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center">1</span>
+              <div>
+                <p class="font-semibold">Insere o teu site e define objetivos de SEO</p>
+                <p class="text-slate-500 text-sm">A Marketgoo analisa o teu site em segundos e identifica as maiores oportunidades de melhoria.</p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center">2</span>
+              <div>
+                <p class="font-semibold">Segue o plano de ação personalizado</p>
+                <p class="text-slate-500 text-sm">Recebe tarefas priorizadas, fáceis de implementar, mesmo sem conhecimentos técnicos.</p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center">3</span>
+              <div>
+                <p class="font-semibold">Recebe relatórios e ajusta a estratégia</p>
+                <p class="text-slate-500 text-sm">Relatórios mensais de progresso com recomendações atualizadas para continuar a crescer.</p>
+              </div>
+            </li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         FUNCIONALIDADES PRINCIPAIS
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Põe o teu plano de SEO em prática</h2>
+        <p class="mt-4 text-center text-slate-600 max-w-3xl mx-auto">
+          Põe o teu plano de SEO em prática e recebe um relatório de progresso mensal. A Marketgoo dá-te passos práticos para subires nas classificações dos motores de busca, como aumentar o número de links de entrada a partir de outros sites.
+        </p>
+        <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">📊</div>
+            <h3 class="font-semibold text-slate-800">Relatório fácil de ler</h3>
+            <p class="text-slate-600 text-sm mt-1">Relatórios simples com prioridades para melhorias. Sem jargão técnico — só o que precisas de saber.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🎯</div>
+            <h3 class="font-semibold text-slate-800">Plano de SEO inteligente</h3>
+            <p class="text-slate-600 text-sm mt-1">Ações recomendadas passo a passo, ordenadas por impacto. Sabe sempre o que fazer a seguir.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">📈</div>
+            <h3 class="font-semibold text-slate-800">Progressão contínua</h3>
+            <p class="text-slate-600 text-sm mt-1">Monitorização mensal e ajustes automáticos para que o teu site nunca pare de crescer.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🔍</div>
+            <h3 class="font-semibold text-slate-800">Auditoria técnica de SEO</h3>
+            <p class="text-slate-600 text-sm mt-1">Identifica erros técnicos — links quebrados, velocidade de carregamento, meta tags em falta — e corrige-os facilmente.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🔗</div>
+            <h3 class="font-semibold text-slate-800">Gestão de backlinks</h3>
+            <p class="text-slate-600 text-sm mt-1">Aumenta a autoridade do teu site com sugestões de links de entrada de qualidade e monitorização do perfil de backlinks.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">✍️</div>
+            <h3 class="font-semibold text-slate-800">Otimização de conteúdo</h3>
+            <p class="text-slate-600 text-sm mt-1">Sugestões de palavras-chave e melhorias de conteúdo para cada página, para atrair mais visitantes qualificados.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         O QUE DEVO SABER
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">O que devo saber?</h2>
+        <div class="mt-8 grid gap-5 md:grid-cols-2">
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">Não é necessário ter conhecimentos de SEO</h3>
+            <p class="text-slate-600 mt-2">Mesmo que o termo "SEO" seja novo para ti, nós ajudamos com um plano gráfico e fácil de seguir. A interface foi desenhada para proprietários de negócios, não para técnicos.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">Estás a um passo do topo</h3>
+            <p class="text-slate-600 mt-2">Escolhe palavras-chave, monitoriza concorrentes e acompanha o desempenho em tempo real. Vê exatamente onde estás e o que precisas de fazer para subir.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">Resultados em semanas, não em meses</h3>
+            <p class="text-slate-600 mt-2">Os nossos clientes começam a ver melhorias nas posições dos motores de busca em apenas 4 a 6 semanas após implementar as primeiras recomendações.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">Compatível com todos os tipos de site</h3>
+            <p class="text-slate-600 mt-2">WordPress, Shopify, Wix, Squarespace ou qualquer outra plataforma — a Marketgoo integra-se facilmente com o teu site sem necessidade de plugins complicados.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">SEO local incluído</h3>
+            <p class="text-slate-600 mt-2">Otimiza o teu negócio para pesquisas locais. Aparece nos resultados quando os clientes próximos pesquisam os teus serviços no Google Maps e pesquisa local.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">Suporte dedicado em português</h3>
+            <p class="text-slate-600 mt-2">A nossa equipa de suporte está disponível para te ajudar em cada passo, com tutoriais em vídeo, base de conhecimento e chat ao vivo em português.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         ACOMPANHA E MONITORIZA
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Acompanha e monitoriza</h2>
+        <p class="mt-4 text-center text-slate-600 max-w-3xl mx-auto">
+          Escolhe as palavras-chave pelas quais gostarias de te posicionar. Monitoriza os concorrentes. Vê como os teus concorrentes se posicionam para as palavras-chave e acompanha a sua popularidade. Faz upgrade para acompanhar mais palavras-chave e concorrentes.
+        </p>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <div class="rounded-xl bg-white border border-slate-200 p-6">
+            <h3 class="font-bold text-indigo-700 text-lg mb-2">Palavras-chave</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li class="flex gap-2"><span class="text-green-500">●</span> Posição atual no Google</li>
+              <li class="flex gap-2"><span class="text-green-500">●</span> Volume de pesquisa mensal</li>
+              <li class="flex gap-2"><span class="text-green-500">●</span> Dificuldade da palavra-chave</li>
+              <li class="flex gap-2"><span class="text-green-500">●</span> Tendência ao longo do tempo</li>
+              <li class="flex gap-2"><span class="text-green-500">●</span> Sugestões de novas keywords</li>
+            </ul>
+          </div>
+          <div class="rounded-xl bg-white border border-slate-200 p-6">
+            <h3 class="font-bold text-indigo-700 text-lg mb-2">Concorrentes</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li class="flex gap-2"><span class="text-blue-500">●</span> Análise de backlinks rivais</li>
+              <li class="flex gap-2"><span class="text-blue-500">●</span> Palavras-chave dos concorrentes</li>
+              <li class="flex gap-2"><span class="text-blue-500">●</span> Comparação de posições</li>
+              <li class="flex gap-2"><span class="text-blue-500">●</span> Alertas de mudanças</li>
+              <li class="flex gap-2"><span class="text-blue-500">●</span> Oportunidades identificadas</li>
+            </ul>
+          </div>
+          <div class="rounded-xl bg-white border border-slate-200 p-6">
+            <h3 class="font-bold text-indigo-700 text-lg mb-2">Desempenho do Site</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li class="flex gap-2"><span class="text-purple-500">●</span> Score SEO geral</li>
+              <li class="flex gap-2"><span class="text-purple-500">●</span> Erros técnicos detetados</li>
+              <li class="flex gap-2"><span class="text-purple-500">●</span> Velocidade de carregamento</li>
+              <li class="flex gap-2"><span class="text-purple-500">●</span> Compatibilidade mobile</li>
+              <li class="flex gap-2"><span class="text-purple-500">●</span> Indexação pelo Google</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         COMPARAÇÃO DE PLANOS
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-white">
+      <div class="max-w-5xl mx-auto px-6 overflow-x-auto">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center mb-10">Compara os Planos</h2>
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-indigo-700 text-white">
+              <th class="text-left p-4 rounded-tl-xl">Funcionalidade</th>
+              <th class="p-4 text-center">Starter</th>
+              <th class="p-4 text-center">Pro</th>
+              <th class="p-4 text-center rounded-tr-xl">Business</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr class="bg-slate-50">
+              <td class="p-4 font-medium">Auditoria de SEO</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Palavras-chave monitorizadas</td>
+              <td class="p-4 text-center text-slate-600">5</td>
+              <td class="p-4 text-center text-slate-600">25</td>
+              <td class="p-4 text-center text-slate-600">100</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="p-4 font-medium">Concorrentes monitorizados</td>
+              <td class="p-4 text-center text-slate-600">1</td>
+              <td class="p-4 text-center text-slate-600">5</td>
+              <td class="p-4 text-center text-slate-600">20</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Relatórios mensais</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="p-4 font-medium">Relatórios de marca branca</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Otimização de conteúdo</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="p-4 font-medium">Análise de backlinks</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Suporte prioritário</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="p-4 font-medium">Sites geridos</td>
+              <td class="p-4 text-center text-slate-600">1</td>
+              <td class="p-4 text-center text-slate-600">3</td>
+              <td class="p-4 text-center text-slate-600">Ilimitado</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         PREÇOS
+    ══════════════════════════════════════════ -->
+    <section id="precos" class="py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Preços</h2>
+        <p class="mt-3 text-slate-600">Começa com as ferramentas de SEO da MarketGoo e obtém resultados mensuráveis em semanas.</p>
+
+        <!-- Toggle -->
+        <div class="mt-6 inline-flex items-center gap-3 bg-white border border-slate-200 rounded-full px-4 py-2 text-sm font-medium">
+          <span id="lbl-monthly" class="text-indigo-700 font-semibold">Mensal</span>
+          <button id="billing-toggle" onclick="document.body.classList.toggle('annual'); document.getElementById('lbl-monthly').classList.toggle('text-indigo-700'); document.getElementById('lbl-monthly').classList.toggle('font-semibold'); document.getElementById('lbl-annual').classList.toggle('text-indigo-700'); document.getElementById('lbl-annual').classList.toggle('font-semibold');" class="relative w-11 h-6 bg-slate-200 rounded-full cursor-pointer transition-colors peer-checked:bg-indigo-600" aria-label="Alternar faturação">
+            <span id="toggle-dot" class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform"></span>
+          </button>
+          <span id="lbl-annual" class="text-slate-500">Anual <span class="text-green-600 font-semibold text-xs">-20%</span></span>
+        </div>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+
+          <!-- Starter -->
+          <div class="rounded-2xl border border-slate-200 p-8 bg-white shadow-sm flex flex-col">
+            <h3 class="text-xl font-bold text-slate-800">Starter</h3>
+            <p class="text-slate-500 text-sm mt-1">Para quem está a começar</p>
+            <div class="mt-6">
+              <p class="plan-price-monthly text-4xl font-extrabold text-indigo-700">€5,44<span class="text-base font-medium text-slate-400">/mês</span></p>
+              <p class="plan-price-annual text-4xl font-extrabold text-indigo-700">€4,35<span class="text-base font-medium text-slate-400">/mês</span></p>
+              <p class="text-slate-400 text-xs mt-1">Faturado de 3 em 3 meses</p>
+            </div>
+            <ul class="mt-6 space-y-2 text-sm text-slate-600 flex-1">
+              <li>✅ 1 site</li>
+              <li>✅ 5 palavras-chave</li>
+              <li>✅ Auditoria de SEO</li>
+              <li>✅ Relatório mensal</li>
+              <li>✅ 1 concorrente</li>
+            </ul>
+            <a href="#" class="mt-6 block text-center px-5 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition">Escolher Starter</a>
+          </div>
+
+          <!-- Pro (destaque) -->
+          <div class="rounded-2xl border-2 border-indigo-600 p-8 bg-indigo-700 text-white shadow-xl flex flex-col relative">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-indigo-700 text-xs font-bold px-4 py-1 rounded-full shadow">Mais Popular</span>
+            <h3 class="text-xl font-bold">Pro</h3>
+            <p class="text-indigo-200 text-sm mt-1">Para negócios em crescimento</p>
+            <div class="mt-6">
+              <p class="plan-price-monthly text-4xl font-extrabold">€10,88<span class="text-base font-medium text-indigo-300">/mês</span></p>
+              <p class="plan-price-annual text-4xl font-extrabold">€8,70<span class="text-base font-medium text-indigo-300">/mês</span></p>
+              <p class="text-indigo-300 text-xs mt-1">Faturado de 3 em 3 meses</p>
+            </div>
+            <ul class="mt-6 space-y-2 text-sm text-indigo-100 flex-1">
+              <li>✅ 3 sites</li>
+              <li>✅ 25 palavras-chave</li>
+              <li>✅ Otimização de conteúdo</li>
+              <li>✅ Análise de backlinks</li>
+              <li>✅ 5 concorrentes</li>
+              <li>✅ Relatório detalhado</li>
+            </ul>
+            <a href="#" class="mt-6 block text-center px-5 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition">Escolher Pro</a>
+          </div>
+
+          <!-- Business -->
+          <div class="rounded-2xl border border-slate-200 p-8 bg-white shadow-sm flex flex-col">
+            <h3 class="text-xl font-bold text-slate-800">Business</h3>
+            <p class="text-slate-500 text-sm mt-1">Para agências e grandes empresas</p>
+            <div class="mt-6">
+              <p class="plan-price-monthly text-4xl font-extrabold text-indigo-700">€21,76<span class="text-base font-medium text-slate-400">/mês</span></p>
+              <p class="plan-price-annual text-4xl font-extrabold text-indigo-700">€17,41<span class="text-base font-medium text-slate-400">/mês</span></p>
+              <p class="text-slate-400 text-xs mt-1">Faturado de 3 em 3 meses</p>
+            </div>
+            <ul class="mt-6 space-y-2 text-sm text-slate-600 flex-1">
+              <li>✅ Sites ilimitados</li>
+              <li>✅ 100 palavras-chave</li>
+              <li>✅ Relatórios marca branca</li>
+              <li>✅ 20 concorrentes</li>
+              <li>✅ Suporte prioritário</li>
+              <li>✅ API de integração</li>
+            </ul>
+            <a href="#" class="mt-6 block text-center px-5 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition">Escolher Business</a>
+          </div>
+
+        </div>
+
+        <p class="mt-6 text-slate-400 text-sm">Todos os planos incluem 14 dias de experimentação gratuita. Sem compromisso.</p>
+      </div>
+    </section>
+
+
+
+    <!-- ══════════════════════════════════════════
+         FAQ
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Perguntas Frequentes</h2>
+
+        <div class="mt-8 space-y-3" id="faq-container">
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Quanto tempo leva a ver resultados no Google?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              A maioria dos clientes começa a ver melhorias notáveis nas posições entre 4 a 8 semanas após implementar as recomendações da Marketgoo. O SEO é um processo contínuo — quanto mais tempo investires, melhores e mais duradouros serão os resultados.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Preciso de conhecimentos técnicos para usar a Marketgoo?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Não. A Marketgoo foi desenvolvida para ser utilizada por qualquer pessoa, sem conhecimentos técnicos. As recomendações são apresentadas de forma clara e simples, com tutoriais em vídeo para cada tarefa.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              A Marketgoo funciona com o meu tipo de site?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Sim! A Marketgoo é compatível com todas as plataformas web — WordPress, Shopify, Wix, Squarespace, Joomla, sites personalizados e muito mais. Basta inserir o URL do teu site.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Posso cancelar a qualquer momento?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Sim, podes cancelar a subscrição a qualquer momento sem penalizações. Não existem contratos de longo prazo. O acesso mantém-se ativo até ao fim do período faturado.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Existe período de experiência gratuita?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Sim! Todos os planos incluem 14 dias de experimentação gratuita, sem necessidade de introduzir dados de cartão de crédito. Experimenta sem compromisso e vê os resultados por ti próprio.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         CTA FINAL
+    ══════════════════════════════════════════ -->
+    <section class="py-20 bg-gradient-to-br from-indigo-700 via-indigo-600 to-sky-600 text-white text-center">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Pronto para escalar o teu SEO?</h2>
+        <p class="mt-4 text-blue-100 text-lg">Junta-te a mais de 50 000 negócios que já usam a Marketgoo para crescer online. Começa hoje, gratuitamente.</p>
+        <a href="#precos" class="mt-8 inline-block px-10 py-4 bg-white text-indigo-700 rounded-xl font-bold text-lg hover:bg-blue-50 transition shadow-lg">Experimentar Grátis por 14 Dias</a>
+        <p class="mt-3 text-indigo-300 text-sm">Sem cartão de crédito. Sem compromisso.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 pt-16 pb-8">
+    <div class="max-w-6xl mx-auto px-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-10">
+      <div>
+        <h4 class="text-white font-bold mb-3">Marketgoo</h4>
+        <p class="text-sm">Ferramentas de SEO simples e eficazes para negócios de todas as dimensões.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Produto</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:text-white transition">Funcionalidades</a></li>
+          <li><a href="#precos" class="hover:text-white transition">Preços</a></li>
+          <li><a href="#" class="hover:text-white transition">Integrações</a></li>
+          <li><a href="#" class="hover:text-white transition">API</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Recursos</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:text-white transition">Blog de SEO</a></li>
+          <li><a href="#" class="hover:text-white transition">Tutoriais em Vídeo</a></li>
+          <li><a href="#" class="hover:text-white transition">Base de Conhecimento</a></li>
+          <li><a href="#" class="hover:text-white transition">Glossário de SEO</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Empresa</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:text-white transition">Sobre nós</a></li>
+          <li><a href="#" class="hover:text-white transition">Contacto</a></li>
+          <li><a href="#" class="hover:text-white transition">Política de Privacidade</a></li>
+          <li><a href="#" class="hover:text-white transition">Termos de Serviço</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 border-t border-slate-800 pt-6 text-center text-xs">© 2026 WebMinds. Todos os direitos reservados.</div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    // Billing toggle dot animation
+    const toggle = document.getElementById('billing-toggle');
+    const dot = document.getElementById('toggle-dot');
+    let isAnnual = false;
+    toggle.addEventListener('click', () => {
+      isAnnual = !isAnnual;
+      dot.style.transform = isAnnual ? 'translateX(20px)' : 'translateX(0)';
+      toggle.style.backgroundColor = isAnnual ? '#2548c6' : '';
+    });
+  </script>
+
+</body>
+</html>

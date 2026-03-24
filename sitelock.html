@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Segurança Website — SiteLock | Webminds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            indigo: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#2548c6', 600: '#1934a7', 700: '#031974' },
+            sky: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#1934a7', 600: '#1934a7', 700: '#031974' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="navbar.js"></script>
+
+  <style>
+    /* ── FAQ accordion ── */
+    .faq-answer { display: none; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform .25s ease; display: inline-block; }
+
+    /* ── Pricing toggle ── */
+    .plan-price-monthly { display: block; }
+    .plan-price-annual  { display: none; }
+    body.annual .plan-price-monthly { display: none; }
+    body.annual .plan-price-annual  { display: block; }
+
+    /* ── Subtle entrance animation ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp .55s ease both; }
+    .fade-up-delay-1 { animation-delay: .1s; }
+    .fade-up-delay-2 { animation-delay: .2s; }
+    .fade-up-delay-3 { animation-delay: .3s; }
+
+    /* ── Comparison table ── */
+    .check { color: #2548c6; font-weight: 700; }
+    .cross  { color: #94a3b8; }
+
+    /* ── Threat badge ── */
+    .threat-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #fef2f2; color: #dc2626;
+      border: 1px solid #fecaca;
+      border-radius: 9999px; padding: 4px 12px;
+      font-size: 0.75rem; font-weight: 600;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="pt-28">
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="py-20 bg-gradient-to-br from-indigo-700 via-indigo-600 to-sky-600 text-white">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-white/20 text-sm font-semibold tracking-wider fade-up">Segurança Website</span>
+        <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold fade-up fade-up-delay-1">
+          Protege o teu site contra malware e vulnerabilidades com o SiteLock
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl max-w-3xl mx-auto text-blue-100 fade-up fade-up-delay-2">
+          O SiteLock analisa automaticamente o teu site todos os dias, deteta ameaças e remove malware de forma instantânea — sem intervenção da tua parte. Protege o teu negócio, a tua reputação e os teus clientes.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center fade-up fade-up-delay-3">
+          <a href="#precos" class="px-8 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition">Ver Planos</a>
+          <a href="#como-funciona" class="px-8 py-3 border border-white/60 text-white rounded-xl font-semibold hover:bg-white/10 transition">Como Funciona</a>
+        </div>
+
+        <!-- Stats bar -->
+        <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
+          <div>
+            <p class="text-4xl font-extrabold">+12 M</p>
+            <p class="text-blue-200 text-sm mt-1">Sites protegidos</p>
+          </div>
+          <div>
+            <p class="text-4xl font-extrabold">Diário</p>
+            <p class="text-blue-200 text-sm mt-1">Scan automático</p>
+          </div>
+          <div>
+            <p class="text-4xl font-extrabold">Desde 2008</p>
+            <p class="text-blue-200 text-sm mt-1">Líder global em segurança web</p>
+          </div>
+          <div>
+            <p class="text-4xl font-extrabold">11 seg</p>
+            <p class="text-blue-200 text-sm mt-1">1 ataque de malware a cada</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         PREÇO + COMO FUNCIONA
+    ══════════════════════════════════════════ -->
+    <section id="como-funciona" class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6 grid gap-8 lg:grid-cols-2">
+
+        <article class="rounded-2xl border border-slate-200 p-8 shadow-sm">
+          <h2 class="text-3xl font-bold text-indigo-700">A partir de €20,00 EUR/mês</h2>
+          <p class="mt-3 text-slate-600">SiteLock — proteção automática contra malware e vulnerabilidades para o teu site, 24 horas por dia, 7 dias por semana.</p>
+          <ul class="mt-5 space-y-2 text-slate-700 text-sm">
+            <li>✅ Scan diário de malware e vulnerabilidades</li>
+            <li>✅ Remoção automática de código malicioso</li>
+            <li>✅ Firewall de aplicações web (WAF)</li>
+            <li>✅ Alertas imediatos por e-mail</li>
+            <li>✅ Correção automática de vulnerabilidades em CMS</li>
+            <li>✅ Selo de Confiança SiteLock para o teu site</li>
+          </ul>
+          <a href="#precos" class="mt-6 inline-block px-6 py-3 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition">Proteger o Meu Site</a>
+        </article>
+
+        <article class="rounded-2xl border border-slate-200 p-8 shadow-sm">
+          <h2 class="text-2xl font-bold">Como funciona o SiteLock?</h2>
+          <p class="mt-4 text-slate-600">O SiteLock protege o teu site de forma totalmente automática, em três passos simples.</p>
+          <ol class="mt-4 space-y-4 text-slate-700">
+            <li class="flex gap-3">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center">1</span>
+              <div>
+                <p class="font-semibold">Scan diário automático</p>
+                <p class="text-slate-500 text-sm">O SiteLock analisa os ficheiros, base de dados e aplicações do teu site todos os dias, sem qualquer impacto na performance.</p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center">2</span>
+              <div>
+                <p class="font-semibold">Deteção e alerta imediato</p>
+                <p class="text-slate-500 text-sm">Se for encontrada alguma ameaça, és notificado de imediato por e-mail com informação detalhada sobre o problema detetado.</p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center">3</span>
+              <div>
+                <p class="font-semibold">Remoção automática de malware</p>
+                <p class="text-slate-500 text-sm">O malware é removido automaticamente — sem necessidade de intervenção manual. O teu site fica limpo e seguro em instantes.</p>
+              </div>
+            </li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         FUNCIONALIDADES PRINCIPAIS
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Proteção completa para o teu site</h2>
+        <p class="mt-4 text-center text-slate-600 max-w-3xl mx-auto">
+          O SiteLock oferece uma suite completa de ferramentas de segurança para proteger o teu site contra as ameaças mais comuns — de malware a ataques de injeção SQL —, mantendo-o sempre online e de confiança.
+        </p>
+        <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🔍</div>
+            <h3 class="font-semibold text-slate-800">Scan Diário de Malware</h3>
+            <p class="text-slate-600 text-sm mt-1">Análise diária automática dos ficheiros do site. Se for detetado malware, és alertado de imediato e o código malicioso é removido automaticamente.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🛡️</div>
+            <h3 class="font-semibold text-slate-800">Firewall TrueShield™</h3>
+            <p class="text-slate-600 text-sm mt-1">O firewall de aplicações web bloqueia tráfego malicioso antes que chegue ao teu site, protegendo contra as 10 principais falhas de segurança reconhecidas pela OWASP.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🔧</div>
+            <h3 class="font-semibold text-slate-800">Correção Automática de CMS</h3>
+            <p class="text-slate-600 text-sm mt-1">Para sites WordPress, Joomla e outros CMS, o SiteLock corrige automaticamente vulnerabilidades encontradas nas aplicações, mantendo-as sempre atualizadas e seguras.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">⚡</div>
+            <h3 class="font-semibold text-slate-800">Aceleração TrueSpeed™ CDN</h3>
+            <p class="text-slate-600 text-sm mt-1">Distribui o teu site globalmente através de uma CDN, servindo-o a partir do servidor mais próximo do visitante. As páginas carregam até 50% mais rápido.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🏅</div>
+            <h3 class="font-semibold text-slate-800">Selo de Confiança SiteLock</h3>
+            <p class="text-slate-600 text-sm mt-1">Exibe o selo de segurança reconhecido mundialmente no teu site. Transmite confiança aos visitantes e aumenta as taxas de conversão e vendas.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🚨</div>
+            <h3 class="font-semibold text-slate-800">SiteLock 911 — Emergência</h3>
+            <p class="text-slate-600 text-sm mt-1">O teu site foi comprometido? O serviço de emergência SiteLock 911 oferece assistência imediata e prioritária para recuperar e limpar o teu site de forma rápida.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         AMEAÇAS QUE O SITELOCK BLOQUEIA
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">O que devo saber?</h2>
+        <div class="mt-8 grid gap-5 md:grid-cols-2">
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">O alojamento não protege o teu site</h3>
+            <p class="text-slate-600 mt-2">Os fornecedores de alojamento protegem o servidor onde o teu site está — não o site em si. O SiteLock cobre essa lacuna, garantindo proteção direta ao nível do código e dos ficheiros do site.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">43% dos ataques visam pequenos negócios</h3>
+            <p class="text-slate-600 mt-2">Os hackers não visam apenas grandes empresas. A maioria dos ataques é automatizada e ataca qualquer site vulnerável. Protege o teu negócio independentemente da sua dimensão.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">Malware esconde-se sem que percebas</h3>
+            <p class="text-slate-600 mt-2">Muitos ataques são silenciosos — os hackers acedem ao teu site sem o teu conhecimento e instalam código malicioso que rouba dados dos teus clientes durante semanas ou meses.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">O Google pode bloquear o teu site</h3>
+            <p class="text-slate-600 mt-2">Se o Google detetar malware no teu site antes de ti, pode colocá-lo numa lista negra — o que resulta na perda de tráfego orgânico e na exibição de avisos de segurança aos visitantes.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">Sem impacto na performance do site</h3>
+            <p class="text-slate-600 mt-2">Durante o scan, o SiteLock descarrega os ficheiros para um servidor seguro e realiza a análise remotamente. Não há qualquer impacto no conteúdo, código, largura de banda ou recursos do servidor.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="font-semibold text-lg">Configuração instantânea, sem instalações</h3>
+            <p class="text-slate-600 mt-2">O SiteLock fica ativo em segundos, sem necessidade de instalar nada. A proteção começa imediatamente após a ativação — sem conhecimentos técnicos necessários.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         AMEAÇAS BLOQUEADAS
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Ameaças que o SiteLock bloqueia</h2>
+        <p class="mt-4 text-center text-slate-600 max-w-3xl mx-auto">
+          O SiteLock protege o teu site contra as formas de ataque mais comuns e perigosas, incluindo todas as vulnerabilidades reconhecidas pela OWASP — o padrão global de referência em segurança web.
+        </p>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <div class="rounded-xl bg-white border border-slate-200 p-6">
+            <h3 class="font-bold text-indigo-700 text-lg mb-3">Malware & Vírus</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li class="flex gap-2"><span class="text-red-400">⚠</span> Malware em ficheiros do site</li>
+              <li class="flex gap-2"><span class="text-red-400">⚠</span> Vírus e trojans</li>
+              <li class="flex gap-2"><span class="text-red-400">⚠</span> Scripts maliciosos ocultos</li>
+              <li class="flex gap-2"><span class="text-red-400">⚠</span> Redireccionamentos maliciosos</li>
+              <li class="flex gap-2"><span class="text-red-400">⚠</span> Spam injetado no site</li>
+            </ul>
+          </div>
+          <div class="rounded-xl bg-white border border-slate-200 p-6">
+            <h3 class="font-bold text-indigo-700 text-lg mb-3">Ataques de Injeção</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li class="flex gap-2"><span class="text-orange-400">⚠</span> SQL Injection (SQLi)</li>
+              <li class="flex gap-2"><span class="text-orange-400">⚠</span> Cross-Site Scripting (XSS)</li>
+              <li class="flex gap-2"><span class="text-orange-400">⚠</span> Remote File Inclusion</li>
+              <li class="flex gap-2"><span class="text-orange-400">⚠</span> Command Injection</li>
+              <li class="flex gap-2"><span class="text-orange-400">⚠</span> Broken Authentication</li>
+            </ul>
+          </div>
+          <div class="rounded-xl bg-white border border-slate-200 p-6">
+            <h3 class="font-bold text-indigo-700 text-lg mb-3">Ameaças Avançadas</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li class="flex gap-2"><span class="text-yellow-500">⚠</span> DDoS (ataques de negação de serviço)</li>
+              <li class="flex gap-2"><span class="text-yellow-500">⚠</span> Ransomware</li>
+              <li class="flex gap-2"><span class="text-yellow-500">⚠</span> Phishing e roubo de dados</li>
+              <li class="flex gap-2"><span class="text-yellow-500">⚠</span> Desfiguração do site</li>
+              <li class="flex gap-2"><span class="text-yellow-500">⚠</span> Blacklisting pelo Google</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         COMPARAÇÃO DE PLANOS
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-white">
+      <div class="max-w-5xl mx-auto px-6 overflow-x-auto">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center mb-10">Compara os Planos</h2>
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-indigo-700 text-white">
+              <th class="text-left p-4 rounded-tl-xl">Funcionalidade</th>
+              <th class="p-4 text-center">FIND</th>
+              <th class="p-4 text-center">FIX</th>
+              <th class="p-4 text-center">PREVENT</th>
+              <th class="p-4 text-center rounded-tr-xl">911</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr class="bg-slate-50">
+              <td class="p-4 font-medium">Scan diário de malware</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Alertas imediatos por e-mail</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="p-4 font-medium">Remoção automática de malware (SMART)</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Firewall TrueShield™ (WAF)</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center cross">—</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="p-4 font-medium">Aceleração CDN TrueSpeed™</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center cross">—</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Correção automática de CMS</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center cross">—</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="p-4 font-medium">Verificação de vulnerabilidades de apps</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center cross">—</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Assistência de emergência prioritária</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center check">✔</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="p-4 font-medium">Conformidade PCI</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center cross">—</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center cross">—</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium">Selo de Confiança SiteLock</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center check">✔</td>
+              <td class="p-4 text-center cross">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         PREÇOS
+    ══════════════════════════════════════════ -->
+    <section id="precos" class="py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Preços</h2>
+        <p class="mt-3 text-slate-600">Escolhe o plano certo para o teu site e começa a protegê-lo hoje mesmo.</p>
+
+        <!-- Toggle -->
+        <div class="mt-6 inline-flex items-center gap-3 bg-white border border-slate-200 rounded-full px-4 py-2 text-sm font-medium">
+          <span id="lbl-monthly" class="text-indigo-700 font-semibold">Mensal</span>
+          <button id="billing-toggle" onclick="toggleBilling()" class="relative w-11 h-6 bg-slate-200 rounded-full cursor-pointer transition-colors" aria-label="Alternar faturação">
+            <span id="toggle-dot" class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform"></span>
+          </button>
+          <span id="lbl-annual" class="text-slate-500">Anual <span class="text-green-600 font-semibold text-xs">-20%</span></span>
+        </div>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+
+          <!-- FIND -->
+          <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col">
+            <h3 class="text-lg font-bold text-slate-800">FIND</h3>
+            <p class="text-slate-500 text-xs mt-1">Deteção de malware e vulnerabilidades</p>
+            <div class="mt-5">
+              <p class="plan-price-monthly text-3xl font-extrabold text-indigo-700">€14,00<span class="text-sm font-medium text-slate-400">/mês</span></p>
+              <p class="plan-price-annual text-3xl font-extrabold text-indigo-700">€11,20<span class="text-sm font-medium text-slate-400">/mês</span></p>
+            </div>
+            <ul class="mt-5 space-y-1 text-sm text-slate-600 flex-1">
+              <li>✅ Scan diário de malware</li>
+              <li>✅ Alertas por e-mail</li>
+              <li>✅ Scan de vulnerabilidades</li>
+              <li>✅ Selo de Confiança</li>
+              <li class="text-slate-300">✗ Remoção automática</li>
+              <li class="text-slate-300">✗ Firewall WAF</li>
+            </ul>
+            <a href="#" class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Escolher FIND</a>
+          </div>
+
+          <!-- FIX (destaque) -->
+          <div class="rounded-2xl border-2 border-indigo-600 p-6 bg-indigo-700 text-white shadow-xl flex flex-col relative">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-indigo-700 text-xs font-bold px-4 py-1 rounded-full shadow">Mais Popular</span>
+            <h3 class="text-lg font-bold">FIX</h3>
+            <p class="text-indigo-200 text-xs mt-1">Deteção e remoção automática de malware</p>
+            <div class="mt-5">
+              <p class="plan-price-monthly text-3xl font-extrabold">€20,00<span class="text-sm font-medium text-indigo-300">/mês</span></p>
+              <p class="plan-price-annual text-3xl font-extrabold">€16,00<span class="text-sm font-medium text-indigo-300">/mês</span></p>
+            </div>
+            <ul class="mt-5 space-y-1 text-sm text-indigo-100 flex-1">
+              <li>✅ Tudo do plano FIND</li>
+              <li>✅ Remoção automática (SMART)</li>
+              <li>✅ Correção automática de CMS</li>
+              <li>✅ Scan de base de dados</li>
+              <li class="text-indigo-300">✗ Firewall WAF</li>
+              <li class="text-indigo-300">✗ CDN TrueSpeed™</li>
+            </ul>
+            <a href="#" class="mt-5 block text-center px-4 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition text-sm">Escolher FIX</a>
+          </div>
+
+          <!-- PREVENT -->
+          <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col">
+            <h3 class="text-lg font-bold text-slate-800">PREVENT</h3>
+            <p class="text-slate-500 text-xs mt-1">Deteção, correção e prevenção com CDN</p>
+            <div class="mt-5">
+              <p class="plan-price-monthly text-3xl font-extrabold text-indigo-700">€55,00<span class="text-sm font-medium text-slate-400">/mês</span></p>
+              <p class="plan-price-annual text-3xl font-extrabold text-indigo-700">€44,00<span class="text-sm font-medium text-slate-400">/mês</span></p>
+            </div>
+            <ul class="mt-5 space-y-1 text-sm text-slate-600 flex-1">
+              <li>✅ Tudo do plano FIX</li>
+              <li>✅ Firewall TrueShield™ (WAF)</li>
+              <li>✅ CDN TrueSpeed™</li>
+              <li>✅ Proteção OWASP Top 10</li>
+              <li>✅ Conformidade PCI</li>
+              <li>✅ Aceleração até 50% mais rápido</li>
+            </ul>
+            <a href="#" class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Escolher PREVENT</a>
+          </div>
+
+          <!-- 911 -->
+          <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col">
+            <h3 class="text-lg font-bold text-slate-800">911</h3>
+            <p class="text-slate-500 text-xs mt-1">Assistência de emergência imediata</p>
+            <div class="mt-5">
+              <p class="plan-price-monthly text-3xl font-extrabold text-indigo-700">€250,00<span class="text-sm font-medium text-slate-400"> único</span></p>
+              <p class="plan-price-annual text-3xl font-extrabold text-indigo-700">€250,00<span class="text-sm font-medium text-slate-400"> único</span></p>
+            </div>
+            <ul class="mt-5 space-y-1 text-sm text-slate-600 flex-1">
+              <li>✅ Serviço de uso único</li>
+              <li>✅ Prioridade máxima</li>
+              <li>✅ Limpeza completa do site</li>
+              <li>✅ Remoção de malware profunda</li>
+              <li>✅ Relatório de segurança</li>
+              <li class="text-slate-400 text-xs mt-1">Ideal se o site já foi comprometido</li>
+            </ul>
+            <a href="#" class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar 911</a>
+          </div>
+
+        </div>
+
+        <p class="mt-6 text-slate-400 text-sm">Todos os planos incluem 15 dias de garantia de devolução do dinheiro. Sem compromisso.</p>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         TESTEMUNHOS
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">O que dizem os nossos clientes</h2>
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+
+          <div class="rounded-2xl border border-slate-200 p-6 bg-slate-50">
+            <p class="text-yellow-400 text-lg">★★★★★</p>
+            <p class="mt-3 text-slate-700 text-sm italic">"O SiteLock detetou e removeu um script malicioso que tinha sido injetado no meu site sem eu dar conta. Salvou-me de uma situação muito complicada!"</p>
+            <div class="mt-4 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-indigo-200 flex items-center justify-center font-bold text-indigo-700 text-sm">JF</div>
+              <div>
+                <p class="font-semibold text-sm">João Ferreira</p>
+                <p class="text-slate-400 text-xs">Loja online de eletrónica</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 p-6 bg-slate-50">
+            <p class="text-yellow-400 text-lg">★★★★★</p>
+            <p class="mt-3 text-slate-700 text-sm italic">"Desde que ativei o SiteLock, duermo muito mais tranquilo. O selo de segurança também aumentou a confiança dos clientes na minha loja — as conversões subiram."</p>
+            <div class="mt-4 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-green-200 flex items-center justify-center font-bold text-green-700 text-sm">PC</div>
+              <div>
+                <p class="font-semibold text-sm">Paulo Cardoso</p>
+                <p class="text-slate-400 text-xs">E-commerce de moda</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 p-6 bg-slate-50">
+            <p class="text-yellow-400 text-lg">★★★★★</p>
+            <p class="mt-3 text-slate-700 text-sm italic">"O meu site WordPress foi comprometido. Contratei o SiteLock 911 e em poucas horas estava tudo limpo e a funcionar normalmente. Excelente serviço de emergência."</p>
+            <div class="mt-4 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-purple-200 flex items-center justify-center font-bold text-purple-700 text-sm">IM</div>
+              <div>
+                <p class="font-semibold text-sm">Inês Marques</p>
+                <p class="text-slate-400 text-xs">Agência de comunicação</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         FAQ
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Perguntas Frequentes</h2>
+
+        <div class="mt-8 space-y-3">
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              O scan do SiteLock afeta a performance do meu site?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Não. O SiteLock descarrega os ficheiros relevantes para um servidor seguro e realiza a análise remotamente. Não há qualquer impacto no conteúdo, código, largura de banda ou recursos do servidor do teu site.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              O que é o Selo de Confiança SiteLock?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              O Selo de Confiança SiteLock é um certificado de segurança reconhecido mundialmente que podes exibir no teu site. Indica aos visitantes que o site é seguro e livre de malware. Para o adicionar, basta incluir um pequeno snippet de código no rodapé do site.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              O SiteLock funciona com WordPress e outros CMS?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Sim. O SiteLock é compatível com WordPress, Joomla, Magento, Drupal e praticamente qualquer outro CMS. Os planos FIX e PREVENT incluem correção automática de vulnerabilidades encontradas nestes sistemas de gestão de conteúdo.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Qual a diferença entre SSL e SiteLock?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              São complementares. O SSL protege os dados enquanto são transmitidos entre o utilizador e o servidor — como uma ligação encriptada. O SiteLock protege o próprio site contra ataques diretos que tentam comprometer, danificar ou explorar o código e os ficheiros do site. Recomendamos ter ambos.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Quando devo usar o SiteLock 911?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              O SiteLock 911 é um serviço de emergência de uso único, destinado a sites que já foram comprometidos. Se suspeitas que o teu site foi hackeado ou infetado com malware, o 911 oferece limpeza prioritária e completa. É um serviço de pagamento único, sem subscrição mensal.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Posso cancelar o plano a qualquer momento?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Sim, podes cancelar a subscrição a qualquer momento. Todos os planos incluem uma garantia de 15 dias de devolução do dinheiro. O acesso mantém-se ativo até ao fim do período de faturação em curso.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         CTA FINAL
+    ══════════════════════════════════════════ -->
+    <section class="py-20 bg-gradient-to-br from-indigo-700 via-indigo-600 to-sky-600 text-white text-center">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Não esperes que o teu site seja atacado</h2>
+        <p class="mt-4 text-blue-100 text-lg">Junta-te a mais de 12 milhões de sites protegidos pelo SiteLock. A proteção começa em segundos, sem instalações.</p>
+        <a href="#precos" class="mt-8 inline-block px-10 py-4 bg-white text-indigo-700 rounded-xl font-bold text-lg hover:bg-blue-50 transition shadow-lg">Proteger o Meu Site Agora</a>
+        <p class="mt-3 text-indigo-300 text-sm">Garantia de 15 dias. Sem compromisso.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 pt-16 pb-8">
+    <div class="max-w-6xl mx-auto px-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-10">
+      <div>
+        <h4 class="text-white font-bold mb-3">Webminds</h4>
+        <p class="text-sm">O teu parceiro de confiança em soluções de alojamento web e segurança online.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Segurança</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:text-white transition">SiteLock</a></li>
+          <li><a href="#" class="hover:text-white transition">Certificados SSL</a></li>
+          <li><a href="#" class="hover:text-white transition">Backups Diários</a></li>
+          <li><a href="#" class="hover:text-white transition">NordVPN</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Produtos</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:text-white transition">Alojamento Web</a></li>
+          <li><a href="#" class="hover:text-white transition">WordPress Hosting</a></li>
+          <li><a href="#" class="hover:text-white transition">VPS Servers</a></li>
+          <li><a href="#" class="hover:text-white transition">Ferramentas de SEO</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Empresa</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:text-white transition">Sobre nós</a></li>
+          <li><a href="#" class="hover:text-white transition">Contacto</a></li>
+          <li><a href="#" class="hover:text-white transition">Política de Privacidade</a></li>
+          <li><a href="#" class="hover:text-white transition">Termos de Serviço</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 border-t border-slate-800 pt-6 text-center text-xs">© 2026 WebMinds. Todos os direitos reservados.</div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    let isAnnual = false;
+    function toggleBilling() {
+      isAnnual = !isAnnual;
+      document.body.classList.toggle('annual', isAnnual);
+      const dot = document.getElementById('toggle-dot');
+      const toggle = document.getElementById('billing-toggle');
+      const lblMonthly = document.getElementById('lbl-monthly');
+      const lblAnnual = document.getElementById('lbl-annual');
+      dot.style.transform = isAnnual ? 'translateX(20px)' : 'translateX(0)';
+      toggle.style.backgroundColor = isAnnual ? '#2548c6' : '';
+      lblMonthly.classList.toggle('text-indigo-700', !isAnnual);
+      lblMonthly.classList.toggle('font-semibold', !isAnnual);
+      lblMonthly.classList.toggle('text-slate-500', isAnnual);
+      lblAnnual.classList.toggle('text-indigo-700', isAnnual);
+      lblAnnual.classList.toggle('font-semibold', isAnnual);
+      lblAnnual.classList.toggle('text-slate-500', !isAnnual);
+    }
+  </script>
+
+</body>
+</html>

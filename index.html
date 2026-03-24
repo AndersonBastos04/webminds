@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebMinds — Alojamento Web, Servidores & Cloud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            /* Brand palette */
+            indigo: {
+              50: '#f4f7ff',
+              100: '#e3e8ff',
+              200: '#c7d2ff',
+              300: '#9fb0ff',
+              400: '#5d7ef0',
+              500: '#2548c6',
+              600: '#1934a7',
+              700: '#031974',
+            },
+            /* Map accent palettes to the same brand blue */
+            sky: {
+              50: '#f4f7ff',
+              100: '#e3e8ff',
+              200: '#c7d2ff',
+              300: '#9fb0ff',
+              400: '#5d7ef0',
+              500: '#1934a7',
+              600: '#1934a7',
+              700: '#031974',
+            },
+            violet: {
+              50: '#f4f7ff',
+              100: '#e3e8ff',
+              200: '#c7d2ff',
+              300: '#9fb0ff',
+              400: '#5d7ef0',
+              500: '#1934a7',
+              600: '#1934a7',
+              700: '#031974',
+            },
+            purple: {
+              50: '#f4f7ff',
+              100: '#e3e8ff',
+              200: '#c7d2ff',
+              300: '#9fb0ff',
+              400: '#5d7ef0',
+              500: '#1934a7',
+              600: '#1934a7',
+              700: '#031974',
+            },
+            emerald: { DEFAULT: '#10B981' },
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.7s ease both',
+            'fade-right': 'fadeRight 0.7s 0.2s ease both',
+            'pulse-dot': 'pulseDot 2s infinite',
+            'blink': 'blink 1s step-end infinite',
+          },
+          keyframes: {
+            fadeUp: { from: { opacity: 0, transform: 'translateY(28px)' }, to: { opacity: 1, transform: 'translateY(0)' } },
+            fadeRight: { from: { opacity: 0, transform: 'translateX(36px)' }, to: { opacity: 1, transform: 'translateX(0)' } },
+            pulseDot: { '0%,100%': { opacity: 1, transform: 'scale(1)' }, '50%': { opacity: 0.5, transform: 'scale(0.8)' } },
+            blink: { '0%,100%': { opacity: 1 }, '50%': { opacity: 0 } },
+          },
+          backgroundImage: {
+            'gradient-primary': 'linear-gradient(135deg, #1934a7 0%, #031974 100%)',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+    <script src="navbar.js"></script>
+
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+
+  
+
+  <!-- Scroll Progress Bar -->
+  <div id="scrollProgressBar" class="fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-600 to-sky-500 z-50 transform scale-x-0 origin-left"></div>
+
+  
+  <!-- ===== HERO ===== -->
+   
+  <section id="hero" class="relative overflow-hidden">
+    <canvas id="particles-canvas"
+      class="fixed inset-0 w-full h-full -z-10 pointer-events-none opacity-55 motion-reduce:hidden"
+      aria-hidden="true"></canvas>
+
+    <!-- Cleaner background -->
+    <div class="absolute inset-0 -z-20">
+      <div
+        class="absolute -top-32 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-indigo-500/18 via-sky-400/10 to-cyan-300/8 blur-3xl">
+      </div>
+      <div class="absolute inset-0 bg-white/80"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 pt-32 pb-14 sm:pt-36 sm:pb-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <!-- Copy -->
+        <div class="lg:col-span-6 text-center lg:text-left animate-fade-up">
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-6">
+            <span
+              class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 backdrop-blur px-3.5 py-1.5 text-xs font-semibold text-slate-700">
+              <span
+                class="inline-flex items-center rounded-full bg-indigo-600 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-white">Novo
+                produto</span>
+              <span class="text-slate-600">Vissiona</span>
+              <span class="text-slate-400">—</span>
+              <span class="text-slate-600">Software de gestão</span>
+            </span>
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.06]">
+            <span class="bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent">Webminds</span>
+            <span class="block text-slate-900">para a sua infraestrutura.</span>
+            <span class="block mt-3 text-xl sm:text-2xl font-medium text-slate-400">
+              com <span class="text-slate-600 font-semibold">Vissiona</span> para a gestão.
+            </span>
+          </h1>
+
+          <p class="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+            O nosso novo produto reúne <span class="font-semibold text-slate-800">faturação</span>, <span
+              class="font-semibold text-slate-800">clientes</span> e <span
+              class="font-semibold text-slate-800">projetos</span> num só lugar — simples de usar, rápido e seguro.
+          </p>
+
+          <ul
+            class="mt-6 flex flex-col sm:flex-row sm:flex-wrap gap-2.5 justify-center lg:justify-start text-sm text-slate-600">
+            <li
+              class="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur border border-slate-200 px-3 py-1.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-indigo-500" aria-hidden="true"></span> Para PME e equipas
+            </li>
+            <li
+              class="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur border border-slate-200 px-3 py-1.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-sky-500" aria-hidden="true"></span> Relatórios em tempo real
+            </li>
+            <li
+              class="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur border border-slate-200 px-3 py-1.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true"></span> Suporte em PT
+            </li>
+          </ul>
+
+          <!-- CTAs -->
+          <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <a href="https://vissiona.pt/" target="_blank" rel="noopener noreferrer"
+              class="group inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-indigo-600/15 hover:bg-indigo-700 transition-all hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">
+              Experimentar Vissiona
+              <svg class="transition-transform group-hover:translate-x-0.5" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+            <button type="button" data-vissiona-open
+              class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white/70 backdrop-blur px-6 py-3.5 text-sm font-semibold text-slate-700 hover:bg-white hover:border-indigo-200 hover:text-indigo-700 transition-all hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">
+              Ver funcionalidades
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="mt-9 flex items-center justify-center lg:justify-start gap-8">
+            <div>
+              <p class="text-2xl font-extrabold text-slate-900 tracking-tight">
+                <span data-target="74">0</span><span aria-hidden="true">+</span>
+              </p>
+              <p class="text-xs text-slate-500 font-medium">Sites Alojados</p>
+            </div>
+            <div class="w-px h-9 bg-slate-200"></div>
+            <div>
+              <p class="text-2xl font-extrabold text-slate-900 tracking-tight">
+                <span data-target="181">0</span><span aria-hidden="true">+</span>
+              </p>
+              <p class="text-xs text-slate-500 font-medium">Clientes</p>
+            </div>
+            <div class="w-px h-9 bg-slate-200"></div>
+            <div>
+              <p class="text-2xl font-extrabold text-slate-900 tracking-tight" data-target="2">0</p>
+              <p class="text-xs text-slate-500 font-medium">Anos de Atividade</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product preview (kept, but visually quieter) -->
+        <div class="lg:col-span-6">
+          <figure class="relative mx-auto w-full max-w-[520px] animate-fade-right motion-reduce:transform-none"
+            aria-label="Pré-visualização do Vissiona">
+            <div class="bg-white rounded-2xl shadow-2xl shadow-indigo-100 border border-slate-200 overflow-hidden">
+              <div class="bg-slate-100 px-4 py-3 flex items-center gap-2 border-b border-slate-200">
+                <div class="flex gap-1.5" aria-hidden="true">
+                  <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                  <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                  <div class="w-3 h-3 rounded-full bg-emerald-400"></div>
+                </div>
+                <div class="flex-1 bg-white rounded-md px-3 py-1 text-xs text-slate-400 ml-2 border border-slate-200">
+                  vissiona.pt</div>
+              </div>
+              <div class="p-5 bg-slate-50">
+                <div class="grid grid-cols-3 gap-3 mb-4">
+                  <div class="bg-white rounded-xl p-3 border border-slate-100 shadow-sm">
+                    <p class="text-[10px] text-slate-400 font-medium mb-1">Receita</p>
+                    <p class="text-lg font-extrabold text-slate-900">€18.9k</p>
+                    <p class="text-[10px] text-emerald-600 font-semibold">↑ +12%</p>
+                  </div>
+                  <div class="bg-white rounded-xl p-3 border border-slate-100 shadow-sm">
+                    <p class="text-[10px] text-slate-400 font-medium mb-1">Faturas</p>
+                    <p class="text-lg font-extrabold text-slate-900">146</p>
+                    <p class="text-[10px] text-sky-600 font-semibold">→ em dia</p>
+                  </div>
+                  <div class="bg-white rounded-xl p-3 border border-slate-100 shadow-sm">
+                    <p class="text-[10px] text-slate-400 font-medium mb-1">Pendências</p>
+                    <p class="text-lg font-extrabold text-slate-900">7</p>
+                    <p class="text-[10px] text-amber-600 font-semibold">⚑ rever</p>
+                  </div>
+                </div>
+                <div class="bg-white rounded-xl p-4 border border-slate-100 shadow-sm">
+                  <div class="flex items-center justify-between mb-3">
+                    <p class="text-xs font-semibold text-slate-700">Atividade</p>
+                    <p class="text-[10px] text-slate-400 font-semibold">semana</p>
+                  </div>
+                  <div class="grid grid-cols-12 gap-2 items-end h-20" aria-hidden="true">
+                    <div class="col-span-1 h-8 rounded-md bg-indigo-600/25"></div>
+                    <div class="col-span-1 h-12 rounded-md bg-indigo-600/35"></div>
+                    <div class="col-span-1 h-6 rounded-md bg-sky-500/25"></div>
+                    <div class="col-span-1 h-14 rounded-md bg-indigo-600/45"></div>
+                    <div class="col-span-1 h-10 rounded-md bg-sky-500/35"></div>
+                    <div class="col-span-1 h-16 rounded-md bg-indigo-600/55"></div>
+                    <div class="col-span-1 h-9 rounded-md bg-sky-500/30"></div>
+                    <div class="col-span-1 h-15 rounded-md bg-indigo-600/55"></div>
+                    <div class="col-span-1 h-7 rounded-md bg-sky-500/30"></div>
+                    <div class="col-span-1 h-13 rounded-md bg-indigo-600/45"></div>
+                    <div class="col-span-1 h-8 rounded-md bg-sky-500/30"></div>
+                    <div class="col-span-1 h-17 rounded-md bg-indigo-600/60"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute -z-10 top-8 left-8 right-8 bottom-0 bg-indigo-200 blur-3xl opacity-20 rounded-2xl"
+              aria-hidden="true"></div>
+            <figcaption class="mt-4 text-center text-xs text-slate-500">
+              Pré-visualização ilustrativa do <span class="font-semibold text-slate-700">Vissiona</span> — um novo
+              produto da WebMinds.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VISSIONA MODAL (overlay page) ===== -->
+  <div id="vissionaModal" class="fixed inset-0 z-[70] hidden" aria-hidden="true">
+    <!-- Backdrop -->
+    <div data-vissiona-backdrop class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"></div>
+
+    <!-- Dialog -->
+    <div class="relative h-full w-full overflow-y-auto">
+      <div class="mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-12">
+        <div role="dialog" aria-modal="true" aria-labelledby="vissionaTitle" aria-describedby="vissionaDesc"
+          tabindex="-1"
+          class="relative rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/10 overflow-hidden focus:outline-none">
+
+          <!-- Header -->
+          <div
+            class="flex items-start justify-between gap-4 px-6 py-5 border-b border-slate-200 bg-gradient-to-r from-indigo-50/60 to-sky-50/60">
+            <div class="min-w-0">
+              <div class="flex flex-wrap items-center gap-2 mb-2">
+                <span
+                  class="inline-flex items-center rounded-full bg-indigo-600 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-white">Novo
+                  produto</span>
+                <span class="text-xs font-semibold text-slate-600">Vissiona</span>
+                <span class="text-xs text-slate-400">•</span>
+                <span class="text-xs font-semibold text-slate-600">Software de gestão da WebMinds</span>
+              </div>
+              <h2 id="vissionaTitle" class="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900">
+                Tudo sobre o Vissiona
+              </h2>
+              <p id="vissionaDesc" class="mt-1 text-sm text-slate-600 leading-relaxed max-w-2xl">
+                A plataforma para organizar a operação do dia a dia — faturação, clientes, projetos e relatórios — com a
+                performance e segurança da cloud WebMinds.
+              </p>
+            </div>
+
+            <button type="button" data-vissiona-close
+              class="shrink-0 inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+              aria-label="Fechar">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Body -->
+          <div class="px-6 py-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+              <!-- Left: content -->
+              <div class="lg:col-span-7">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                    <p class="text-sm font-bold text-slate-900">O que é</p>
+                    <p class="mt-1 text-sm text-slate-600 leading-relaxed">
+                      O <span class="font-semibold text-slate-800">Vissiona</span> é um software de gestão para
+                      centralizar a informação e acelerar decisões.
+                    </p>
+                  </div>
+                  <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                    <p class="text-sm font-bold text-slate-900">Para quem</p>
+                    <p class="mt-1 text-sm text-slate-600 leading-relaxed">
+                      PMEs, agências, serviços e equipas internas que precisam de controlo sem complexidade.
+                    </p>
+                  </div>
+                  <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                    <p class="text-sm font-bold text-slate-900">Porque é poderoso</p>
+                    <p class="mt-1 text-sm text-slate-600 leading-relaxed">
+                      Fluxos consistentes, dados sempre atualizados e relatórios prontos para orientar a operação.
+                    </p>
+                  </div>
+                  <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                    <p class="text-sm font-bold text-slate-900">Segurança & confiança</p>
+                    <p class="mt-1 text-sm text-slate-600 leading-relaxed">
+                      GDPR, suporte em PT e infraestrutura cloud gerida pela WebMinds.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <p class="text-sm font-bold text-slate-900">Funcionalidades principais</p>
+                  <ul class="mt-3 space-y-2 text-sm text-slate-700">
+                    <li class="flex gap-2"><span class="text-emerald-600 font-bold">✓</span> Faturação e documentos
+                      (histórico centralizado)</li>
+                    <li class="flex gap-2"><span class="text-emerald-600 font-bold">✓</span> Gestão de clientes e
+                      pipeline</li>
+                    <li class="flex gap-2"><span class="text-emerald-600 font-bold">✓</span> Projetos, tarefas e
+                      prioridades</li>
+                    <li class="flex gap-2"><span class="text-emerald-600 font-bold">✓</span> Relatórios em tempo real
+                      para decisões rápidas</li>
+                  </ul>
+                </div>
+
+                <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                  <a href="https://vissiona.pt/" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">
+                    Experimentar Vissiona
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right: preview -->
+              <div class="lg:col-span-5">
+                <div class="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+                  <div class="flex items-center gap-2 px-4 py-3 bg-slate-50 border-b border-slate-200">
+                    <div class="flex gap-1.5" aria-hidden="true">
+                      <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                      <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                      <div class="w-3 h-3 rounded-full bg-emerald-400"></div>
+                    </div>
+                    <div
+                      class="flex-1 bg-white rounded-md px-3 py-1 text-xs text-slate-400 ml-2 border border-slate-200">
+                      vissiona.pt</div>
+                  </div>
+                  <div class="p-4 bg-slate-50">
+                    <div class="grid grid-cols-3 gap-3">
+                      <div class="bg-white rounded-xl p-3 border border-slate-100 shadow-sm">
+                        <p class="text-[10px] text-slate-400 font-medium mb-1">Receita</p>
+                        <p class="text-lg font-extrabold text-slate-900">€18.9k</p>
+                        <p class="text-[10px] text-emerald-600 font-semibold">↑ +12%</p>
+                      </div>
+                      <div class="bg-white rounded-xl p-3 border border-slate-100 shadow-sm">
+                        <p class="text-[10px] text-slate-400 font-medium mb-1">Faturas</p>
+                        <p class="text-lg font-extrabold text-slate-900">146</p>
+                        <p class="text-[10px] text-sky-600 font-semibold">→ em dia</p>
+                      </div>
+                      <div class="bg-white rounded-xl p-3 border border-slate-100 shadow-sm">
+                        <p class="text-[10px] text-slate-400 font-medium mb-1">Pendências</p>
+                        <p class="text-lg font-extrabold text-slate-900">7</p>
+                        <p class="text-[10px] text-amber-600 font-semibold">⚑ rever</p>
+                      </div>
+                    </div>
+                    <div class="mt-3 bg-white rounded-xl p-4 border border-slate-100 shadow-sm">
+                      <div class="flex items-center justify-between mb-3">
+                        <p class="text-xs font-semibold text-slate-700">Atividade</p>
+                        <p class="text-[10px] text-slate-400 font-semibold">semana</p>
+                      </div>
+                      <div class="grid grid-cols-12 gap-2 items-end h-20" aria-hidden="true">
+                        <div class="col-span-1 h-8 rounded-md bg-indigo-600/25"></div>
+                        <div class="col-span-1 h-12 rounded-md bg-indigo-600/35"></div>
+                        <div class="col-span-1 h-6 rounded-md bg-sky-500/25"></div>
+                        <div class="col-span-1 h-14 rounded-md bg-indigo-600/45"></div>
+                        <div class="col-span-1 h-10 rounded-md bg-sky-500/35"></div>
+                        <div class="col-span-1 h-16 rounded-md bg-indigo-600/55"></div>
+                        <div class="col-span-1 h-9 rounded-md bg-sky-500/30"></div>
+                        <div class="col-span-1 h-15 rounded-md bg-indigo-600/55"></div>
+                        <div class="col-span-1 h-7 rounded-md bg-sky-500/30"></div>
+                        <div class="col-span-1 h-13 rounded-md bg-indigo-600/45"></div>
+                        <div class="col-span-1 h-8 rounded-md bg-sky-500/30"></div>
+                        <div class="col-span-1 h-17 rounded-md bg-indigo-600/60"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 rounded-2xl border border-slate-200 bg-white p-5">
+                  <p class="text-sm font-bold text-slate-900">Infraestrutura WebMinds</p>
+                  <p class="mt-1 text-sm text-slate-600 leading-relaxed">
+                    O Vissiona corre sobre a mesma base que usamos para hosting, servidores e cloud: estabilidade e
+                    desempenho desde o primeiro dia.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="px-6 py-4 border-t border-slate-200 bg-white flex flex-wrap items-center justify-between gap-3">
+            <p class="text-xs text-slate-500">Dica: carregue em <span class="font-semibold text-slate-700">ESC</span>
+              para fechar.</p>
+            <button type="button" data-vissiona-close
+              class="text-xs font-semibold text-indigo-700 hover:text-indigo-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="relative py-24 sm:py-28 bg-white overflow-hidden">
+    <!-- Section backdrop (subtle emphasis) -->
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-50 to-white"></div>
+      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+      <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent">
+      </div>
+      <div class="absolute -top-24 left-1/2 -translate-x-1/2 h-[520px] w-[520px] rounded-full blur-3xl"
+        style="background: radial-gradient(circle at 50% 35%, rgba(25,52,167,0.16), transparent 62%);"></div>
+      <div class="absolute -bottom-40 -right-24 h-[520px] w-[520px] rounded-full blur-3xl"
+        style="background: radial-gradient(circle at 40% 45%, rgba(3,25,116,0.14), transparent 62%);"></div>
+      <div class="absolute -bottom-44 -left-28 h-[520px] w-[520px] rounded-full blur-3xl motion-reduce:hidden"
+        style="background: radial-gradient(circle at 40% 45%, rgba(25,52,167,0.10), transparent 62%); animation: aurora 16s ease-in-out infinite; will-change: transform;">
+      </div>
+      <div class="absolute inset-0 opacity-[0.035]"
+        style="background-image: radial-gradient(rgba(15,23,42,1) 1px, transparent 1px); background-size: 22px 22px;">
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 sm:mb-16">
+        <div class="pointer-events-none absolute -top-10 right-0 hidden lg:block select-none" aria-hidden="true">
+        </div>
+        <div class="lg:col-span-7 reveal">
+          <span
+            class="inline-flex items-center rounded-full bg-indigo-600/10 text-indigo-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5">
+            Serviços WebMinds
+          </span>
+          <h2 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
+            Infraestrutura que aguenta produção.
+          </h2>
+          <p class="mt-3 text-slate-600 leading-relaxed max-w-2xl">
+            Hosting, servidores e cloud geridos com foco em performance, estabilidade e suporte rápido. Escolha a
+            fundação certa — nós tratamos do resto.
+          </p>
+        </div>
+        <div class="lg:col-span-5 reveal flex flex-col sm:flex-row gap-3 lg:justify-end">
+          <a href="#plans"
+            class="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">
+            Ver planos
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </a>
+          <a href="#footer"
+            class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">
+            Falar connosco
+          </a>
+        </div>
+      </div>
+
+      <!-- Main container slider -->
+      <div class="reveal mt-8 relative">
+        <div class="mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 px-2">
+          <div>
+            <p class="text-base font-extrabold text-slate-800 tracking-tight">Explore os Serviços WebMinds</p>
+            <p class="text-sm text-slate-500 mt-0.5">Arraste para os lados ou use as setas para navegar.</p>
+          </div>
+          <div class="flex gap-2 hidden md:flex">
+            <button id="btn-prev-services"
+              class="w-11 h-11 rounded-full border-2 border-slate-100 bg-white hover:border-indigo-200 hover:text-indigo-600 hover:bg-indigo-50/50 text-slate-600 flex items-center justify-center shadow-sm transition-all hover:scale-105 active:scale-95"
+              aria-label="Anterior">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+            <button id="btn-next-services"
+              class="w-11 h-11 rounded-full border-2 border-slate-100 bg-white hover:border-indigo-200 hover:text-indigo-600 hover:bg-indigo-50/50 text-slate-600 flex items-center justify-center shadow-sm transition-all hover:scale-105 active:scale-95"
+              aria-label="Próximo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="services-slider"
+          class="flex gap-5 sm:gap-6 overflow-x-auto snap-x snap-proximity pb-12 pt-4 hide-scrollbar -mx-6 px-6 sm:-mx-0 sm:px-0"
+          style="scroll-behavior: smooth;">
+          <!-- Modern Card -->
+          <div
+            class="snap-start shrink-0 w-[280px] sm:w-[350px] rounded-3xl border border-slate-200/70 bg-white/60 backdrop-blur-lg shadow-xl shadow-slate-200/40 p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/15 hover:border-indigo-300 hover:bg-white transition-all duration-300 flex flex-col group relative overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-sky-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            </div>
+
+            <div
+              class="w-14 h-14 rounded-2xl bg-indigo-50/80 text-indigo-600 flex items-center justify-center mb-6 shadow-inner relative z-10 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-extrabold tracking-tight text-slate-900 mb-3 relative z-10">Alojamento Partilhado
+            </h3>
+            <p class="text-sm font-medium text-slate-500 leading-relaxed mb-6 flex-grow relative z-10">Rápido e fiável
+              para sites e lojas online.</p>
+
+            <ul class="space-y-3.5 mb-10 relative z-10">
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                SSD NVMe
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                SSL grátis
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                cPanel
+              </li>
+            </ul>
+
+            <a href="#plans"
+              class="inline-flex items-center justify-between w-full rounded-2xl bg-white border border-slate-200 px-5 py-4 text-sm font-bold text-slate-700 shadow-sm hover:border-indigo-300 hover:text-indigo-700 hover:bg-indigo-50/30 hover:shadow-md transition-all duration-300 relative z-10">
+              Ver opções
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1.5">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+          </div>
+          <!-- Modern Card -->
+          <div
+            class="snap-start shrink-0 w-[280px] sm:w-[350px] rounded-3xl border border-slate-200/70 bg-white/60 backdrop-blur-lg shadow-xl shadow-slate-200/40 p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/15 hover:border-indigo-300 hover:bg-white transition-all duration-300 flex flex-col group relative overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-sky-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            </div>
+
+            <div
+              class="w-14 h-14 rounded-2xl bg-indigo-50/80 text-indigo-600 flex items-center justify-center mb-6 shadow-inner relative z-10 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-extrabold tracking-tight text-slate-900 mb-3 relative z-10">Alojamento WordPress
+            </h3>
+            <p class="text-sm font-medium text-slate-500 leading-relaxed mb-6 flex-grow relative z-10">Ambiente
+              otimizado para o seu WordPress.</p>
+
+            <ul class="space-y-3.5 mb-10 relative z-10">
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                WP-CLI
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Cache nativa
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Proteção extra
+              </li>
+            </ul>
+
+            <a href="#plans"
+              class="inline-flex items-center justify-between w-full rounded-2xl bg-white border border-slate-200 px-5 py-4 text-sm font-bold text-slate-700 shadow-sm hover:border-indigo-300 hover:text-indigo-700 hover:bg-indigo-50/30 hover:shadow-md transition-all duration-300 relative z-10">
+              Ver opções
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1.5">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+          </div>
+          <!-- Modern Card -->
+          <div
+            class="snap-start shrink-0 w-[280px] sm:w-[350px] rounded-3xl border border-slate-200/70 bg-white/60 backdrop-blur-lg shadow-xl shadow-slate-200/40 p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/15 hover:border-indigo-300 hover:bg-white transition-all duration-300 flex flex-col group relative overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-sky-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            </div>
+
+            <div
+              class="w-14 h-14 rounded-2xl bg-indigo-50/80 text-indigo-600 flex items-center justify-center mb-6 shadow-inner relative z-10 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-extrabold tracking-tight text-slate-900 mb-3 relative z-10">Servidor VPS NVMe</h3>
+            <p class="text-sm font-medium text-slate-500 leading-relaxed mb-6 flex-grow relative z-10">Alta performance
+              com armazenamento rápido.</p>
+
+            <ul class="space-y-3.5 mb-10 relative z-10">
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Root acesso topo
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                I/O Elevado
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Escalável
+              </li>
+            </ul>
+
+            <a href="#plans"
+              class="inline-flex items-center justify-between w-full rounded-2xl bg-white border border-slate-200 px-5 py-4 text-sm font-bold text-slate-700 shadow-sm hover:border-indigo-300 hover:text-indigo-700 hover:bg-indigo-50/30 hover:shadow-md transition-all duration-300 relative z-10">
+              Ver opções
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1.5">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+          </div>
+          <!-- Modern Card -->
+          <div
+            class="snap-start shrink-0 w-[280px] sm:w-[350px] rounded-3xl border border-slate-200/70 bg-white/60 backdrop-blur-lg shadow-xl shadow-slate-200/40 p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/15 hover:border-indigo-300 hover:bg-white transition-all duration-300 flex flex-col group relative overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-sky-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            </div>
+
+            <div
+              class="w-14 h-14 rounded-2xl bg-indigo-50/80 text-indigo-600 flex items-center justify-center mb-6 shadow-inner relative z-10 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-extrabold tracking-tight text-slate-900 mb-3 relative z-10">Revenda Linux cPanel
+            </h3>
+            <p class="text-sm font-medium text-slate-500 leading-relaxed mb-6 flex-grow relative z-10">Para agências e
+              revendedores web lucrarem.</p>
+
+            <ul class="space-y-3.5 mb-10 relative z-10">
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                WHM Incluído
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                IPs dedicados
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Marca branca
+              </li>
+            </ul>
+
+            <a href="#plans"
+              class="inline-flex items-center justify-between w-full rounded-2xl bg-white border border-slate-200 px-5 py-4 text-sm font-bold text-slate-700 shadow-sm hover:border-indigo-300 hover:text-indigo-700 hover:bg-indigo-50/30 hover:shadow-md transition-all duration-300 relative z-10">
+              Ver opções
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1.5">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+          </div>
+          <!-- Modern Card -->
+          <div
+            class="snap-start shrink-0 w-[280px] sm:w-[350px] rounded-3xl border border-slate-200/70 bg-white/60 backdrop-blur-lg shadow-xl shadow-slate-200/40 p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/15 hover:border-indigo-300 hover:bg-white transition-all duration-300 flex flex-col group relative overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-sky-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            </div>
+
+            <div
+              class="w-14 h-14 rounded-2xl bg-indigo-50/80 text-indigo-600 flex items-center justify-center mb-6 shadow-inner relative z-10 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-extrabold tracking-tight text-slate-900 mb-3 relative z-10">E-mail Empresarial</h3>
+            <p class="text-sm font-medium text-slate-500 leading-relaxed mb-6 flex-grow relative z-10">Comunicação
+              profissional, segura e sem limites.</p>
+
+            <ul class="space-y-3.5 mb-10 relative z-10">
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Antispam VIP
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Sincronização
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Webmail fluido
+              </li>
+            </ul>
+
+            <a href="#plans"
+              class="inline-flex items-center justify-between w-full rounded-2xl bg-white border border-slate-200 px-5 py-4 text-sm font-bold text-slate-700 shadow-sm hover:border-indigo-300 hover:text-indigo-700 hover:bg-indigo-50/30 hover:shadow-md transition-all duration-300 relative z-10">
+              Ver opções
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1.5">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+          </div>
+          <!-- Modern Card -->
+          <div
+            class="snap-start shrink-0 w-[280px] sm:w-[350px] rounded-3xl border border-slate-200/70 bg-white/60 backdrop-blur-lg shadow-xl shadow-slate-200/40 p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/15 hover:border-indigo-300 hover:bg-white transition-all duration-300 flex flex-col group relative overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-sky-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            </div>
+
+            <div
+              class="w-14 h-14 rounded-2xl bg-indigo-50/80 text-indigo-600 flex items-center justify-center mb-6 shadow-inner relative z-10 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-extrabold tracking-tight text-slate-900 mb-3 relative z-10">Servidores Dedicados
+            </h3>
+            <p class="text-sm font-medium text-slate-500 leading-relaxed mb-6 flex-grow relative z-10">Hardware e
+              recursos 100% exclusivos para si.</p>
+
+            <ul class="space-y-3.5 mb-10 relative z-10">
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Bare metal
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                RAM ECC
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Gestão Inteligente
+              </li>
+            </ul>
+
+            <a href="#plans"
+              class="inline-flex items-center justify-between w-full rounded-2xl bg-white border border-slate-200 px-5 py-4 text-sm font-bold text-slate-700 shadow-sm hover:border-indigo-300 hover:text-indigo-700 hover:bg-indigo-50/30 hover:shadow-md transition-all duration-300 relative z-10">
+              Ver opções
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1.5">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+          </div>
+          <!-- Modern Card -->
+          <div
+            class="snap-start shrink-0 w-[280px] sm:w-[350px] rounded-3xl border border-slate-200/70 bg-white/60 backdrop-blur-lg shadow-xl shadow-slate-200/40 p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/15 hover:border-indigo-300 hover:bg-white transition-all duration-300 flex flex-col group relative overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-sky-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            </div>
+
+            <div
+              class="w-14 h-14 rounded-2xl bg-indigo-50/80 text-indigo-600 flex items-center justify-center mb-6 shadow-inner relative z-10 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-extrabold tracking-tight text-slate-900 mb-3 relative z-10">Servidor VPS SSD</h3>
+            <p class="text-sm font-medium text-slate-500 leading-relaxed mb-6 flex-grow relative z-10">O equilíbrio
+              perfeito de preço e máxima performance.</p>
+
+            <ul class="space-y-3.5 mb-10 relative z-10">
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                SSD rápido
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Flexibilidade
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Monitorização 24h
+              </li>
+            </ul>
+
+            <a href="#plans"
+              class="inline-flex items-center justify-between w-full rounded-2xl bg-white border border-slate-200 px-5 py-4 text-sm font-bold text-slate-700 shadow-sm hover:border-indigo-300 hover:text-indigo-700 hover:bg-indigo-50/30 hover:shadow-md transition-all duration-300 relative z-10">
+              Ver opções
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1.5">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+          </div>
+          <!-- Modern Card -->
+          <div
+            class="snap-start shrink-0 w-[280px] sm:w-[350px] rounded-3xl border border-slate-200/70 bg-white/60 backdrop-blur-lg shadow-xl shadow-slate-200/40 p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/15 hover:border-indigo-300 hover:bg-white transition-all duration-300 flex flex-col group relative overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-sky-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            </div>
+
+            <div
+              class="w-14 h-14 rounded-2xl bg-indigo-50/80 text-indigo-600 flex items-center justify-center mb-6 shadow-inner relative z-10 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-extrabold tracking-tight text-slate-900 mb-3 relative z-10">Fazemos o seu site</h3>
+            <p class="text-sm font-medium text-slate-500 leading-relaxed mb-6 flex-grow relative z-10">A nossa equipa
+              cria o teu site focado em vendas.</p>
+
+            <ul class="space-y-3.5 mb-10 relative z-10">
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Design Premium
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                UX Conversão
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Chave-na-mão
+              </li>
+            </ul>
+
+            <a href="#plans"
+              class="inline-flex items-center justify-between w-full rounded-2xl bg-white border border-slate-200 px-5 py-4 text-sm font-bold text-slate-700 shadow-sm hover:border-indigo-300 hover:text-indigo-700 hover:bg-indigo-50/30 hover:shadow-md transition-all duration-300 relative z-10">
+              Ver opções
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1.5">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+          </div>
+          <!-- Modern Card -->
+          <div
+            class="snap-start shrink-0 w-[280px] sm:w-[350px] rounded-3xl border border-slate-200/70 bg-white/60 backdrop-blur-lg shadow-xl shadow-slate-200/40 p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/15 hover:border-indigo-300 hover:bg-white transition-all duration-300 flex flex-col group relative overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-sky-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            </div>
+
+            <div
+              class="w-14 h-14 rounded-2xl bg-indigo-50/80 text-indigo-600 flex items-center justify-center mb-6 shadow-inner relative z-10 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-extrabold tracking-tight text-slate-900 mb-3 relative z-10">Weebly</h3>
+            <p class="text-sm font-medium text-slate-500 leading-relaxed mb-6 flex-grow relative z-10">Construtor visual
+              de sites tipo arrastar e largar.</p>
+
+            <ul class="space-y-3.5 mb-10 relative z-10">
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Templates Top
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                E-commerce
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Inteligente
+              </li>
+            </ul>
+
+            <a href="#plans"
+              class="inline-flex items-center justify-between w-full rounded-2xl bg-white border border-slate-200 px-5 py-4 text-sm font-bold text-slate-700 shadow-sm hover:border-indigo-300 hover:text-indigo-700 hover:bg-indigo-50/30 hover:shadow-md transition-all duration-300 relative z-10">
+              Ver opções
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1.5">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+          </div>
+          <!-- Modern Card -->
+          <div
+            class="snap-start shrink-0 w-[280px] sm:w-[350px] rounded-3xl border border-slate-200/70 bg-white/60 backdrop-blur-lg shadow-xl shadow-slate-200/40 p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/15 hover:border-indigo-300 hover:bg-white transition-all duration-300 flex flex-col group relative overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-sky-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            </div>
+
+            <div
+              class="w-14 h-14 rounded-2xl bg-indigo-50/80 text-indigo-600 flex items-center justify-center mb-6 shadow-inner relative z-10 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-extrabold tracking-tight text-slate-900 mb-3 relative z-10">Cloud</h3>
+            <p class="text-sm font-medium text-slate-500 leading-relaxed mb-6 flex-grow relative z-10">A escala elástica
+              inteligente para quem não pode parar.</p>
+
+            <ul class="space-y-3.5 mb-10 relative z-10">
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Load Balancer
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Sempre Online
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Pay-as-you-go
+              </li>
+            </ul>
+
+            <a href="#plans"
+              class="inline-flex items-center justify-between w-full rounded-2xl bg-white border border-slate-200 px-5 py-4 text-sm font-bold text-slate-700 shadow-sm hover:border-indigo-300 hover:text-indigo-700 hover:bg-indigo-50/30 hover:shadow-md transition-all duration-300 relative z-10">
+              Ver opções
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1.5">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+          </div>
+          <!-- Modern Card -->
+          <div
+            class="snap-start shrink-0 w-[280px] sm:w-[350px] rounded-3xl border border-slate-200/70 bg-white/60 backdrop-blur-lg shadow-xl shadow-slate-200/40 p-8 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/15 hover:border-indigo-300 hover:bg-white transition-all duration-300 flex flex-col group relative overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-sky-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            </div>
+
+            <div
+              class="w-14 h-14 rounded-2xl bg-indigo-50/80 text-indigo-600 flex items-center justify-center mb-6 shadow-inner relative z-10 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-extrabold tracking-tight text-slate-900 mb-3 relative z-10">SEO</h3>
+            <p class="text-sm font-medium text-slate-500 leading-relaxed mb-6 flex-grow relative z-10">Otimização brutal
+              para os potentes motores de busca.</p>
+
+            <ul class="space-y-3.5 mb-10 relative z-10">
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Auditoria de Topo
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Keywords
+              </li>
+              <li class="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover:bg-indigo-400 transition-colors shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                Relatórios VVIP
+              </li>
+            </ul>
+
+            <a href="#plans"
+              class="inline-flex items-center justify-between w-full rounded-2xl bg-white border border-slate-200 px-5 py-4 text-sm font-bold text-slate-700 shadow-sm hover:border-indigo-300 hover:text-indigo-700 hover:bg-indigo-50/30 hover:shadow-md transition-all duration-300 relative z-10">
+              Ver opções
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1.5">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <div
+        class="mt-10 reveal rounded-2xl border border-slate-200 bg-white/70 backdrop-blur p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
+        <p class="text-sm text-slate-700">
+          Precisa de ajuda a escolher? Diz-nos o seu objetivo (performance, custo, segurança) e sugerimos a melhor base.
+        </p>
+        <a href="#footer"
+          class="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">
+          Pedir recomendação
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+<!-- ===== SOCIAL PROOF ===== -->
+<section id="carousel" class="py-20 relative bg-white border-t border-slate-100 overflow-hidden">
+
+  <!-- Header -->
+  <div class="max-w-6xl mx-auto px-6 mb-14 reveal">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div>
+        <span class="text-xs font-bold tracking-widest text-indigo-600 uppercase">Clientes & Parceiros</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+          Empresas que confiam em nós
+        </h2>
+        <p class="mt-2 text-slate-400 text-sm max-w-md">
+          Infraestrutura séria para negócios que não podem falhar.
+        </p>
+      </div>
+      <div class="flex items-center gap-8 shrink-0">
+        <div class="text-center">
+          <p class="text-3xl font-extrabold text-slate-900">181<span class="text-indigo-600">+</span></p>
+          <p class="text-xs text-slate-400 font-medium mt-1">Clientes ativos</p>
+        </div>
+        <div class="w-px h-10 bg-slate-200"></div>
+        <div class="text-center">
+          <p class="text-3xl font-extrabold text-slate-900">99.9<span class="text-indigo-600">%</span></p>
+          <p class="text-xs text-slate-400 font-medium mt-1">Uptime</p>
+        </div>
+        <div class="w-px h-10 bg-slate-200"></div>
+        <div class="text-center">
+          <p class="text-3xl font-extrabold text-slate-900">2<span class="text-indigo-600">+</span></p>
+          <p class="text-xs text-slate-400 font-medium mt-1">Anos ativos</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Marquee -->
+  <div class="relative w-full overflow-hidden mb-16">
+    <div class="absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+    <div class="marquee-track flex gap-4">
+      <div class="marquee-items flex gap-4 shrink-0">
+        <div class="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-slate-200 bg-white group cursor-default hover:border-indigo-200 hover:shadow-sm transition-all">
+          <svg class="w-5 h-5 text-slate-300 group-hover:text-indigo-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span class="text-xs font-bold text-slate-400 group-hover:text-slate-700 transition-colors tracking-widest uppercase whitespace-nowrap">Aquilimpa</span>
+        </div>
+        <div class="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-slate-200 bg-white group cursor-default hover:border-indigo-200 hover:shadow-sm transition-all">
+          <svg class="w-5 h-5 text-slate-300 group-hover:text-indigo-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span class="text-xs font-bold text-slate-400 group-hover:text-slate-700 transition-colors tracking-widest uppercase whitespace-nowrap">AgênciaDigital</span>
+        </div>
+        <div class="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-slate-200 bg-white group cursor-default hover:border-indigo-200 hover:shadow-sm transition-all">
+          <svg class="w-5 h-5 text-slate-300 group-hover:text-indigo-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span class="text-xs font-bold text-slate-400 group-hover:text-slate-700 transition-colors tracking-widest uppercase whitespace-nowrap">FinTech Lda</span>
+        </div>
+        <div class="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-slate-200 bg-white group cursor-default hover:border-indigo-200 hover:shadow-sm transition-all">
+          <svg class="w-5 h-5 text-slate-300 group-hover:text-indigo-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span class="text-xs font-bold text-slate-400 group-hover:text-slate-700 transition-colors tracking-widest uppercase whitespace-nowrap">StartupLx</span>
+        </div>
+        <div class="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-slate-200 bg-white group cursor-default hover:border-indigo-200 hover:shadow-sm transition-all">
+          <svg class="w-5 h-5 text-slate-300 group-hover:text-indigo-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          <span class="text-xs font-bold text-slate-400 group-hover:text-slate-700 transition-colors tracking-widest uppercase whitespace-nowrap">TechStore PT</span>
+        </div>
+        <div class="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-slate-200 bg-white group cursor-default hover:border-indigo-200 hover:shadow-sm transition-all">
+          <svg class="w-5 h-5 text-slate-300 group-hover:text-indigo-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="text-xs font-bold text-slate-400 group-hover:text-slate-700 transition-colors tracking-widest uppercase whitespace-nowrap">Elite BarberShop</span>
+        </div>
+        <div class="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-slate-200 bg-white group cursor-default hover:border-indigo-200 hover:shadow-sm transition-all">
+          <svg class="w-5 h-5 text-slate-300 group-hover:text-indigo-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <span class="text-xs font-bold text-slate-400 group-hover:text-slate-700 transition-colors tracking-widest uppercase whitespace-nowrap">Vissiona PME</span>
+        </div>
+        <div class="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-slate-200 bg-white group cursor-default hover:border-indigo-200 hover:shadow-sm transition-all">
+          <svg class="w-5 h-5 text-slate-300 group-hover:text-indigo-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span class="text-xs font-bold text-slate-400 group-hover:text-slate-700 transition-colors tracking-widest uppercase whitespace-nowrap">Worten Life</span>
+        </div>
+      </div>
+      <!-- Duplicate -->
+      <div class="marquee-items flex gap-4 shrink-0" aria-hidden="true">
+        <div class="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-slate-200 bg-white cursor-default"><svg class="w-5 h-5 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="text-xs font-bold text-slate-400 tracking-widest uppercase whitespace-nowrap">Aquilimpa</span></div>
+        <div class="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-slate-200 bg-white cursor-default"><svg class="w-5 h-5 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><span class="text-xs font-bold text-slate-400 tracking-widest uppercase whitespace-nowrap">AgênciaDigital</span></div>
+        <div class="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-slate-200 bg-white cursor-default"><svg class="w-5 h-5 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span class="text-xs font-bold text-slate-400 tracking-widest uppercase whitespace-nowrap">FinTech Lda</span></div>
+        <div class="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-slate-200 bg-white cursor-default"><svg class="w-5 h-5 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span class="text-xs font-bold text-slate-400 tracking-widest uppercase whitespace-nowrap">StartupLx</span></div>
+        <div class="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-slate-200 bg-white cursor-default"><svg class="w-5 h-5 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg><span class="text-xs font-bold text-slate-400 tracking-widest uppercase whitespace-nowrap">TechStore PT</span></div>
+        <div class="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-slate-200 bg-white cursor-default"><svg class="w-5 h-5 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="text-xs font-bold text-slate-400 tracking-widest uppercase whitespace-nowrap">Elite BarberShop</span></div>
+        <div class="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-slate-200 bg-white cursor-default"><svg class="w-5 h-5 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span class="text-xs font-bold text-slate-400 tracking-widest uppercase whitespace-nowrap">Vissiona PME</span></div>
+        <div class="shrink-0 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-slate-200 bg-white cursor-default"><svg class="w-5 h-5 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="text-xs font-bold text-slate-400 tracking-widest uppercase whitespace-nowrap">Worten Life</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials Carousel -->
+  <div class="max-w-6xl mx-auto px-6 reveal">
+
+    <div class="relative">
+      <!-- Fade edges -->
+      <div class="hidden md:block absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
+      <div class="hidden md:block absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+
+      <!-- Slider -->
+      <div id="testimonialSlider" class="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-6 hide-scrollbar scroll-smooth">
+
+        <!-- Card 1 — Featured -->
+        <div class="snap-start shrink-0 w-[340px] sm:w-[420px] bg-indigo-600 rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+          <div class="absolute bottom-0 left-0 w-28 h-28 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+          <div>
+            <div class="flex gap-1 text-white/40 mb-6">
+              <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5 text-amber-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-white text-base leading-relaxed font-light">
+              "Migrámos todo o nosso e-commerce para a WebMinds e as vendas aumentaram <strong class="font-bold">40%</strong> devido à melhoria brutal da velocidade. Suporte rápido, técnico e eficiente."
+            </p>
+          </div>
+          <div class="mt-8 flex items-center gap-3 pt-6 border-t border-white/15">
+            <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white text-xs font-bold shrink-0">JM</div>
+            <div>
+              <p class="text-sm font-bold text-white">João Martins</p>
+              <p class="text-xs text-white/50 mt-0.5">CEO · TechStore Portugal</p>
+            </div>
+            <span class="ml-auto text-[10px] font-bold uppercase tracking-widest text-white/30 border border-white/10 rounded-full px-2.5 py-1">E-commerce</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="snap-start shrink-0 w-[340px] sm:w-[420px] bg-white border border-slate-200 rounded-2xl p-8 flex flex-col justify-between hover:shadow-lg hover:border-slate-300 transition-all">
+          <div>
+            <div class="flex gap-1 text-amber-400 mb-6">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-slate-600 text-base leading-relaxed font-light">
+              "Uptime de 99.9% garantido. <strong class="font-semibold text-slate-800">Nunca vi uma estabilidade tão sólida.</strong> Recomendamos totalmente a arquitetura Cloud a todos os nossos parceiros."
+            </p>
+          </div>
+          <div class="mt-8 flex items-center gap-3 pt-6 border-t border-slate-100">
+            <div class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-white text-xs font-bold shrink-0">SR</div>
+            <div>
+              <p class="text-sm font-bold text-slate-800">Sofia Rodrigues</p>
+              <p class="text-xs text-slate-400 mt-0.5">CTO · AgênciaDigital</p>
+            </div>
+            <span class="ml-auto text-[10px] font-bold uppercase tracking-widest text-slate-400 border border-slate-200 rounded-full px-2.5 py-1">Cloud</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="snap-start shrink-0 w-[340px] sm:w-[420px] bg-white border border-slate-200 rounded-2xl p-8 flex flex-col justify-between hover:shadow-lg hover:border-slate-300 transition-all">
+          <div>
+            <div class="flex gap-1 text-amber-400 mb-6">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-slate-600 text-base leading-relaxed font-light">
+              "Processamos <strong class="font-semibold text-slate-800">10.000 transações/hora em Bare Metal</strong> sem qualquer estrangulamento. Acesso root com liberdade e controlo total."
+            </p>
+          </div>
+          <div class="mt-8 flex items-center gap-3 pt-6 border-t border-slate-100">
+            <div class="w-10 h-10 rounded-full bg-sky-500 flex items-center justify-center text-white text-xs font-bold shrink-0">MC</div>
+            <div>
+              <p class="text-sm font-bold text-slate-800">Miguel Costa</p>
+              <p class="text-xs text-slate-400 mt-0.5">Dev Lead · FinTech Lda</p>
+            </div>
+            <span class="ml-auto text-[10px] font-bold uppercase tracking-widest text-slate-400 border border-slate-200 rounded-full px-2.5 py-1">Dedicado</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="snap-start shrink-0 w-[340px] sm:w-[420px] bg-white border border-slate-200 rounded-2xl p-8 flex flex-col justify-between hover:shadow-lg hover:border-slate-300 transition-all">
+          <div>
+            <div class="flex gap-1 text-amber-400 mb-6">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-slate-600 text-base leading-relaxed font-light">
+              "A WebMinds fez o nosso site do zero em tempo recorde. <strong class="font-semibold text-slate-800">Profissionalismo e atenção ao detalhe</strong> que raramente se vê. Resultado final superou as expectativas."
+            </p>
+          </div>
+          <div class="mt-8 flex items-center gap-3 pt-6 border-t border-slate-100">
+            <div class="w-10 h-10 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs font-bold shrink-0">RP</div>
+            <div>
+              <p class="text-sm font-bold text-slate-800">Rui Pereira</p>
+              <p class="text-xs text-slate-400 mt-0.5">Fundador · StartupLx</p>
+            </div>
+            <span class="ml-auto text-[10px] font-bold uppercase tracking-widest text-slate-400 border border-slate-200 rounded-full px-2.5 py-1">Web Design</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controls -->
+      <div class="flex items-center justify-between mt-8">
+        <p class="text-xs text-slate-400 font-medium">Arraste para ver mais →</p>
+        <div class="flex gap-2">
+          <button id="prevBtn" onclick="document.getElementById('testimonialSlider').scrollBy({left:-440, behavior:'smooth'})"
+            class="w-10 h-10 rounded-lg border border-slate-200 bg-white hover:border-indigo-300 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-all" aria-label="Anterior">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button id="nextBtn" onclick="document.getElementById('testimonialSlider').scrollBy({left:440, behavior:'smooth'})"
+            class="w-10 h-10 rounded-lg border border-slate-200 bg-white hover:border-indigo-300 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-all" aria-label="Próximo">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+  <!-- ===== PLANS ===== -->
+  <section id="plans" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-xl mx-auto mb-16 reveal">
+        <span
+          class="inline-block text-xs font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-full mb-4">Preços
+          transparentes</span>
+        <h2 class="text-4xl font-extrabold tracking-tight text-slate-900 mb-4">Escolhe o teu plano</h2>
+        <p class="text-slate-500">Sem custos ocultos. Cancela a qualquer momento.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+
+        <div
+          class="reveal border border-slate-200 rounded-2xl p-8 bg-white hover:shadow-xl hover:shadow-slate-100 hover:-translate-y-1.5 transition-all">
+          <p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">Basic</p>
+          <div class="flex items-end gap-1 mb-2">
+            <span class="text-slate-700 text-xl font-bold mt-2">€</span>
+            <span class="text-5xl font-extrabold tracking-tight text-slate-900">4</span>
+            <span class="text-slate-400 text-sm pb-1.5">/mês</span>
+          </div>
+          <p class="text-slate-400 text-sm mb-7">Ideal para começar</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2.5 text-sm text-slate-600"><span
+                class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              10 GB SSD NVMe</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-600"><span
+                class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              1 Website</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-600"><span
+                class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              SSL Gratuito</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-600"><span
+                class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              Email 5 GB</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-600"><span
+                class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              100 GB Tráfego</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-400"><span
+                class="w-5 h-5 rounded-full bg-slate-50 text-slate-300 flex items-center justify-center text-xs font-bold shrink-0">✗</span>
+              Domínio Gratuito</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-400"><span
+                class="w-5 h-5 rounded-full bg-slate-50 text-slate-300 flex items-center justify-center text-xs font-bold shrink-0">✗</span>
+              Backup Automático</li>
+          </ul>
+          <a href="#"
+            class="block text-center py-3 border border-slate-200 hover:border-indigo-300 hover:text-indigo-600 text-slate-700 font-semibold rounded-xl transition-all hover:-translate-y-0.5">Começar
+            Grátis</a>
+        </div>
+
+        <div
+          class="reveal relative border-2 border-indigo-500 rounded-2xl p-8 bg-gradient-to-b from-indigo-50/60 to-white shadow-xl shadow-indigo-100 hover:-translate-y-2 transition-all md:scale-[1.02]">
+          <div
+            class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-indigo-600 text-white text-xs font-bold rounded-full shadow">
+            Mais Popular</div>
+          <p class="text-xs font-bold uppercase tracking-widest text-indigo-600 mb-3">Pro</p>
+          <div class="flex items-end gap-1 mb-2">
+            <span class="text-indigo-700 text-xl font-bold mt-2">€</span>
+            <span class="text-5xl font-extrabold tracking-tight text-slate-900">12</span>
+            <span class="text-slate-400 text-sm pb-1.5">/mês</span>
+          </div>
+          <p class="text-slate-400 text-sm mb-7">Para negócios em crescimento</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2.5 text-sm text-slate-700"><span
+                class="w-5 h-5 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              50 GB SSD NVMe</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-700"><span
+                class="w-5 h-5 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              10 Websites</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-700"><span
+                class="w-5 h-5 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              SSL Gratuito</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-700"><span
+                class="w-5 h-5 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              Email Ilimitado</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-700"><span
+                class="w-5 h-5 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              Tráfego Ilimitado</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-700"><span
+                class="w-5 h-5 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              Domínio Gratuito</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-400"><span
+                class="w-5 h-5 rounded-full bg-slate-50 text-slate-300 flex items-center justify-center text-xs font-bold shrink-0">✗</span>
+              Backup Automático</li>
+          </ul>
+          <a href="#"
+            class="block text-center py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-lg shadow-indigo-200 transition-all hover:-translate-y-0.5">Comprar
+            Agora</a>
+        </div>
+
+        <div
+          class="reveal border border-slate-200 rounded-2xl p-8 bg-white hover:shadow-xl hover:shadow-slate-100 hover:-translate-y-1.5 transition-all">
+          <p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">Enterprise</p>
+          <div class="flex items-end gap-1 mb-2">
+            <span class="text-slate-700 text-xl font-bold mt-2">€</span>
+            <span class="text-5xl font-extrabold tracking-tight text-slate-900">39</span>
+            <span class="text-slate-400 text-sm pb-1.5">/mês</span>
+          </div>
+          <p class="text-slate-400 text-sm mb-7">Para grandes empresas</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2.5 text-sm text-slate-600"><span
+                class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              200 GB SSD NVMe</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-600"><span
+                class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              Websites Ilimitados</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-600"><span
+                class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              SSL Wildcard</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-600"><span
+                class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              Email Ilimitado</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-600"><span
+                class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              Tráfego Ilimitado</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-600"><span
+                class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              Domínio Gratuito</li>
+            <li class="flex items-center gap-2.5 text-sm text-slate-600"><span
+                class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+              Backup Automático</li>
+          </ul>
+          <a href="#"
+            class="block text-center py-3 border border-slate-200 hover:border-indigo-300 hover:text-indigo-600 text-slate-700 font-semibold rounded-xl transition-all hover:-translate-y-0.5">Comprar
+            Agora</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-indigo-600 to-sky-500 py-20">
+    <div class="absolute -top-24 -right-16 w-96 h-96 rounded-full bg-white/5"></div>
+    <div class="absolute -bottom-20 -left-10 w-72 h-72 rounded-full bg-white/5"></div>
+    <div class="max-w-6xl mx-auto px-6 text-center relative z-10 reveal">
+      <h2 class="text-4xl font-extrabold text-white tracking-tight mb-4">Pronto para dar o próximo passo?</h2>
+      <p class="text-indigo-100 text-lg mb-10 max-w-lg mx-auto">Fala connosco e descobre como a WebMinds pode
+        transformar a tua presença digital.</p>
+      <a href="mailto:hello@webminds.pt"
+        class="inline-block px-8 py-3.5 bg-white hover:bg-indigo-50 text-indigo-600 font-bold rounded-xl shadow-xl transition-all hover:-translate-y-0.5 active:scale-[0.97]">
+        Contacta-nos
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer" class="bg-slate-900 text-slate-400 pt-16 pb-8">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+
+        <div class="lg:col-span-1">
+          <a href="#" class="inline-flex items-center gap-2.5 mb-5">
+            <img src="assets/wbBranca.png" alt="" width="200px">
+          </a>
+          <div class="flex gap-2.5">
+            <a href="https://pt.linkedin.com/company/webmindspt"
+              class="w-9 h-9 rounded-lg border border-white/10 hover:border-indigo-500/50 hover:text-indigo-400 flex items-center justify-center transition-all">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/webmindssolutions.pt/?g=5"
+              class="w-9 h-9 rounded-lg border border-white/10 hover:border-indigo-500/50 hover:text-indigo-400 flex items-center justify-center transition-all">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-semibold text-white uppercase tracking-widest mb-5">Serviços</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#" class="hover:text-slate-200 transition-colors">Alojamento cPanel SSD</a></li>
+            <li><a href="#" class="hover:text-slate-200 transition-colors">Alojamento WordPress</a></li>
+            <li><a href="#" class="hover:text-slate-200 transition-colors">E-mail Empresarial</a></li>
+            <li><a href="#" class="hover:text-slate-200 transition-colors">Revenda Linux cPanel</a></li>
+
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-semibold text-white uppercase tracking-widest mb-5">Empresa</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#" class="hover:text-slate-200 transition-colors">Sobre Nós</a></li>
+            <li><a href="#" class="hover:text-slate-200 transition-colors">Blog</a></li>
+            <li><a href="trabalhe-connosco.html" class="hover:text-slate-200 transition-colors">Carreiras</a></li>
+            <li><a href="parceiros.html" class="hover:text-slate-200 transition-colors">Parceiros</a></li>
+            <li><a href="criacao-website.html" class="hover:text-slate-200 transition-colors">Websites</a></li>
+            <li><a href="#" class="hover:text-slate-200 transition-colors">Imprensa</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-semibold text-white uppercase tracking-widest mb-5">Suporte</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#" class="hover:text-slate-200 transition-colors">Centro de Ajuda</a></li>
+            <li><a href="#" class="hover:text-slate-200 transition-colors">Documentação</a></li>
+            <li><a href="#" class="hover:text-slate-200 transition-colors">Estado dos Servidores</a></li>
+            <li><a href="#" class="hover:text-slate-200 transition-colors">Contacto</a></li>
+            <li><a href="#" class="hover:text-slate-200 transition-colors">Política de Privacidade</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div
+        class="border-t border-white/8 pt-7 flex flex-col sm:flex-row justify-center items-center gap-2 text-xs text-slate-600">
+        <p>© 2026 WebMinds. Todos os direitos reservados. <a href="https://webminds.pt"
+            class="text-indigo-400 hover:text-indigo-300 transition-colors">webminds.pt</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-lg shadow-indigo-600/25 transition-all duration-300 hidden items-center justify-center z-40" aria-label="Voltar ao topo">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+</body>
+
+</html>

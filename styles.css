@@ -1,0 +1,332 @@
+/* =============================================
+   WebMinds — styles.css
+   Estilos complementares ao Tailwind CDN.
+   Dropdowns, animações, mobile menu, carousel.
+   ============================================= */
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0) scale(0.99);
+  filter: blur(6px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .reveal.visible {
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ---------- Navbar sólida ao scroll ---------- */
+#navbar.scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid #E2E8F0;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- DROPDOWNS (funcionam sem Tailwind) ---------- */
+
+/* Container posicionado do item */
+.nav-item {
+  position: relative;
+}
+
+/* Dropdown escondido por defeito */
+.nav-item .dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  margin-top: 12px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 9999;
+}
+
+/* Dropdown visível ao hover/focus no item pai */
+.nav-item:hover .dropdown,
+.nav-item:focus-within .dropdown {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Setinha da navbar roda ao hover */
+.nav-item:hover button svg,
+.nav-item:focus-within button svg {
+  transform: rotate(180deg);
+}
+
+/* ---------- Carousel dots ---------- */
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #CBD5E1;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.carousel-dot.active {
+  background: #1934a7;
+  width: 24px;
+}
+
+/* ---------- Scrollbar (modern, on-brand) ---------- */
+html {
+  scrollbar-color: #1934a7 rgba(2, 6, 23, 0.08);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(2, 6, 23, 0.08);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1934a7, #031974);
+  border-radius: 999px;
+  border: 3px solid rgba(2, 6, 23, 0.08);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #1f41d6, #031974);
+}
+
+/* ---------- Scroll progress + back-to-top ---------- */
+#scrollProgressBar {
+  transform-origin: left;
+}
+
+/* ---------- Barra de progresso ---------- */
+@keyframes fillBar {
+  from {
+    width: 0;
+  }
+}
+
+.bar-anim {
+  animation: fillBar 1.4s ease both;
+}
+
+/* ---------- Cursor de digitação ---------- */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* ---------- Mobile menu ---------- */
+#mobileMenu.open {
+  right: 0;
+}
+
+#mobileMenu {
+  transition: right 0.3s ease;
+}
+
+/* Mobile accordion */
+.mobile-acc-content.open {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hamburger activo */
+#hamburger.active .ham-bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#hamburger.active .ham-bar:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger.active .ham-bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Seta do accordion mobile roda quando aberto */
+.mobile-acc-trigger.open .acc-arrow {
+  transform: rotate(180deg);
+}
+
+.acc-arrow {
+  transition: transform 0.2s ease;
+}
+
+/* ---------- Animações de entrada hero ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(36px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease both;
+}
+
+.animate-fade-right {
+  animation: fadeRight 0.8s 0.2s ease both;
+}
+
+@keyframes pulseDot {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.75);
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulseDot 2s infinite;
+}
+
+/* ---------- Texto gradiente ---------- */
+.text-gradient {
+  background: linear-gradient(135deg, #4F46E5, #0EA5E9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+body,
+body * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4 2 L4 16 L8 12 L11 18 L13 17 L10 11 L16 11 Z' fill='%23000000'/%3E%3C/svg%3E") 4 2, auto;
+}
+
+a,
+button,
+[role="button"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4 2 L4 16 L8 12 L11 18 L13 17 L10 11 L16 11 Z' fill='%23000000'/%3E%3C/svg%3E") 4 2, pointer;
+}
+
+input,
+textarea,
+[contenteditable] {
+  cursor: text;
+}
+
+/* ---------- Accordion Animation (Mobile) ---------- */
+details[open] summary~* {
+  animation: sweep 0.3s ease-in-out;
+}
+
+@keyframes sweep {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Hide Scrollbar for Carousel ---------- */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari and Opera */
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Remove scrollbar no slider */
+#testimonialSlider {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#testimonialSlider::-webkit-scrollbar {
+  display: none;
+}

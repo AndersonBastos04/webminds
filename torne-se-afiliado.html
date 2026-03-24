@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Torne-se Afiliado — WebMinds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            /* Brand palette */
+            indigo: {
+              50: '#f4f7ff',
+              100: '#e3e8ff',
+              200: '#c7d2ff',
+              300: '#9fb0ff',
+              400: '#5d7ef0',
+              500: '#2548c6',
+              600: '#1934a7',
+              700: '#031974',
+            },
+            /* Map accent palettes to the same brand blue */
+            sky: {
+              50: '#f4f7ff',
+              100: '#e3e8ff',
+              200: '#c7d2ff',
+              300: '#9fb0ff',
+              400: '#5d7ef0',
+              500: '#1934a7',
+              600: '#1934a7',
+              700: '#031974',
+            },
+            violet: {
+              50: '#f4f7ff',
+              100: '#e3e8ff',
+              200: '#c7d2ff',
+              300: '#9fb0ff',
+              400: '#5d7ef0',
+              500: '#1934a7',
+              600: '#1934a7',
+              700: '#031974',
+            },
+            purple: {
+              50: '#f4f7ff',
+              100: '#e3e8ff',
+              200: '#c7d2ff',
+              300: '#9fb0ff',
+              400: '#5d7ef0',
+              500: '#1934a7',
+              600: '#1934a7',
+              700: '#031974',
+            },
+            emerald: { DEFAULT: '#10B981' },
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.7s ease both',
+            'fade-right': 'fadeRight 0.7s 0.2s ease both',
+            'pulse-dot': 'pulseDot 2s infinite',
+            'blink': 'blink 1s step-end infinite',
+          },
+          keyframes: {
+            fadeUp: { from: { opacity: 0, transform: 'translateY(28px)' }, to: { opacity: 1, transform: 'translateY(0)' } },
+            fadeRight: { from: { opacity: 0, transform: 'translateX(36px)' }, to: { opacity: 1, transform: 'translateX(0)' } },
+            pulseDot: { '0%,100%': { opacity: 1, transform: 'scale(1)' }, '50%': { opacity: 0.5, transform: 'scale(0.8)' } },
+            blink: { '0%,100%': { opacity: 1 }, '50%': { opacity: 0 } },
+          },
+          backgroundImage: {
+            'gradient-primary': 'linear-gradient(135deg, #1934a7 0%, #031974 100%)',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="navbar.js"></script>
+
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+  <div id="navbar-placeholder"></div>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scrollProgressBar"
+    class="fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-600 to-sky-500 z-50 transform scale-x-0 origin-left">
+  </div>
+
+  <!-- ===== AFFILIATE HERO ===== -->
+  <section class="relative overflow-hidden pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white">
+    <div class="absolute inset-0 -z-10">
+      <div
+        class="absolute -top-32 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-indigo-500/10 via-sky-400/8 to-cyan-300/6 blur-3xl">
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-6">
+        <span
+          class="inline-flex items-center rounded-full bg-indigo-600 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-white">
+          Programa de Afiliados
+        </span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.06] mb-6">
+        <span class="bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent">Comissão de 15% Para
+          Toda a Vida</span>
+        <span class="block text-slate-900">renda passiva garantida</span>
+      </h1>
+      <p class="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-8">
+        Com o nosso programa de afiliados, pode gerar uma renda passiva para toda a vida, cada renovação conta. Torne-se
+        um afiliado e comece a ganhar hoje.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+        <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold text-indigo-600 mb-1">15%</div>
+          <div class="text-sm text-slate-600">Comissão Vitalícia</div>
+        </div>
+        <div class="bg-sky-50 border border-sky-200 rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold text-sky-600 mb-1">∞</div>
+          <div class="text-sm text-slate-600">Sem Limite de Tempo</div>
+        </div>
+        <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold text-emerald-600 mb-1">Renda</div>
+          <div class="text-sm text-slate-600">Passiva Garantida</div>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#join"
+          class="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-indigo-600/25 hover:bg-indigo-700 transition-all hover:-translate-y-0.5">
+          Inscrever-se agora
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </a>
+        <a href="#how-it-works"
+          class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-8 py-4 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-all hover:-translate-y-0.5">
+          Como funciona
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="how-it-works" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
+          Sistema Simples de Comissão Acompanhada
+        </h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">
+          Processo direto e transparente: indique, acompanhe e ganhe. Cada renovação gera nova comissão.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="reveal text-center">
+          <div
+            class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-2xl font-bold">1</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Indique</h3>
+          <p class="text-slate-600">Partilhe o seu link de afiliado único e ajude outros a descobrirem os nossos
+            serviços.</p>
+        </div>
+
+        <div class="reveal text-center">
+          <div class="w-16 h-16 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-2xl font-bold">2</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Acompanhe</h3>
+          <p class="text-slate-600">Monitore em tempo real as suas indicações, cliques e comissões através do painel de
+            afiliado.</p>
+        </div>
+
+        <div class="reveal text-center">
+          <div
+            class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-2xl font-bold">3</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Ganhe Para Sempre</h3>
+          <p class="text-slate-600">Receba 15% de comissão vitalícia em cada renovação dos clientes que indicou.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMISSÃO CONTÍNUA ===== -->
+  <section class="py-24 bg-gradient-to-br from-indigo-50 to-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
+          Comissão Contínua em Cada Indicação
+        </h2>
+        <p class="text-slate-600 max-w-3xl mx-auto text-lg">
+          Não colocamos limite no valor que pode ganhar, nem estabelecemos uma data de expiração para quando o fizer.
+          Seja dentro de um ano ou 10 anos, continuará a ser recompensado com comissões contínuas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100 text-center">
+          <div
+            class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Sem Limite de Ganhos</h3>
+          <p class="text-slate-600">Quanto mais indicar, mais ganha. Não há tetos ou limites mensais.</p>
+        </div>
+
+        <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100 text-center">
+          <div
+            class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Comissão Vitalícia</h3>
+          <p class="text-slate-600">Cada renovação gera nova comissão. Ganhos recorrentes para sempre.</p>
+        </div>
+
+        <div
+          class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100 text-center md:col-span-2 lg:col-span-1">
+          <div class="w-16 h-16 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3v18h18" />
+              <path d="M18 17V9" />
+              <path d="M13 17V5" />
+              <path d="M8 17v-3" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Crescimento Exponencial</h3>
+          <p class="text-slate-600">Quanto mais tempo passar, maior será a sua rede de indicações ativas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BENEFITS ===== -->
+  <section class="py-24 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
+          Porquê Tornar-se um Revendedor com a WEBMINDS?
+        </h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">
+          Descubra as vantagens exclusivas do nosso programa de afiliados e comece a construir a sua renda passiva hoje.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+          <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">15% de Comissão</h3>
+          <p class="text-slate-600">Taxa de comissão competitiva que se mantém ao longo do tempo, sem reduções.</p>
+        </div>
+
+        <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+          <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-xl flex items-center justify-center mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Pagamentos Mensais</h3>
+          <p class="text-slate-600">Receba os seus ganhos mensalmente, sem mínimos ou taxas de processamento.</p>
+        </div>
+
+        <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+          <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Ferramentas de Marketing</h3>
+          <p class="text-slate-600">Acesso a banners, textos promocionais e materiais de marketing prontos a usar.</p>
+        </div>
+
+        <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+          <div class="w-12 h-12 bg-violet-100 text-violet-600 rounded-xl flex items-center justify-center mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3v18h18" />
+              <path d="M18 17V9" />
+              <path d="M13 17V5" />
+              <path d="M8 17v-3" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Rastreamento em Tempo Real</h3>
+          <p class="text-slate-600">Painel de controlo onde pode acompanhar cliques, conversões e ganhos em tempo real.
+          </p>
+        </div>
+
+        <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+          <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Suporte Dedicado</h3>
+          <p class="text-slate-600">Equipa de suporte especializada para ajudar com dúvidas sobre o programa.</p>
+        </div>
+
+        <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+          <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Sem Custos Iniciais</h3>
+          <p class="text-slate-600">Junte-se gratuitamente e comece a ganhar imediatamente sem qualquer investimento.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMMISSION STRUCTURE ===== -->
+  <section class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
+          Estrutura de comissões
+        </h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">
+          Comissões transparentes e atrativas para todos os tipos de serviços.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          class="reveal bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl p-6 text-center border border-indigo-200">
+          <div class="w-12 h-12 bg-indigo-600 text-white rounded-xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-lg font-bold">15%</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Alojamento Web</h3>
+          <p class="text-sm text-slate-600">Alojamento partilhado, WordPress, e VPS</p>
+        </div>
+
+        <div class="reveal bg-gradient-to-br from-sky-50 to-sky-100 rounded-2xl p-6 text-center border border-sky-200">
+          <div class="w-12 h-12 bg-sky-600 text-white rounded-xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-lg font-bold">10%</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Servidores Dedicados</h3>
+          <p class="text-sm text-slate-600">Servidores dedicados e cloud</p>
+        </div>
+
+        <div
+          class="reveal bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-6 text-center border border-emerald-200">
+          <div class="w-12 h-12 bg-emerald-600 text-white rounded-xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-lg font-bold">20%</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Serviços</h3>
+          <p class="text-sm text-slate-600">SSL, backups, segurança, SEO</p>
+        </div>
+
+        <div
+          class="reveal bg-gradient-to-br from-violet-50 to-violet-100 rounded-2xl p-6 text-center border border-violet-200">
+          <div class="w-12 h-12 bg-violet-600 text-white rounded-xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-lg font-bold">25%</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Soluções</h3>
+          <p class="text-sm text-slate-600">Projetos personalizados e software</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== JOIN FORM ===== -->
+  <section id="join" class="py-24 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
+          Junte-se ao programa
+        </h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">
+          Preencha o formulário abaixo e comece a ganhar dinheiro como afiliado da WebMinds.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 reveal">
+        <form class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="firstName" class="block text-sm font-medium text-slate-700 mb-2">Nome</label>
+              <input type="text" id="firstName" name="firstName"
+                class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                placeholder="João">
+            </div>
+            <div>
+              <label for="lastName" class="block text-sm font-medium text-slate-700 mb-2">Apelido</label>
+              <input type="text" id="lastName" name="lastName"
+                class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                placeholder="Silva">
+            </div>
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-slate-700 mb-2">E-mail</label>
+            <input type="email" id="email" name="email"
+              class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+              placeholder="joao.silva@email.com">
+          </div>
+
+          <div>
+            <label for="website" class="block text-sm font-medium text-slate-700 mb-2">Website/Blog (opcional)</label>
+            <input type="url" id="website" name="website"
+              class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+              placeholder="https://meublog.com">
+          </div>
+
+          <div>
+            <label for="socialMedia" class="block text-sm font-medium text-slate-700 mb-2">Redes Sociais
+              (opcional)</label>
+            <input type="text" id="socialMedia" name="socialMedia"
+              class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+              placeholder="Instagram, YouTube, etc.">
+          </div>
+
+          <div>
+            <label for="experience" class="block text-sm font-medium text-slate-700 mb-2">Experiência em Marketing de
+              Afiliados</label>
+            <select id="experience" name="experience"
+              class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors">
+              <option value="">Selecione uma opção</option>
+              <option value="none">Nenhuma experiência</option>
+              <option value="beginner">Principiante (menos de 1 ano)</option>
+              <option value="intermediate">Intermédio (1-3 anos)</option>
+              <option value="advanced">Avançado (mais de 3 anos)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-slate-700 mb-2">Como planeia promover os nossos
+              serviços? (opcional)</label>
+            <textarea id="message" name="message" rows="4"
+              class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+              placeholder="Conte-nos um pouco sobre os seus planos..."></textarea>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <input type="checkbox" id="terms" name="terms"
+              class="mt-1 w-4 h-4 text-indigo-600 border-slate-300 rounded focus:ring-indigo-500">
+            <label for="terms" class="text-sm text-slate-600">
+              Li e aceito os <a href="#" class="text-indigo-600 hover:text-indigo-700 underline">Termos e Condições</a>
+              e a <a href="#" class="text-indigo-600 hover:text-indigo-700 underline">Política de Privacidade</a> do
+              programa de afiliados.
+            </label>
+          </div>
+
+          <button type="submit"
+            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+            Inscrever-se no Programa
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
+          Perguntas frequentes
+        </h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">
+          Respostas às dúvidas mais comuns sobre o nosso programa de afiliados.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="reveal bg-slate-50 rounded-xl p-6">
+          <button class="faq-toggle w-full flex items-center justify-between text-left">
+            <h3 class="text-lg font-semibold text-slate-900">Quanto posso ganhar com o programa de afiliados?</h3>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 transition-transform" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-content hidden mt-4 text-slate-600">
+            Pode ganhar uma comissão de 15% por cada referência bem-sucedida, ou seja, por cada cliente que efetue um
+            pagamento após se registar através do seu link de afiliado.
+          </div>
+        </div>
+
+        <div class="reveal bg-slate-50 rounded-xl p-6">
+          <button class="faq-toggle w-full flex items-center justify-between text-left">
+            <h3 class="text-lg font-semibold text-slate-900">A comissão é única ou recorrente?</h3>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 transition-transform" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-content hidden mt-4 text-slate-600">
+            A comissão é recorrente! Recebe 15% em cada renovação dos serviços dos clientes que indicou, criando uma
+            renda passiva vitalícia.
+          </div>
+        </div>
+
+        <div class="reveal bg-slate-50 rounded-xl p-6">
+          <button class="faq-toggle w-full flex items-center justify-between text-left">
+            <h3 class="text-lg font-semibold text-slate-900">Posso ganhar mais ao referir produtos de preço mais
+              elevado?</h3>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 transition-transform" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-content hidden mt-4 text-slate-600">
+            Sim! Como a comissão é baseada em percentagem (15%), quanto maior for o valor do serviço indicado, maior
+            será a sua comissão por referência.
+          </div>
+        </div>
+
+        <div class="reveal bg-slate-50 rounded-xl p-6">
+          <button class="faq-toggle w-full flex items-center justify-between text-left">
+            <h3 class="text-lg font-semibold text-slate-900">O cliente referido só precisa de se registar para que eu
+              ganhe uma comissão?</h3>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 transition-transform" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-content hidden mt-4 text-slate-600">
+            Não. O cliente precisa efetuar o primeiro pagamento após o registo através do seu link de afiliado para que
+            a comissão seja ativada.
+          </div>
+        </div>
+
+        <div class="reveal bg-slate-50 rounded-xl p-6">
+          <button class="faq-toggle w-full flex items-center justify-between text-left">
+            <h3 class="text-lg font-semibold text-slate-900">Como posso fazer uma referência?</h3>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 transition-transform" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-content hidden mt-4 text-slate-600">
+            Após se inscrever no programa, receberá um link de afiliado único. Partilhe este link em blogs, redes
+            sociais, e-mails, websites ou qualquer canal que utilize para promover os nossos serviços.
+          </div>
+        </div>
+
+        <div class="reveal bg-slate-50 rounded-xl p-6">
+          <button class="faq-toggle w-full flex items-center justify-between text-left">
+            <h3 class="text-lg font-semibold text-slate-900">Quando recebo a minha comissão?</h3>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 transition-transform" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-content hidden mt-4 text-slate-600">
+            Os pagamentos são processados mensalmente no dia 15 de cada mês, para comissões acumuladas no mês anterior.
+            O valor mínimo para pagamento é de 25€.
+          </div>
+        </div>
+
+        <div class="reveal bg-slate-50 rounded-xl p-6">
+          <button class="faq-toggle w-full flex items-center justify-between text-left">
+            <h3 class="text-lg font-semibold text-slate-900">Como posso acompanhar os meus ganhos?</h3>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 transition-transform" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-content hidden mt-4 text-slate-600">
+            Através do painel de afiliado, pode acompanhar em tempo real: cliques no seu link, conversões, comissões
+            pendentes e histórico de pagamentos.
+          </div>
+        </div>
+
+        <div class="reveal bg-slate-50 rounded-xl p-6">
+          <button class="faq-toggle w-full flex items-center justify-between text-left">
+            <h3 class="text-lg font-semibold text-slate-900">Posso ganhar dinheiro indefinidamente com as minhas
+              referências?</h3>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 transition-transform" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-content hidden mt-4 text-slate-600">
+            Sim! Enquanto os clientes que indicou continuarem a renovar os serviços, continuará a receber comissões. Não
+            há limite de tempo para os seus ganhos.
+          </div>
+        </div>
+
+        <div class="reveal bg-slate-50 rounded-xl p-6">
+          <button class="faq-toggle w-full flex items-center justify-between text-left">
+            <h3 class="text-lg font-semibold text-slate-900">Posso referir mais do que um cliente?</h3>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 transition-transform" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-content hidden mt-4 text-slate-600">
+            Claro! Pode referir quantos clientes quiser. Cada indicação bem-sucedida gera comissões independentes e
+            recorrentes.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-indigo-600 to-sky-500 py-20">
+    <div class="absolute -top-24 -right-16 w-96 h-96 rounded-full bg-white/5"></div>
+    <div class="absolute -bottom-20 -left-10 w-72 h-72 rounded-full bg-white/5"></div>
+    <div class="max-w-6xl mx-auto px-6 text-center relative z-10 reveal">
+      <h2 class="text-4xl font-extrabold text-white tracking-tight mb-4">Pronto para começar a ganhar?</h2>
+      <p class="text-indigo-100 text-lg mb-10 max-w-lg mx-auto">Junte-se a centenas de afiliados que já estão a lucrar
+        com o nosso programa.</p>
+      <a href="#join"
+        class="inline-block px-8 py-3.5 bg-white hover:bg-indigo-50 text-indigo-600 font-bold rounded-xl shadow-xl transition-all hover:-translate-y-0.5 active:scale-[0.97]">
+        Inscrever-se agora
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer" class="bg-slate-900 text-slate-400 pt-16 pb-8">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <img src="assets/wbBranca.png" alt="WebMinds" width="120px" height="120px">
+          </div>
+          <p class="text-sm leading-relaxed mb-4">
+            Infraestrutura web de alta performance para empresas que não podem falhar.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="text-slate-400 hover:text-white transition-colors">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+              </svg>
+            </a>
+            <a href="#" class="text-slate-400 hover:text-white transition-colors">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a href="#" class="text-slate-400 hover:text-white transition-colors">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-4">Serviços</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Alojamento Web</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Servidores VPS</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Servidores Dedicados</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Cloud Computing</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Segurança</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-4">Empresa</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="sobre-nos.html" class="hover:text-white transition-colors">Sobre Nós</a></li>
+            <li><a href="parceiros.html" class="hover:text-white transition-colors">Parceiros</a></li>
+            <li><a href="trabalhe-connosco.html" class="hover:text-white transition-colors">Trabalhe Connosco</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Torne-se Afiliado</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-4">Suporte</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html#footer" class="hover:text-white transition-colors">Contactos</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Base de Conhecimento</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Status dos Serviços</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Política de Privacidade</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="border-t border-white/8 pt-7 flex flex-col sm:flex-row justify-center items-center gap-2 text-xs text-slate-600">
+        <p>© 2026 WebMinds. Todos os direitos reservados. <a href="https://webminds.pt"
+            class="text-indigo-400 hover:text-indigo-300 transition-colors">webminds.pt</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop"
+    class="fixed bottom-6 right-6 w-12 h-12 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-lg shadow-indigo-600/25 transition-all duration-300 hidden items-center justify-center z-40"
+    aria-label="Voltar ao topo">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </button>
+</body>
+
+</html>

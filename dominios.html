@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registo de Domínios | Webminds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            indigo: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#2548c6', 600: '#1934a7', 700: '#031974' },
+            sky: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#1934a7', 600: '#1934a7', 700: '#031974' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="navbar.js"></script>
+
+  <style>
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up   { animation: fadeUp .55s ease both; }
+    .fade-up-1 { animation-delay: .1s; }
+    .fade-up-2 { animation-delay: .2s; }
+    .fade-up-3 { animation-delay: .3s; }
+
+    /* FAQ accordion */
+    .faq-answer { display: none; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform .25s ease; display: inline-block; }
+
+    /* Search highlight */
+    .tld-row:not(.visible) { display: none; }
+    .tld-row.visible { display: table-row; }
+
+    /* Spinner for domain search */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spin { animation: spin .7s linear infinite; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="pt-28">
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="py-20 bg-gradient-to-br from-indigo-700 via-indigo-600 to-sky-600 text-white">
+      <div class="max-w-5xl mx-auto px-6 text-center">
+        <span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-white/20 text-sm font-semibold tracking-wider fade-up">Registo de Domínios</span>
+        <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold fade-up fade-up-1">
+          Todos os sites precisam<br>de um ótimo nome!
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl max-w-2xl mx-auto text-blue-100 fade-up fade-up-2">
+          O seu domínio ajuda as pessoas a encontrá-lo online e cria uma primeira impressão. Encontre um que o represente na perfeição.
+        </p>
+
+        <!-- Domain search bar -->
+        <div class="mt-10 fade-up fade-up-3">
+          <form onsubmit="searchDomain(event)" class="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto">
+            <div class="relative flex-1">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-blue-300 text-lg">🔍</span>
+              <input
+                type="text"
+                id="domainInput"
+                placeholder="Digite o domínio para localizar..."
+                class="w-full pl-11 pr-4 py-4 rounded-xl bg-white/15 border border-white/30 text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-white/60 text-base"
+              />
+            </div>
+            <button type="submit" class="px-8 py-4 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition text-base whitespace-nowrap shadow-lg">
+              Pesquisar Domínio
+            </button>
+          </form>
+          <p id="searchResult" class="mt-4 text-sm text-blue-200 hidden"></p>
+        </div>
+
+        <!-- Stats -->
+        <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto text-center">
+          <div>
+            <p class="text-4xl font-extrabold">500+</p>
+            <p class="text-blue-200 text-sm mt-1">Extensões disponíveis</p>
+          </div>
+          <div>
+            <p class="text-4xl font-extrabold">Grátis</p>
+            <p class="text-blue-200 text-sm mt-1">Privacidade WHOIS</p>
+          </div>
+          <div>
+            <p class="text-4xl font-extrabold">∞</p>
+            <p class="text-blue-200 text-sm mt-1">Subdomínios gratuitos</p>
+          </div>
+          <div>
+            <p class="text-4xl font-extrabold">24/7</p>
+            <p class="text-blue-200 text-sm mt-1">Suporte técnico</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         MAIS DO QUE APENAS UM NOME
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Mais do que apenas um nome de domínio</h2>
+        <p class="mt-4 text-slate-600 max-w-2xl mx-auto">Quando registas o teu domínio connosco, tens acesso a um conjunto completo de ferramentas para gerir a tua presença online.</p>
+
+        <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 text-left">
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-xl mb-3">🔒</div>
+            <h3 class="font-semibold text-slate-800">Privacidade WHOIS Grátis</h3>
+            <p class="text-slate-600 text-sm mt-1">Proteção de privacidade incluída sem custos durante toda a vida do domínio, renovada automaticamente.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-xl mb-3">🌐</div>
+            <h3 class="font-semibold text-slate-800">Subdomínios Ilimitados</h3>
+            <p class="text-slate-600 text-sm mt-1">Cria tantos subdomínios quantos precisares, sem custos adicionais. Escalabilidade total para o teu projeto.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-xl mb-3">🛠️</div>
+            <h3 class="font-semibold text-slate-800">Gestão DNS Simples</h3>
+            <p class="text-slate-600 text-sm mt-1">Painel intuitivo para editar registos DNS, configurar redirecionamentos e gerir tudo num só lugar.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-xl mb-3">🔐</div>
+            <h3 class="font-semibold text-slate-800">Certificados SSL</h3>
+            <p class="text-slate-600 text-sm mt-1">Aumenta a confiança no teu negócio com SSL. Encriptação de dados e melhoria no ranking do Google.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         PORQUÊ ESCOLHER-NOS
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Porque Escolher-nos para Domínios?</h2>
+        <p class="mt-3 text-center text-slate-600 max-w-xl mx-auto">Temos funcionalidades que outros não têm.</p>
+
+        <div class="mt-10 grid gap-8 lg:grid-cols-3">
+
+          <!-- Card 1 -->
+          <div class="rounded-2xl border border-indigo-100 bg-white p-8 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600 text-2xl mb-5">🕵️</div>
+            <h3 class="text-lg font-bold text-slate-800">Registo de domínio privado gratuito</h3>
+            <p class="mt-3 text-slate-600 text-sm leading-relaxed">Acreditamos que deves poder controlar a quantidade de informação pessoal que partilhas online. A nossa Proteção de Privacidade WHOIS está incluída <strong>SEM CUSTOS</strong> durante toda a vida do teu domínio e será renovada automaticamente.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="rounded-2xl border border-indigo-100 bg-white p-8 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600 text-2xl mb-5">🔗</div>
+            <h3 class="text-lg font-bold text-slate-800">Subdomínios gratuitos e ilimitados</h3>
+            <p class="mt-3 text-slate-600 text-sm leading-relaxed">Precisas de inúmeros subdomínios para o teu site? Desfruta da conveniência de ter <strong>SUBDOMÍNIOS ILIMITADOS</strong> disponíveis nos nossos planos de alojamento, garantindo escalabilidade e flexibilidade ao teu projeto online.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="rounded-2xl border border-indigo-100 bg-white p-8 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600 text-2xl mb-5">⚙️</div>
+            <h3 class="text-lg font-bold text-slate-800">Gestão de domínios simples</h3>
+            <p class="mt-3 text-slate-600 text-sm leading-relaxed">Gere os teus domínios todos numa única página do nosso painel. Edita registos DNS, configura redirecionamentos e muito mais, com suporte 24/7 disponível para te ajudar em cada passo.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         SSL
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="rounded-2xl border border-indigo-200 bg-indigo-50 p-8 lg:p-12">
+          <div class="grid gap-8 lg:grid-cols-2 items-center">
+            <div>
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold uppercase tracking-widest mb-4">Certificados SSL</span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Aumenta a confiança no teu negócio</h2>
+              <p class="mt-4 text-slate-600">Os Certificados SSL permitem a encriptação de dados na internet e transmissão segura entre servidor e navegador. Com SSL, o teu site usa o protocolo <strong>https</strong> e exibe um cadeado de segurança para os utilizadores.</p>
+              <p class="mt-3 text-slate-600">O Google favorece sites com SSL nos resultados de pesquisa — um investimento que protege os teus utilizadores e melhora o teu SEO ao mesmo tempo.</p>
+              <a href="#" class="mt-6 inline-block px-6 py-3 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition text-sm">Ver Certificados SSL</a>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="rounded-xl bg-white border border-indigo-100 p-5 text-center shadow-sm">
+                <div class="text-3xl mb-2">🔐</div>
+                <h4 class="font-semibold text-slate-800 text-sm">Encriptação</h4>
+                <p class="text-slate-500 text-xs mt-1">Dados protegidos em trânsito</p>
+              </div>
+              <div class="rounded-xl bg-white border border-indigo-100 p-5 text-center shadow-sm">
+                <div class="text-3xl mb-2">🔒</div>
+                <h4 class="font-semibold text-slate-800 text-sm">HTTPS</h4>
+                <p class="text-slate-500 text-xs mt-1">Cadeado no navegador</p>
+              </div>
+              <div class="rounded-xl bg-white border border-indigo-100 p-5 text-center shadow-sm">
+                <div class="text-3xl mb-2">📈</div>
+                <h4 class="font-semibold text-slate-800 text-sm">SEO</h4>
+                <p class="text-slate-500 text-xs mt-1">Melhor ranking no Google</p>
+              </div>
+              <div class="rounded-xl bg-white border border-indigo-100 p-5 text-center shadow-sm">
+                <div class="text-3xl mb-2">✅</div>
+                <h4 class="font-semibold text-slate-800 text-sm">Confiança</h4>
+                <p class="text-slate-500 text-xs mt-1">Mais conversões</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         TRANSFERIR + SUPORTE
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6 grid gap-8 lg:grid-cols-2">
+
+        <div class="rounded-2xl border border-indigo-200 bg-indigo-50 p-8">
+          <div class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600 text-2xl mb-4">🔄</div>
+          <h3 class="text-xl font-bold text-slate-800">Transferir Domínio</h3>
+          <p class="mt-3 text-slate-600">Já compraste um domínio? Transfere-o para nós hoje mesmo! Gerir o nome de domínio do teu website é fácil ao transferi-lo rapidamente do teu registo atual — é só fazer alguns cliques.</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-700">
+            <li class="flex gap-2">✅ Processo simples em poucos cliques</li>
+            <li class="flex gap-2">✅ Sem tempo de inatividade</li>
+            <li class="flex gap-2">✅ Privacidade WHOIS gratuita incluída</li>
+            <li class="flex gap-2">✅ Suporte durante toda a transferência</li>
+          </ul>
+          <a href="#" class="mt-6 inline-block px-6 py-3 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition text-sm">Iniciar Transferência</a>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-8">
+          <div class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600 text-2xl mb-4">🛟</div>
+          <h3 class="text-xl font-bold text-slate-800">Suporte Técnico 24/7</h3>
+          <p class="mt-3 text-slate-600">A nossa equipa técnica está aqui para ajudar-te a qualquer hora. Estamos muito orgulhosos da nossa equipa de suporte especializada — se tu estás a trabalhar, eles também estão.</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-700">
+            <li class="flex gap-2">✅ Chat ao vivo 24/7</li>
+            <li class="flex gap-2">✅ Suporte por ticket e e-mail</li>
+            <li class="flex gap-2">✅ Ajuda com DNS, SSL e redirecionamentos</li>
+            <li class="flex gap-2">✅ Tempo médio de resposta &lt; 5 minutos</li>
+          </ul>
+          <a href="#" class="mt-6 inline-block px-6 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contactar Suporte</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         TABELA DE TLDs
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Preços de Domínios</h2>
+        <p class="mt-3 text-center text-slate-600 max-w-xl mx-auto">Pesquisa entre centenas de extensões de domínio disponíveis e encontra o preço certo para ti.</p>
+
+        <!-- TLD search -->
+        <div class="mt-8 max-w-md mx-auto">
+          <div class="relative">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">🔍</span>
+            <input
+              type="text"
+              id="tldSearch"
+              placeholder="Pesquisar extensões... ex: .pt, .com, .io"
+              oninput="filterTLDs(this.value)"
+              class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-400 text-sm"
+            />
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="mt-6 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-indigo-700 text-white">
+                <th class="text-left px-5 py-4 font-semibold rounded-tl-2xl">TLD</th>
+                <th class="text-left px-5 py-4 font-semibold">Registar</th>
+                <th class="text-left px-5 py-4 font-semibold">Renovação</th>
+                <th class="text-left px-5 py-4 font-semibold">Transferir</th>
+                <th class="text-left px-5 py-4 font-semibold">DNS</th>
+                <th class="text-left px-5 py-4 font-semibold">Email</th>
+                <th class="text-left px-5 py-4 font-semibold rounded-tr-2xl">Privacidade</th>
+              </tr>
+            </thead>
+            <tbody id="tldTableBody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600">
+          <div class="flex items-center gap-2">
+            <span>Mostrar</span>
+            <select onchange="changePageSize(this.value)" class="border border-slate-200 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-sm">
+              <option value="10" selected>10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+            </select>
+            <span>registos</span>
+          </div>
+          <div id="paginationInfo" class="text-slate-500"></div>
+          <div class="flex gap-1" id="paginationBtns"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         FAQ
+    ══════════════════════════════════════════ -->
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Perguntas Frequentes</h2>
+
+        <div class="mt-8 space-y-3">
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              O que é um nome de domínio?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Um domínio é o nome que identifica de forma única uma pessoa, empresa ou organização na Internet. Por exemplo, o nosso domínio é <strong>webminds.pt</strong>. O domínio é composto por duas partes separadas por um ponto: o nome propriamente dito e uma extensão que pode indicar o tipo de atividade ou área geográfica (ex: .pt para Portugal, .de para Alemanha, .com para atividades comerciais).
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              O que é a Proteção de Privacidade WHOIS?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Quando registas um domínio, os teus dados pessoais (nome, endereço, e-mail, telefone) ficam disponíveis publicamente na base de dados WHOIS. A Proteção de Privacidade WHOIS substitui esses dados pelos da Webminds, mantendo a tua informação privada. Na Webminds, esta proteção é completamente gratuita e está incluída em todos os domínios.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Posso transferir o meu domínio de outro registador?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Sim. Podes transferir o teu domínio de qualquer registador para a Webminds de forma simples. Basta obter o código EPP (Auth Code) junto do teu registador atual e iniciar o processo de transferência no nosso painel. A transferência é rápida e sem tempo de inatividade.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Porque é que o SSL é importante para o meu domínio?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              O SSL encripta os dados transmitidos entre o teu site e os visitantes, protegendo informações sensíveis como passwords e dados de pagamento. Além disso, o Google favorece sites com HTTPS nos resultados de pesquisa — o que significa melhor posicionamento SEO. Os navegadores modernos também marcam sites sem SSL como "Não Seguro", o que afasta visitantes.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              O que são subdomínios e como funcionam?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              Um subdomínio é uma extensão do teu domínio principal. Por exemplo, se o teu domínio é <strong>empresa.pt</strong>, podes criar <strong>loja.empresa.pt</strong>, <strong>blog.empresa.pt</strong> ou <strong>app.empresa.pt</strong>. Na Webminds, podes criar subdomínios ilimitados sem qualquer custo adicional — ideal para separar diferentes secções ou serviços do teu projeto online.
+            </div>
+          </div>
+
+          <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+              Qual a diferença entre .pt, .com e outras extensões?
+              <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
+              As extensões de domínio (TLDs) indicam o propósito ou localização de um site. O <strong>.pt</strong> é a extensão nacional de Portugal, ideal para negócios que operam principalmente no mercado português. O <strong>.com</strong> é a extensão mais reconhecida globalmente, perfeita para negócios internacionais. Existem centenas de outras extensões temáticas como .shop, .tech, .io, .online, entre muitas outras disponíveis na Webminds.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         CTA FINAL
+    ══════════════════════════════════════════ -->
+    <section class="py-20 bg-gradient-to-br from-indigo-700 via-indigo-600 to-sky-600 text-white text-center">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">O teu domínio perfeito está à espera</h2>
+        <p class="mt-4 text-blue-100 text-lg">Privacidade WHOIS gratuita, subdomínios ilimitados e suporte 24/7 incluídos em todos os domínios.</p>
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="mt-8 inline-block px-10 py-4 bg-white text-indigo-700 rounded-xl font-bold text-lg hover:bg-blue-50 transition shadow-lg">Registar o Meu Domínio</a>
+        <p class="mt-3 text-indigo-300 text-sm">Transferência gratuita. Renovação automática. Sem surpresas.</p>
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="bg-slate-900 text-slate-400 pt-16 pb-8">
+    <div class="max-w-6xl mx-auto px-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-10">
+      <div>
+        <h4 class="text-white font-bold mb-3">Webminds</h4>
+        <p class="text-sm">O teu parceiro de confiança em soluções de alojamento web e segurança online.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Serviços</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="domain-names.html" class="hover:text-white transition">Domínios</a></li>
+          <li><a href="vps-hosting.html" class="hover:text-white transition">VPS NVMe</a></li>
+          <li><a href="dedicated-servers.html" class="hover:text-white transition">Servidores Dedicados</a></li>
+          <li><a href="#" class="hover:text-white transition">Alojamento Web</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Segurança</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:text-white transition">SiteLock</a></li>
+          <li><a href="#" class="hover:text-white transition">Certificados SSL</a></li>
+          <li><a href="website-backup.html" class="hover:text-white transition">Backups Diários</a></li>
+          <li><a href="#" class="hover:text-white transition">NordVPN</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Empresa</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="sobre-nos.html" class="hover:text-white transition">Sobre nós</a></li>
+          <li><a href="#" class="hover:text-white transition">Contacto</a></li>
+          <li><a href="#" class="hover:text-white transition">Política de Privacidade</a></li>
+          <li><a href="#" class="hover:text-white transition">Termos de Serviço</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 border-t border-slate-800 pt-6 text-center text-xs">© 2026 WebMinds. Todos os direitos reservados.</div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // ── Domain search simulation ──
+    function searchDomain(e) {
+      e.preventDefault();
+      const val = document.getElementById('domainInput').value.trim();
+      if (!val) return;
+      const result = document.getElementById('searchResult');
+      result.classList.remove('hidden');
+      // Simple mock response
+      const clean = val.replace(/^https?:\/\//,'').split('/')[0];
+      const hasTld = clean.includes('.');
+      if (hasTld) {
+        result.innerHTML = `A pesquisar <strong>${clean}</strong>… <span class="text-yellow-200">Por favor aguarda — funcionalidade de pesquisa em tempo real em breve!</span>`;
+      } else {
+        result.innerHTML = `Sugestão: tenta pesquisar <strong>${clean}.pt</strong>, <strong>${clean}.com</strong> ou <strong>${clean}.io</strong>`;
+      }
+    }
+
+    // ── TLD Table Data ──
+    const tlds = [
+      [".pt",       "€14,99","€14,99","€14,99","✓","✓","✓"],
+      [".com",      "€12,99","€12,99","€12,99","✓","✓","✓"],
+      [".net",      "€13,99","€13,99","€13,99","✓","✓","✓"],
+      [".org",      "€13,99","€13,99","€13,99","✓","✓","✓"],
+      [".io",       "€49,99","€49,99","€49,99","✓","✓","✓"],
+      [".shop",     "€29,99","€29,99","€29,99","✓","✓","✓"],
+      [".online",   "€8,99", "€39,99","€39,99","✓","✓","✓"],
+      [".tech",     "€44,99","€44,99","€44,99","✓","✓","✓"],
+      [".store",    "€34,99","€34,99","€34,99","✓","✓","✓"],
+      [".dev",      "€19,99","€19,99","€19,99","✓","✓","✓"],
+      [".app",      "€19,99","€19,99","€19,99","✓","✓","✓"],
+      [".agency",   "€35,64","€35,64","€35,64","✓","✓","-"],
+      [".academy",  "€53,47","€53,47","€53,47","✓","✓","-"],
+      [".abogado",  "€42,77","€42,77","€42,77","-","-","-"],
+      [".ac",       "€72,48","€72,48","€72,48","-","-","-"],
+      [".actor",    "€53,47","€53,47","€53,47","✓","✓","-"],
+      [".adult",    "€148,51","€148,51","€148,51","-","-","-"],
+      [".accountant","€36,83","€36,83","€36,83","-","-","-"],
+      [".accountants","€140,20","€140,20","€140,20","-","-","-"],
+      [".club",     "€17,99","€17,99","€17,99","✓","✓","✓"],
+      [".blog",     "€24,99","€24,99","€24,99","✓","✓","✓"],
+      [".eu",       "€9,99", "€9,99", "€9,99", "✓","✓","-"],
+      [".de",       "€6,99", "€6,99", "€6,99", "✓","✓","-"],
+      [".co.uk",    "€8,99", "€8,99", "€8,99", "✓","✓","-"],
+      [".fr",       "€9,99", "€9,99", "€9,99", "✓","✓","-"],
+      [".es",       "€9,99", "€9,99", "€9,99", "✓","✓","-"],
+      [".info",     "€4,99", "€24,99","€24,99","✓","✓","✓"],
+      [".biz",      "€19,99","€19,99","€19,99","✓","✓","✓"],
+      [".pro",      "€22,99","€22,99","€22,99","✓","✓","✓"],
+      [".media",    "€35,99","€35,99","€35,99","✓","✓","-"],
+    ];
+
+    let filteredTLDs = [...tlds];
+    let pageSize = 10;
+    let currentPage = 1;
+
+    function filterTLDs(query) {
+      const q = query.toLowerCase().trim();
+      filteredTLDs = q ? tlds.filter(r => r[0].toLowerCase().includes(q)) : [...tlds];
+      currentPage = 1;
+      renderTable();
+    }
+
+    function changePageSize(val) {
+      pageSize = parseInt(val);
+      currentPage = 1;
+      renderTable();
+    }
+
+    function goToPage(p) {
+      currentPage = p;
+      renderTable();
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('tldTableBody');
+      const totalPages = Math.ceil(filteredTLDs.length / pageSize);
+      const start = (currentPage - 1) * pageSize;
+      const slice = filteredTLDs.slice(start, start + pageSize);
+
+      tbody.innerHTML = slice.map((row, i) => {
+        const bg = i % 2 === 0 ? 'bg-white' : 'bg-slate-50';
+        const cols = row.map((cell, ci) => {
+          if (ci === 0) return `<td class="px-5 py-3 font-bold text-indigo-700">${cell}</td>`;
+          if (cell === '✓') return `<td class="px-5 py-3 text-green-600 font-bold">✓</td>`;
+          if (cell === '-') return `<td class="px-5 py-3 text-slate-300">—</td>`;
+          return `<td class="px-5 py-3 text-slate-700">${cell}</td>`;
+        }).join('');
+        return `<tr class="${bg} border-t border-slate-100 hover:bg-indigo-50 transition">${cols}</tr>`;
+      }).join('');
+
+      // Pagination info
+      const from = start + 1;
+      const to = Math.min(start + pageSize, filteredTLDs.length);
+      document.getElementById('paginationInfo').textContent = `A mostrar ${from}–${to} de ${filteredTLDs.length} registos`;
+
+      // Pagination buttons
+      const btns = document.getElementById('paginationBtns');
+      const pages = [];
+      const range = 2;
+      for (let p = 1; p <= totalPages; p++) {
+        if (p === 1 || p === totalPages || (p >= currentPage - range && p <= currentPage + range)) {
+          pages.push(p);
+        } else if (pages[pages.length-1] !== '…') {
+          pages.push('…');
+        }
+      }
+
+      btns.innerHTML = [
+        `<button onclick="goToPage(${currentPage-1})" ${currentPage===1?'disabled':''} class="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed text-xs font-medium">Anterior</button>`,
+        ...pages.map(p => p === '…'
+          ? `<span class="px-2 py-1.5 text-slate-400 text-xs">…</span>`
+          : `<button onclick="goToPage(${p})" class="px-3 py-1.5 rounded-lg border text-xs font-medium ${p===currentPage ? 'bg-indigo-600 border-indigo-600 text-white' : 'border-slate-200 text-slate-600 hover:bg-slate-100'}">${p}</button>`
+        ),
+        `<button onclick="goToPage(${currentPage+1})" ${currentPage===totalPages?'disabled':''} class="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed text-xs font-medium">Próximo</button>`
+      ].join('');
+    }
+
+    // Init
+    renderTable();
+  </script>
+
+</body>
+</html>
