@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-mail Profissional — WebMinds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            indigo: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#2548c6', 600: '#1934a7', 700: '#031974' },
+            sky: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#1934a7', 600: '#1934a7', 700: '#031974' },
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="navbar.js"></script>
+
+  <style>
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-10px); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes pulse-ring {
+      0%   { transform: scale(1);   opacity: .7; }
+      100% { transform: scale(1.9); opacity: 0;  }
+    }
+
+    .fade-up   { animation: fadeUp .6s ease both; }
+    .fade-up-1 { animation-delay: .1s; }
+    .fade-up-2 { animation-delay: .2s; }
+    .fade-up-3 { animation-delay: .3s; }
+    .fade-up-4 { animation-delay: .4s; }
+
+    .float { animation: floatY 4s ease-in-out infinite; }
+
+    .shimmer-text {
+      background: linear-gradient(90deg, #fff 0%, #a5b4fc 40%, #fff 60%, #a5b4fc 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 4s linear infinite;
+    }
+
+    /* Inbox mockup card */
+    .inbox-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
+    }
+    .inbox-row {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: background .2s;
+    }
+    .inbox-row:hover { background: rgba(255,255,255,0.06); }
+
+    /* Feature cards */
+    .feature-card {
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(25,52,167,.12);
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(93,126,240,.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Pricing toggle */
+    .plan-card {
+      transition: transform .25s, box-shadow .25s;
+    }
+    .plan-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(25,52,167,.16);
+    }
+    .plan-popular {
+      position: relative;
+      border-color: #1934a7 !important;
+    }
+
+    /* Stats counter */
+    .stat-pill {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* Reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* FAQ accordion */
+    .faq-content { transition: max-height .35s ease, opacity .35s ease; max-height: 0; opacity: 0; overflow: hidden; }
+    .faq-content.open { max-height: 400px; opacity: 1; }
+    .faq-arrow { transition: transform .3s; }
+    .faq-arrow.open { transform: rotate(180deg); }
+
+    /* Pulse dot */
+    .pulse-dot {
+      position: relative;
+      display: inline-flex;
+    }
+    .pulse-dot::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: pulse-ring 1.8s ease-out infinite;
+    }
+
+    /* Device sync illustration dots */
+    .sync-line {
+      stroke-dasharray: 6 4;
+      animation: dash 2s linear infinite;
+    }
+    @keyframes dash { to { stroke-dashoffset: -20; } }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="pt-28">
+
+    <!-- ══════════════════════════════════════
+     HERO
+    ══════════════════════════════════════ -->
+    <section class="relative py-24 bg-gradient-to-br from-indigo-700 via-indigo-600 to-sky-600 text-white overflow-hidden">
+      <!-- decorative blobs -->
+      <div class="absolute -top-40 -right-32 w-[520px] h-[520px] rounded-full bg-white/5 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-32 -left-20 w-[400px] h-[400px] rounded-full bg-sky-400/10 blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-6xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+
+        <!-- Left text -->
+        <div>
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 text-xs font-semibold uppercase tracking-widest fade-up">
+            <span class="pulse-dot w-2 h-2 rounded-full bg-green-400 inline-block"></span>
+            Serviço Ativo 24/7
+          </span>
+          <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] fade-up fade-up-1">
+            E-mail Profissional<br>
+            <span class="shimmer-text">e sem preocupações</span>
+          </h1>
+          <p class="mt-5 text-lg text-sky-100 max-w-xl leading-relaxed fade-up fade-up-2">
+            Inclui Calendário, Webmail, Antivírus e Anti-SPAM com Inteligência Artificial e Backup MX. O e-mail empresarial que a sua marca merece.
+          </p>
+
+          <!-- stat pills -->
+          <div class="mt-7 flex flex-wrap gap-3 fade-up fade-up-3">
+            <div class="stat-pill rounded-full px-4 py-2 text-sm font-medium">✦ Anti-SPAM com IA</div>
+            <div class="stat-pill rounded-full px-4 py-2 text-sm font-medium">✦ Backup MX incluído</div>
+            <div class="stat-pill rounded-full px-4 py-2 text-sm font-medium">✦ Suporte 24/7</div>
+          </div>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-3 fade-up fade-up-4">
+            <a href="#planos" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-indigo-700 font-semibold rounded-xl shadow-lg hover:bg-indigo-50 transition hover:-translate-y-0.5">
+              Ver Planos
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="#funcionalidades" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-white/50 text-white font-semibold rounded-xl hover:bg-white/10 transition">
+              Funcionalidades
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: inbox mockup -->
+        <div class="float hidden lg:block">
+          <div class="inbox-card rounded-2xl overflow-hidden shadow-2xl w-full max-w-sm mx-auto">
+            <!-- window bar -->
+            <div class="flex items-center gap-2 px-4 py-3 bg-white/10 border-b border-white/10">
+              <span class="w-3 h-3 rounded-full bg-red-400/80"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-400/80"></span>
+              <span class="w-3 h-3 rounded-full bg-green-400/80"></span>
+              <span class="ml-4 text-xs text-white/60 font-mono">webmail.webminds.pt</span>
+            </div>
+            <!-- inbox header -->
+            <div class="px-4 pt-4 pb-2">
+              <p class="text-xs font-bold uppercase tracking-widest text-white/40 mb-3">Caixa de Entrada</p>
+              <!-- email rows -->
+              <div class="inbox-row px-2 py-2.5 rounded-lg flex items-center gap-3 cursor-pointer">
+                <div class="w-8 h-8 rounded-full bg-indigo-400/50 flex items-center justify-center text-xs font-bold flex-shrink-0">JS</div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white truncate">João Silva</p>
+                  <p class="text-xs text-white/50 truncate">Proposta de parceria para 2026</p>
+                </div>
+                <span class="ml-auto text-xs text-white/40 flex-shrink-0">09:42</span>
+              </div>
+              <div class="inbox-row px-2 py-2.5 rounded-lg flex items-center gap-3 cursor-pointer">
+                <div class="w-8 h-8 rounded-full bg-sky-400/50 flex items-center justify-center text-xs font-bold flex-shrink-0">AM</div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white truncate">Ana Martins</p>
+                  <p class="text-xs text-white/50 truncate">Relatório mensal — Março</p>
+                </div>
+                <span class="ml-auto text-xs text-white/40 flex-shrink-0">08:15</span>
+              </div>
+              <div class="inbox-row px-2 py-2.5 rounded-lg flex items-center gap-3 cursor-pointer">
+                <div class="w-8 h-8 rounded-full bg-emerald-400/50 flex items-center justify-center text-xs font-bold flex-shrink-0">RC</div>
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white truncate">Ricardo Costa</p>
+                  <p class="text-xs text-white/50 truncate">Confirmação de reunião — 14h</p>
+                </div>
+                <span class="ml-auto text-xs text-white/40 flex-shrink-0">Ontem</span>
+              </div>
+              <!-- spam blocked badge -->
+              <div class="mt-3 flex items-center gap-2 bg-green-500/15 border border-green-500/30 rounded-lg px-3 py-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                <p class="text-xs text-green-300">3 mensagens spam bloqueadas hoje</p>
+              </div>
+            </div>
+            <div class="px-4 pb-4 pt-2">
+              <div class="flex items-center justify-between text-xs text-white/40">
+                <span>1 GB usado de 10 GB</span>
+                <span class="text-green-400 font-semibold">✓ Sincronizado</span>
+              </div>
+              <div class="mt-1.5 h-1.5 rounded-full bg-white/10">
+                <div class="h-1.5 rounded-full bg-gradient-to-r from-indigo-400 to-sky-400" style="width:10%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+     TRUST BAR
+    ══════════════════════════════════════ -->
+    <div class="bg-white border-b border-slate-100 py-5">
+      <div class="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm text-slate-500 font-medium">
+        <span class="flex items-center gap-2"><span class="text-green-500">✓</span> SSL/TLS Encriptado</span>
+        <span class="flex items-center gap-2"><span class="text-green-500">✓</span> IMAP / POP3 / SMTP</span>
+        <span class="flex items-center gap-2"><span class="text-green-500">✓</span> Calendário & Contactos</span>
+        <span class="flex items-center gap-2"><span class="text-green-500">✓</span> Anti-SPAM com IA</span>
+        <span class="flex items-center gap-2"><span class="text-green-500">✓</span> Backup MX automático</span>
+        <span class="flex items-center gap-2"><span class="text-green-500">✓</span> Webmail responsivo</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+     FEATURES TRIO
+    ══════════════════════════════════════ -->
+    <section id="funcionalidades" class="py-24 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16 reveal">
+          <span class="inline-block px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-3">Funcionalidades</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">E-mail profissional rápido e simples</h2>
+          <p class="mt-3 text-slate-500 max-w-2xl mx-auto">Todas as ferramentas que o seu negócio precisa numa única plataforma de correio eletrónico gerida pela WebMinds.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- Anti-SPAM -->
+          <div class="feature-card reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center mb-5">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <line x1="9" y1="9" x2="15" y2="15"/>
+                <line x1="15" y1="9" x2="9" y2="15"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Anti-SPAM Potente</h3>
+            <p class="text-slate-600 leading-relaxed">Utilizando Inteligência Artificial e software de defesa preditiva, o sistema protege a sua caixa de entrada contra spam, vírus, malware e ataques de phishing.</p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-600">
+              <li class="flex items-center gap-2"><span class="w-4 h-4 rounded-full bg-red-100 text-red-500 flex items-center justify-center text-xs">✓</span> Filtros IA em tempo real</li>
+              <li class="flex items-center gap-2"><span class="w-4 h-4 rounded-full bg-red-100 text-red-500 flex items-center justify-center text-xs">✓</span> Deteção de phishing</li>
+              <li class="flex items-center gap-2"><span class="w-4 h-4 rounded-full bg-red-100 text-red-500 flex items-center justify-center text-xs">✓</span> Quarentena automática</li>
+            </ul>
+          </div>
+
+          <!-- Baseado na Cloud -->
+          <div class="feature-card reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-indigo-100 flex items-center justify-center mb-5">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1934a7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Baseado na Cloud</h3>
+            <p class="text-slate-600 leading-relaxed">Sincroniza em todos os seus dispositivos, garantindo acesso fluido em mobile e desktop. Integra-se com todos os clientes nativos de e-mail.</p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-600">
+              <li class="flex items-center gap-2"><span class="w-4 h-4 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">✓</span> IMAP / POP3 / SMTP</li>
+              <li class="flex items-center gap-2"><span class="w-4 h-4 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">✓</span> Outlook, Apple Mail, Gmail</li>
+              <li class="flex items-center gap-2"><span class="w-4 h-4 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">✓</span> App iOS & Android</li>
+            </ul>
+          </div>
+
+          <!-- Suporte 24/7 -->
+          <div class="feature-card reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center mb-5">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Suporte Técnico 24/7</h3>
+            <p class="text-slate-600 leading-relaxed">A nossa equipa técnica especializada está aqui para ajudar a qualquer hora. Se você está a trabalhar, eles também estão.</p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-600">
+              <li class="flex items-center gap-2"><span class="w-4 h-4 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs">✓</span> Tickets ilimitados</li>
+              <li class="flex items-center gap-2"><span class="w-4 h-4 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs">✓</span> Resposta em &lt; 2 horas</li>
+              <li class="flex items-center gap-2"><span class="w-4 h-4 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs">✓</span> Chat ao vivo</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+     FEATURE GRID (Alojamento E-mail)
+    ══════════════════════════════════════ -->
+    <section class="py-24 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16 reveal">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Funcionalidades de Alojamento de E-mail</h2>
+          <p class="mt-3 text-slate-500 max-w-2xl mx-auto">Tudo o que uma empresa precisa para comunicar de forma profissional e segura.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          <div class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+            <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-slate-900">Webmail Integrado</h4>
+              <p class="text-sm text-slate-500 mt-1">Aceda ao e-mail a partir de qualquer browser, sem instalar nada.</p>
+            </div>
+          </div>
+
+          <div class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+            <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-slate-900">Calendário</h4>
+              <p class="text-sm text-slate-500 mt-1">Calendário partilhado com suporte CalDAV para sincronização.</p>
+            </div>
+          </div>
+
+          <div class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+            <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-slate-900">Contactos & CardDAV</h4>
+              <p class="text-sm text-slate-500 mt-1">Agenda sincronizada com todos os dispositivos via CardDAV.</p>
+            </div>
+          </div>
+
+          <div class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-slate-900">Antivírus</h4>
+              <p class="text-sm text-slate-500 mt-1">Análise em tempo real de todos os anexos e links recebidos.</p>
+            </div>
+          </div>
+
+          <div class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+            <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-5"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-slate-900">Backup MX</h4>
+              <p class="text-sm text-slate-500 mt-1">Servidor MX de reserva que recebe e-mails se o primário falhar.</p>
+            </div>
+          </div>
+
+          <div class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+            <div class="w-10 h-10 rounded-xl bg-violet-100 text-violet-600 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-slate-900">App Móvel</h4>
+              <p class="text-sm text-slate-500 mt-1">Compatible com Gmail, Apple Mail, Outlook e outros clientes nativos.</p>
+            </div>
+          </div>
+
+          <div class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+            <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-slate-900">Respostas Automáticas</h4>
+              <p class="text-sm text-slate-500 mt-1">Configure auto-responders para férias, ausências e notificações.</p>
+            </div>
+          </div>
+
+          <div class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+            <div class="w-10 h-10 rounded-xl bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-slate-900">Uptime 99.9%</h4>
+              <p class="text-sm text-slate-500 mt-1">Infraestrutura redundante com SLA garantido de 99,9% de disponibilidade.</p>
+            </div>
+          </div>
+
+          <div class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+            <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-slate-900">SSL / TLS</h4>
+              <p class="text-sm text-slate-500 mt-1">Toda a comunicação encriptada com certificados SSL/TLS.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+     SYNC ACROSS DEVICES
+    ══════════════════════════════════════ -->
+    <section class="py-24 bg-gradient-to-br from-indigo-50 to-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+          <div class="reveal">
+            <span class="inline-block px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-4">Funciona em qualquer lugar</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-5">Sincronizado em todos os seus dispositivos</h2>
+            <p class="text-slate-600 leading-relaxed mb-6">O sistema de correio eletrónico da Webminds sincroniza-se em todos os seus dispositivos, garantindo um acesso fluido tanto em dispositivos móveis como em computadores. Integra-se perfeitamente com todos os clientes nativos.</p>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center flex-shrink-0 text-lg">💻</div>
+                <div>
+                  <h4 class="font-semibold text-slate-900">Desktop</h4>
+                  <p class="text-sm text-slate-500">Outlook, Apple Mail, Thunderbird — qualquer cliente IMAP.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                <div class="w-10 h-10 rounded-xl bg-sky-500 text-white flex items-center justify-center flex-shrink-0 text-lg">📱</div>
+                <div>
+                  <h4 class="font-semibold text-slate-900">Mobile</h4>
+                  <p class="text-sm text-slate-500">iOS e Android com push notifications em tempo real.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center flex-shrink-0 text-lg">🌐</div>
+                <div>
+                  <h4 class="font-semibold text-slate-900">Webmail</h4>
+                  <p class="text-sm text-slate-500">Acesso imediato via browser, sem instalação.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Visual: device grid -->
+          <div class="reveal flex justify-center">
+            <div class="relative w-full max-w-sm">
+              <!-- Center hub -->
+              <div class="absolute inset-0 flex items-center justify-center z-10">
+                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-600 to-sky-500 shadow-xl flex items-center justify-center">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
+              </div>
+              <!-- Devices -->
+              <svg viewBox="0 0 320 320" class="w-full" xmlns="http://www.w3.org/2000/svg">
+                <!-- dashed lines -->
+                <line x1="160" y1="160" x2="160" y2="40"  stroke="#c7d2ff" stroke-width="2" stroke-dasharray="6 4" class="sync-line"/>
+                <line x1="160" y1="160" x2="280" y2="240" stroke="#c7d2ff" stroke-width="2" stroke-dasharray="6 4" class="sync-line"/>
+                <line x1="160" y1="160" x2="40"  y2="240" stroke="#c7d2ff" stroke-width="2" stroke-dasharray="6 4" class="sync-line"/>
+                <!-- device boxes -->
+                <!-- Desktop -->
+                <rect x="110" y="10"  width="100" height="60" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+                <rect x="115" y="15"  width="90"  height="44" rx="5" fill="#f4f7ff"/>
+                <text x="160" y="43" font-size="9" text-anchor="middle" fill="#1934a7" font-family="sans-serif" font-weight="600">Desktop</text>
+                <!-- Phone -->
+                <rect x="240" y="205" width="60" height="90" rx="10" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+                <rect x="244" y="210" width="52" height="75" rx="6"  fill="#f4f7ff"/>
+                <text x="270" y="255" font-size="9" text-anchor="middle" fill="#1934a7" font-family="sans-serif" font-weight="600">Mobile</text>
+                <!-- Tablet -->
+                <rect x="20"  y="205" width="80" height="90" rx="10" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+                <rect x="25"  y="210" width="70" height="75" rx="6"  fill="#f4f7ff"/>
+                <text x="60"  y="255" font-size="9" text-anchor="middle" fill="#1934a7" font-family="sans-serif" font-weight="600">Webmail</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+     PRICING PLANS
+    ══════════════════════════════════════ -->
+    <section id="planos" class="py-24 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-14 reveal">
+          <span class="inline-block px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-3">Planos</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Escolha o plano ideal</h2>
+          <p class="mt-3 text-slate-500 max-w-xl mx-auto">Preços simples e transparentes. Todos os planos incluem Anti-SPAM, Antivírus e Backup MX.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- Starter -->
+          <div class="plan-card reveal bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <h3 class="text-lg font-bold text-slate-900">Starter</h3>
+            <p class="text-sm text-slate-500 mt-1">Ideal para freelancers e pequenos projetos.</p>
+            <div class="mt-5 mb-6">
+              <span class="text-4xl font-extrabold text-slate-900">€1,99</span>
+              <span class="text-slate-400 text-sm">/mês</span>
+            </div>
+            <ul class="space-y-3 text-sm text-slate-600 mb-8">
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> 5 GB de armazenamento</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> 1 caixa de correio</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Anti-SPAM com IA</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Webmail & IMAP</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> SSL/TLS encriptado</li>
+              <li class="flex items-center gap-2 text-slate-300"><span>✗</span> Calendário partilhado</li>
+              <li class="flex items-center gap-2 text-slate-300"><span>✗</span> Backup MX</li>
+            </ul>
+            <a href="#" class="block w-full text-center px-6 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition">Começar</a>
+          </div>
+
+          <!-- Business — popular -->
+          <div class="plan-card plan-popular reveal bg-white rounded-2xl border-2 p-8 shadow-xl relative">
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+              <span class="inline-block px-4 py-1 rounded-full bg-indigo-600 text-white text-xs font-bold uppercase tracking-wider shadow-lg">Mais popular</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">Business</h3>
+            <p class="text-sm text-slate-500 mt-1">Para empresas que exigem fiabilidade total.</p>
+            <div class="mt-5 mb-6">
+              <span class="text-4xl font-extrabold text-indigo-700">€4,99</span>
+              <span class="text-slate-400 text-sm">/mês</span>
+            </div>
+            <ul class="space-y-3 text-sm text-slate-600 mb-8">
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> 25 GB de armazenamento</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> 5 caixas de correio</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Anti-SPAM avançado com IA</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Webmail & IMAP/POP3</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Calendário & Contactos</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Backup MX automático</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Suporte prioritário 24/7</li>
+            </ul>
+            <a href="#" class="block w-full text-center px-6 py-3 bg-indigo-600 text-white rounded-xl font-semibold shadow-lg shadow-indigo-600/25 hover:bg-indigo-700 transition">Começar</a>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="plan-card reveal bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <h3 class="text-lg font-bold text-slate-900">Enterprise</h3>
+            <p class="text-sm text-slate-500 mt-1">Para equipas grandes e necessidades personalizadas.</p>
+            <div class="mt-5 mb-6">
+              <span class="text-4xl font-extrabold text-slate-900">€9,99</span>
+              <span class="text-slate-400 text-sm">/mês</span>
+            </div>
+            <ul class="space-y-3 text-sm text-slate-600 mb-8">
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> 100 GB de armazenamento</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Caixas ilimitadas</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Anti-SPAM premium com IA</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Domínio personalizado</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Calendário partilhado</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Backup MX redundante</li>
+              <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Gestor de conta dedicado</li>
+            </ul>
+            <a href="#" class="block w-full text-center px-6 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition">Contactar</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════
+     FAQ
+    ══════════════════════════════════════ -->
+    <section class="py-24 bg-white">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-14 reveal">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Perguntas Frequentes</h2>
+          <p class="mt-3 text-slate-500">Tudo o que precisa de saber sobre o nosso serviço de e-mail profissional.</p>
+        </div>
+        <div class="space-y-3">
+
+          <div class="reveal bg-slate-50 rounded-2xl overflow-hidden border border-slate-100">
+            <button class="faq-toggle w-full flex items-center justify-between text-left px-6 py-5">
+              <h3 class="font-semibold text-slate-900 pr-4">Posso usar o meu próprio domínio com o e-mail profissional?</h3>
+              <svg class="faq-arrow w-5 h-5 text-slate-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-content px-6 pb-5">
+              <p class="text-slate-600 text-sm">Sim! O e-mail profissional da WebMinds funciona com o seu domínio personalizado (ex: nome@suaempresa.pt). Configuramos os registos DNS necessários por si.</p>
+            </div>
+          </div>
+
+          <div class="reveal bg-slate-50 rounded-2xl overflow-hidden border border-slate-100">
+            <button class="faq-toggle w-full flex items-center justify-between text-left px-6 py-5">
+              <h3 class="font-semibold text-slate-900 pr-4">O que é o Backup MX e por que é importante?</h3>
+              <svg class="faq-arrow w-5 h-5 text-slate-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-content px-6 pb-5">
+              <p class="text-slate-600 text-sm">O Backup MX é um servidor de e-mail de reserva que recebe e armazena temporariamente os seus e-mails caso o servidor principal fique indisponível. Garante que nunca perde mensagens, mesmo em caso de falha técnica.</p>
+            </div>
+          </div>
+
+          <div class="reveal bg-slate-50 rounded-2xl overflow-hidden border border-slate-100">
+            <button class="faq-toggle w-full flex items-center justify-between text-left px-6 py-5">
+              <h3 class="font-semibold text-slate-900 pr-4">O e-mail funciona com Outlook e Apple Mail?</h3>
+              <svg class="faq-arrow w-5 h-5 text-slate-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-content px-6 pb-5">
+              <p class="text-slate-600 text-sm">Sim. O nosso serviço suporta IMAP, POP3 e SMTP, sendo compatível com Outlook, Apple Mail, Thunderbird, Gmail (como conta IMAP) e qualquer outro cliente de e-mail nativo.</p>
+            </div>
+          </div>
+
+          <div class="reveal bg-slate-50 rounded-2xl overflow-hidden border border-slate-100">
+            <button class="faq-toggle w-full flex items-center justify-between text-left px-6 py-5">
+              <h3 class="font-semibold text-slate-900 pr-4">Como funciona o sistema Anti-SPAM com Inteligência Artificial?</h3>
+              <svg class="faq-arrow w-5 h-5 text-slate-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-content px-6 pb-5">
+              <p class="text-slate-600 text-sm">O sistema analisa padrões de comportamento, reputação do remetente, conteúdo e links em tempo real usando modelos de IA. As mensagens suspeitas são colocadas em quarentena automaticamente, podendo ser revistas pelo utilizador.</p>
+            </div>
+          </div>
+
+          <div class="reveal bg-slate-50 rounded-2xl overflow-hidden border border-slate-100">
+            <button class="faq-toggle w-full flex items-center justify-between text-left px-6 py-5">
+              <h3 class="font-semibold text-slate-900 pr-4">Posso migrar o meu e-mail atual para a WebMinds?</h3>
+              <svg class="faq-arrow w-5 h-5 text-slate-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-content px-6 pb-5">
+              <p class="text-slate-600 text-sm">Sim! A nossa equipa técnica auxilia na migração de e-mails existentes, garantindo que não perde nenhuma mensagem ou histórico durante a transição.</p>
+            </div>
+          </div>
+
+          <div class="reveal bg-slate-50 rounded-2xl overflow-hidden border border-slate-100">
+            <button class="faq-toggle w-full flex items-center justify-between text-left px-6 py-5">
+              <h3 class="font-semibold text-slate-900 pr-4">Existe webmail disponível sem instalar nada?</h3>
+              <svg class="faq-arrow w-5 h-5 text-slate-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-content px-6 pb-5">
+              <p class="text-slate-600 text-sm">Sim. O webmail responsivo está disponível em qualquer browser, permitindo acesso imediato a partir de qualquer dispositivo sem necessidade de configurações adicionais.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+     CTA
+    ══════════════════════════════════════ -->
+    <section class="relative overflow-hidden py-20 bg-gradient-to-br from-indigo-700 to-sky-600 text-white text-center">
+      <div class="absolute -top-28 -right-16 w-96 h-96 rounded-full bg-white/5"></div>
+      <div class="absolute -bottom-20 -left-10 w-72 h-72 rounded-full bg-white/5"></div>
+      <div class="max-w-3xl mx-auto px-6 relative z-10 reveal">
+        <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Pronto para ter o e-mail que a sua empresa merece?</h2>
+        <p class="text-sky-100 text-lg mb-8 max-w-xl mx-auto">Configuração em minutos. Anti-SPAM com IA. Suporte 24/7. Sem complicações.</p>
+        <a href="#planos" class="inline-block px-10 py-4 bg-white text-indigo-700 font-bold rounded-xl shadow-xl hover:bg-indigo-50 transition hover:-translate-y-0.5">
+          Escolher Plano
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════
+   FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="bg-slate-900 text-slate-400 pt-16 pb-8">
+    <div class="max-w-6xl mx-auto px-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-10">
+      <div>
+        <h4 class="text-white font-bold mb-3">Webminds</h4>
+        <p class="text-sm">O teu parceiro de confiança em soluções de alojamento web e segurança online.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Serviços</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="domain-names.html" class="hover:text-white transition">Domínios</a></li>
+          <li><a href="vps-hosting.html" class="hover:text-white transition">VPS NVMe</a></li>
+          <li><a href="dedicated-servers.html" class="hover:text-white transition">Servidores Dedicados</a></li>
+          <li><a href="professional-email.html" class="text-white font-semibold">E-mail Profissional</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Segurança</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="hover:text-white transition">SiteLock</a></li>
+          <li><a href="#" class="hover:text-white transition">Certificados SSL</a></li>
+          <li><a href="website-backup.html" class="hover:text-white transition">Backups Diários</a></li>
+          <li><a href="#" class="hover:text-white transition">NordVPN</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Legal</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="terms-of-service.html" class="hover:text-white transition">Termos de Serviço</a></li>
+          <li><a href="#" class="hover:text-white transition">Política de Privacidade</a></li>
+          <li><a href="#" class="hover:text-white transition">Acordo SLA</a></li>
+          <li><a href="#" class="hover:text-white transition">Aviso Legal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 border-t border-slate-800 pt-6 text-center text-xs">© 2026 WebMinds. Todos os direitos reservados.</div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    reveals.forEach(r => revealObserver.observe(r));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const arrow   = btn.querySelector('.faq-arrow');
+        const isOpen  = content.classList.contains('open');
+        // close all
+        document.querySelectorAll('.faq-content').forEach(c => c.classList.remove('open'));
+        document.querySelectorAll('.faq-arrow').forEach(a => a.classList.remove('open'));
+        // open clicked if was closed
+        if (!isOpen) { content.classList.add('open'); arrow.classList.add('open'); }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -249,7 +249,7 @@
           </li>
 
           <li>
-  <a href="#" target="_blank"  onclick="document.getElementById('loginModal').style.display='flex'; return false;"
+  <a href="https://webminds.pt/login"
      class="ml-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg shadow-md shadow-indigo-200 transition-all hover:-translate-y-px active:scale-[0.97]">
     Entrar
   </a>
@@ -285,7 +285,7 @@
           <!-- Announcement bar -->
     <div class="w-full bg-red-600 text-white text-xs font-semibold text-center py-2 px-4">
       🎉 Somos agora Parceiro Oficial <strong>Worten Life</strong> —
-<a href="#" onclick="openWortenModal(); return false;" class="underline ...">Saber mais</a>
+<a href="worten.html" onclick="openWortenModal(); return false;" class="underline ...">Saber mais</a>
       
     </div>
 

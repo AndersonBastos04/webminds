@@ -4,7 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hospedagem WordPress — WebMinds</title>
+  <title>Hospedagem para WordPress</title>
+  <meta name="description" content="LiteSpeed e Inteligência Artificial para máxima velocidade e eficiência
+Inclui domínio (1.º ano), SSL, backups e WordPress Toolkit Deluxe – tudo GRÁTIS!" />
+  <meta name="robots" content="index, follow">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
@@ -43,15 +46,37 @@
   <script src="navbar.js"></script>
 
   <style>
-    .plan-price-monthly { display: block; }
-    .plan-price-annual  { display: none; }
-    body.annual .plan-price-monthly { display: none; }
-    body.annual .plan-price-annual  { display: block; }
+    .plan-price-monthly {
+      display: block;
+    }
 
-    .faq-content { display: none; }
-    .faq-item.open .faq-content { display: block; }
-    .faq-item.open .faq-arrow { transform: rotate(180deg); }
-    .faq-arrow { transition: transform .25s ease; }
+    .plan-price-annual {
+      display: none;
+    }
+
+    body.annual .plan-price-monthly {
+      display: none;
+    }
+
+    body.annual .plan-price-annual {
+      display: block;
+    }
+
+    .faq-content {
+      display: none;
+    }
+
+    .faq-item.open .faq-content {
+      display: block;
+    }
+
+    .faq-item.open .faq-arrow {
+      transform: rotate(180deg);
+    }
+
+    .faq-arrow {
+      transition: transform .25s ease;
+    }
 
     .location-tab.active {
       background-color: #1934a7;
@@ -59,12 +84,25 @@
       border-color: #1934a7;
     }
 
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* WP logo colour */
-    .wp-blue { color: #21759b; }
-    .wp-blue-bg { background-color: #21759b; }
+    .wp-blue {
+      color: #21759b;
+    }
+
+    .wp-blue-bg {
+      background-color: #21759b;
+    }
   </style>
 </head>
 
@@ -79,61 +117,98 @@
   <!-- ===== HERO ===== -->
   <section class="relative overflow-hidden pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white">
     <div class="absolute inset-0 -z-10">
-      <div class="absolute -top-32 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-indigo-500/10 via-sky-400/8 to-cyan-300/6 blur-3xl"></div>
+      <div
+        class="absolute -top-32 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-indigo-500/10 via-sky-400/8 to-cyan-300/6 blur-3xl">
+      </div>
     </div>
 
     <div class="max-w-6xl mx-auto px-6 text-center">
       <div class="flex flex-wrap items-center justify-center gap-2 mb-6">
-        <span class="inline-flex items-center rounded-full bg-indigo-600 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-white">
+        <span
+          class="inline-flex items-center rounded-full bg-indigo-600 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-white">
           Hospedagem WordPress
         </span>
-        <span class="inline-flex items-center gap-1.5 rounded-full bg-[#21759b] px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-white">
+        <span
+          class="inline-flex items-center gap-1.5 rounded-full bg-[#21759b] px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-white">
           <!-- WP icon -->
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.109m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.15-2.85-.15-.585-.03-.661.855-.075.885 0 0 .54.061 1.125.09l1.68 4.605-2.37 7.08L5.354 6.9c.649-.03 1.234-.1 1.234-.1.585-.075.516-.93-.065-.896 0 0-1.746.138-2.874.138-.2 0-.438-.008-.69-.015C4.911 3.15 8.235 1.215 12 1.215c2.809 0 5.365 1.072 7.286 2.826-.046-.003-.091-.009-.141-.009-1.06 0-1.812.923-1.812 1.914 0 .89.513 1.643 1.06 2.531.411.72.89 1.643.89 2.977 0 .915-.354 1.994-.821 3.479l-1.075 3.585-3.9-11.603zM12 22.784c-1.059 0-2.081-.153-3.048-.437l3.237-9.406 3.315 9.087c.021.055.045.106.07.153-1.12.393-2.325.603-3.574.603M1.211 12c0-1.591.322-3.107.895-4.479l4.933 13.527C3.342 19.189 1.211 15.843 1.211 12M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.109m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.15-2.85-.15-.585-.03-.661.855-.075.885 0 0 .54.061 1.125.09l1.68 4.605-2.37 7.08L5.354 6.9c.649-.03 1.234-.1 1.234-.1.585-.075.516-.93-.065-.896 0 0-1.746.138-2.874.138-.2 0-.438-.008-.69-.015C4.911 3.15 8.235 1.215 12 1.215c2.809 0 5.365 1.072 7.286 2.826-.046-.003-.091-.009-.141-.009-1.06 0-1.812.923-1.812 1.914 0 .89.513 1.643 1.06 2.531.411.72.89 1.643.89 2.977 0 .915-.354 1.994-.821 3.479l-1.075 3.585-3.9-11.603zM12 22.784c-1.059 0-2.081-.153-3.048-.437l3.237-9.406 3.315 9.087c.021.055.045.106.07.153-1.12.393-2.325.603-3.574.603M1.211 12c0-1.591.322-3.107.895-4.479l4.933 13.527C3.342 19.189 1.211 15.843 1.211 12M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0" />
+          </svg>
           WordPress
         </span>
-        <span class="inline-flex items-center rounded-full bg-emerald-500 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-white">
+        <span
+          class="inline-flex items-center rounded-full bg-emerald-500 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-white">
           LiteSpeed + IA
         </span>
       </div>
 
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.06] mb-6">
-        <span class="bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent">Hospedagem WordPress</span>
+        <span class="bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent">Hospedagem
+          WordPress</span>
         <span class="block text-slate-900">com LiteSpeed e IA</span>
       </h1>
 
       <p class="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-8">
         LiteSpeed e Inteligência Artificial para máxima velocidade e eficiência.
-        Inclui Domínio (1.º ano), SSL, cópias de segurança, WordPress Toolkit Deluxe e proteção Imunify360 — tudo <strong class="text-indigo-600">GRÁTIS!</strong>
+        Inclui Domínio (1.º ano), SSL, cópias de segurança, WordPress Toolkit Deluxe e proteção Imunify360 — tudo
+        <strong class="text-indigo-600">GRÁTIS!</strong>
       </p>
 
       <!-- Free badges -->
       <div class="flex flex-wrap justify-center gap-3 mb-10">
-        <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-4 py-2 text-sm font-semibold text-emerald-700">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <span
+          class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-4 py-2 text-sm font-semibold text-emerald-700">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+            <path d="M2 17l10 5 10-5" />
+            <path d="M2 12l10 5 10-5" />
+          </svg>
           Domínio Grátis (1.º ano)
         </span>
-        <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-4 py-2 text-sm font-semibold text-emerald-700">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span
+          class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-4 py-2 text-sm font-semibold text-emerald-700">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
           SSL Grátis
         </span>
-        <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-4 py-2 text-sm font-semibold text-emerald-700">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <span
+          class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-4 py-2 text-sm font-semibold text-emerald-700">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="17 8 12 3 7 8" />
+            <line x1="12" y1="3" x2="12" y2="15" />
+          </svg>
           Backups Grátis
         </span>
-        <span class="inline-flex items-center gap-1.5 rounded-full bg-indigo-50 border border-indigo-200 px-4 py-2 text-sm font-semibold text-indigo-700">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        <span
+          class="inline-flex items-center gap-1.5 rounded-full bg-indigo-50 border border-indigo-200 px-4 py-2 text-sm font-semibold text-indigo-700">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+          </svg>
           WP Toolkit Deluxe
         </span>
-        <span class="inline-flex items-center gap-1.5 rounded-full bg-rose-50 border border-rose-200 px-4 py-2 text-sm font-semibold text-rose-700">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span
+          class="inline-flex items-center gap-1.5 rounded-full bg-rose-50 border border-rose-200 px-4 py-2 text-sm font-semibold text-rose-700">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
           Imunify360 Grátis
         </span>
       </div>
 
       <!-- Location selector -->
       <div class="mb-10">
-        <p class="text-sm font-medium text-slate-500 mb-3 uppercase tracking-widest">Escolha a localização do servidor</p>
+        <p class="text-sm font-medium text-slate-500 mb-3 uppercase tracking-widest">Escolha a localização do servidor
+        </p>
         <div class="flex flex-wrap justify-center gap-2">
           <button onclick="setLocation(this)"
             class="location-tab active inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 bg-white text-sm font-semibold text-slate-700 hover:border-indigo-400 transition-all">
@@ -158,7 +233,10 @@
         <a href="#plans"
           class="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-indigo-600/25 hover:bg-indigo-700 transition-all hover:-translate-y-0.5">
           Ver Planos
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
         </a>
         <a href="#features"
           class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-8 py-4 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-all hover:-translate-y-0.5">
@@ -179,29 +257,36 @@
           Todos os planos incluem domínio grátis no 1.º ano, SSL, backups, WP Toolkit Deluxe e Imunify360.
         </p>
         <!-- Billing Toggle -->
-        <div class="inline-flex items-center gap-3 bg-slate-100 border border-slate-200 rounded-full px-4 py-2 text-sm font-medium">
+        <div
+          class="inline-flex items-center gap-3 bg-slate-100 border border-slate-200 rounded-full px-4 py-2 text-sm font-medium">
           <span id="lbl-monthly" class="text-indigo-700 font-semibold">Mensal</span>
           <button id="billing-toggle"
             class="relative w-11 h-6 bg-slate-300 rounded-full cursor-pointer transition-colors"
             aria-label="Alternar faturação">
-            <span id="toggle-dot" class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform"></span>
+            <span id="toggle-dot"
+              class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform"></span>
           </button>
-          <span id="lbl-annual" class="text-slate-500">Anual <span class="text-emerald-600 font-semibold text-xs">-20%</span></span>
+          <span id="lbl-annual" class="text-slate-500">Anual <span
+              class="text-emerald-600 font-semibold text-xs">-20%</span></span>
         </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
         <!-- WP Starter -->
-        <div class="reveal rounded-2xl border border-slate-200 bg-white p-6 shadow-sm flex flex-col hover:shadow-md transition-shadow">
+        <div
+          class="reveal rounded-2xl border border-slate-200 bg-white p-6 shadow-sm flex flex-col hover:shadow-md transition-shadow">
           <div class="mb-4">
-            <span class="inline-block bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Starter</span>
+            <span
+              class="inline-block bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Starter</span>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-1">WP Starter</h3>
           <p class="text-slate-500 text-sm mb-4">Ideal para o primeiro site</p>
           <div class="mb-6">
-            <p class="plan-price-monthly"><span class="text-3xl font-extrabold text-indigo-700">€3,49</span><span class="text-slate-400 text-sm">/mês</span></p>
-            <p class="plan-price-annual"><span class="text-3xl font-extrabold text-indigo-700">€2,79</span><span class="text-slate-400 text-sm">/mês</span></p>
+            <p class="plan-price-monthly"><span class="text-3xl font-extrabold text-indigo-700">€3,49</span><span
+                class="text-slate-400 text-sm">/mês</span></p>
+            <p class="plan-price-annual"><span class="text-3xl font-extrabold text-indigo-700">€2,79</span><span
+                class="text-slate-400 text-sm">/mês</span></p>
             <p class="text-xs text-slate-400 mt-1">Faturado anualmente</p>
           </div>
           <ul class="space-y-2 text-sm text-slate-600 flex-1 mb-6">
@@ -214,21 +299,26 @@
             <li class="flex gap-2"><span class="text-emerald-500 font-bold">✓</span> WP Toolkit Deluxe</li>
             <li class="flex gap-2"><span class="text-emerald-500 font-bold">✓</span> Imunify360</li>
           </ul>
-          <a href="#" class="block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition-colors">
+          <a href="#"
+            class="block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition-colors">
             Escolher Starter
           </a>
         </div>
 
         <!-- WP Business -->
-        <div class="reveal rounded-2xl border border-slate-200 bg-white p-6 shadow-sm flex flex-col hover:shadow-md transition-shadow">
+        <div
+          class="reveal rounded-2xl border border-slate-200 bg-white p-6 shadow-sm flex flex-col hover:shadow-md transition-shadow">
           <div class="mb-4">
-            <span class="inline-block bg-indigo-100 text-indigo-600 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Business</span>
+            <span
+              class="inline-block bg-indigo-100 text-indigo-600 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Business</span>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-1">WP Business</h3>
           <p class="text-slate-500 text-sm mb-4">Para sites em crescimento</p>
           <div class="mb-6">
-            <p class="plan-price-monthly"><span class="text-3xl font-extrabold text-indigo-700">€6,99</span><span class="text-slate-400 text-sm">/mês</span></p>
-            <p class="plan-price-annual"><span class="text-3xl font-extrabold text-indigo-700">€5,59</span><span class="text-slate-400 text-sm">/mês</span></p>
+            <p class="plan-price-monthly"><span class="text-3xl font-extrabold text-indigo-700">€6,99</span><span
+                class="text-slate-400 text-sm">/mês</span></p>
+            <p class="plan-price-annual"><span class="text-3xl font-extrabold text-indigo-700">€5,59</span><span
+                class="text-slate-400 text-sm">/mês</span></p>
             <p class="text-xs text-slate-400 mt-1">Faturado anualmente</p>
           </div>
           <ul class="space-y-2 text-sm text-slate-600 flex-1 mb-6">
@@ -241,22 +331,29 @@
             <li class="flex gap-2"><span class="text-emerald-500 font-bold">✓</span> WP Toolkit Deluxe</li>
             <li class="flex gap-2"><span class="text-emerald-500 font-bold">✓</span> Imunify360</li>
           </ul>
-          <a href="#" class="block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition-colors">
+          <a href="#"
+            class="block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition-colors">
             Escolher Business
           </a>
         </div>
 
         <!-- WP Pro (destaque) -->
-        <div class="reveal rounded-2xl border-2 border-indigo-600 bg-indigo-700 p-6 shadow-xl flex flex-col relative text-white">
-          <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-white text-indigo-700 text-xs font-bold px-4 py-1 rounded-full shadow">Mais Popular</span>
+        <div
+          class="reveal rounded-2xl border-2 border-indigo-600 bg-indigo-700 p-6 shadow-xl flex flex-col relative text-white">
+          <span
+            class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-white text-indigo-700 text-xs font-bold px-4 py-1 rounded-full shadow">Mais
+            Popular</span>
           <div class="mb-4">
-            <span class="inline-block bg-white/20 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Pro</span>
+            <span
+              class="inline-block bg-white/20 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Pro</span>
           </div>
           <h3 class="text-xl font-bold mb-1">WP Pro</h3>
           <p class="text-indigo-200 text-sm mb-4">Para profissionais e agências</p>
           <div class="mb-6">
-            <p class="plan-price-monthly"><span class="text-3xl font-extrabold">€11,99</span><span class="text-indigo-300 text-sm">/mês</span></p>
-            <p class="plan-price-annual"><span class="text-3xl font-extrabold">€9,59</span><span class="text-indigo-300 text-sm">/mês</span></p>
+            <p class="plan-price-monthly"><span class="text-3xl font-extrabold">€11,99</span><span
+                class="text-indigo-300 text-sm">/mês</span></p>
+            <p class="plan-price-annual"><span class="text-3xl font-extrabold">€9,59</span><span
+                class="text-indigo-300 text-sm">/mês</span></p>
             <p class="text-xs text-indigo-300 mt-1">Faturado anualmente</p>
           </div>
           <ul class="space-y-2 text-sm text-indigo-100 flex-1 mb-6">
@@ -270,21 +367,26 @@
             <li class="flex gap-2"><span class="text-white font-bold">✓</span> Imunify360 Pro</li>
             <li class="flex gap-2"><span class="text-white font-bold">✓</span> IP Dedicado</li>
           </ul>
-          <a href="#" class="block text-center px-4 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition-colors">
+          <a href="#"
+            class="block text-center px-4 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition-colors">
             Escolher Pro
           </a>
         </div>
 
         <!-- WP Agency -->
-        <div class="reveal rounded-2xl border border-slate-200 bg-white p-6 shadow-sm flex flex-col hover:shadow-md transition-shadow">
+        <div
+          class="reveal rounded-2xl border border-slate-200 bg-white p-6 shadow-sm flex flex-col hover:shadow-md transition-shadow">
           <div class="mb-4">
-            <span class="inline-block bg-violet-100 text-violet-600 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Agency</span>
+            <span
+              class="inline-block bg-violet-100 text-violet-600 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Agency</span>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-1">WP Agency</h3>
           <p class="text-slate-500 text-sm mb-4">Para agências digitais</p>
           <div class="mb-6">
-            <p class="plan-price-monthly"><span class="text-3xl font-extrabold text-indigo-700">€22,99</span><span class="text-slate-400 text-sm">/mês</span></p>
-            <p class="plan-price-annual"><span class="text-3xl font-extrabold text-indigo-700">€18,39</span><span class="text-slate-400 text-sm">/mês</span></p>
+            <p class="plan-price-monthly"><span class="text-3xl font-extrabold text-indigo-700">€22,99</span><span
+                class="text-slate-400 text-sm">/mês</span></p>
+            <p class="plan-price-annual"><span class="text-3xl font-extrabold text-indigo-700">€18,39</span><span
+                class="text-slate-400 text-sm">/mês</span></p>
             <p class="text-xs text-slate-400 mt-1">Faturado anualmente</p>
           </div>
           <ul class="space-y-2 text-sm text-slate-600 flex-1 mb-6">
@@ -297,13 +399,15 @@
             <li class="flex gap-2"><span class="text-emerald-500 font-bold">✓</span> White Label</li>
             <li class="flex gap-2"><span class="text-emerald-500 font-bold">✓</span> Suporte Prioritário</li>
           </ul>
-          <a href="#" class="block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition-colors">
+          <a href="#"
+            class="block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition-colors">
             Escolher Agency
           </a>
         </div>
 
       </div>
-      <p class="text-center text-slate-400 text-sm mt-6">Todos os planos incluem 30 dias de garantia de reembolso. Sem riscos.</p>
+      <p class="text-center text-slate-400 text-sm mt-6">Todos os planos incluem 30 dias de garantia de reembolso. Sem
+        riscos.</p>
     </div>
   </section>
 
@@ -324,55 +428,88 @@
         <!-- LiteSpeed -->
         <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
           <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-4">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-3">Rápido e Simples</h3>
-          <p class="text-slate-600">Hospedagem WordPress otimizada com servidor LiteSpeed e cache integrada. Até 6× mais rápido do que servidores Apache convencionais, com menos consumo de recursos.</p>
+          <p class="text-slate-600">Hospedagem WordPress otimizada com servidor LiteSpeed e cache integrada. Até 6× mais
+            rápido do que servidores Apache convencionais, com menos consumo de recursos.</p>
         </div>
 
         <!-- AI -->
         <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
           <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-xl flex items-center justify-center mb-4">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 8v4l3 3"/><circle cx="18" cy="5" r="3"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 1 0 10 10" />
+              <path d="M12 8v4l3 3" />
+              <circle cx="18" cy="5" r="3" />
+            </svg>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-3">Inteligência Artificial</h3>
-          <p class="text-slate-600">IA integrada para otimização automática do desempenho, deteção de ameaças em tempo real e sugestões inteligentes para melhorar o seu site WordPress.</p>
+          <p class="text-slate-600">IA integrada para otimização automática do desempenho, deteção de ameaças em tempo
+            real e sugestões inteligentes para melhorar o seu site WordPress.</p>
         </div>
 
         <!-- Customizable -->
         <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
           <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-4">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 1.41 12.93L17 14"/><path d="M11 2.05A10 10 0 0 1 22 12"/><path d="M4.93 19.07A10 10 0 0 1 2 12"/><path d="M12 22a10 10 0 0 1-7.07-2.93"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3" />
+              <path d="M19.07 4.93a10 10 0 0 1 1.41 12.93L17 14" />
+              <path d="M11 2.05A10 10 0 0 1 22 12" />
+              <path d="M4.93 19.07A10 10 0 0 1 2 12" />
+              <path d="M12 22a10 10 0 0 1-7.07-2.93" />
+            </svg>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-3">Altamente Personalizável</h3>
-          <p class="text-slate-600">Personalize o seu site WordPress com temas e plugins. Acesso à maior biblioteca de extensões do mundo para adaptar o site às suas necessidades.</p>
+          <p class="text-slate-600">Personalize o seu site WordPress com temas e plugins. Acesso à maior biblioteca de
+            extensões do mundo para adaptar o site às suas necessidades.</p>
         </div>
 
         <!-- 10k themes -->
         <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
           <div class="w-12 h-12 bg-violet-100 text-violet-600 rounded-xl flex items-center justify-center mb-4">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M3 9h18" />
+              <path d="M9 21V9" />
+            </svg>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-3">+10.000 Temas WordPress</h3>
-          <p class="text-slate-600">Liberte a sua criatividade com a vasta coleção de mais de 10.000 temas. Encontre o design perfeito para combinar com a sua visão e elevar o apelo estético do site.</p>
+          <p class="text-slate-600">Liberte a sua criatividade com a vasta coleção de mais de 10.000 temas. Encontre o
+            design perfeito para combinar com a sua visão e elevar o apelo estético do site.</p>
         </div>
 
         <!-- Powerful plugins -->
         <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
           <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-4">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+            </svg>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-3">Plugins Poderosos</h3>
-          <p class="text-slate-600">Melhore a funcionalidade do seu site com a nossa ampla gama de plugins. Desde otimização de SEO até funcionalidades de e-commerce — infinitas possibilidades.</p>
+          <p class="text-slate-600">Melhore a funcionalidade do seu site com a nossa ampla gama de plugins. Desde
+            otimização de SEO até funcionalidades de e-commerce — infinitas possibilidades.</p>
         </div>
 
         <!-- Security -->
         <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
           <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center mb-4">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-3">Imunify360 Incluído</h3>
-          <p class="text-slate-600">Proteção avançada contra malware, ataques de força bruta, injeções SQL e DDoS. Monitorização em tempo real para manter o seu WordPress sempre seguro.</p>
+          <p class="text-slate-600">Proteção avançada contra malware, ataques de força bruta, injeções SQL e DDoS.
+            Monitorização em tempo real para manter o seu WordPress sempre seguro.</p>
         </div>
 
       </div>
@@ -385,27 +522,36 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div class="reveal">
           <div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg>
           </div>
           <h3 class="text-2xl font-bold text-slate-900 mb-4">Trechos de Código Personalizados</h3>
           <p class="text-slate-600 leading-relaxed mb-4">
-            Melhore continuamente o conhecimento e o alcance do seu site com Trechos de Código Personalizados. Integre facilmente ferramentas essenciais com apenas alguns cliques.
+            Melhore continuamente o conhecimento e o alcance do seu site com Trechos de Código Personalizados. Integre
+            facilmente ferramentas essenciais com apenas alguns cliques.
           </p>
           <ul class="space-y-3 text-sm text-slate-700 mb-6">
             <li class="flex items-center gap-3">
-              <span class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs font-bold shrink-0">GA</span>
+              <span
+                class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs font-bold shrink-0">GA</span>
               <span>Google Analytics — monitorize visitas e comportamento dos utilizadores</span>
             </li>
             <li class="flex items-center gap-3">
-              <span class="w-8 h-8 rounded-full bg-[#1877f2]/10 text-[#1877f2] flex items-center justify-center text-xs font-bold shrink-0">FB</span>
+              <span
+                class="w-8 h-8 rounded-full bg-[#1877f2]/10 text-[#1877f2] flex items-center justify-center text-xs font-bold shrink-0">FB</span>
               <span>Facebook Pixel — acompanhe conversões e remarketing</span>
             </li>
             <li class="flex items-center gap-3">
-              <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs font-bold shrink-0">GS</span>
+              <span
+                class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs font-bold shrink-0">GS</span>
               <span>Google Ads — rastreia anúncios e otimiza campanhas</span>
             </li>
           </ul>
-          <p class="text-slate-500 text-sm">Potencie o desempenho do seu site WordPress com apenas alguns cliques — sem precisar de tocar em código.</p>
+          <p class="text-slate-500 text-sm">Potencie o desempenho do seu site WordPress com apenas alguns cliques — sem
+            precisar de tocar em código.</p>
         </div>
 
         <div class="reveal">
@@ -443,40 +589,60 @@
         <!-- Migration -->
         <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
           <div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="17 1 21 5 17 9" />
+              <path d="M3 11V9a4 4 0 0 1 4-4h14" />
+              <polyline points="7 23 3 19 7 15" />
+              <path d="M21 13v2a4 4 0 0 1-4 4H3" />
+            </svg>
           </div>
           <h3 class="text-2xl font-bold text-slate-900 mb-4">Migrações Automáticas de WordPress</h3>
           <p class="text-slate-600 leading-relaxed mb-4">
-            Já tem um site WordPress? Migre-o gratuitamente! Cuidamos de todo o processo de migração desde o seu antigo provedor de hospedagem para a nossa plataforma.
+            Já tem um site WordPress? Migre-o gratuitamente! Cuidamos de todo o processo de migração desde o seu antigo
+            provedor de hospedagem para a nossa plataforma.
           </p>
           <p class="text-slate-600 leading-relaxed mb-6">
             Para que você possa se concentrar no que realmente importa. Não cobramos taxas pela migração do site.
           </p>
           <ul class="space-y-2 text-sm text-slate-700">
-            <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Migração 100% gratuita</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Processo automático via plugin</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Migração 100% gratuita
+            </li>
+            <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Processo automático
+              via plugin</li>
             <li class="flex gap-2"><span class="text-emerald-500 font-bold">✓</span> Sem tempo de inatividade</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Base de dados e ficheiros incluídos</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Base de dados e
+              ficheiros incluídos</li>
           </ul>
         </div>
 
         <!-- Support -->
         <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
           <div class="w-14 h-14 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center mb-6">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
           </div>
           <h3 class="text-2xl font-bold text-slate-900 mb-4">Suporte Técnico 24/7</h3>
           <p class="text-slate-600 leading-relaxed mb-4">
-            A nossa equipa técnica está aqui para ajudar 24 horas por dia, 7 dias por semana. Estamos muito orgulhosos da nossa equipa de suporte especializada.
+            A nossa equipa técnica está aqui para ajudar 24 horas por dia, 7 dias por semana. Estamos muito orgulhosos
+            da nossa equipa de suporte especializada.
           </p>
           <p class="text-slate-600 leading-relaxed mb-6">
-            Se você está a trabalhar, eles também estão, a qualquer hora. Obtenha o suporte que merece para os seus produtos, seja servidores, websites, caixas de correio ou outra coisa qualquer.
+            Se você está a trabalhar, eles também estão, a qualquer hora. Obtenha o suporte que merece para os seus
+            produtos, seja servidores, websites, caixas de correio ou outra coisa qualquer.
           </p>
           <ul class="space-y-2 text-sm text-slate-700">
-            <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Chat em tempo real</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Tickets de suporte</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Especialistas em WordPress</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Suporte em português</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Chat em tempo real
+            </li>
+            <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Tickets de suporte
+            </li>
+            <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Especialistas em
+              WordPress</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Suporte em português
+            </li>
           </ul>
         </div>
 
@@ -489,7 +655,8 @@
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-12 reveal">
         <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">WordPress mais rápido que nunca</h2>
-        <p class="text-indigo-100 max-w-xl mx-auto">LiteSpeed + NVMe + IA = performance incomparável para o seu site.</p>
+        <p class="text-indigo-100 max-w-xl mx-auto">LiteSpeed + NVMe + IA = performance incomparável para o seu site.
+        </p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
         <div class="reveal">
@@ -525,30 +692,58 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <a href="alojamento-cpanel.html" class="reveal bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all group">
-          <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+        <a href="alojamento-cpanel.html"
+          class="reveal bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all group">
+          <div
+            class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <line x1="3" y1="9" x2="21" y2="9" />
+              <line x1="3" y1="15" x2="21" y2="15" />
+              <line x1="9" y1="3" x2="9" y2="21" />
+              <line x1="15" y1="3" x2="15" y2="21" />
+            </svg>
           </div>
           <h4 class="font-bold text-slate-900 mb-1">Alojamento cPanel NVMe</h4>
           <p class="text-sm text-slate-500">Alojamento Linux com cPanel e NVMe ultra-rápido.</p>
         </a>
-        <a href="#" class="reveal bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all group">
-          <div class="w-10 h-10 bg-sky-100 text-sky-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-sky-600 group-hover:text-white transition-colors">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        <a href="#"
+          class="reveal bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all group">
+          <div
+            class="w-10 h-10 bg-sky-100 text-sky-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-sky-600 group-hover:text-white transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+              <line x1="6" y1="6" x2="6.01" y2="6" />
+              <line x1="6" y1="18" x2="6.01" y2="18" />
+            </svg>
           </div>
           <h4 class="font-bold text-slate-900 mb-1">Servidores VPS</h4>
           <p class="text-sm text-slate-500">Recursos dedicados com total controlo do servidor.</p>
         </a>
-        <a href="#" class="reveal bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all group">
-          <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg>
+        <a href="#"
+          class="reveal bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all group">
+          <div
+            class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16" />
+            </svg>
           </div>
           <h4 class="font-bold text-slate-900 mb-1">Servidores Dedicados</h4>
           <p class="text-sm text-slate-500">Máxima performance para projetos exigentes.</p>
         </a>
-        <a href="#" class="reveal bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all group">
-          <div class="w-10 h-10 bg-violet-100 text-violet-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-violet-600 group-hover:text-white transition-colors">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <a href="#"
+          class="reveal bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all group">
+          <div
+            class="w-10 h-10 bg-violet-100 text-violet-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-violet-600 group-hover:text-white transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
           </div>
           <h4 class="font-bold text-slate-900 mb-1">Cloud Computing</h4>
           <p class="text-sm text-slate-500">Escalabilidade ilimitada com infraestrutura cloud.</p>
@@ -575,10 +770,15 @@
           <button onclick="this.closest('.faq-item').classList.toggle('open')"
             class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
             <h3 class="text-lg font-semibold text-slate-900">O que é o LiteSpeed e por que é melhor para WordPress?</h3>
-            <svg class="faq-arrow w-5 h-5 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div class="faq-content px-6 pb-6 text-slate-600">
-            O LiteSpeed é um servidor web de alto desempenho que substitui o Apache e é até 6× mais rápido para sites WordPress. Inclui cache integrada (LSCache), suporte a HTTP/3, compressão Brotli e otimizações específicas para WordPress que reduzem drasticamente os tempos de carregamento e melhoram a classificação no Google.
+            O LiteSpeed é um servidor web de alto desempenho que substitui o Apache e é até 6× mais rápido para sites
+            WordPress. Inclui cache integrada (LSCache), suporte a HTTP/3, compressão Brotli e otimizações específicas
+            para WordPress que reduzem drasticamente os tempos de carregamento e melhoram a classificação no Google.
           </div>
         </div>
 
@@ -586,10 +786,15 @@
           <button onclick="this.closest('.faq-item').classList.toggle('open')"
             class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
             <h3 class="text-lg font-semibold text-slate-900">O que é o WordPress Toolkit Deluxe?</h3>
-            <svg class="faq-arrow w-5 h-5 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div class="faq-content px-6 pb-6 text-slate-600">
-            O WordPress Toolkit Deluxe é um painel avançado para gerir todas as suas instalações WordPress num único lugar. Permite instalar, clonar, sincronizar e fazer backup de sites com um clique. Inclui também funcionalidades de staging, gestão de atualizações automáticas e verificação de segurança integrada.
+            O WordPress Toolkit Deluxe é um painel avançado para gerir todas as suas instalações WordPress num único
+            lugar. Permite instalar, clonar, sincronizar e fazer backup de sites com um clique. Inclui também
+            funcionalidades de staging, gestão de atualizações automáticas e verificação de segurança integrada.
           </div>
         </div>
 
@@ -597,10 +802,16 @@
           <button onclick="this.closest('.faq-item').classList.toggle('open')"
             class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
             <h3 class="text-lg font-semibold text-slate-900">O que é o Imunify360 e como me protege?</h3>
-            <svg class="faq-arrow w-5 h-5 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div class="faq-content px-6 pb-6 text-slate-600">
-            O Imunify360 é uma suite de segurança completa que protege o seu WordPress contra malware, ataques de força bruta, injeções SQL e vulnerabilidades conhecidas. Inclui firewall de aplicações web (WAF), scanner de malware em tempo real, proteção contra bots e sistema de reputação de IPs. É considerado um dos melhores sistemas de segurança para hospedagem web.
+            O Imunify360 é uma suite de segurança completa que protege o seu WordPress contra malware, ataques de força
+            bruta, injeções SQL e vulnerabilidades conhecidas. Inclui firewall de aplicações web (WAF), scanner de
+            malware em tempo real, proteção contra bots e sistema de reputação de IPs. É considerado um dos melhores
+            sistemas de segurança para hospedagem web.
           </div>
         </div>
 
@@ -608,10 +819,15 @@
           <button onclick="this.closest('.faq-item').classList.toggle('open')"
             class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
             <h3 class="text-lg font-semibold text-slate-900">Posso migrar o meu WordPress atual gratuitamente?</h3>
-            <svg class="faq-arrow w-5 h-5 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div class="faq-content px-6 pb-6 text-slate-600">
-            Sim, totalmente gratuito! A migração é feita automaticamente através do WordPress Toolkit ou manualmente pela nossa equipa técnica. O processo inclui todos os ficheiros, base de dados, plugins, temas e configurações. Normalmente concluído em menos de 2 horas, sem qualquer interrupção de serviço.
+            Sim, totalmente gratuito! A migração é feita automaticamente através do WordPress Toolkit ou manualmente
+            pela nossa equipa técnica. O processo inclui todos os ficheiros, base de dados, plugins, temas e
+            configurações. Normalmente concluído em menos de 2 horas, sem qualquer interrupção de serviço.
           </div>
         </div>
 
@@ -619,10 +835,15 @@
           <button onclick="this.closest('.faq-item').classList.toggle('open')"
             class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
             <h3 class="text-lg font-semibold text-slate-900">Posso instalar temas e plugins premium?</h3>
-            <svg class="faq-arrow w-5 h-5 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div class="faq-content px-6 pb-6 text-slate-600">
-            Sim! Pode instalar qualquer tema ou plugin do repositório oficial WordPress.org gratuitamente. Para temas e plugins premium (pagos), basta fazer o upload do ficheiro ZIP através do painel WordPress ou do WordPress Toolkit. Não existem restrições quanto aos temas ou plugins que pode usar.
+            Sim! Pode instalar qualquer tema ou plugin do repositório oficial WordPress.org gratuitamente. Para temas e
+            plugins premium (pagos), basta fazer o upload do ficheiro ZIP através do painel WordPress ou do WordPress
+            Toolkit. Não existem restrições quanto aos temas ou plugins que pode usar.
           </div>
         </div>
 
@@ -630,10 +851,15 @@
           <button onclick="this.closest('.faq-item').classList.toggle('open')"
             class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
             <h3 class="text-lg font-semibold text-slate-900">O ambiente de staging está incluído?</h3>
-            <svg class="faq-arrow w-5 h-5 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div class="faq-content px-6 pb-6 text-slate-600">
-            Sim, a partir do plano Business! O ambiente de staging permite criar uma cópia idêntica do seu site para testar atualizações, novos plugins ou alterações de design sem afetar o site em produção. Quando estiver satisfeito com as alterações, basta fazer o "push" para o site live com um clique.
+            Sim, a partir do plano Business! O ambiente de staging permite criar uma cópia idêntica do seu site para
+            testar atualizações, novos plugins ou alterações de design sem afetar o site em produção. Quando estiver
+            satisfeito com as alterações, basta fazer o "push" para o site live com um clique.
           </div>
         </div>
 
@@ -641,10 +867,16 @@
           <button onclick="this.closest('.faq-item').classList.toggle('open')"
             class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
             <h3 class="text-lg font-semibold text-slate-900">Como funcionam as cópias de segurança automáticas?</h3>
-            <svg class="faq-arrow w-5 h-5 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div class="faq-content px-6 pb-6 text-slate-600">
-            As cópias de segurança são realizadas automaticamente de forma diária e incluem todos os ficheiros WordPress e a base de dados MySQL. Mantemos um histórico dos últimos 7 dias. Pode restaurar o seu site a qualquer momento com um clique através do WordPress Toolkit ou do painel de controlo, sem necessidade de contactar o suporte.
+            As cópias de segurança são realizadas automaticamente de forma diária e incluem todos os ficheiros WordPress
+            e a base de dados MySQL. Mantemos um histórico dos últimos 7 dias. Pode restaurar o seu site a qualquer
+            momento com um clique através do WordPress Toolkit ou do painel de controlo, sem necessidade de contactar o
+            suporte.
           </div>
         </div>
 
@@ -652,10 +884,15 @@
           <button onclick="this.closest('.faq-item').classList.toggle('open')"
             class="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors">
             <h3 class="text-lg font-semibold text-slate-900">A hospedagem é adequada para lojas WooCommerce?</h3>
-            <svg class="faq-arrow w-5 h-5 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="faq-arrow w-5 h-5 text-slate-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div class="faq-content px-6 pb-6 text-slate-600">
-            Absolutamente! A nossa hospedagem WordPress é totalmente compatível e otimizada para WooCommerce. A combinação LiteSpeed + NVMe garante que a sua loja carrega rapidamente, reduzindo a taxa de abandono do carrinho. O Imunify360 protege os dados dos seus clientes e as transações online.
+            Absolutamente! A nossa hospedagem WordPress é totalmente compatível e otimizada para WooCommerce. A
+            combinação LiteSpeed + NVMe garante que a sua loja carrega rapidamente, reduzindo a taxa de abandono do
+            carrinho. O Imunify360 protege os dados dos seus clientes e as transações online.
           </div>
         </div>
 
@@ -669,7 +906,8 @@
     <div class="absolute -bottom-20 -left-10 w-72 h-72 rounded-full bg-white/5"></div>
     <div class="max-w-6xl mx-auto px-6 text-center relative z-10 reveal">
       <h2 class="text-4xl font-extrabold text-white tracking-tight mb-4">Pronto para lançar o seu WordPress?</h2>
-      <p class="text-indigo-100 text-lg mb-10 max-w-lg mx-auto">Junte-se a centenas de negócios que já usam a WebMinds para hospedar os seus sites WordPress com LiteSpeed e IA.</p>
+      <p class="text-indigo-100 text-lg mb-10 max-w-lg mx-auto">Junte-se a centenas de negócios que já usam a WebMinds
+        para hospedar os seus sites WordPress com LiteSpeed e IA.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="#plans"
           class="inline-block px-8 py-3.5 bg-white hover:bg-indigo-50 text-indigo-600 font-bold rounded-xl shadow-xl transition-all hover:-translate-y-0.5 active:scale-[0.97]">
@@ -691,16 +929,31 @@
           <div class="flex items-center gap-2 mb-4">
             <img src="assets/wbBranca.png" alt="WebMinds" width="120px" height="120px">
           </div>
-          <p class="text-sm leading-relaxed mb-4">Infraestrutura web de alta performance para empresas que não podem falhar.</p>
+          <p class="text-sm leading-relaxed mb-4">Infraestrutura web de alta performance para empresas que não podem
+            falhar.</p>
           <div class="flex gap-4">
             <a href="#" class="text-slate-400 hover:text-white transition-colors">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+              </svg>
             </a>
             <a href="#" class="text-slate-400 hover:text-white transition-colors">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
             </a>
             <a href="#" class="text-slate-400 hover:text-white transition-colors">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
             </a>
           </div>
         </div>
@@ -733,8 +986,10 @@
           </ul>
         </div>
       </div>
-      <div class="border-t border-white/8 pt-7 flex flex-col sm:flex-row justify-center items-center gap-2 text-xs text-slate-600">
-        <p>© 2026 WebMinds. Todos os direitos reservados. <a href="https://webminds.pt" class="text-indigo-400 hover:text-indigo-300 transition-colors">webminds.pt</a></p>
+      <div
+        class="border-t border-white/8 pt-7 flex flex-col sm:flex-row justify-center items-center gap-2 text-xs text-slate-600">
+        <p>© 2026 WebMinds. Todos os direitos reservados. <a href="https://webminds.pt"
+            class="text-indigo-400 hover:text-indigo-300 transition-colors">webminds.pt</a></p>
       </div>
     </div>
   </footer>
@@ -744,7 +999,10 @@
   <button id="backToTop"
     class="fixed bottom-6 right-6 w-12 h-12 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-lg shadow-indigo-600/25 transition-all duration-300 hidden items-center justify-center z-40"
     aria-label="Voltar ao topo">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
   </button>
 
   <script>
@@ -788,4 +1046,5 @@
   </script>
 
 </body>
+
 </html>

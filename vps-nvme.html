@@ -4,10 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VPS — Servidores Privados NVMe | Webminds</title>
+  <title>VPS - Servidores Privados NVMe</title>
+  <meta name="description"
+    content="Servidores Virtuais de elevada performance, com hardware premium e tráfego ilimitado." />
+  <meta name="robots" content="index, follow">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -28,33 +32,84 @@
 
   <style>
     /* ── FAQ accordion ── */
-    .faq-answer { display: none; }
-    .faq-item.open .faq-answer { display: block; }
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
-    .faq-icon { transition: transform .25s ease; display: inline-block; }
+    .faq-answer {
+      display: none;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-icon {
+      transition: transform .25s ease;
+      display: inline-block;
+    }
 
     /* ── Tab switching ── */
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
-    .tab-btn.active { background-color: #1934a7; color: white; }
-    .tab-btn { transition: all .2s ease; }
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .tab-btn.active {
+      background-color: #1934a7;
+      color: white;
+    }
+
+    .tab-btn {
+      transition: all .2s ease;
+    }
 
     /* ── Subtle entrance animation ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .fade-up { animation: fadeUp .55s ease both; }
-    .fade-up-delay-1 { animation-delay: .1s; }
-    .fade-up-delay-2 { animation-delay: .2s; }
-    .fade-up-delay-3 { animation-delay: .3s; }
+
+    .fade-up {
+      animation: fadeUp .55s ease both;
+    }
+
+    .fade-up-delay-1 {
+      animation-delay: .1s;
+    }
+
+    .fade-up-delay-2 {
+      animation-delay: .2s;
+    }
+
+    .fade-up-delay-3 {
+      animation-delay: .3s;
+    }
 
     /* ── Check / cross ── */
-    .check { color: #2548c6; font-weight: 700; }
-    .cross  { color: #94a3b8; }
+    .check {
+      color: #2548c6;
+      font-weight: 700;
+    }
+
+    .cross {
+      color: #94a3b8;
+    }
 
     /* ── Plan card popular ring ── */
-    .plan-popular { border-color: #1934a7; }
+    .plan-popular {
+      border-color: #1934a7;
+    }
   </style>
 </head>
 
@@ -69,16 +124,22 @@
     ══════════════════════════════════════════ -->
     <section class="py-20 bg-gradient-to-br from-indigo-700 via-indigo-600 to-sky-600 text-white">
       <div class="max-w-6xl mx-auto px-6 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-white/20 text-sm font-semibold tracking-wider fade-up">Servidores VPS</span>
+        <span
+          class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-white/20 text-sm font-semibold tracking-wider fade-up">Servidores
+          VPS</span>
         <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold fade-up fade-up-delay-1">
           Servidores Privados NVMe de elevada performance
         </h1>
         <p class="mt-6 text-lg sm:text-xl max-w-3xl mx-auto text-blue-100 fade-up fade-up-delay-2">
-          Hardware premium, tráfego ilimitado e liberdade total para construir o que precisas. Escolhe o sistema operativo da tua preferência ou uma das plataformas otimizadas que colocamos à tua disposição.
+          Hardware premium, tráfego ilimitado e liberdade total para construir o que precisas. Escolhe o sistema
+          operativo da tua preferência ou uma das plataformas otimizadas que colocamos à tua disposição.
         </p>
         <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center fade-up fade-up-delay-3">
-          <a href="#planos" class="px-8 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition">Ver Planos VPS</a>
-          <a href="#funcionalidades" class="px-8 py-3 border border-white/60 text-white rounded-xl font-semibold hover:bg-white/10 transition">Funcionalidades</a>
+          <a href="#planos"
+            class="px-8 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition">Ver Planos
+            VPS</a>
+          <a href="#funcionalidades"
+            class="px-8 py-3 border border-white/60 text-white rounded-xl font-semibold hover:bg-white/10 transition">Funcionalidades</a>
         </div>
 
         <!-- Stats bar -->
@@ -110,17 +171,21 @@
     <section id="planos" class="py-16 bg-white">
       <div class="max-w-6xl mx-auto px-6">
         <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Escolhe o teu Servidor VPS</h2>
-        <p class="mt-3 text-center text-slate-600 max-w-2xl mx-auto">Seleciona o tipo de servidor e o ciclo de pagamento que melhor se adapta às tuas necessidades.</p>
+        <p class="mt-3 text-center text-slate-600 max-w-2xl mx-auto">Seleciona o tipo de servidor e o ciclo de pagamento
+          que melhor se adapta às tuas necessidades.</p>
 
         <!-- Tabs -->
         <div class="mt-8 flex flex-wrap justify-center gap-2">
-          <button onclick="switchTab('nvme')" id="tab-nvme" class="tab-btn active px-5 py-2 rounded-full border border-indigo-600 text-sm font-semibold">
+          <button onclick="switchTab('nvme')" id="tab-nvme"
+            class="tab-btn active px-5 py-2 rounded-full border border-indigo-600 text-sm font-semibold">
             ⚡ NVMe
           </button>
-          <button onclick="switchTab('ssd')" id="tab-ssd" class="tab-btn px-5 py-2 rounded-full border border-slate-300 text-slate-600 text-sm font-semibold hover:border-indigo-400">
+          <button onclick="switchTab('ssd')" id="tab-ssd"
+            class="tab-btn px-5 py-2 rounded-full border border-slate-300 text-slate-600 text-sm font-semibold hover:border-indigo-400">
             💾 SSD
           </button>
-          <button onclick="switchTab('windows')" id="tab-windows" class="tab-btn px-5 py-2 rounded-full border border-slate-300 text-slate-600 text-sm font-semibold hover:border-indigo-400">
+          <button onclick="switchTab('windows')" id="tab-windows"
+            class="tab-btn px-5 py-2 rounded-full border border-slate-300 text-slate-600 text-sm font-semibold hover:border-indigo-400">
             🪟 Windows NVMe
           </button>
         </div>
@@ -129,69 +194,101 @@
         <div id="tab-content-nvme" class="tab-content active mt-10">
           <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
-            <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
+            <div
+              class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
               <div class="flex justify-between items-start">
                 <h3 class="font-bold text-slate-800">VPS NVMe 1</h3>
-                <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full font-semibold">Entrada</span>
+                <span
+                  class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full font-semibold">Entrada</span>
               </div>
-              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€3,99<span class="text-sm font-medium text-slate-400">/mês</span></p>
+              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€3,99<span
+                  class="text-sm font-medium text-slate-400">/mês</span></p>
               <ul class="mt-5 space-y-2 text-sm text-slate-600 flex-1">
                 <li class="flex justify-between"><span>vCPU</span><span class="font-semibold">1 Core</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span class="font-semibold">1 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>NVMe</span><span class="font-semibold">20 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span class="font-semibold">Ilimitado</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Bandwidth</span><span class="font-semibold">200 Mbps</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span
+                    class="font-semibold">1 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>NVMe</span><span
+                    class="font-semibold">20 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span
+                    class="font-semibold">Ilimitado</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Bandwidth</span><span
+                    class="font-semibold">200 Mbps</span></li>
               </ul>
-              <a href="#" class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
+              <a href="#"
+                class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
             </div>
 
-            <div class="rounded-2xl border-2 border-indigo-600 p-6 bg-indigo-700 text-white shadow-xl flex flex-col relative">
-              <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-indigo-700 text-xs font-bold px-4 py-1 rounded-full shadow">Mais Popular</span>
+            <div
+              class="rounded-2xl border-2 border-indigo-600 p-6 bg-indigo-700 text-white shadow-xl flex flex-col relative">
+              <span
+                class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-indigo-700 text-xs font-bold px-4 py-1 rounded-full shadow">Mais
+                Popular</span>
               <div class="flex justify-between items-start">
                 <h3 class="font-bold">VPS NVMe 2</h3>
                 <span class="text-xs bg-white/20 text-white px-2 py-0.5 rounded-full font-semibold">Recomendado</span>
               </div>
-              <p class="mt-4 text-3xl font-extrabold">€6,99<span class="text-sm font-medium text-indigo-300">/mês</span></p>
+              <p class="mt-4 text-3xl font-extrabold">€6,99<span class="text-sm font-medium text-indigo-300">/mês</span>
+              </p>
               <ul class="mt-5 space-y-2 text-sm text-indigo-100 flex-1">
                 <li class="flex justify-between"><span>vCPU</span><span class="font-semibold">2 Cores</span></li>
-                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>RAM</span><span class="font-semibold">2 GB</span></li>
-                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>NVMe</span><span class="font-semibold">40 GB</span></li>
-                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>Tráfego</span><span class="font-semibold">Ilimitado</span></li>
-                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>Bandwidth</span><span class="font-semibold">400 Mbps</span></li>
+                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>RAM</span><span
+                    class="font-semibold">2 GB</span></li>
+                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>NVMe</span><span
+                    class="font-semibold">40 GB</span></li>
+                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>Tráfego</span><span
+                    class="font-semibold">Ilimitado</span></li>
+                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>Bandwidth</span><span
+                    class="font-semibold">400 Mbps</span></li>
               </ul>
-              <a href="#" class="mt-5 block text-center px-4 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition text-sm">Contratar</a>
+              <a href="#"
+                class="mt-5 block text-center px-4 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition text-sm">Contratar</a>
             </div>
 
-            <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
+            <div
+              class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
               <div class="flex justify-between items-start">
                 <h3 class="font-bold text-slate-800">VPS NVMe 4</h3>
                 <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-semibold">Avançado</span>
               </div>
-              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€13,99<span class="text-sm font-medium text-slate-400">/mês</span></p>
+              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€13,99<span
+                  class="text-sm font-medium text-slate-400">/mês</span></p>
               <ul class="mt-5 space-y-2 text-sm text-slate-600 flex-1">
                 <li class="flex justify-between"><span>vCPU</span><span class="font-semibold">4 Cores</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span class="font-semibold">4 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>NVMe</span><span class="font-semibold">80 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span class="font-semibold">Ilimitado</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Bandwidth</span><span class="font-semibold">600 Mbps</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span
+                    class="font-semibold">4 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>NVMe</span><span
+                    class="font-semibold">80 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span
+                    class="font-semibold">Ilimitado</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Bandwidth</span><span
+                    class="font-semibold">600 Mbps</span></li>
               </ul>
-              <a href="#" class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
+              <a href="#"
+                class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
             </div>
 
-            <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
+            <div
+              class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
               <div class="flex justify-between items-start">
                 <h3 class="font-bold text-slate-800">VPS NVMe 8</h3>
-                <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-semibold">Enterprise</span>
+                <span
+                  class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-semibold">Enterprise</span>
               </div>
-              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€26,99<span class="text-sm font-medium text-slate-400">/mês</span></p>
+              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€26,99<span
+                  class="text-sm font-medium text-slate-400">/mês</span></p>
               <ul class="mt-5 space-y-2 text-sm text-slate-600 flex-1">
                 <li class="flex justify-between"><span>vCPU</span><span class="font-semibold">8 Cores</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span class="font-semibold">8 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>NVMe</span><span class="font-semibold">160 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span class="font-semibold">Ilimitado</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Bandwidth</span><span class="font-semibold">1 Gbps</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span
+                    class="font-semibold">8 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>NVMe</span><span
+                    class="font-semibold">160 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span
+                    class="font-semibold">Ilimitado</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Bandwidth</span><span
+                    class="font-semibold">1 Gbps</span></li>
               </ul>
-              <a href="#" class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
+              <a href="#"
+                class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
             </div>
 
           </div>
@@ -201,57 +298,87 @@
         <div id="tab-content-ssd" class="tab-content mt-10">
           <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
-            <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
+            <div
+              class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
               <h3 class="font-bold text-slate-800">VPS SSD 1</h3>
-              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€2,99<span class="text-sm font-medium text-slate-400">/mês</span></p>
+              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€2,99<span
+                  class="text-sm font-medium text-slate-400">/mês</span></p>
               <ul class="mt-5 space-y-2 text-sm text-slate-600 flex-1">
                 <li class="flex justify-between"><span>vCPU</span><span class="font-semibold">1 Core</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span class="font-semibold">1 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>SSD</span><span class="font-semibold">25 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span class="font-semibold">Ilimitado</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Bandwidth</span><span class="font-semibold">200 Mbps</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span
+                    class="font-semibold">1 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>SSD</span><span
+                    class="font-semibold">25 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span
+                    class="font-semibold">Ilimitado</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Bandwidth</span><span
+                    class="font-semibold">200 Mbps</span></li>
               </ul>
-              <a href="#" class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
+              <a href="#"
+                class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
             </div>
 
-            <div class="rounded-2xl border-2 border-indigo-600 p-6 bg-indigo-700 text-white shadow-xl flex flex-col relative">
-              <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-indigo-700 text-xs font-bold px-4 py-1 rounded-full shadow">Mais Popular</span>
+            <div
+              class="rounded-2xl border-2 border-indigo-600 p-6 bg-indigo-700 text-white shadow-xl flex flex-col relative">
+              <span
+                class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-indigo-700 text-xs font-bold px-4 py-1 rounded-full shadow">Mais
+                Popular</span>
               <h3 class="font-bold">VPS SSD 2</h3>
-              <p class="mt-4 text-3xl font-extrabold">€5,49<span class="text-sm font-medium text-indigo-300">/mês</span></p>
+              <p class="mt-4 text-3xl font-extrabold">€5,49<span class="text-sm font-medium text-indigo-300">/mês</span>
+              </p>
               <ul class="mt-5 space-y-2 text-sm text-indigo-100 flex-1">
                 <li class="flex justify-between"><span>vCPU</span><span class="font-semibold">2 Cores</span></li>
-                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>RAM</span><span class="font-semibold">2 GB</span></li>
-                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>SSD</span><span class="font-semibold">50 GB</span></li>
-                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>Tráfego</span><span class="font-semibold">Ilimitado</span></li>
-                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>Bandwidth</span><span class="font-semibold">400 Mbps</span></li>
+                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>RAM</span><span
+                    class="font-semibold">2 GB</span></li>
+                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>SSD</span><span
+                    class="font-semibold">50 GB</span></li>
+                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>Tráfego</span><span
+                    class="font-semibold">Ilimitado</span></li>
+                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>Bandwidth</span><span
+                    class="font-semibold">400 Mbps</span></li>
               </ul>
-              <a href="#" class="mt-5 block text-center px-4 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition text-sm">Contratar</a>
+              <a href="#"
+                class="mt-5 block text-center px-4 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition text-sm">Contratar</a>
             </div>
 
-            <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
+            <div
+              class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
               <h3 class="font-bold text-slate-800">VPS SSD 4</h3>
-              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€10,99<span class="text-sm font-medium text-slate-400">/mês</span></p>
+              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€10,99<span
+                  class="text-sm font-medium text-slate-400">/mês</span></p>
               <ul class="mt-5 space-y-2 text-sm text-slate-600 flex-1">
                 <li class="flex justify-between"><span>vCPU</span><span class="font-semibold">4 Cores</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span class="font-semibold">4 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>SSD</span><span class="font-semibold">100 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span class="font-semibold">Ilimitado</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Bandwidth</span><span class="font-semibold">600 Mbps</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span
+                    class="font-semibold">4 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>SSD</span><span
+                    class="font-semibold">100 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span
+                    class="font-semibold">Ilimitado</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Bandwidth</span><span
+                    class="font-semibold">600 Mbps</span></li>
               </ul>
-              <a href="#" class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
+              <a href="#"
+                class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
             </div>
 
-            <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
+            <div
+              class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
               <h3 class="font-bold text-slate-800">VPS SSD 8</h3>
-              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€20,99<span class="text-sm font-medium text-slate-400">/mês</span></p>
+              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€20,99<span
+                  class="text-sm font-medium text-slate-400">/mês</span></p>
               <ul class="mt-5 space-y-2 text-sm text-slate-600 flex-1">
                 <li class="flex justify-between"><span>vCPU</span><span class="font-semibold">8 Cores</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span class="font-semibold">8 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>SSD</span><span class="font-semibold">200 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span class="font-semibold">Ilimitado</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Bandwidth</span><span class="font-semibold">1 Gbps</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span
+                    class="font-semibold">8 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>SSD</span><span
+                    class="font-semibold">200 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span
+                    class="font-semibold">Ilimitado</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Bandwidth</span><span
+                    class="font-semibold">1 Gbps</span></li>
               </ul>
-              <a href="#" class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
+              <a href="#"
+                class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
             </div>
 
           </div>
@@ -261,75 +388,106 @@
         <div id="tab-content-windows" class="tab-content mt-10">
           <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
-            <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
+            <div
+              class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
               <div class="flex justify-between items-start">
                 <h3 class="font-bold text-slate-800">Win NVMe 2</h3>
                 <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold">Windows</span>
               </div>
-              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€9,99<span class="text-sm font-medium text-slate-400">/mês</span></p>
+              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€9,99<span
+                  class="text-sm font-medium text-slate-400">/mês</span></p>
               <ul class="mt-5 space-y-2 text-sm text-slate-600 flex-1">
                 <li class="flex justify-between"><span>vCPU</span><span class="font-semibold">2 Cores</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span class="font-semibold">2 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>NVMe</span><span class="font-semibold">60 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span class="font-semibold">Ilimitado</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>SO</span><span class="font-semibold">Windows Server</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span
+                    class="font-semibold">2 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>NVMe</span><span
+                    class="font-semibold">60 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span
+                    class="font-semibold">Ilimitado</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>SO</span><span
+                    class="font-semibold">Windows Server</span></li>
               </ul>
-              <a href="#" class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
+              <a href="#"
+                class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
             </div>
 
-            <div class="rounded-2xl border-2 border-indigo-600 p-6 bg-indigo-700 text-white shadow-xl flex flex-col relative">
-              <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-indigo-700 text-xs font-bold px-4 py-1 rounded-full shadow">Mais Popular</span>
+            <div
+              class="rounded-2xl border-2 border-indigo-600 p-6 bg-indigo-700 text-white shadow-xl flex flex-col relative">
+              <span
+                class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-indigo-700 text-xs font-bold px-4 py-1 rounded-full shadow">Mais
+                Popular</span>
               <div class="flex justify-between items-start">
                 <h3 class="font-bold">Win NVMe 4</h3>
                 <span class="text-xs bg-white/20 text-white px-2 py-0.5 rounded-full font-semibold">Windows</span>
               </div>
-              <p class="mt-4 text-3xl font-extrabold">€17,99<span class="text-sm font-medium text-indigo-300">/mês</span></p>
+              <p class="mt-4 text-3xl font-extrabold">€17,99<span
+                  class="text-sm font-medium text-indigo-300">/mês</span></p>
               <ul class="mt-5 space-y-2 text-sm text-indigo-100 flex-1">
                 <li class="flex justify-between"><span>vCPU</span><span class="font-semibold">4 Cores</span></li>
-                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>RAM</span><span class="font-semibold">4 GB</span></li>
-                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>NVMe</span><span class="font-semibold">100 GB</span></li>
-                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>Tráfego</span><span class="font-semibold">Ilimitado</span></li>
-                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>SO</span><span class="font-semibold">Windows Server</span></li>
+                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>RAM</span><span
+                    class="font-semibold">4 GB</span></li>
+                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>NVMe</span><span
+                    class="font-semibold">100 GB</span></li>
+                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>Tráfego</span><span
+                    class="font-semibold">Ilimitado</span></li>
+                <li class="flex justify-between border-t border-indigo-600 pt-2"><span>SO</span><span
+                    class="font-semibold">Windows Server</span></li>
               </ul>
-              <a href="#" class="mt-5 block text-center px-4 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition text-sm">Contratar</a>
+              <a href="#"
+                class="mt-5 block text-center px-4 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-blue-50 transition text-sm">Contratar</a>
             </div>
 
-            <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
+            <div
+              class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
               <div class="flex justify-between items-start">
                 <h3 class="font-bold text-slate-800">Win NVMe 8</h3>
                 <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold">Windows</span>
               </div>
-              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€32,99<span class="text-sm font-medium text-slate-400">/mês</span></p>
+              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€32,99<span
+                  class="text-sm font-medium text-slate-400">/mês</span></p>
               <ul class="mt-5 space-y-2 text-sm text-slate-600 flex-1">
                 <li class="flex justify-between"><span>vCPU</span><span class="font-semibold">8 Cores</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span class="font-semibold">8 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>NVMe</span><span class="font-semibold">180 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span class="font-semibold">Ilimitado</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>SO</span><span class="font-semibold">Windows Server</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span
+                    class="font-semibold">8 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>NVMe</span><span
+                    class="font-semibold">180 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span
+                    class="font-semibold">Ilimitado</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>SO</span><span
+                    class="font-semibold">Windows Server</span></li>
               </ul>
-              <a href="#" class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
+              <a href="#"
+                class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
             </div>
 
-            <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
+            <div
+              class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm flex flex-col hover:shadow-md transition">
               <div class="flex justify-between items-start">
                 <h3 class="font-bold text-slate-800">Win NVMe 16</h3>
                 <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold">Windows</span>
               </div>
-              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€59,99<span class="text-sm font-medium text-slate-400">/mês</span></p>
+              <p class="mt-4 text-3xl font-extrabold text-indigo-700">€59,99<span
+                  class="text-sm font-medium text-slate-400">/mês</span></p>
               <ul class="mt-5 space-y-2 text-sm text-slate-600 flex-1">
                 <li class="flex justify-between"><span>vCPU</span><span class="font-semibold">16 Cores</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span class="font-semibold">16 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>NVMe</span><span class="font-semibold">320 GB</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span class="font-semibold">Ilimitado</span></li>
-                <li class="flex justify-between border-t border-slate-100 pt-2"><span>SO</span><span class="font-semibold">Windows Server</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>RAM</span><span
+                    class="font-semibold">16 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>NVMe</span><span
+                    class="font-semibold">320 GB</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>Tráfego</span><span
+                    class="font-semibold">Ilimitado</span></li>
+                <li class="flex justify-between border-t border-slate-100 pt-2"><span>SO</span><span
+                    class="font-semibold">Windows Server</span></li>
               </ul>
-              <a href="#" class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
+              <a href="#"
+                class="mt-5 block text-center px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contratar</a>
             </div>
 
           </div>
         </div>
 
-        <p class="mt-6 text-center text-slate-400 text-sm">Todos os planos incluem IP dedicado, acesso root, painel de controlo e tráfego ilimitado.</p>
+        <p class="mt-6 text-center text-slate-400 text-sm">Todos os planos incluem IP dedicado, acesso root, painel de
+          controlo e tráfego ilimitado.</p>
       </div>
     </section>
 
@@ -339,46 +497,66 @@
     ══════════════════════════════════════════ -->
     <section id="funcionalidades" class="py-16 bg-slate-50">
       <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Funcionalidades dos Servidores Privados NVMe</h2>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Funcionalidades dos Servidores
+          Privados NVMe</h2>
         <p class="mt-4 text-center text-slate-600 max-w-3xl mx-auto">
-          O servidor é virtual. A tua liberdade para construir é muito real. Hardware premium, controlo total e escalabilidade instantânea para os teus projetos mais exigentes.
+          O servidor é virtual. A tua liberdade para construir é muito real. Hardware premium, controlo total e
+          escalabilidade instantânea para os teus projetos mais exigentes.
         </p>
         <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 
           <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
-            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">⚡</div>
+            <div
+              class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">⚡
+            </div>
             <h3 class="font-semibold text-slate-800">Storage NVMe Ultrarrápido</h3>
-            <p class="text-slate-600 text-sm mt-1">Discos NVMe com velocidades de leitura até 7x superiores aos SSD tradicionais. Ideal para bases de dados, e-commerce e aplicações de alto desempenho.</p>
+            <p class="text-slate-600 text-sm mt-1">Discos NVMe com velocidades de leitura até 7x superiores aos SSD
+              tradicionais. Ideal para bases de dados, e-commerce e aplicações de alto desempenho.</p>
           </div>
 
           <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
-            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🌐</div>
+            <div
+              class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">
+              🌐</div>
             <h3 class="font-semibold text-slate-800">Tráfego Ilimitado</h3>
-            <p class="text-slate-600 text-sm mt-1">Sem limites de tráfego mensal. Os teus projetos crescem sem surpresas na fatura. Banda larga de alta velocidade garantida em todos os planos.</p>
+            <p class="text-slate-600 text-sm mt-1">Sem limites de tráfego mensal. Os teus projetos crescem sem surpresas
+              na fatura. Banda larga de alta velocidade garantida em todos os planos.</p>
           </div>
 
           <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
-            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🔑</div>
+            <div
+              class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">
+              🔑</div>
             <h3 class="font-semibold text-slate-800">Acesso Root Completo</h3>
-            <p class="text-slate-600 text-sm mt-1">Controlo total do servidor com acesso root via SSH. Instala qualquer software, configura o servidor à tua medida e usa o sistema operativo da tua preferência.</p>
+            <p class="text-slate-600 text-sm mt-1">Controlo total do servidor com acesso root via SSH. Instala qualquer
+              software, configura o servidor à tua medida e usa o sistema operativo da tua preferência.</p>
           </div>
 
           <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
-            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🗺️</div>
+            <div
+              class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">
+              🗺️</div>
             <h3 class="font-semibold text-slate-800">9 Regiões, 12 Localizações</h3>
-            <p class="text-slate-600 text-sm mt-1">Escolhe a localização do servidor mais próxima dos teus utilizadores para latência mínima e máxima performance. Cobertura global com disponibilidade 99,9%.</p>
+            <p class="text-slate-600 text-sm mt-1">Escolhe a localização do servidor mais próxima dos teus utilizadores
+              para latência mínima e máxima performance. Cobertura global com disponibilidade 99,9%.</p>
           </div>
 
           <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
-            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🖥️</div>
+            <div
+              class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">
+              🖥️</div>
             <h3 class="font-semibold text-slate-800">Múltiplos Sistemas Operativos</h3>
-            <p class="text-slate-600 text-sm mt-1">Ubuntu, Debian, CentOS, AlmaLinux, Windows Server e mais. Instala em segundos através do painel de controlo, com templates prontos para as plataformas mais populares.</p>
+            <p class="text-slate-600 text-sm mt-1">Ubuntu, Debian, CentOS, AlmaLinux, Windows Server e mais. Instala em
+              segundos através do painel de controlo, com templates prontos para as plataformas mais populares.</p>
           </div>
 
           <div class="rounded-xl border border-slate-200 p-6 bg-white hover:shadow-md transition">
-            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">📈</div>
+            <div
+              class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">
+              📈</div>
             <h3 class="font-semibold text-slate-800">Escalabilidade Instantânea</h3>
-            <p class="text-slate-600 text-sm mt-1">Upgrade de plano em segundos, sem downtime. O teu servidor cresce à medida que o teu projeto cresce — sem migrações complexas ou interrupções de serviço.</p>
+            <p class="text-slate-600 text-sm mt-1">Upgrade de plano em segundos, sem downtime. O teu servidor cresce à
+              medida que o teu projeto cresce — sem migrações complexas ou interrupções de serviço.</p>
           </div>
 
         </div>
@@ -393,7 +571,8 @@
       <div class="max-w-6xl mx-auto px-6">
         <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">A nossa disponibilidade global</h2>
         <p class="mt-4 text-center text-slate-600 max-w-3xl mx-auto">
-          9 Regiões, 12 Localizações, Disponibilidade Global. Escolhe o datacenter mais próximo dos teus utilizadores para garantir a melhor performance e menor latência.
+          9 Regiões, 12 Localizações, Disponibilidade Global. Escolhe o datacenter mais próximo dos teus utilizadores
+          para garantir a melhor performance e menor latência.
         </p>
 
         <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -451,12 +630,15 @@
       <div class="max-w-6xl mx-auto px-6">
         <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 text-center">Casos de Utilização de VPS</h2>
         <p class="mt-4 text-center text-slate-600 max-w-3xl mx-auto">
-          Exemplos de casos de utilização dos serviços de alojamento VPS pelos nossos clientes — desde aplicações web a projetos de desenvolvimento complexos.
+          Exemplos de casos de utilização dos serviços de alojamento VPS pelos nossos clientes — desde aplicações web a
+          projetos de desenvolvimento complexos.
         </p>
 
         <div class="mt-10 grid gap-6 md:grid-cols-3">
           <div class="rounded-xl bg-white border border-slate-200 p-6">
-            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🛒</div>
+            <div
+              class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">
+              🛒</div>
             <h3 class="font-bold text-slate-800 text-lg mb-2">E-commerce de Alto Volume</h3>
             <ul class="space-y-2 text-sm text-slate-600">
               <li class="flex gap-2"><span class="text-indigo-500">●</span> Lojas WooCommerce e Magento</li>
@@ -466,7 +648,9 @@
             </ul>
           </div>
           <div class="rounded-xl bg-white border border-slate-200 p-6">
-            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">💻</div>
+            <div
+              class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">
+              💻</div>
             <h3 class="font-bold text-slate-800 text-lg mb-2">Desenvolvimento e DevOps</h3>
             <ul class="space-y-2 text-sm text-slate-600">
               <li class="flex gap-2"><span class="text-blue-500">●</span> Ambientes de staging e produção</li>
@@ -476,7 +660,9 @@
             </ul>
           </div>
           <div class="rounded-xl bg-white border border-slate-200 p-6">
-            <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">🎮</div>
+            <div
+              class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl mb-3">
+              🎮</div>
             <h3 class="font-bold text-slate-800 text-lg mb-2">Aplicações & Gaming</h3>
             <ul class="space-y-2 text-sm text-slate-600">
               <li class="flex gap-2"><span class="text-green-500">●</span> Servidores de jogos multiplayer</li>
@@ -497,29 +683,41 @@
       <div class="max-w-6xl mx-auto px-6 grid gap-8 lg:grid-cols-2">
 
         <div class="rounded-2xl border border-indigo-200 bg-indigo-50 p-8">
-          <div class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600 text-2xl mb-4">🚀</div>
+          <div
+            class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600 text-2xl mb-4">🚀
+          </div>
           <h3 class="text-xl font-bold text-slate-800">Migrar VPS — Gratuitamente</h3>
-          <p class="mt-3 text-slate-600">Já tens um site e/ou VPS? Transfere para a Webminds gratuitamente. Tratamos de todo o processo de transferência do teu site da tua antiga empresa de alojamento para a nossa plataforma, para que possas focar no que realmente importa.</p>
+          <p class="mt-3 text-slate-600">Já tens um site e/ou VPS? Transfere para a Webminds gratuitamente. Tratamos de
+            todo o processo de transferência do teu site da tua antiga empresa de alojamento para a nossa plataforma,
+            para que possas focar no que realmente importa.</p>
           <ul class="mt-4 space-y-2 text-sm text-slate-700">
             <li class="flex gap-2">✅ Sem taxas de migração</li>
             <li class="flex gap-2">✅ Migração sem downtime</li>
             <li class="flex gap-2">✅ Suporte dedicado durante a transição</li>
             <li class="flex gap-2">✅ Verificação pós-migração incluída</li>
           </ul>
-          <a href="#" class="mt-6 inline-block px-6 py-3 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition text-sm">Solicitar Migração Gratuita</a>
+          <a href="#"
+            class="mt-6 inline-block px-6 py-3 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition text-sm">Solicitar
+            Migração Gratuita</a>
         </div>
 
         <div class="rounded-2xl border border-slate-200 bg-slate-50 p-8">
-          <div class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600 text-2xl mb-4">🛟</div>
+          <div
+            class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600 text-2xl mb-4">🛟
+          </div>
           <h3 class="text-xl font-bold text-slate-800">Suporte Técnico 24/7</h3>
-          <p class="mt-3 text-slate-600">A nossa equipa técnica está aqui para ajudar-te 24 horas por dia, 7 dias por semana. Estamos muito orgulhosos da nossa equipa de suporte especializada — se tu estás a trabalhar, eles também estão.</p>
+          <p class="mt-3 text-slate-600">A nossa equipa técnica está aqui para ajudar-te 24 horas por dia, 7 dias por
+            semana. Estamos muito orgulhosos da nossa equipa de suporte especializada — se tu estás a trabalhar, eles
+            também estão.</p>
           <ul class="mt-4 space-y-2 text-sm text-slate-700">
             <li class="flex gap-2">✅ Chat ao vivo 24/7</li>
             <li class="flex gap-2">✅ Suporte por ticket e e-mail</li>
             <li class="flex gap-2">✅ Equipa técnica especializada em VPS</li>
             <li class="flex gap-2">✅ Tempo médio de resposta &lt; 5 minutos</li>
           </ul>
-          <a href="#" class="mt-6 inline-block px-6 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contactar Suporte</a>
+          <a href="#"
+            class="mt-6 inline-block px-6 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition text-sm">Contactar
+            Suporte</a>
         </div>
 
       </div>
@@ -536,62 +734,80 @@
         <div class="mt-8 space-y-3">
 
           <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
-            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')"
+              class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
               Qual a diferença entre VPS NVMe e VPS SSD?
               <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
             </button>
             <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
-              Os VPS NVMe utilizam discos NVMe (Non-Volatile Memory Express) que são significativamente mais rápidos que os SSD tradicionais — até 7x mais em operações de leitura/escrita. Os VPS SSD são uma opção mais económica para projetos com menor exigência de I/O. Para bases de dados, e-commerce e aplicações intensivas, recomendamos NVMe.
+              Os VPS NVMe utilizam discos NVMe (Non-Volatile Memory Express) que são significativamente mais rápidos que
+              os SSD tradicionais — até 7x mais em operações de leitura/escrita. Os VPS SSD são uma opção mais económica
+              para projetos com menor exigência de I/O. Para bases de dados, e-commerce e aplicações intensivas,
+              recomendamos NVMe.
             </div>
           </div>
 
           <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
-            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')"
+              class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
               Posso escolher o sistema operativo do meu servidor?
               <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
             </button>
             <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
-              Sim. Podes instalar Ubuntu, Debian, CentOS, AlmaLinux, Rocky Linux e muito mais através do painel de controlo. Os planos Windows NVMe incluem licença do Windows Server. Também oferecemos templates pré-configurados para cPanel, Plesk, WordPress, Joomla e outras plataformas populares.
+              Sim. Podes instalar Ubuntu, Debian, CentOS, AlmaLinux, Rocky Linux e muito mais através do painel de
+              controlo. Os planos Windows NVMe incluem licença do Windows Server. Também oferecemos templates
+              pré-configurados para cPanel, Plesk, WordPress, Joomla e outras plataformas populares.
             </div>
           </div>
 
           <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
-            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')"
+              class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
               O tráfego é realmente ilimitado?
               <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
             </button>
             <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
-              Sim. Todos os planos VPS da Webminds incluem tráfego ilimitado sem custos adicionais. A bandwidth disponível varia por plano (200 Mbps a 1 Gbps), mas não existem limites de transferência mensal. Nunca terás surpresas na fatura por excesso de tráfego.
+              Sim. Todos os planos VPS da Webminds incluem tráfego ilimitado sem custos adicionais. A bandwidth
+              disponível varia por plano (200 Mbps a 1 Gbps), mas não existem limites de transferência mensal. Nunca
+              terás surpresas na fatura por excesso de tráfego.
             </div>
           </div>
 
           <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
-            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')"
+              class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
               Posso fazer upgrade do meu plano VPS?
               <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
             </button>
             <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
-              Sim. Podes fazer upgrade do teu plano VPS a qualquer momento através do painel de controlo, sem downtime nem migração de dados. O upgrade é instantâneo e os recursos adicionais ficam disponíveis em segundos.
+              Sim. Podes fazer upgrade do teu plano VPS a qualquer momento através do painel de controlo, sem downtime
+              nem migração de dados. O upgrade é instantâneo e os recursos adicionais ficam disponíveis em segundos.
             </div>
           </div>
 
           <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
-            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')"
+              class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
               A migração do meu VPS atual é mesmo gratuita?
               <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
             </button>
             <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
-              Sim, totalmente gratuita. A nossa equipa técnica trata de todo o processo de migração do teu servidor ou site para a infraestrutura Webminds, sem custos adicionais. A migração é feita com o mínimo de downtime e inclui verificação completa pós-migração.
+              Sim, totalmente gratuita. A nossa equipa técnica trata de todo o processo de migração do teu servidor ou
+              site para a infraestrutura Webminds, sem custos adicionais. A migração é feita com o mínimo de downtime e
+              inclui verificação completa pós-migração.
             </div>
           </div>
 
           <div class="faq-item rounded-xl border border-slate-200 bg-white overflow-hidden">
-            <button onclick="this.closest('.faq-item').classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
+            <button onclick="this.closest('.faq-item').classList.toggle('open')"
+              class="w-full flex justify-between items-center p-5 text-left font-semibold text-slate-800 hover:bg-slate-50">
               Qual é a garantia de uptime dos servidores VPS?
               <span class="faq-icon text-indigo-600 font-bold text-xl">+</span>
             </button>
             <div class="faq-answer px-5 pb-5 text-slate-600 text-sm">
-              Garantimos 99,9% de uptime em todos os planos VPS, suportado por infraestrutura redundante e monitorização contínua. Em caso de qualquer problema, a nossa equipa de suporte técnico 24/7 está disponível para resolver a situação no menor tempo possível.
+              Garantimos 99,9% de uptime em todos os planos VPS, suportado por infraestrutura redundante e monitorização
+              contínua. Em caso de qualquer problema, a nossa equipa de suporte técnico 24/7 está disponível para
+              resolver a situação no menor tempo possível.
             </div>
           </div>
 
@@ -606,8 +822,11 @@
     <section class="py-20 bg-gradient-to-br from-indigo-700 via-indigo-600 to-sky-600 text-white text-center">
       <div class="max-w-3xl mx-auto px-6">
         <h2 class="text-3xl sm:text-4xl font-extrabold">O servidor que o teu projeto merece</h2>
-        <p class="mt-4 text-blue-100 text-lg">Hardware premium NVMe, tráfego ilimitado e suporte 24/7. Ativa o teu VPS em segundos e começa a construir sem limites.</p>
-        <a href="#planos" class="mt-8 inline-block px-10 py-4 bg-white text-indigo-700 rounded-xl font-bold text-lg hover:bg-blue-50 transition shadow-lg">Escolher o Meu Servidor VPS</a>
+        <p class="mt-4 text-blue-100 text-lg">Hardware premium NVMe, tráfego ilimitado e suporte 24/7. Ativa o teu VPS
+          em segundos e começa a construir sem limites.</p>
+        <a href="#planos"
+          class="mt-8 inline-block px-10 py-4 bg-white text-indigo-700 rounded-xl font-bold text-lg hover:bg-blue-50 transition shadow-lg">Escolher
+          o Meu Servidor VPS</a>
         <p class="mt-3 text-indigo-300 text-sm">Migração gratuita incluída. Suporte 24/7 garantido.</p>
       </div>
     </section>
@@ -648,7 +867,8 @@
         </ul>
       </div>
     </div>
-    <div class="max-w-6xl mx-auto px-6 border-t border-slate-800 pt-6 text-center text-xs">© 2026 WebMinds. Todos os direitos reservados.</div>
+    <div class="max-w-6xl mx-auto px-6 border-t border-slate-800 pt-6 text-center text-xs">© 2026 WebMinds. Todos os
+      direitos reservados.</div>
   </footer>
 
   <script src="script.js"></script>
@@ -673,4 +893,5 @@
   </script>
 
 </body>
+
 </html>

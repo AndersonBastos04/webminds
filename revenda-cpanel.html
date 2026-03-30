@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospedagem para Revendedores</title>
+    <meta name="description"
+        content="Construir o seu próprio negócio de Hospedagem web torna-se simples com os nossos planos acessíveis de Hospedagem SSD para Revenda." />
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        indigo: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#2548c6', 600: '#1934a7', 700: '#031974' },
+                        sky: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#1934a7', 600: '#1934a7', 700: '#031974' },
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="navbar.js"></script>
+
+    <style>
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatY {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                opacity: .7;
+            }
+
+            100% {
+                transform: scale(1.9);
+                opacity: 0;
+            }
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: -20;
+            }
+        }
+
+        .fade-up {
+            animation: fadeUp .6s ease both;
+        }
+
+        .fade-up-1 {
+            animation-delay: .1s;
+        }
+
+        .fade-up-2 {
+            animation-delay: .2s;
+        }
+
+        .fade-up-3 {
+            animation-delay: .3s;
+        }
+
+        .fade-up-4 {
+            animation-delay: .4s;
+        }
+
+        .float {
+            animation: floatY 4s ease-in-out infinite;
+        }
+
+        .shimmer-text {
+            background: linear-gradient(90deg, #fff 0%, #a5b4fc 40%, #fff 60%, #a5b4fc 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 4s linear infinite;
+        }
+
+        .feature-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(25, 52, 167, .12);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(93, 126, 240, .07) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .plan-card {
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px rgba(25, 52, 167, .16);
+        }
+
+        .plan-popular {
+            border-color: #1934a7 !important;
+        }
+
+        .stat-pill {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .65s ease, transform .65s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        .faq-content {
+            transition: max-height .35s ease, opacity .35s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        .faq-content.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+
+        .faq-arrow {
+            transition: transform .3s;
+        }
+
+        .faq-arrow.open {
+            transform: rotate(180deg);
+        }
+
+        .pulse-dot {
+            position: relative;
+            display: inline-flex;
+        }
+
+        .pulse-dot::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: #4ade80;
+            animation: pulse-ring 1.8s ease-out infinite;
+        }
+
+        /* WHM terminal mockup */
+        .terminal-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+        }
+
+        .terminal-row {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            transition: background .2s;
+        }
+
+        .terminal-row:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        /* Step connector */
+        .step-connector {
+            position: absolute;
+            top: 20px;
+            left: calc(50% + 28px);
+            right: calc(-50% + 28px);
+            height: 2px;
+            background: linear-gradient(90deg, #c7d2ff, #e2e8f0);
+        }
+
+        .sync-line {
+            stroke-dasharray: 6 4;
+            animation: dash 2s linear infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="pt-28">
+
+        <!-- ══════════════════════════════════════
+     HERO
+    ══════════════════════════════════════ -->
+        <section
+            class="relative py-24 bg-gradient-to-br from-indigo-700 via-indigo-600 to-sky-600 text-white overflow-hidden">
+            <div
+                class="absolute -top-40 -right-32 w-[520px] h-[520px] rounded-full bg-white/5 blur-3xl pointer-events-none">
+            </div>
+            <div
+                class="absolute -bottom-32 -left-20 w-[400px] h-[400px] rounded-full bg-sky-400/10 blur-3xl pointer-events-none">
+            </div>
+
+            <div class="max-w-6xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+
+                <!-- Left -->
+                <div>
+                    <span
+                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 text-xs font-semibold uppercase tracking-widest fade-up">
+                        <span class="pulse-dot w-2 h-2 rounded-full bg-green-400 inline-block"></span>
+                        Plataforma Ativa 24/7
+                    </span>
+                    <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] fade-up fade-up-1">
+                        Revenda Linux<br>
+                        <span class="shimmer-text">cPanel</span>
+                    </h1>
+                    <p class="mt-5 text-lg text-sky-100 max-w-xl leading-relaxed fade-up fade-up-2">
+                        Crie o seu negócio na nossa infraestrutura robusta. Perfeito para gerir dezenas ou mesmo
+                        centenas de websites com total eficiência.
+                    </p>
+                    <p class="mt-3 text-sky-200 text-sm max-w-xl fade-up fade-up-3">
+                        Beneficie de gestor de conta dedicado, integrações personalizadas e descontos exclusivos em
+                        serviços associados.
+                    </p>
+
+                    <div class="mt-7 flex flex-wrap gap-3 fade-up fade-up-3">
+                        <div class="stat-pill rounded-full px-4 py-2 text-sm font-medium">✦ WHM & cPanel incluído</div>
+                        <div class="stat-pill rounded-full px-4 py-2 text-sm font-medium">✦ WHMCS de faturação</div>
+                        <div class="stat-pill rounded-full px-4 py-2 text-sm font-medium">✦ Marca branca</div>
+                    </div>
+
+                    <div class="mt-8 flex flex-col sm:flex-row gap-3 fade-up fade-up-4">
+                        <a href="#planos"
+                            class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-indigo-700 font-semibold rounded-xl shadow-lg hover:bg-indigo-50 transition hover:-translate-y-0.5">
+                            Ver Planos
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6" />
+                            </svg>
+                        </a>
+                        <a href="#como-funciona"
+                            class="inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-white/50 text-white font-semibold rounded-xl hover:bg-white/10 transition">
+                            Como Funciona
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: WHM mockup -->
+                <div class="float hidden lg:block">
+                    <div class="terminal-card rounded-2xl overflow-hidden shadow-2xl w-full max-w-sm mx-auto">
+                        <!-- window bar -->
+                        <div class="flex items-center gap-2 px-4 py-3 bg-white/10 border-b border-white/10">
+                            <span class="w-3 h-3 rounded-full bg-red-400/80"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-400/80"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-400/80"></span>
+                            <span class="ml-4 text-xs text-white/60 font-mono">WHM — Web Host Manager</span>
+                        </div>
+                        <!-- sidebar + content -->
+                        <div class="flex">
+                            <!-- mini sidebar -->
+                            <div class="w-16 bg-white/5 border-r border-white/10 py-4 flex flex-col items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-indigo-500/40 flex items-center justify-center">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white"
+                                        stroke-width="2">
+                                        <rect x="3" y="3" width="7" height="7" />
+                                        <rect x="14" y="3" width="7" height="7" />
+                                        <rect x="3" y="14" width="7" height="7" />
+                                        <rect x="14" y="14" width="7" height="7" />
+                                    </svg>
+                                </div>
+                                <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke="rgba(255,255,255,.5)" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                        <circle cx="12" cy="7" r="4" />
+                                    </svg>
+                                </div>
+                                <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke="rgba(255,255,255,.5)" stroke-width="2">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                    </svg>
+                                </div>
+                                <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke="rgba(255,255,255,.5)" stroke-width="2">
+                                        <circle cx="12" cy="12" r="3" />
+                                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <!-- main panel -->
+                            <div class="flex-1 p-4">
+                                <p class="text-xs font-bold uppercase tracking-widest text-white/40 mb-3">Contas de
+                                    Clientes</p>
+                                <div class="terminal-row px-2 py-2 rounded-lg flex items-center gap-3">
+                                    <div
+                                        class="w-6 h-6 rounded-full bg-emerald-400/40 flex items-center justify-center text-xs flex-shrink-0">
+                                        ●</div>
+                                    <div class="min-w-0">
+                                        <p class="text-xs font-semibold text-white truncate">cliente1.com</p>
+                                        <p class="text-xs text-white/40">2.1 GB · Ativo</p>
+                                    </div>
+                                    <span class="ml-auto text-xs text-emerald-400 flex-shrink-0">Online</span>
+                                </div>
+                                <div class="terminal-row px-2 py-2 rounded-lg flex items-center gap-3">
+                                    <div
+                                        class="w-6 h-6 rounded-full bg-emerald-400/40 flex items-center justify-center text-xs flex-shrink-0">
+                                        ●</div>
+                                    <div class="min-w-0">
+                                        <p class="text-xs font-semibold text-white truncate">loja-online.pt</p>
+                                        <p class="text-xs text-white/40">5.8 GB · Ativo</p>
+                                    </div>
+                                    <span class="ml-auto text-xs text-emerald-400 flex-shrink-0">Online</span>
+                                </div>
+                                <div class="terminal-row px-2 py-2 rounded-lg flex items-center gap-3">
+                                    <div
+                                        class="w-6 h-6 rounded-full bg-yellow-400/40 flex items-center justify-center text-xs flex-shrink-0">
+                                        ●</div>
+                                    <div class="min-w-0">
+                                        <p class="text-xs font-semibold text-white truncate">agencia-xyz.com</p>
+                                        <p class="text-xs text-white/40">1.4 GB · Suspenso</p>
+                                    </div>
+                                    <span class="ml-auto text-xs text-yellow-400 flex-shrink-0">Suspenso</span>
+                                </div>
+                                <div class="terminal-row px-2 py-2 rounded-lg flex items-center gap-3">
+                                    <div
+                                        class="w-6 h-6 rounded-full bg-emerald-400/40 flex items-center justify-center text-xs flex-shrink-0">
+                                        ●</div>
+                                    <div class="min-w-0">
+                                        <p class="text-xs font-semibold text-white truncate">portefolio.net</p>
+                                        <p class="text-xs text-white/40">0.9 GB · Ativo</p>
+                                    </div>
+                                    <span class="ml-auto text-xs text-emerald-400 flex-shrink-0">Online</span>
+                                </div>
+                                <div
+                                    class="mt-3 flex items-center gap-2 bg-indigo-500/15 border border-indigo-500/30 rounded-lg px-3 py-2">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#818cf8"
+                                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                                    </svg>
+                                    <p class="text-xs text-indigo-300">4 contas ativas · 9.2 GB utilizados</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+     TRUST BAR
+    ══════════════════════════════════════ -->
+        <div class="bg-white border-b border-slate-100 py-5">
+            <div
+                class="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm text-slate-500 font-medium">
+                <span class="flex items-center gap-2"><span class="text-green-500">✓</span> WHM & cPanel</span>
+                <span class="flex items-center gap-2"><span class="text-green-500">✓</span> WHMCS incluído</span>
+                <span class="flex items-center gap-2"><span class="text-green-500">✓</span> Marca branca</span>
+                <span class="flex items-center gap-2"><span class="text-green-500">✓</span> SSL gratuito</span>
+                <span class="flex items-center gap-2"><span class="text-green-500">✓</span> Migração assistida</span>
+                <span class="flex items-center gap-2"><span class="text-green-500">✓</span> Suporte 24/7</span>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════
+     DESEMPENHO / 3 PILARES
+    ══════════════════════════════════════ -->
+        <section class="py-24 bg-slate-50">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <span
+                        class="inline-block px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-3">Desempenho
+                        superior</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Para uma experiência de alojamento
+                        premium</h2>
+                    <p class="mt-3 text-slate-500 max-w-2xl mx-auto">Infraestrutura de alto desempenho pensada para
+                        revendedores que exigem fiabilidade e velocidade.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    <!-- WHM -->
+                    <div class="feature-card reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-indigo-100 flex items-center justify-center mb-5">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1934a7"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Gestão via WHM</h3>
+                        <p class="text-slate-600 leading-relaxed">O Web Host Manager oferece acesso administrativo
+                            completo para criar e gerir contas de clientes individualmente, com interface intuitiva e
+                            todas as ferramentas necessárias.</p>
+                        <ul class="mt-4 space-y-2 text-sm text-slate-600">
+                            <li class="flex items-center gap-2"><span
+                                    class="w-4 h-4 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">✓</span>
+                                Criação de contas ilimitada</li>
+                            <li class="flex items-center gap-2"><span
+                                    class="w-4 h-4 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">✓</span>
+                                Suspensão e reativação</li>
+                            <li class="flex items-center gap-2"><span
+                                    class="w-4 h-4 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">✓</span>
+                                Quotas personalizadas</li>
+                        </ul>
+                    </div>
+
+                    <!-- cPanel -->
+                    <div class="feature-card reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-50 to-sky-100 flex items-center justify-center mb-5">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0369a1"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3" />
+                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">cPanel para Clientes</h3>
+                        <p class="text-slate-600 leading-relaxed">Os seus clientes gerem o próprio alojamento com cPanel
+                            — adicionam domínios, configuram DNS, gerem e-mail, instalam apps com um clique e muito
+                            mais.</p>
+                        <ul class="mt-4 space-y-2 text-sm text-slate-600">
+                            <li class="flex items-center gap-2"><span
+                                    class="w-4 h-4 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center text-xs">✓</span>
+                                Instalador Softaculous</li>
+                            <li class="flex items-center gap-2"><span
+                                    class="w-4 h-4 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center text-xs">✓</span>
+                                Gestor de ficheiros</li>
+                            <li class="flex items-center gap-2"><span
+                                    class="w-4 h-4 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center text-xs">✓</span>
+                                Bases de dados MySQL</li>
+                        </ul>
+                    </div>
+
+                    <!-- WHMCS -->
+                    <div class="feature-card reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center mb-5">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#059669"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Faturação WHMCS</h3>
+                        <p class="text-slate-600 leading-relaxed">Plataforma de faturação WHMCS incluída com ferramentas
+                            de marca branca, gestão de clientes, faturas automáticas e programa de revenda de SSL.</p>
+                        <ul class="mt-4 space-y-2 text-sm text-slate-600">
+                            <li class="flex items-center gap-2"><span
+                                    class="w-4 h-4 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs">✓</span>
+                                Faturas automáticas</li>
+                            <li class="flex items-center gap-2"><span
+                                    class="w-4 h-4 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs">✓</span>
+                                Portal de cliente</li>
+                            <li class="flex items-center gap-2"><span
+                                    class="w-4 h-4 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs">✓</span>
+                                Revenda de SSL</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+     COMO FUNCIONA (4 PASSOS)
+    ══════════════════════════════════════ -->
+        <section id="como-funciona" class="py-24 bg-white">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <span
+                        class="inline-block px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-3">Rápido
+                        e Simples</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Comece a revender em quatro passos
+                        simples</h2>
+                    <p class="mt-3 text-slate-500 max-w-2xl mx-auto">Do registo à primeira conta de cliente, o processo
+                        é direto e sem complicações.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+
+                    <div class="reveal text-center relative">
+                        <div class="hidden md:block step-connector"></div>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-indigo-600 text-white font-extrabold text-xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-indigo-600/25">
+                            1</div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Escolha o Plano</h3>
+                        <p class="text-slate-500 text-sm">Selecione o plano de revenda adequado ao volume de clientes
+                            que pretende gerir.</p>
+                    </div>
+
+                    <div class="reveal text-center relative">
+                        <div class="hidden md:block step-connector"></div>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-indigo-500 text-white font-extrabold text-xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-indigo-500/25">
+                            2</div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Configure a Marca</h3>
+                        <p class="text-slate-500 text-sm">Personalize com o seu logótipo, cores e nameservers para uma
+                            identidade 100% sua.</p>
+                    </div>
+
+                    <div class="reveal text-center relative">
+                        <div class="hidden md:block step-connector"></div>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-sky-600 text-white font-extrabold text-xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-sky-600/25">
+                            3</div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Crie Contas</h3>
+                        <p class="text-slate-500 text-sm">Utilize o WHM para criar e configurar as contas cPanel dos
+                            seus clientes em segundos.</p>
+                    </div>
+
+                    <div class="reveal text-center">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-emerald-500 text-white font-extrabold text-xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-emerald-500/25">
+                            4</div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Fature com WHMCS</h3>
+                        <p class="text-slate-500 text-sm">Automatize a faturação e a gestão de clientes com o WHMCS
+                            integrado.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+     WHM DEEP DIVE
+    ══════════════════════════════════════ -->
+        <section class="py-24 bg-gradient-to-br from-indigo-50 to-white">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+                    <div class="reveal">
+                        <span
+                            class="inline-block px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-4">Gerir
+                            Contas de Clientes</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-5">Controle as contas dos
+                            clientes através do painel WHM</h2>
+                        <p class="text-slate-600 leading-relaxed mb-6">O Web Host Manager (WHM) é um programa de gestão
+                            de alojamento líder no setor, que oferece aos revendedores acesso administrativo à área de
+                            gestão do cPanel. A sua interface prática e intuitiva disponibiliza todas as ferramentas
+                            necessárias para gerir os seus serviços de revenda, permitindo-lhe criar novas contas de
+                            clientes e geri-las individualmente.</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div
+                                class="flex items-start gap-3 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 text-sm">
+                                    👥</div>
+                                <div>
+                                    <p class="font-semibold text-sm text-slate-900">Multi-conta</p>
+                                    <p class="text-xs text-slate-500 mt-0.5">Gerencie todos os clientes num só lugar</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-start gap-3 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 text-sm">
+                                    📊</div>
+                                <div>
+                                    <p class="font-semibold text-sm text-slate-900">Relatórios</p>
+                                    <p class="text-xs text-slate-500 mt-0.5">Uso de recursos por conta</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-start gap-3 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-sky-100 text-sky-600 flex items-center justify-center flex-shrink-0 text-sm">
+                                    🔐</div>
+                                <div>
+                                    <p class="font-semibold text-sm text-slate-900">Segurança</p>
+                                    <p class="text-xs text-slate-500 mt-0.5">Isolamento entre contas</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-start gap-3 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-sm">
+                                    ⚡</div>
+                                <div>
+                                    <p class="font-semibold text-sm text-slate-900">Rápido</p>
+                                    <p class="text-xs text-slate-500 mt-0.5">Criação de conta em segundos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Visual -->
+                    <div class="reveal">
+                        <div class="bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden">
+                            <div class="bg-slate-800 px-4 py-3 flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-400"></span>
+                                <span class="ml-3 text-xs text-slate-400 font-mono">WHM — Criar Nova Conta</span>
+                            </div>
+                            <div class="p-6 space-y-4">
+                                <div>
+                                    <label
+                                        class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Domínio</label>
+                                    <div
+                                        class="mt-1 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-700 font-mono">
+                                        meunegocio.pt</div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label
+                                            class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Username</label>
+                                        <div
+                                            class="mt-1 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-700 font-mono">
+                                            meuneg</div>
+                                    </div>
+                                    <div>
+                                        <label
+                                            class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Espaço
+                                            (GB)</label>
+                                        <div
+                                            class="mt-1 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-700 font-mono">
+                                            10</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label
+                                        class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Package</label>
+                                    <div
+                                        class="mt-1 rounded-lg border border-indigo-300 bg-indigo-50 px-4 py-2.5 text-sm text-indigo-700 font-semibold">
+                                        Business — 10 GB · 10 E-mails</div>
+                                </div>
+                                <button
+                                    class="w-full bg-indigo-600 text-white rounded-lg py-2.5 text-sm font-semibold hover:bg-indigo-700 transition">Criar
+                                    Conta cPanel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+     CPANEL DEEP DIVE
+    ══════════════════════════════════════ -->
+        <section class="py-24 bg-white">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-14 reveal">
+                    <span
+                        class="inline-block px-3 py-1 rounded-full bg-sky-100 text-sky-700 text-sm font-semibold mb-3">Gestão
+                        de Alojamento Potente</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Ferramentas avançadas via painel
+                        cPanel</h2>
+                    <p class="mt-3 text-slate-500 max-w-2xl mx-auto">O cPanel permite aos seus clientes gerir o próprio
+                        serviço de forma simples e eficiente, sem depender de si para cada tarefa.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                    <div
+                        class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center flex-shrink-0">
+                            🌐</div>
+                        <div>
+                            <h4 class="font-semibold text-slate-900">Gestão de Domínios</h4>
+                            <p class="text-sm text-slate-500 mt-1">Adicionar domínios, subdomínios, redirecionamentos e
+                                aliases.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center flex-shrink-0">
+                            ✉️</div>
+                        <div>
+                            <h4 class="font-semibold text-slate-900">E-mail & Webmail</h4>
+                            <p class="text-sm text-slate-500 mt-1">Criação de caixas, redirecionamentos, filtros e
+                                webmail.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center flex-shrink-0">
+                            🗄️</div>
+                        <div>
+                            <h4 class="font-semibold text-slate-900">Bases de Dados</h4>
+                            <p class="text-sm text-slate-500 mt-1">MySQL, phpMyAdmin e gestão de utilizadores de BD.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0">
+                            ⚡</div>
+                        <div>
+                            <h4 class="font-semibold text-slate-900">Softaculous</h4>
+                            <p class="text-sm text-slate-500 mt-1">Instalação de WordPress, Joomla, Drupal com um
+                                clique.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0">
+                            🔐</div>
+                        <div>
+                            <h4 class="font-semibold text-slate-900">SSL Gratuito</h4>
+                            <p class="text-sm text-slate-500 mt-1">Let's Encrypt integrado, certificados automáticos por
+                                domínio.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-violet-100 text-violet-600 flex items-center justify-center flex-shrink-0">
+                            📁</div>
+                        <div>
+                            <h4 class="font-semibold text-slate-900">Gestor de Ficheiros</h4>
+                            <p class="text-sm text-slate-500 mt-1">Upload, edição e gestão de ficheiros direto no
+                                browser.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0">
+                            📊</div>
+                        <div>
+                            <h4 class="font-semibold text-slate-900">Estatísticas de Tráfego</h4>
+                            <p class="text-sm text-slate-500 mt-1">Awstats e Webalizer para monitorizar visitas e
+                                largura de banda.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center flex-shrink-0">
+                            🔄</div>
+                        <div>
+                            <h4 class="font-semibold text-slate-900">Backups</h4>
+                            <p class="text-sm text-slate-500 mt-1">Backups completos e parciais com agendamento
+                                automático.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="reveal flex gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-indigo-200 hover:bg-indigo-50 transition">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center flex-shrink-0">
+                            🌍</div>
+                        <div>
+                            <h4 class="font-semibold text-slate-900">Configuração DNS</h4>
+                            <p class="text-sm text-slate-500 mt-1">Zona DNS completa editável com suporte a DNSSEC.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+     MARCA BRANCA + MIGRAÇÃO
+    ══════════════════════════════════════ -->
+        <section class="py-24 bg-slate-50">
+            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+                <!-- Marca branca -->
+                <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100 feature-card">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-50 to-violet-100 flex items-center justify-center mb-5">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <path
+                                d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Crie a Identidade da sua Marca</h3>
+                    <p class="text-slate-600 leading-relaxed mb-5">Personalize os seus serviços de alojamento com a sua
+                        própria marca — nomes de servidor personalizados, logótipos e identidade visual. Proporcione aos
+                        seus clientes uma experiência contínua e profissional.</p>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex items-center gap-3"><span
+                                class="w-5 h-5 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center text-xs flex-shrink-0">✓</span>
+                            Nameservers personalizados (ns1.seunome.pt)</li>
+                        <li class="flex items-center gap-3"><span
+                                class="w-5 h-5 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center text-xs flex-shrink-0">✓</span>
+                            Logótipo personalizado no cPanel</li>
+                        <li class="flex items-center gap-3"><span
+                                class="w-5 h-5 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center text-xs flex-shrink-0">✓</span>
+                            Esquema de cores da sua marca</li>
+                        <li class="flex items-center gap-3"><span
+                                class="w-5 h-5 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center text-xs flex-shrink-0">✓</span>
+                            Portal de cliente WHMCS brandado</li>
+                    </ul>
+                </div>
+
+                <!-- Migração -->
+                <div class="reveal bg-white rounded-2xl p-8 shadow-sm border border-slate-100 feature-card">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center mb-5">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="1 4 1 10 7 10" />
+                            <path d="M3.51 15a9 9 0 1 0 .49-5" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Migre o seu Negócio</h3>
+                    <p class="text-slate-600 leading-relaxed mb-5">Transfira-se facilmente para a nossa plataforma a
+                        partir de vários provedores, incluindo cPanel, Plesk, DirectAdmin e WordPress. A nossa equipa
+                        garante migração sem tempo de inatividade.</p>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex items-center gap-3"><span
+                                class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs flex-shrink-0">✓</span>
+                            Migração de cPanel, Plesk, DirectAdmin</li>
+                        <li class="flex items-center gap-3"><span
+                                class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs flex-shrink-0">✓</span>
+                            Zero tempo de inatividade</li>
+                        <li class="flex items-center gap-3"><span
+                                class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs flex-shrink-0">✓</span>
+                            Sem risco de perda de dados</li>
+                        <li class="flex items-center gap-3"><span
+                                class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs flex-shrink-0">✓</span>
+                            Suporte técnico dedicado na migração</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+     PRICING PLANS
+    ══════════════════════════════════════ -->
+        <section id="planos" class="py-24 bg-white">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-14 reveal">
+                    <span
+                        class="inline-block px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-3">Planos
+                        de Revenda</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Escolha o plano ideal para o seu
+                        negócio</h2>
+                    <p class="mt-3 text-slate-500 max-w-xl mx-auto">Todos os planos incluem WHM, cPanel, WHMCS, SSL
+                        gratuito e suporte 24/7.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    <!-- Starter -->
+                    <div class="plan-card reveal bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+                        <div class="flex items-center justify-between mb-1">
+                            <h3 class="text-lg font-bold text-slate-900">Starter</h3>
+                            <span class="text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-500 font-medium">Até 20
+                                sites</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-5">Para quem está a começar no negócio de revenda.</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-extrabold text-slate-900">€9,99</span>
+                            <span class="text-slate-400 text-sm">/mês</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> 50 GB SSD de
+                                armazenamento</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> 500 GB de largura
+                                de banda</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> WHM & cPanel
+                                incluído</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> SSL gratuito
+                                (Let's Encrypt)</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Softaculous</li>
+                            <li class="flex items-center gap-2 text-slate-300"><span>✗</span> WHMCS incluído</li>
+                            <li class="flex items-center gap-2 text-slate-300"><span>✗</span> Nameservers personalizados
+                            </li>
+                        </ul>
+                        <a href="#"
+                            class="block w-full text-center px-6 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition">Começar</a>
+                    </div>
+
+                    <!-- Business — popular -->
+                    <div class="plan-card plan-popular reveal bg-white rounded-2xl border-2 p-8 shadow-xl relative">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+                            <span
+                                class="inline-block px-4 py-1 rounded-full bg-indigo-600 text-white text-xs font-bold uppercase tracking-wider shadow-lg">Mais
+                                popular</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-1">
+                            <h3 class="text-lg font-bold text-slate-900">Business</h3>
+                            <span class="text-xs px-2 py-1 rounded-full bg-indigo-100 text-indigo-600 font-medium">Até
+                                60 sites</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-5">Para agências e freelancers em crescimento.</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-extrabold text-indigo-700">€19,99</span>
+                            <span class="text-slate-400 text-sm">/mês</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> 150 GB SSD de
+                                armazenamento</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Largura de banda
+                                ilimitada</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> WHM & cPanel
+                                incluído</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> WHMCS incluído
+                            </li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> SSL gratuito
+                                (Let's Encrypt)</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Nameservers
+                                personalizados</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Marca branca
+                                completa</li>
+                        </ul>
+                        <a href="#"
+                            class="block w-full text-center px-6 py-3 bg-indigo-600 text-white rounded-xl font-semibold shadow-lg shadow-indigo-600/25 hover:bg-indigo-700 transition">Começar</a>
+                    </div>
+
+                    <!-- Pro -->
+                    <div class="plan-card reveal bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+                        <div class="flex items-center justify-between mb-1">
+                            <h3 class="text-lg font-bold text-slate-900">Pro</h3>
+                            <span
+                                class="text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-500 font-medium">Ilimitado</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-5">Para revendedores estabelecidos e alta escala.</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-extrabold text-slate-900">€39,99</span>
+                            <span class="text-slate-400 text-sm">/mês</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> 500 GB SSD NVMe
+                            </li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Largura de banda
+                                ilimitada</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> WHM & cPanel
+                                ilimitado</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> WHMCS incluído
+                            </li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Marca branca
+                                completa</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Gestor de conta
+                                dedicado</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500">✓</span> Integrações
+                                personalizadas</li>
+                        </ul>
+                        <a href="#"
+                            class="block w-full text-center px-6 py-3 border-2 border-indigo-600 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition">Contactar</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+     SUPORTE 24/7
+    ══════════════════════════════════════ -->
+        <section class="py-20 bg-gradient-to-br from-indigo-50 to-white">
+            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+                <div class="reveal">
+                    <span
+                        class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-sm font-semibold mb-4">Suporte
+                        Técnico 24/7</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">A nossa equipa está aqui para
+                        ajudar a qualquer hora</h2>
+                    <p class="text-slate-600 leading-relaxed mb-6">Estamos muito orgulhosos da nossa equipa de suporte
+                        especializada. Se você está a trabalhar, eles também estão, a qualquer hora. Obtenha o suporte
+                        que merece para os seus produtos, seja servidores, websites, caixas de correio ou qualquer outra
+                        coisa.</p>
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div class="bg-white rounded-xl border border-slate-100 p-4 shadow-sm">
+                            <p class="text-2xl font-extrabold text-indigo-700">24/7</p>
+                            <p class="text-xs text-slate-500 mt-1">Disponibilidade</p>
+                        </div>
+                        <div class="bg-white rounded-xl border border-slate-100 p-4 shadow-sm">
+                            <p class="text-2xl font-extrabold text-indigo-700">&lt;2h</p>
+                            <p class="text-xs text-slate-500 mt-1">Tempo de resposta</p>
+                        </div>
+                        <div class="bg-white rounded-xl border border-slate-100 p-4 shadow-sm">
+                            <p class="text-2xl font-extrabold text-indigo-700">99.9%</p>
+                            <p class="text-xs text-slate-500 mt-1">Uptime SLA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <div class="bg-white rounded-2xl border border-slate-100 shadow-lg p-6">
+                        <div class="flex items-center gap-3 mb-5">
+                            <div
+                                class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-sm">
+                                WM</div>
+                            <div>
+                                <p class="font-semibold text-slate-900 text-sm">WebMinds Suporte</p>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-green-400 inline-block"></span>
+                                    <span class="text-xs text-green-600 font-medium">Online agora</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs flex-shrink-0 font-bold">
+                                    WM</div>
+                                <div
+                                    class="bg-indigo-50 rounded-2xl rounded-tl-none px-4 py-2.5 text-sm text-slate-700 max-w-xs">
+                                    Olá! Como posso ajudar com a sua conta de revenda hoje?
+                                </div>
+                            </div>
+                            <div class="flex gap-3 justify-end">
+                                <div
+                                    class="bg-indigo-600 rounded-2xl rounded-tr-none px-4 py-2.5 text-sm text-white max-w-xs">
+                                    Preciso de ajuda para configurar nameservers personalizados.
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs flex-shrink-0 font-bold">
+                                    WM</div>
+                                <div
+                                    class="bg-indigo-50 rounded-2xl rounded-tl-none px-4 py-2.5 text-sm text-slate-700 max-w-xs">
+                                    Claro! Vou guiá-lo passo a passo. Qual é o seu domínio de marca branca?
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex gap-2">
+                            <div
+                                class="flex-1 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-400">
+                                Escreva a sua mensagem...</div>
+                            <button
+                                class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center hover:bg-indigo-700 transition">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13" />
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- ══════════════════════════════════════
+     FAQ
+    ══════════════════════════════════════ -->
+        <section class="py-24 bg-slate-50">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-14 reveal">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Perguntas Frequentes</h2>
+                    <p class="mt-3 text-slate-500">Tudo o que precisa de saber sobre a revenda de alojamento cPanel.</p>
+                </div>
+                <div class="space-y-3">
+
+                    <div class="reveal bg-white rounded-2xl overflow-hidden border border-slate-100">
+                        <button class="faq-toggle w-full flex items-center justify-between text-left px-6 py-5">
+                            <h3 class="font-semibold text-slate-900 pr-4">O que é o alojamento de revenda cPanel?</h3>
+                            <svg class="faq-arrow w-5 h-5 text-slate-400 flex-shrink-0" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                        <div class="faq-content px-6 pb-5">
+                            <p class="text-slate-600 text-sm">O alojamento de revenda permite-lhe comprar recursos de
+                                alojamento em grandes quantidades e revendê-los a clientes individuais sob a sua própria
+                                marca, utilizando o cPanel/WHM para gerir todas as contas.</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal bg-white rounded-2xl overflow-hidden border border-slate-100">
+                        <button class="faq-toggle w-full flex items-center justify-between text-left px-6 py-5">
+                            <h3 class="font-semibold text-slate-900 pr-4">Preciso de conhecimentos técnicos para
+                                começar?</h3>
+                            <svg class="faq-arrow w-5 h-5 text-slate-400 flex-shrink-0" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                        <div class="faq-content px-6 pb-5">
+                            <p class="text-slate-600 text-sm">Não são necessários conhecimentos avançados. O WHM e o
+                                cPanel têm interfaces intuitivas, e a nossa equipa de suporte 24/7 está disponível para
+                                guiá-lo em qualquer dúvida técnica.</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal bg-white rounded-2xl overflow-hidden border border-slate-100">
+                        <button class="faq-toggle w-full flex items-center justify-between text-left px-6 py-5">
+                            <h3 class="font-semibold text-slate-900 pr-4">O WHMCS está incluído em todos os planos?</h3>
+                            <svg class="faq-arrow w-5 h-5 text-slate-400 flex-shrink-0" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                        <div class="faq-content px-6 pb-5">
+                            <p class="text-slate-600 text-sm">O WHMCS está incluído nos planos Business e Pro. No plano
+                                Starter pode adicioná-lo como add-on. O WHMCS permite automatizar a faturação, gestão de
+                                clientes e suporte técnico.</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal bg-white rounded-2xl overflow-hidden border border-slate-100">
+                        <button class="faq-toggle w-full flex items-center justify-between text-left px-6 py-5">
+                            <h3 class="font-semibold text-slate-900 pr-4">Posso personalizar o cPanel com a minha marca?
+                            </h3>
+                            <svg class="faq-arrow w-5 h-5 text-slate-400 flex-shrink-0" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                        <div class="faq-content px-6 pb-5">
+                            <p class="text-slate-600 text-sm">Sim! Nos planos Business e Pro pode configurar nameservers
+                                personalizados, adicionar o seu logótipo ao cPanel e personalizar o portal WHMCS com as
+                                cores e identidade da sua marca.</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal bg-white rounded-2xl overflow-hidden border border-slate-100">
+                        <button class="faq-toggle w-full flex items-center justify-between text-left px-6 py-5">
+                            <h3 class="font-semibold text-slate-900 pr-4">Como funciona a migração de outro fornecedor?
+                            </h3>
+                            <svg class="faq-arrow w-5 h-5 text-slate-400 flex-shrink-0" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                        <div class="faq-content px-6 pb-5">
+                            <p class="text-slate-600 text-sm">A nossa equipa técnica trata de toda a migração por si.
+                                Suportamos cPanel, Plesk, DirectAdmin e WordPress. O processo é feito sem tempo de
+                                inatividade e sem risco de perda de dados.</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal bg-white rounded-2xl overflow-hidden border border-slate-100">
+                        <button class="faq-toggle w-full flex items-center justify-between text-left px-6 py-5">
+                            <h3 class="font-semibold text-slate-900 pr-4">Qual é o limite de contas cPanel que posso
+                                criar?</h3>
+                            <svg class="faq-arrow w-5 h-5 text-slate-400 flex-shrink-0" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                        <div class="faq-content px-6 pb-5">
+                            <p class="text-slate-600 text-sm">Depende do plano: Starter permite até 20 contas, Business
+                                até 60 contas, e o plano Pro permite contas ilimitadas. Pode criar tantos pacotes de
+                                alojamento personalizados quantos necessitar dentro do seu limite.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+     CTA
+    ══════════════════════════════════════ -->
+        <section
+            class="relative overflow-hidden py-20 bg-gradient-to-br from-indigo-700 to-sky-600 text-white text-center">
+            <div class="absolute -top-28 -right-16 w-96 h-96 rounded-full bg-white/5"></div>
+            <div class="absolute -bottom-20 -left-10 w-72 h-72 rounded-full bg-white/5"></div>
+            <div class="max-w-3xl mx-auto px-6 relative z-10 reveal">
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Pronto para começar a revender?</h2>
+                <p class="text-sky-100 text-lg mb-8 max-w-xl mx-auto">Infraestrutura robusta, cPanel/WHM incluído, WHMCS
+                    e suporte 24/7. Tudo o que precisa para lançar o seu negócio de alojamento.</p>
+                <a href="#planos"
+                    class="inline-block px-10 py-4 bg-white text-indigo-700 font-bold rounded-xl shadow-xl hover:bg-indigo-50 transition hover:-translate-y-0.5">
+                    Ver Planos de Revenda
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ══════════════════════════════════════
+   FOOTER
+  ══════════════════════════════════════ -->
+    <footer class="bg-slate-900 text-slate-400 pt-16 pb-8">
+        <div class="max-w-6xl mx-auto px-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-10">
+            <div>
+                <h4 class="text-white font-bold mb-3">Webminds</h4>
+                <p class="text-sm">O teu parceiro de confiança em soluções de alojamento web e segurança online.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3">Serviços</h4>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="domain-names.html" class="hover:text-white transition">Domínios</a></li>
+                    <li><a href="vps-hosting.html" class="hover:text-white transition">VPS NVMe</a></li>
+                    <li><a href="dedicated-servers.html" class="hover:text-white transition">Servidores Dedicados</a>
+                    </li>
+                    <li><a href="reseller-hosting.html" class="text-white font-semibold">Revenda cPanel</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3">Segurança</h4>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="#" class="hover:text-white transition">SiteLock</a></li>
+                    <li><a href="#" class="hover:text-white transition">Certificados SSL</a></li>
+                    <li><a href="website-backup.html" class="hover:text-white transition">Backups Diários</a></li>
+                    <li><a href="#" class="hover:text-white transition">NordVPN</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3">Legal</h4>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="terms-of-service.html" class="hover:text-white transition">Termos de Serviço</a></li>
+                    <li><a href="#" class="hover:text-white transition">Política de Privacidade</a></li>
+                    <li><a href="#" class="hover:text-white transition">Acordo SLA</a></li>
+                    <li><a href="#" class="hover:text-white transition">Aviso Legal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto px-6 border-t border-slate-800 pt-6 text-center text-xs">© 2026 WebMinds. Todos os
+            direitos reservados.</div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Reveal on scroll
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        reveals.forEach(r => revealObserver.observe(r));
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const arrow = btn.querySelector('.faq-arrow');
+                const isOpen = content.classList.contains('open');
+                document.querySelectorAll('.faq-content').forEach(c => c.classList.remove('open'));
+                document.querySelectorAll('.faq-arrow').forEach(a => a.classList.remove('open'));
+                if (!isOpen) { content.classList.add('open'); arrow.classList.add('open'); }
+            });
+        });
+    </script>
+</body>
+
+</html>

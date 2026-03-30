@@ -2,474 +2,632 @@
 <html lang="pt" class="scroll-smooth">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Termos de Serviço | Webminds</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'] },
-          colors: {
-            indigo: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#2548c6', 600: '#1934a7', 700: '#031974' },
-            sky: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#1934a7', 600: '#1934a7', 700: '#031974' }
-          }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Termos de Serviço | Webminds</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        indigo: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#2548c6', 600: '#1934a7', 700: '#031974' },
+                        sky: { 50: '#f4f7ff', 100: '#e3e8ff', 200: '#c7d2ff', 300: '#9fb0ff', 400: '#5d7ef0', 500: '#1934a7', 600: '#1934a7', 700: '#031974' }
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="navbar.js"></script>
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="navbar.js"></script>
 
-  <style>
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .fade-up   { animation: fadeUp .55s ease both; }
-    .fade-up-1 { animation-delay: .1s; }
-    .fade-up-2 { animation-delay: .2s; }
-    .fade-up-3 { animation-delay: .3s; }
+    <style>
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
 
-    /* Active nav link in sidebar */
-    .toc-link { transition: all .2s ease; }
-    .toc-link.active {
-      color: #1934a7;
-      font-weight: 600;
-      border-left-color: #1934a7;
-    }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    /* Section highlight on scroll */
-    .legal-section { scroll-margin-top: 120px; }
+        .fade-up {
+            animation: fadeUp .55s ease both;
+        }
 
-    /* Sticky sidebar */
-    @media (min-width: 1024px) {
-      .sidebar-sticky { position: sticky; top: 120px; max-height: calc(100vh - 140px); overflow-y: auto; }
-    }
-  </style>
+        .fade-up-1 {
+            animation-delay: .1s;
+        }
+
+        .fade-up-2 {
+            animation-delay: .2s;
+        }
+
+        .fade-up-3 {
+            animation-delay: .3s;
+        }
+
+        /* Active nav link in sidebar */
+        .toc-link {
+            transition: all .2s ease;
+        }
+
+        .toc-link.active {
+            color: #1934a7;
+            font-weight: 600;
+            border-left-color: #1934a7;
+        }
+
+        /* Section highlight on scroll */
+        .legal-section {
+            scroll-margin-top: 120px;
+        }
+
+        /* Sticky sidebar */
+        @media (min-width: 1024px) {
+            .sidebar-sticky {
+                position: sticky;
+                top: 120px;
+                max-height: calc(100vh - 140px);
+                overflow-y: auto;
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
 
-  <div id="navbar-placeholder"></div>
+    <div id="navbar-placeholder"></div>
 
-  <main class="pt-28">
+    <main class="pt-28">
 
-    <!-- ══════════════════════════════════════════
+        <!-- ══════════════════════════════════════════
          HERO
     ══════════════════════════════════════════ -->
-    <section class="py-14 bg-gradient-to-br from-indigo-700 via-indigo-600 to-sky-600 text-white">
-      <div class="max-w-5xl mx-auto px-6 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-white/20 text-sm font-semibold tracking-wider fade-up">Legal</span>
-        <h1 class="mt-5 text-4xl sm:text-5xl font-extrabold fade-up fade-up-1">Termos de Serviço</h1>
-        <p class="mt-4 text-blue-100 text-lg max-w-2xl mx-auto fade-up fade-up-2">
-          Ao utilizar os serviços da Webminds, aceita os presentes termos. Leia atentamente antes de prosseguir.
-        </p>
-        <div class="mt-6 inline-flex items-center gap-2 bg-white/15 border border-white/30 rounded-full px-4 py-2 text-sm fade-up fade-up-3">
-          <span class="w-2 h-2 rounded-full bg-green-400 inline-block"></span>
-          <span>Última atualização: Março 2026</span>
-        </div>
-      </div>
-    </section>
+        <section class="py-14 bg-gradient-to-br from-indigo-700 via-indigo-600 to-sky-600 text-white">
+            <div class="max-w-5xl mx-auto px-6 text-center">
+                <span
+                    class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-white/20 text-sm font-semibold tracking-wider fade-up">Legal</span>
+                <h1 class="mt-5 text-4xl sm:text-5xl font-extrabold fade-up fade-up-1">Termos de Serviço</h1>
+                <p class="mt-4 text-blue-100 text-lg max-w-2xl mx-auto fade-up fade-up-2">
+                    Ao utilizar os serviços da Webminds, aceita os presentes termos. Leia atentamente antes de
+                    prosseguir.
+                </p>
+                <div
+                    class="mt-6 inline-flex items-center gap-2 bg-white/15 border border-white/30 rounded-full px-4 py-2 text-sm fade-up fade-up-3">
+                    <span class="w-2 h-2 rounded-full bg-green-400 inline-block"></span>
+                    <span>Última atualização: Março 2026</span>
+                </div>
+            </div>
+        </section>
 
-    <!-- ══════════════════════════════════════════
+        <!-- ══════════════════════════════════════════
          TABS NAVIGATION (Legal Documents)
     ══════════════════════════════════════════ -->
-    <div class="bg-white border-b border-slate-200 sticky top-[72px] z-30 shadow-sm">
-      <div class="max-w-6xl mx-auto px-6">
-        <nav class="flex gap-1 overflow-x-auto" aria-label="Documentos legais">
-          <a href="terms-of-service.html" class="flex-shrink-0 px-4 py-4 text-sm font-semibold text-indigo-700 border-b-2 border-indigo-600 whitespace-nowrap">Termos de Serviço</a>
-          <a href="#" class="flex-shrink-0 px-4 py-4 text-sm font-medium text-slate-500 hover:text-slate-800 border-b-2 border-transparent whitespace-nowrap transition">Política de Privacidade</a>
-          <a href="#" class="flex-shrink-0 px-4 py-4 text-sm font-medium text-slate-500 hover:text-slate-800 border-b-2 border-transparent whitespace-nowrap transition">Acordo SLA</a>
-          <a href="#" class="flex-shrink-0 px-4 py-4 text-sm font-medium text-slate-500 hover:text-slate-800 border-b-2 border-transparent whitespace-nowrap transition">Aviso Legal</a>
-        </nav>
-      </div>
-    </div>
+        <div class="bg-white border-b border-slate-200 sticky top-[72px] z-30 shadow-sm">
+            <div class="max-w-6xl mx-auto px-6">
+                <nav class="flex gap-1 overflow-x-auto" aria-label="Documentos legais">
+                    <a href="terms-of-service.html"
+                        class="flex-shrink-0 px-4 py-4 text-sm font-semibold text-indigo-700 border-b-2 border-indigo-600 whitespace-nowrap">Termos
+                        de Serviço</a>
+                    <a href="#"
+                        class="flex-shrink-0 px-4 py-4 text-sm font-medium text-slate-500 hover:text-slate-800 border-b-2 border-transparent whitespace-nowrap transition">Política
+                        de Privacidade</a>
+                    <a href="#"
+                        class="flex-shrink-0 px-4 py-4 text-sm font-medium text-slate-500 hover:text-slate-800 border-b-2 border-transparent whitespace-nowrap transition">Acordo
+                        SLA</a>
+                    <a href="#"
+                        class="flex-shrink-0 px-4 py-4 text-sm font-medium text-slate-500 hover:text-slate-800 border-b-2 border-transparent whitespace-nowrap transition">Aviso
+                        Legal</a>
+                </nav>
+            </div>
+        </div>
 
-    <!-- ══════════════════════════════════════════
+        <!-- ══════════════════════════════════════════
          MAIN CONTENT + SIDEBAR
     ══════════════════════════════════════════ -->
-    <div class="max-w-6xl mx-auto px-6 py-12">
-      <div class="flex gap-10 items-start">
+        <div class="max-w-6xl mx-auto px-6 py-12">
+            <div class="flex gap-10 items-start">
 
-        <!-- Sidebar TOC -->
-        <aside class="hidden lg:block w-64 flex-shrink-0 sidebar-sticky">
-          <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">Nesta página</p>
-          <nav class="space-y-1" id="toc">
-            <a href="#aceitacao" class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">1. Aceitação dos Termos</a>
-            <a href="#sobre-nos" class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">2. Sobre Nós</a>
-            <a href="#servicos" class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">3. Produtos e Serviços</a>
-            <a href="#responsabilidades" class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">4. Responsabilidades</a>
-            <a href="#suporte" class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">5. Suporte e Comunicação</a>
-            <a href="#pagamentos" class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">6. Pagamentos e Faturação</a>
-            <a href="#websites" class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">7. Criação de Websites</a>
-            <a href="#rescisao" class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">8. Rescisão</a>
-            <a href="#responsabilidade" class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">9. Limitação de Responsabilidade</a>
-            <a href="#alteracoes" class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">10. Alterações aos Termos</a>
-            <a href="#lei" class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">11. Lei Aplicável</a>
-            <a href="#contactos" class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">12. Contactos</a>
-          </nav>
+                <!-- Sidebar TOC -->
+                <aside class="hidden lg:block w-64 flex-shrink-0 sidebar-sticky">
+                    <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">Nesta página</p>
+                    <nav class="space-y-1" id="toc">
+                        <a href="#aceitacao"
+                            class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">1.
+                            Aceitação dos Termos</a>
+                        <a href="#sobre-nos"
+                            class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">2.
+                            Sobre Nós</a>
+                        <a href="#servicos"
+                            class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">3.
+                            Produtos e Serviços</a>
+                        <a href="#responsabilidades"
+                            class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">4.
+                            Responsabilidades</a>
+                        <a href="#suporte"
+                            class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">5.
+                            Suporte e Comunicação</a>
+                        <a href="#pagamentos"
+                            class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">6.
+                            Pagamentos e Faturação</a>
+                        <a href="#websites"
+                            class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">7.
+                            Criação de Websites</a>
+                        <a href="#rescisao"
+                            class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">8.
+                            Rescisão</a>
+                        <a href="#responsabilidade"
+                            class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">9.
+                            Limitação de Responsabilidade</a>
+                        <a href="#alteracoes"
+                            class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">10.
+                            Alterações aos Termos</a>
+                        <a href="#lei"
+                            class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">11.
+                            Lei Aplicável</a>
+                        <a href="#contactos"
+                            class="toc-link block text-sm text-slate-600 hover:text-indigo-700 border-l-2 border-slate-200 pl-3 py-1">12.
+                            Contactos</a>
+                    </nav>
 
-          <div class="mt-8 rounded-xl bg-indigo-50 border border-indigo-100 p-4">
-            <p class="text-xs font-bold text-indigo-700 mb-2">Precisa de ajuda?</p>
-            <p class="text-xs text-slate-600 mb-3">A nossa equipa está disponível 24/7 para esclarecer dúvidas.</p>
-            <a href="mailto:legal@webminds.pt" class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 transition">legal@webminds.pt →</a>
-          </div>
-        </aside>
-
-        <!-- Legal Content -->
-        <div class="flex-1 min-w-0">
-          <div class="space-y-8">
-
-            <!-- Section 1 -->
-            <article id="aceitacao" class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <div class="flex items-start gap-4 mb-4">
-                <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">1</span>
-                <h2 class="text-xl font-bold text-slate-900">Aceitação dos Termos</h2>
-              </div>
-              <div class="text-slate-600 leading-relaxed space-y-3">
-                <p>Ao aceder ou utilizar os serviços e produtos da Webminds Solutions, concorda em cumprir e ficar vinculado aos presentes Termos de Serviço. A utilização dos nossos serviços ou a aquisição de produtos constitui aceitação dos mesmos.</p>
-                <div class="rounded-lg bg-amber-50 border border-amber-200 p-4 flex gap-3">
-                  <span class="text-amber-500 text-lg flex-shrink-0">⚠️</span>
-                  <p class="text-sm text-amber-800">Se não concordar com alguma parte destes termos, por favor não utilize os nossos serviços nem adquira os nossos produtos.</p>
-                </div>
-              </div>
-            </article>
-
-            <!-- Section 2 -->
-            <article id="sobre-nos" class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <div class="flex items-start gap-4 mb-4">
-                <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">2</span>
-                <h2 class="text-xl font-bold text-slate-900">Sobre Nós</h2>
-              </div>
-              <div class="text-slate-600 leading-relaxed space-y-3">
-                <p>As expressões "nós", "nos" ou "nosso" referem-se à seguinte entidade:</p>
-                <div class="rounded-xl bg-slate-50 border border-slate-200 p-5 grid sm:grid-cols-2 gap-4 text-sm">
-                  <div>
-                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Empresa</p>
-                    <p class="font-semibold text-slate-800">EMERALD VISION, LDA</p>
-                    <p class="text-slate-500">Nome comercial: Webminds Solutions</p>
-                  </div>
-                  <div>
-                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Contribuinte</p>
-                    <p class="font-semibold text-slate-800">518723020</p>
-                  </div>
-                  <div class="sm:col-span-2">
-                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Sede</p>
-                    <p class="font-semibold text-slate-800">Rua das Vielas 51, 3800-347 Esgueira, Aveiro, Portugal</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <!-- Section 3 -->
-            <article id="servicos" class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <div class="flex items-start gap-4 mb-4">
-                <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">3</span>
-                <h2 class="text-xl font-bold text-slate-900">Descrição dos Produtos e Serviços</h2>
-              </div>
-              <p class="text-slate-600 leading-relaxed mb-4">A Webminds Solutions presta serviços nas seguintes áreas:</p>
-              <div class="grid sm:grid-cols-2 gap-3">
-                <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100 text-sm text-slate-700">
-                  <span class="text-indigo-500">🌐</span> Alojamento web
-                </div>
-                <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100 text-sm text-slate-700">
-                  <span class="text-indigo-500">🖥️</span> Servidores VPS e dedicados
-                </div>
-                <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100 text-sm text-slate-700">
-                  <span class="text-indigo-500">🔗</span> Registo e transferência de domínios
-                </div>
-                <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100 text-sm text-slate-700">
-                  <span class="text-indigo-500">✉️</span> E-mail profissional
-                </div>
-                <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100 text-sm text-slate-700">
-                  <span class="text-indigo-500">💻</span> Desenvolvimento e manutenção de websites
-                </div>
-                <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100 text-sm text-slate-700">
-                  <span class="text-indigo-500">☁️</span> Soluções cloud e segurança
-                </div>
-              </div>
-            </article>
-
-            <!-- Section 4 -->
-            <article id="responsabilidades" class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <div class="flex items-start gap-4 mb-4">
-                <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">4</span>
-                <h2 class="text-xl font-bold text-slate-900">Responsabilidades do Utilizador</h2>
-              </div>
-              <p class="text-slate-600 mb-4">O utilizador compromete-se a:</p>
-              <ul class="space-y-3">
-                <li class="flex items-start gap-3 text-slate-700 text-sm">
-                  <span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs font-bold">✓</span>
-                  <span>Manter a segurança dos dados e credenciais de acesso</span>
-                </li>
-                <li class="flex items-start gap-3 text-slate-700 text-sm">
-                  <span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs font-bold">✓</span>
-                  <span>Garantir conformidade com a lei aplicável, incluindo o RGPD</span>
-                </li>
-                <li class="flex items-start gap-3 text-slate-700 text-sm">
-                  <span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs font-bold">✓</span>
-                  <span>Não utilizar os serviços para atividades ilegais ou abusivas</span>
-                </li>
-                <li class="flex items-start gap-3 text-slate-700 text-sm">
-                  <span class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs font-bold">✓</span>
-                  <span>Fornecer informações verdadeiras e atualizadas</span>
-                </li>
-              </ul>
-            </article>
-
-            <!-- Section 5 -->
-            <article id="suporte" class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <div class="flex items-start gap-4 mb-4">
-                <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">5</span>
-                <h2 class="text-xl font-bold text-slate-900">Suporte, Comunicação e Verificação de Conta</h2>
-              </div>
-              <div class="text-slate-600 leading-relaxed space-y-4">
-                <p>O suporte da Webminds Solutions é prestado prioritariamente através do sistema de tickets disponível na área de cliente.</p>
-                <p>A empresa poderá não prestar suporte técnico através de redes sociais ou canais não oficiais.</p>
-                <div class="rounded-lg bg-indigo-50 border border-indigo-100 p-4 flex gap-3">
-                  <span class="text-indigo-500 text-lg flex-shrink-0">🔐</span>
-                  <div>
-                    <p class="text-sm font-semibold text-indigo-800 mb-1">Support PIN</p>
-                    <p class="text-sm text-indigo-700">Para proteção da conta e prevenção de fraude, determinados canais poderão exigir validação através de um Support PIN. Sem validação adequada, a Webminds Solutions poderá recusar alterações sensíveis, incluindo alterações de dados, reset de acessos ou cancelamentos.</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <!-- Section 6 -->
-            <article id="pagamentos" class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <div class="flex items-start gap-4 mb-5">
-                <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">6</span>
-                <h2 class="text-xl font-bold text-slate-900">Pagamentos e Faturação</h2>
-              </div>
-
-              <div class="space-y-5">
-
-                <!-- 6.1 -->
-                <div>
-                  <h3 class="font-semibold text-slate-800 mb-2 flex items-center gap-2">
-                    <span class="text-indigo-400 text-xs font-bold">6.1</span> Emissão
-                  </h3>
-                  <p class="text-slate-600 text-sm">As faturas são geradas <strong>10 dias antes</strong> da data de vencimento.</p>
-                </div>
-
-                <!-- 6.2 -->
-                <div>
-                  <h3 class="font-semibold text-slate-800 mb-3 flex items-center gap-2">
-                    <span class="text-indigo-400 text-xs font-bold">6.2</span> Penalizações por Atraso
-                  </h3>
-                  <div class="grid sm:grid-cols-3 gap-3">
-                    <div class="rounded-xl border border-yellow-200 bg-yellow-50 p-4 text-center">
-                      <p class="text-2xl font-extrabold text-yellow-700">+3 dias</p>
-                      <p class="text-sm font-semibold text-yellow-800 mt-1">Multa de 20%</p>
-                      <p class="text-xs text-yellow-600 mt-1">Após vencimento</p>
+                    <div class="mt-8 rounded-xl bg-indigo-50 border border-indigo-100 p-4">
+                        <p class="text-xs font-bold text-indigo-700 mb-2">Precisa de ajuda?</p>
+                        <p class="text-xs text-slate-600 mb-3">A nossa equipa está disponível 24/7 para esclarecer
+                            dúvidas.</p>
+                        <a href="mailto:legal@webminds.pt"
+                            class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 transition">legal@webminds.pt
+                            →</a>
                     </div>
-                    <div class="rounded-xl border border-orange-200 bg-orange-50 p-4 text-center">
-                      <p class="text-2xl font-extrabold text-orange-700">+5 dias</p>
-                      <p class="text-sm font-semibold text-orange-800 mt-1">Suspensão</p>
-                      <p class="text-xs text-orange-600 mt-1">Do serviço</p>
-                    </div>
-                    <div class="rounded-xl border border-red-200 bg-red-50 p-4 text-center">
-                      <p class="text-2xl font-extrabold text-red-700">+15 dias</p>
-                      <p class="text-sm font-semibold text-red-800 mt-1">Cancelamento</p>
-                      <p class="text-xs text-red-600 mt-1">Automático</p>
-                    </div>
-                  </div>
-                </div>
+                </aside>
 
-                <!-- 6.3 -->
-                <div>
-                  <h3 class="font-semibold text-slate-800 mb-2 flex items-center gap-2">
-                    <span class="text-indigo-400 text-xs font-bold">6.3</span> Direito de Livre Resolução
-                  </h3>
-                  <p class="text-slate-600 text-sm">O utilizador pode exercer o direito de livre resolução no prazo de <strong>15 dias</strong>, exceto em serviços VPS/VDS, que não são elegíveis para reembolso.</p>
-                </div>
+                <!-- Legal Content -->
+                <div class="flex-1 min-w-0">
+                    <div class="space-y-8">
 
-                <!-- 6.4 -->
-                <div>
-                  <h3 class="font-semibold text-slate-800 mb-2 flex items-center gap-2">
-                    <span class="text-indigo-400 text-xs font-bold">6.4</span> Ciclo de Faturação VPS
-                  </h3>
-                  <div class="text-slate-600 text-sm space-y-2">
-                    <p>Os serviços de Servidores Privados Virtuais (VPS) disponibilizados pela Webminds Solutions, incluindo planos VPS SSD, VPS NVMe e VPS Windows, são faturados numa base mensal com <strong>data fixa de renovação no dia 8 de cada mês</strong>.</p>
-                    <p>No momento da ativação do serviço poderá ser aplicada uma cobrança proporcional (prorata) correspondente ao período entre a data de ativação do serviço e o próximo dia 8 do mês, com o objetivo de alinhar o ciclo de faturação com a data padrão definida pela Webminds Solutions.</p>
-                    <p>Após esse período inicial, todas as renovações dos serviços VPS serão emitidas e cobradas com vencimento no dia 8 de cada mês, independentemente da data original de ativação.</p>
-                  </div>
-                </div>
+                        <!-- Section 1 -->
+                        <article id="aceitacao"
+                            class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+                            <div class="flex items-start gap-4 mb-4">
+                                <span
+                                    class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">1</span>
+                                <h2 class="text-xl font-bold text-slate-900">Aceitação dos Termos</h2>
+                            </div>
+                            <div class="text-slate-600 leading-relaxed space-y-3">
+                                <p>Ao aceder ou utilizar os serviços e produtos da Webminds Solutions, concorda em
+                                    cumprir e ficar vinculado aos presentes Termos de Serviço. A utilização dos nossos
+                                    serviços ou a aquisição de produtos constitui aceitação dos mesmos.</p>
+                                <div class="rounded-lg bg-amber-50 border border-amber-200 p-4 flex gap-3">
+                                    <span class="text-amber-500 text-lg flex-shrink-0">⚠️</span>
+                                    <p class="text-sm text-amber-800">Se não concordar com alguma parte destes termos,
+                                        por favor não utilize os nossos serviços nem adquira os nossos produtos.</p>
+                                </div>
+                            </div>
+                        </article>
 
-              </div>
-            </article>
+                        <!-- Section 2 -->
+                        <article id="sobre-nos"
+                            class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+                            <div class="flex items-start gap-4 mb-4">
+                                <span
+                                    class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">2</span>
+                                <h2 class="text-xl font-bold text-slate-900">Sobre Nós</h2>
+                            </div>
+                            <div class="text-slate-600 leading-relaxed space-y-3">
+                                <p>As expressões "nós", "nos" ou "nosso" referem-se à seguinte entidade:</p>
+                                <div
+                                    class="rounded-xl bg-slate-50 border border-slate-200 p-5 grid sm:grid-cols-2 gap-4 text-sm">
+                                    <div>
+                                        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">
+                                            Empresa</p>
+                                        <p class="font-semibold text-slate-800">EMERALD VISION, LDA</p>
+                                        <p class="text-slate-500">Nome comercial: Webminds Solutions</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">
+                                            Contribuinte</p>
+                                        <p class="font-semibold text-slate-800">518723020</p>
+                                    </div>
+                                    <div class="sm:col-span-2">
+                                        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Sede
+                                        </p>
+                                        <p class="font-semibold text-slate-800">Rua das Vielas 51, 3800-347 Esgueira,
+                                            Aveiro, Portugal</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
 
-            <!-- Section 7 -->
-            <article id="websites" class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <div class="flex items-start gap-4 mb-5">
-                <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">7</span>
-                <h2 class="text-xl font-bold text-slate-900">Serviço de Criação de Websites</h2>
-              </div>
+                        <!-- Section 3 -->
+                        <article id="servicos"
+                            class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+                            <div class="flex items-start gap-4 mb-4">
+                                <span
+                                    class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">3</span>
+                                <h2 class="text-xl font-bold text-slate-900">Descrição dos Produtos e Serviços</h2>
+                            </div>
+                            <p class="text-slate-600 leading-relaxed mb-4">A Webminds Solutions presta serviços nas
+                                seguintes áreas:</p>
+                            <div class="grid sm:grid-cols-2 gap-3">
+                                <div
+                                    class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100 text-sm text-slate-700">
+                                    <span class="text-indigo-500">🌐</span> Alojamento web
+                                </div>
+                                <div
+                                    class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100 text-sm text-slate-700">
+                                    <span class="text-indigo-500">🖥️</span> Servidores VPS e dedicados
+                                </div>
+                                <div
+                                    class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100 text-sm text-slate-700">
+                                    <span class="text-indigo-500">🔗</span> Registo e transferência de domínios
+                                </div>
+                                <div
+                                    class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100 text-sm text-slate-700">
+                                    <span class="text-indigo-500">✉️</span> E-mail profissional
+                                </div>
+                                <div
+                                    class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100 text-sm text-slate-700">
+                                    <span class="text-indigo-500">💻</span> Desenvolvimento e manutenção de websites
+                                </div>
+                                <div
+                                    class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100 text-sm text-slate-700">
+                                    <span class="text-indigo-500">☁️</span> Soluções cloud e segurança
+                                </div>
+                            </div>
+                        </article>
 
-              <div class="grid sm:grid-cols-2 gap-4">
+                        <!-- Section 4 -->
+                        <article id="responsabilidades"
+                            class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+                            <div class="flex items-start gap-4 mb-4">
+                                <span
+                                    class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">4</span>
+                                <h2 class="text-xl font-bold text-slate-900">Responsabilidades do Utilizador</h2>
+                            </div>
+                            <p class="text-slate-600 mb-4">O utilizador compromete-se a:</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3 text-slate-700 text-sm">
+                                    <span
+                                        class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs font-bold">✓</span>
+                                    <span>Manter a segurança dos dados e credenciais de acesso</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-slate-700 text-sm">
+                                    <span
+                                        class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs font-bold">✓</span>
+                                    <span>Garantir conformidade com a lei aplicável, incluindo o RGPD</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-slate-700 text-sm">
+                                    <span
+                                        class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs font-bold">✓</span>
+                                    <span>Não utilizar os serviços para atividades ilegais ou abusivas</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-slate-700 text-sm">
+                                    <span
+                                        class="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs font-bold">✓</span>
+                                    <span>Fornecer informações verdadeiras e atualizadas</span>
+                                </li>
+                            </ul>
+                        </article>
 
-                <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
-                  <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">7.1 — Prazo de Execução</p>
-                  <p class="text-slate-700 text-sm">O prazo estimado é de <strong>30 a 90 dias</strong>, dependendo da complexidade do projeto.</p>
-                </div>
+                        <!-- Section 5 -->
+                        <article id="suporte"
+                            class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+                            <div class="flex items-start gap-4 mb-4">
+                                <span
+                                    class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">5</span>
+                                <h2 class="text-xl font-bold text-slate-900">Suporte, Comunicação e Verificação de Conta
+                                </h2>
+                            </div>
+                            <div class="text-slate-600 leading-relaxed space-y-4">
+                                <p>O suporte da Webminds Solutions é prestado prioritariamente através do sistema de
+                                    tickets disponível na área de cliente.</p>
+                                <p>A empresa poderá não prestar suporte técnico através de redes sociais ou canais não
+                                    oficiais.</p>
+                                <div class="rounded-lg bg-indigo-50 border border-indigo-100 p-4 flex gap-3">
+                                    <span class="text-indigo-500 text-lg flex-shrink-0">🔐</span>
+                                    <div>
+                                        <p class="text-sm font-semibold text-indigo-800 mb-1">Support PIN</p>
+                                        <p class="text-sm text-indigo-700">Para proteção da conta e prevenção de fraude,
+                                            determinados canais poderão exigir validação através de um Support PIN. Sem
+                                            validação adequada, a Webminds Solutions poderá recusar alterações
+                                            sensíveis, incluindo alterações de dados, reset de acessos ou cancelamentos.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
 
-                <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
-                  <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">7.2 — Início do Projeto</p>
-                  <p class="text-slate-700 text-sm">Requer pagamento inicial de <strong>60%</strong> (salvo acordo diferente) e assinatura do contrato.</p>
-                </div>
+                        <!-- Section 6 -->
+                        <article id="pagamentos"
+                            class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+                            <div class="flex items-start gap-4 mb-5">
+                                <span
+                                    class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">6</span>
+                                <h2 class="text-xl font-bold text-slate-900">Pagamentos e Faturação</h2>
+                            </div>
 
-                <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
-                  <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">7.3 — Revisões</p>
-                  <p class="text-slate-700 text-sm">Alterações após aprovação final poderão implicar custos adicionais.</p>
-                </div>
+                            <div class="space-y-5">
 
-                <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
-                  <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">7.4 — Suporte Pós-Entrega</p>
-                  <p class="text-slate-700 text-sm">Inclui <strong>30 dias de suporte</strong> após entrega do projeto.</p>
-                </div>
+                                <!-- 6.1 -->
+                                <div>
+                                    <h3 class="font-semibold text-slate-800 mb-2 flex items-center gap-2">
+                                        <span class="text-indigo-400 text-xs font-bold">6.1</span> Emissão
+                                    </h3>
+                                    <p class="text-slate-600 text-sm">As faturas são geradas <strong>10 dias
+                                            antes</strong> da data de vencimento.</p>
+                                </div>
 
-                <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
-                  <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">7.5 — Cancelamento</p>
-                  <p class="text-slate-700 text-sm">Cancelamentos após 15 dias implicam pagamento proporcional às horas trabalhadas.</p>
-                </div>
+                                <!-- 6.2 -->
+                                <div>
+                                    <h3 class="font-semibold text-slate-800 mb-3 flex items-center gap-2">
+                                        <span class="text-indigo-400 text-xs font-bold">6.2</span> Penalizações por
+                                        Atraso
+                                    </h3>
+                                    <div class="grid sm:grid-cols-3 gap-3">
+                                        <div class="rounded-xl border border-yellow-200 bg-yellow-50 p-4 text-center">
+                                            <p class="text-2xl font-extrabold text-yellow-700">+3 dias</p>
+                                            <p class="text-sm font-semibold text-yellow-800 mt-1">Multa de 20%</p>
+                                            <p class="text-xs text-yellow-600 mt-1">Após vencimento</p>
+                                        </div>
+                                        <div class="rounded-xl border border-orange-200 bg-orange-50 p-4 text-center">
+                                            <p class="text-2xl font-extrabold text-orange-700">+5 dias</p>
+                                            <p class="text-sm font-semibold text-orange-800 mt-1">Suspensão</p>
+                                            <p class="text-xs text-orange-600 mt-1">Do serviço</p>
+                                        </div>
+                                        <div class="rounded-xl border border-red-200 bg-red-50 p-4 text-center">
+                                            <p class="text-2xl font-extrabold text-red-700">+15 dias</p>
+                                            <p class="text-sm font-semibold text-red-800 mt-1">Cancelamento</p>
+                                            <p class="text-xs text-red-600 mt-1">Automático</p>
+                                        </div>
+                                    </div>
+                                </div>
 
-                <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
-                  <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">7.6 — Gestão de Projeto</p>
-                  <p class="text-slate-700 text-sm">Sistema de gestão de projetos disponível na área de cliente. A falta de entrega de conteúdos pelo cliente poderá implicar reajuste dos prazos.</p>
-                </div>
+                                <!-- 6.3 -->
+                                <div>
+                                    <h3 class="font-semibold text-slate-800 mb-2 flex items-center gap-2">
+                                        <span class="text-indigo-400 text-xs font-bold">6.3</span> Direito de Livre
+                                        Resolução
+                                    </h3>
+                                    <p class="text-slate-600 text-sm">O utilizador pode exercer o direito de livre
+                                        resolução no prazo de <strong>15 dias</strong>, exceto em serviços VPS/VDS, que
+                                        não são elegíveis para reembolso.</p>
+                                </div>
 
-              </div>
-            </article>
+                                <!-- 6.4 -->
+                                <div>
+                                    <h3 class="font-semibold text-slate-800 mb-2 flex items-center gap-2">
+                                        <span class="text-indigo-400 text-xs font-bold">6.4</span> Ciclo de Faturação
+                                        VPS
+                                    </h3>
+                                    <div class="text-slate-600 text-sm space-y-2">
+                                        <p>Os serviços de Servidores Privados Virtuais (VPS) disponibilizados pela
+                                            Webminds Solutions, incluindo planos VPS SSD, VPS NVMe e VPS Windows, são
+                                            faturados numa base mensal com <strong>data fixa de renovação no dia 8 de
+                                                cada mês</strong>.</p>
+                                        <p>No momento da ativação do serviço poderá ser aplicada uma cobrança
+                                            proporcional (prorata) correspondente ao período entre a data de ativação do
+                                            serviço e o próximo dia 8 do mês, com o objetivo de alinhar o ciclo de
+                                            faturação com a data padrão definida pela Webminds Solutions.</p>
+                                        <p>Após esse período inicial, todas as renovações dos serviços VPS serão
+                                            emitidas e cobradas com vencimento no dia 8 de cada mês, independentemente
+                                            da data original de ativação.</p>
+                                    </div>
+                                </div>
 
-            <!-- Section 8 -->
-            <article id="rescisao" class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <div class="flex items-start gap-4 mb-4">
-                <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">8</span>
-                <h2 class="text-xl font-bold text-slate-900">Rescisão</h2>
-              </div>
-              <p class="text-slate-600 leading-relaxed">A Webminds Solutions poderá suspender ou cancelar serviços em caso de violação dos presentes termos.</p>
-            </article>
+                            </div>
+                        </article>
 
-            <!-- Section 9 -->
-            <article id="responsabilidade" class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <div class="flex items-start gap-4 mb-4">
-                <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">9</span>
-                <h2 class="text-xl font-bold text-slate-900">Limitação de Responsabilidade</h2>
-              </div>
-              <p class="text-slate-600 leading-relaxed">A Webminds Solutions não se responsabiliza por danos resultantes da utilização dos serviços, salvo dolo ou negligência grave nos termos da legislação portuguesa.</p>
-            </article>
+                        <!-- Section 7 -->
+                        <article id="websites"
+                            class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+                            <div class="flex items-start gap-4 mb-5">
+                                <span
+                                    class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">7</span>
+                                <h2 class="text-xl font-bold text-slate-900">Serviço de Criação de Websites</h2>
+                            </div>
 
-            <!-- Section 10 -->
-            <article id="alteracoes" class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <div class="flex items-start gap-4 mb-4">
-                <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">10</span>
-                <h2 class="text-xl font-bold text-slate-900">Alterações aos Termos</h2>
-              </div>
-              <p class="text-slate-600 leading-relaxed">A Webminds Solutions poderá atualizar os presentes termos a qualquer momento. Recomendamos a consulta periódica desta página para se manter informado sobre eventuais alterações.</p>
-            </article>
+                            <div class="grid sm:grid-cols-2 gap-4">
 
-            <!-- Section 11 -->
-            <article id="lei" class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <div class="flex items-start gap-4 mb-4">
-                <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">11</span>
-                <h2 class="text-xl font-bold text-slate-900">Lei Aplicável e Foro Competente</h2>
-              </div>
-              <div class="text-slate-600 leading-relaxed space-y-3">
-                <p>Os presentes termos regem-se pela <strong>legislação portuguesa</strong>.</p>
-                <p>É competente o <strong>tribunal da comarca de Lisboa</strong> para dirimir quaisquer litígios emergentes da interpretação ou execução dos presentes termos.</p>
-              </div>
-            </article>
+                                <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
+                                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">7.1 —
+                                        Prazo de Execução</p>
+                                    <p class="text-slate-700 text-sm">O prazo estimado é de <strong>30 a 90
+                                            dias</strong>, dependendo da complexidade do projeto.</p>
+                                </div>
 
-            <!-- Section 12 -->
-            <article id="contactos" class="legal-section rounded-2xl border border-indigo-200 bg-indigo-50 p-8">
-              <div class="flex items-start gap-4 mb-4">
-                <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-200 text-indigo-700 font-bold text-sm flex items-center justify-center">12</span>
-                <h2 class="text-xl font-bold text-slate-900">Contactos</h2>
-              </div>
-              <p class="text-slate-600 mb-4">Para questões relativas aos presentes termos, entre em contacto através dos seguintes meios:</p>
-              <div class="flex flex-col sm:flex-row gap-4">
-                <a href="mailto:legal@webminds.pt" class="flex items-center gap-3 rounded-xl bg-white border border-indigo-200 px-5 py-3 text-sm font-semibold text-indigo-700 hover:bg-indigo-100 transition">
-                  <span>✉️</span> legal@webminds.pt
-                </a>
-                <a href="#" class="flex items-center gap-3 rounded-xl bg-indigo-600 border border-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition">
-                  <span>🛟</span> Abrir Ticket de Suporte
-                </a>
-              </div>
-            </article>
+                                <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
+                                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">7.2 —
+                                        Início do Projeto</p>
+                                    <p class="text-slate-700 text-sm">Requer pagamento inicial de <strong>60%</strong>
+                                        (salvo acordo diferente) e assinatura do contrato.</p>
+                                </div>
 
-          </div><!-- /space-y-8 -->
-        </div><!-- /flex-1 -->
+                                <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
+                                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">7.3 —
+                                        Revisões</p>
+                                    <p class="text-slate-700 text-sm">Alterações após aprovação final poderão implicar
+                                        custos adicionais.</p>
+                                </div>
 
-      </div><!-- /flex -->
-    </div><!-- /max-w-6xl -->
+                                <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
+                                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">7.4 —
+                                        Suporte Pós-Entrega</p>
+                                    <p class="text-slate-700 text-sm">Inclui <strong>30 dias de suporte</strong> após
+                                        entrega do projeto.</p>
+                                </div>
 
-  </main>
+                                <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
+                                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">7.5 —
+                                        Cancelamento</p>
+                                    <p class="text-slate-700 text-sm">Cancelamentos após 15 dias implicam pagamento
+                                        proporcional às horas trabalhadas.</p>
+                                </div>
 
-  <!-- ══════════════════════════════════════════
+                                <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
+                                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">7.6 —
+                                        Gestão de Projeto</p>
+                                    <p class="text-slate-700 text-sm">Sistema de gestão de projetos disponível na área
+                                        de cliente. A falta de entrega de conteúdos pelo cliente poderá implicar
+                                        reajuste dos prazos.</p>
+                                </div>
+
+                            </div>
+                        </article>
+
+                        <!-- Section 8 -->
+                        <article id="rescisao"
+                            class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+                            <div class="flex items-start gap-4 mb-4">
+                                <span
+                                    class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">8</span>
+                                <h2 class="text-xl font-bold text-slate-900">Rescisão</h2>
+                            </div>
+                            <p class="text-slate-600 leading-relaxed">A Webminds Solutions poderá suspender ou cancelar
+                                serviços em caso de violação dos presentes termos.</p>
+                        </article>
+
+                        <!-- Section 9 -->
+                        <article id="responsabilidade"
+                            class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+                            <div class="flex items-start gap-4 mb-4">
+                                <span
+                                    class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">9</span>
+                                <h2 class="text-xl font-bold text-slate-900">Limitação de Responsabilidade</h2>
+                            </div>
+                            <p class="text-slate-600 leading-relaxed">A Webminds Solutions não se responsabiliza por
+                                danos resultantes da utilização dos serviços, salvo dolo ou negligência grave nos termos
+                                da legislação portuguesa.</p>
+                        </article>
+
+                        <!-- Section 10 -->
+                        <article id="alteracoes"
+                            class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+                            <div class="flex items-start gap-4 mb-4">
+                                <span
+                                    class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">10</span>
+                                <h2 class="text-xl font-bold text-slate-900">Alterações aos Termos</h2>
+                            </div>
+                            <p class="text-slate-600 leading-relaxed">A Webminds Solutions poderá atualizar os presentes
+                                termos a qualquer momento. Recomendamos a consulta periódica desta página para se manter
+                                informado sobre eventuais alterações.</p>
+                        </article>
+
+                        <!-- Section 11 -->
+                        <article id="lei"
+                            class="legal-section rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+                            <div class="flex items-start gap-4 mb-4">
+                                <span
+                                    class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center">11</span>
+                                <h2 class="text-xl font-bold text-slate-900">Lei Aplicável e Foro Competente</h2>
+                            </div>
+                            <div class="text-slate-600 leading-relaxed space-y-3">
+                                <p>Os presentes termos regem-se pela <strong>legislação portuguesa</strong>.</p>
+                                <p>É competente o <strong>tribunal da comarca de Lisboa</strong> para dirimir quaisquer
+                                    litígios emergentes da interpretação ou execução dos presentes termos.</p>
+                            </div>
+                        </article>
+
+                        <!-- Section 12 -->
+                        <article id="contactos"
+                            class="legal-section rounded-2xl border border-indigo-200 bg-indigo-50 p-8">
+                            <div class="flex items-start gap-4 mb-4">
+                                <span
+                                    class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-200 text-indigo-700 font-bold text-sm flex items-center justify-center">12</span>
+                                <h2 class="text-xl font-bold text-slate-900">Contactos</h2>
+                            </div>
+                            <p class="text-slate-600 mb-4">Para questões relativas aos presentes termos, entre em
+                                contacto através dos seguintes meios:</p>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <a href="mailto:legal@webminds.pt"
+                                    class="flex items-center gap-3 rounded-xl bg-white border border-indigo-200 px-5 py-3 text-sm font-semibold text-indigo-700 hover:bg-indigo-100 transition">
+                                    <span>✉️</span> legal@webminds.pt
+                                </a>
+                                <a href="#"
+                                    class="flex items-center gap-3 rounded-xl bg-indigo-600 border border-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition">
+                                    <span>🛟</span> Abrir Ticket de Suporte
+                                </a>
+                            </div>
+                        </article>
+
+                    </div><!-- /space-y-8 -->
+                </div><!-- /flex-1 -->
+
+            </div><!-- /flex -->
+        </div><!-- /max-w-6xl -->
+
+    </main>
+
+    <!-- ══════════════════════════════════════════
        FOOTER
   ══════════════════════════════════════════ -->
-  <footer class="bg-slate-900 text-slate-400 pt-16 pb-8">
-    <div class="max-w-6xl mx-auto px-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-10">
-      <div>
-        <h4 class="text-white font-bold mb-3">Webminds</h4>
-        <p class="text-sm">O teu parceiro de confiança em soluções de alojamento web e segurança online.</p>
-      </div>
-      <div>
-        <h4 class="text-white font-bold mb-3">Serviços</h4>
-        <ul class="space-y-1 text-sm">
-          <li><a href="domain-names.html" class="hover:text-white transition">Domínios</a></li>
-          <li><a href="vps-hosting.html" class="hover:text-white transition">VPS NVMe</a></li>
-          <li><a href="dedicated-servers.html" class="hover:text-white transition">Servidores Dedicados</a></li>
-          <li><a href="#" class="hover:text-white transition">Alojamento Web</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-white font-bold mb-3">Segurança</h4>
-        <ul class="space-y-1 text-sm">
-          <li><a href="#" class="hover:text-white transition">SiteLock</a></li>
-          <li><a href="#" class="hover:text-white transition">Certificados SSL</a></li>
-          <li><a href="website-backup.html" class="hover:text-white transition">Backups Diários</a></li>
-          <li><a href="#" class="hover:text-white transition">NordVPN</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-white font-bold mb-3">Legal</h4>
-        <ul class="space-y-1 text-sm">
-          <li><a href="terms-of-service.html" class="text-white font-semibold transition">Termos de Serviço</a></li>
-          <li><a href="#" class="hover:text-white transition">Política de Privacidade</a></li>
-          <li><a href="#" class="hover:text-white transition">Acordo SLA</a></li>
-          <li><a href="#" class="hover:text-white transition">Aviso Legal</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="max-w-6xl mx-auto px-6 border-t border-slate-800 pt-6 text-center text-xs">© 2026 WebMinds. Todos os direitos reservados.</div>
-  </footer>
+    <footer class="bg-slate-900 text-slate-400 pt-16 pb-8">
+        <div class="max-w-6xl mx-auto px-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-10">
+            <div>
+                <h4 class="text-white font-bold mb-3">Webminds</h4>
+                <p class="text-sm">O teu parceiro de confiança em soluções de alojamento web e segurança online.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3">Serviços</h4>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="domain-names.html" class="hover:text-white transition">Domínios</a></li>
+                    <li><a href="vps-hosting.html" class="hover:text-white transition">VPS NVMe</a></li>
+                    <li><a href="dedicated-servers.html" class="hover:text-white transition">Servidores Dedicados</a>
+                    </li>
+                    <li><a href="#" class="hover:text-white transition">Alojamento Web</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3">Segurança</h4>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="#" class="hover:text-white transition">SiteLock</a></li>
+                    <li><a href="#" class="hover:text-white transition">Certificados SSL</a></li>
+                    <li><a href="website-backup.html" class="hover:text-white transition">Backups Diários</a></li>
+                    <li><a href="#" class="hover:text-white transition">NordVPN</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3">Legal</h4>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="terms-of-service.html" class="text-white font-semibold transition">Termos de
+                            Serviço</a></li>
+                    <li><a href="#" class="hover:text-white transition">Política de Privacidade</a></li>
+                    <li><a href="#" class="hover:text-white transition">Acordo SLA</a></li>
+                    <li><a href="#" class="hover:text-white transition">Aviso Legal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto px-6 border-t border-slate-800 pt-6 text-center text-xs">© 2026 WebMinds. Todos os
+            direitos reservados.</div>
+    </footer>
 
-  <script src="script.js"></script>
-  <script>
-    // Active TOC highlight on scroll
-    const sections = document.querySelectorAll('.legal-section');
-    const tocLinks = document.querySelectorAll('.toc-link');
+    <script src="script.js"></script>
+    <script>
+        // Active TOC highlight on scroll
+        const sections = document.querySelectorAll('.legal-section');
+        const tocLinks = document.querySelectorAll('.toc-link');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          tocLinks.forEach(link => link.classList.remove('active'));
-          const active = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
-          if (active) active.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-20% 0px -70% 0px' });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(link => link.classList.remove('active'));
+                    const active = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
 
-    sections.forEach(s => observer.observe(s));
-  </script>
+        sections.forEach(s => observer.observe(s));
+    </script>
 
 </body>
+
 </html>
